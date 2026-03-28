@@ -9,6 +9,7 @@ export type GalleryImage = {
   alt: string;
   caption: string;
   tall: boolean;
+  category?: string;
 };
 
 function Lightbox({
@@ -118,7 +119,7 @@ export default function GalleryGrid({ images }: { images: GalleryImage[] }) {
         {images.map((img, i) => (
           <div
             key={i}
-            className="break-inside-avoid relative overflow-hidden rounded-sm bg-[#111] border border-white/5 hover:border-[#c0392b]/40 transition-all duration-300 group cursor-pointer"
+            className="break-inside-avoid relative overflow-hidden rounded-sm bg-[#141311] border border-white/5 hover:border-[#a8201a]/40 transition-all duration-300 group cursor-pointer"
             onClick={() => setLightboxIndex(i)}
           >
             <div className={`relative w-full ${img.tall ? "aspect-[3/4]" : "aspect-[4/3]"}`}>

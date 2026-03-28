@@ -42,8 +42,8 @@ export default function ContactForm() {
 
   if (submitted) {
     return (
-      <div className="flex flex-col items-center justify-center p-10 bg-[#111] border border-[#c0392b]/30 rounded-sm text-center h-full min-h-[400px]">
-        <CheckCircle className="text-[#c0392b] mb-4" size={40} />
+      <div className="flex flex-col items-center justify-center p-10 bg-[#141311] border border-[#a8201a]/30 rounded-sm text-center h-full min-h-[400px]">
+        <CheckCircle className="text-[#a8201a] mb-4" size={40} />
         <h3 className="font-['Bebas_Neue'] text-2xl tracking-wide text-white mb-2">Message Sent</h3>
         <p className="text-gray-400 text-sm">
           Thanks for getting in touch. We&apos;ll get back to you with class information as soon as possible.
@@ -64,7 +64,7 @@ export default function ContactForm() {
             name="name"
             type="text"
             required
-            className="w-full bg-[#111] border border-white/10 text-white px-4 py-3 text-sm rounded-sm focus:outline-none focus:border-[#c0392b] transition-colors placeholder:text-gray-600"
+            className="w-full bg-[#141311] border border-white/10 text-white px-4 py-3 text-sm rounded-sm focus:outline-none focus:border-[#a8201a] transition-colors placeholder:text-gray-600"
             placeholder="Your full name"
           />
         </div>
@@ -77,7 +77,7 @@ export default function ContactForm() {
             name="email"
             type="email"
             required
-            className="w-full bg-[#111] border border-white/10 text-white px-4 py-3 text-sm rounded-sm focus:outline-none focus:border-[#c0392b] transition-colors placeholder:text-gray-600"
+            className="w-full bg-[#141311] border border-white/10 text-white px-4 py-3 text-sm rounded-sm focus:outline-none focus:border-[#a8201a] transition-colors placeholder:text-gray-600"
             placeholder="your@email.com"
           />
         </div>
@@ -90,10 +90,10 @@ export default function ContactForm() {
         <select
           id="experience"
           name="experience"
-          className="w-full bg-[#111] border border-white/10 text-white px-4 py-3 text-sm rounded-sm focus:outline-none focus:border-[#c0392b] transition-colors appearance-none"
+          className="w-full bg-[#141311] border border-white/10 text-white px-4 py-3 text-sm rounded-sm focus:outline-none focus:border-[#a8201a] transition-colors appearance-none"
         >
           <option value="">Select your experience</option>
-          <option value="none">Complete beginner — no martial arts experience</option>
+          <option value="none">Complete beginner - no martial arts experience</option>
           <option value="other">Experienced in another martial art</option>
           <option value="karate">Karate background</option>
           <option value="goju">Goju Ryu background</option>
@@ -110,19 +110,19 @@ export default function ContactForm() {
           name="message"
           required
           rows={5}
-          className="w-full bg-[#111] border border-white/10 text-white px-4 py-3 text-sm rounded-sm focus:outline-none focus:border-[#c0392b] transition-colors placeholder:text-gray-600 resize-none"
+          className="w-full bg-[#141311] border border-white/10 text-white px-4 py-3 text-sm rounded-sm focus:outline-none focus:border-[#a8201a] transition-colors placeholder:text-gray-600 resize-none"
           placeholder="Tell us a bit about yourself and what you're looking for..."
         />
       </div>
 
       {error && (
-        <p className="text-[#c0392b] text-xs">{error}</p>
+        <p className="text-[#a8201a] text-xs">{error}</p>
       )}
 
       <button
         type="submit"
         disabled={loading}
-        className="w-full sm:w-auto px-8 py-4 bg-[#c0392b] text-white font-semibold uppercase tracking-wider text-sm hover:bg-[#e74c3c] transition-colors rounded-sm flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
+        className="w-full sm:w-auto px-8 py-4 bg-[#a8201a] text-white font-semibold uppercase tracking-wider text-sm hover:bg-[#c62828] transition-colors rounded-sm flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
       >
         {loading ? (
           <>Sending...</>

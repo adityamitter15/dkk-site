@@ -5,7 +5,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const testimonials = [
   {
-    quote: "From the first class, training with DKK was a kick to the gut — both literally and metaphorically. The sweet thrill of fear I feel walking into the dojo is a big part of what I love about it.",
+    quote: "From the first class, training with DKK was a kick to the gut, both literally and metaphorically. The sweet thrill of fear I feel walking into the dojo is a big part of what I love about it.",
     name: "Daniel Bradley",
     grade: "2nd Dan",
   },
@@ -69,13 +69,13 @@ export default function TestimonialRotator() {
   const t = testimonials[active];
 
   return (
-    <section className="py-20 lg:py-28 bg-[#0d0d0d]">
+    <section className="py-20 lg:py-28 bg-[#12110f]">
       <div className="section-divider mb-0" />
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <p className="inline-flex items-center gap-2 text-[#c0392b] text-xs font-bold uppercase tracking-[0.35em] mb-10 justify-center">
-          <span className="w-6 h-px bg-[#c0392b]" />
+        <p className="inline-flex items-center gap-2 text-[#a8201a] text-xs font-bold uppercase tracking-[0.35em] mb-10 justify-center">
+          <span className="w-6 h-px bg-[#a8201a]" />
           What Members Say
-          <span className="w-6 h-px bg-[#c0392b]" />
+          <span className="w-6 h-px bg-[#a8201a]" />
         </p>
 
         <div
@@ -86,10 +86,10 @@ export default function TestimonialRotator() {
             &ldquo;{t.quote}&rdquo;
           </p>
           <div className="flex items-center justify-center gap-3">
-            <div className="w-8 h-px bg-[#c0392b]" />
+            <div className="w-8 h-px bg-[#a8201a]" />
             <p className="text-white font-semibold text-sm">{t.name}</p>
-            <span className="text-[#c0392b] text-xs uppercase tracking-widest">{t.grade}</span>
-            <div className="w-8 h-px bg-[#c0392b]" />
+            <span className="text-[#a8201a] text-xs uppercase tracking-widest">{t.grade}</span>
+            <div className="w-8 h-px bg-[#a8201a]" />
           </div>
         </div>
 
@@ -97,7 +97,7 @@ export default function TestimonialRotator() {
         <div className="flex items-center justify-center gap-6 mt-10">
           <button
             onClick={prev}
-            className="w-9 h-9 rounded-sm border border-white/10 flex items-center justify-center text-gray-500 hover:text-white hover:border-[#c0392b]/40 transition-colors"
+            className="w-9 h-9 rounded-sm border border-white/10 flex items-center justify-center text-gray-500 hover:text-white hover:border-[#a8201a]/40 transition-colors"
             aria-label="Previous"
           >
             <ChevronLeft size={16} />
@@ -110,7 +110,7 @@ export default function TestimonialRotator() {
                 onClick={() => goTo(i)}
                 className={`transition-all duration-300 rounded-full ${
                   i === active
-                    ? "w-6 h-1.5 bg-[#c0392b]"
+                    ? "w-6 h-1.5 bg-[#a8201a]"
                     : "w-1.5 h-1.5 bg-white/20 hover:bg-white/40"
                 }`}
                 aria-label={`Go to testimonial ${i + 1}`}
@@ -120,7 +120,7 @@ export default function TestimonialRotator() {
 
           <button
             onClick={next}
-            className="w-9 h-9 rounded-sm border border-white/10 flex items-center justify-center text-gray-500 hover:text-white hover:border-[#c0392b]/40 transition-colors"
+            className="w-9 h-9 rounded-sm border border-white/10 flex items-center justify-center text-gray-500 hover:text-white hover:border-[#a8201a]/40 transition-colors"
             aria-label="Next"
           >
             <ChevronRight size={16} />

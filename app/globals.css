@@ -3,8 +3,14 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0a0a0a;
+  --background: #0f0e0c;
   --foreground: #ededed;
+  --red: #a8201a;
+  --red-hover: #c62828;
+  --gold: #b08d57;
+  --warm-light: #f5f0e8;
+  --card: #141311;
+  --card-border: rgba(255,255,255,0.06);
 }
 
 body {
@@ -31,7 +37,13 @@ html {
 /* Gradient section divider */
 .section-divider {
   height: 1px;
-  background: linear-gradient(to right, transparent, rgba(192,57,43,0.2), transparent);
+  background: linear-gradient(to right, transparent, rgba(168,32,26,0.25), transparent);
+}
+
+/* Gold section divider */
+.section-divider-gold {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(176,141,87,0.3), transparent);
 }
 
 /* Custom scrollbar */
@@ -39,10 +51,10 @@ html {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #0a0a0a;
+  background: #0f0e0c;
 }
 ::-webkit-scrollbar-thumb {
-  background: #c0392b;
+  background: #a8201a;
   border-radius: 3px;
 }
 
@@ -55,4 +67,14 @@ html {
 .scroll-revealed {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Light section styling */
+.light-section {
+  background: var(--warm-light);
+  color: #1a1a18;
+}
+.light-section h2,
+.light-section h3 {
+  color: #1a1a18;
 }

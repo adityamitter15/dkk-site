@@ -13,7 +13,7 @@ function Arrow({ vertical = false }: { vertical?: boolean }) {
   if (vertical) {
     return (
       <div className="flex justify-center py-2">
-        <svg width="16" height="28" viewBox="0 0 16 28" fill="none" className="text-[#c0392b]">
+        <svg width="16" height="28" viewBox="0 0 16 28" fill="none" className="text-[#a8201a]">
           <line x1="8" y1="0" x2="8" y2="22" stroke="currentColor" strokeWidth="2" />
           <path d="M3 18 L8 26 L13 18" stroke="currentColor" strokeWidth="2" fill="none" />
         </svg>
@@ -22,7 +22,7 @@ function Arrow({ vertical = false }: { vertical?: boolean }) {
   }
   return (
     <div className="flex items-center px-1">
-      <svg width="32" height="16" viewBox="0 0 32 16" fill="none" className="text-[#c0392b]">
+      <svg width="32" height="16" viewBox="0 0 32 16" fill="none" className="text-[#a8201a]">
         <line x1="0" y1="8" x2="24" y2="8" stroke="currentColor" strokeWidth="2" />
         <path d="M20 3 L28 8 L20 13" stroke="currentColor" strokeWidth="2" fill="none" />
       </svg>
@@ -40,9 +40,9 @@ export default function LineageChain() {
           return (
             <div key={person.name} className="flex items-center">
               <div
-                className={`px-5 py-4 bg-[#111] border rounded-sm text-center min-w-[150px] ${
+                className={`px-5 py-4 bg-[#141311] border rounded-sm text-center min-w-[150px] ${
                   isLast
-                    ? "border-[#c0392b] shadow-[0_0_20px_-4px_rgba(192,57,43,0.4)]"
+                    ? "border-[#a8201a] shadow-[0_0_20px_-4px_rgba(168,32,26,0.4)]"
                     : "border-white/10"
                 }`}
               >
@@ -64,9 +64,9 @@ export default function LineageChain() {
           return (
             <div key={person.name} className="flex flex-col items-center">
               <div
-                className={`px-6 py-4 bg-[#111] border rounded-sm text-center w-64 ${
+                className={`px-6 py-4 bg-[#141311] border rounded-sm text-center w-64 ${
                   isLast
-                    ? "border-[#c0392b] shadow-[0_0_20px_-4px_rgba(192,57,43,0.4)]"
+                    ? "border-[#a8201a] shadow-[0_0_20px_-4px_rgba(168,32,26,0.4)]"
                     : "border-white/10"
                 }`}
               >

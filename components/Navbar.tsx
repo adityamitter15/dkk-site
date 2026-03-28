@@ -11,11 +11,12 @@ const links = [
   { href: "/training", label: "Training" },
   { href: "/shihan", label: "Shihan" },
   { href: "/goju-ryu", label: "Goju Ryu" },
+  { href: "/history", label: "History" },
   { href: "/yudansha", label: "Yudansha" },
   { href: "/fighters", label: "Fighters" },
   { href: "/gallery", label: "Gallery" },
   { href: "/books", label: "Books" },
-  { href: "/contact", label: "Contact" },
+  { href: "/links", label: "Links" },
 ];
 
 export default function Navbar() {
@@ -53,7 +54,7 @@ export default function Navbar() {
             </div>
             <div className="hidden sm:block">
               <p className="font-['Bebas_Neue'] text-xl tracking-widest text-white leading-none">Daigaku Karate Kai</p>
-              <p className="text-[#c0392b] text-[9px] uppercase tracking-[0.25em] leading-none mt-0.5">London</p>
+              <p className="text-[#a8201a] text-[9px] uppercase tracking-[0.25em] leading-none mt-0.5">London</p>
             </div>
           </Link>
 
@@ -65,7 +66,7 @@ export default function Navbar() {
                 href={link.href}
                 className={`px-3 py-2 text-sm font-medium tracking-wide transition-colors duration-200 rounded-sm ${
                   pathname === link.href
-                    ? "text-[#c0392b]"
+                    ? "text-[#a8201a]"
                     : "text-gray-300 hover:text-white"
                 }`}
               >
@@ -74,7 +75,7 @@ export default function Navbar() {
             ))}
             <Link
               href="/contact"
-              className="ml-4 px-4 py-2 bg-[#c0392b] text-white text-sm font-semibold tracking-wide uppercase hover:bg-[#e74c3c] transition-colors duration-200 rounded-sm"
+              className="ml-4 px-4 py-2 bg-[#a8201a] text-white text-sm font-semibold tracking-wide uppercase hover:bg-[#c62828] transition-colors duration-200 rounded-sm"
             >
               Join Now
             </Link>
@@ -104,7 +105,7 @@ export default function Navbar() {
               href={link.href}
               className={`px-4 py-3 text-base font-medium tracking-wide border-b border-white/5 transition-colors ${
                 pathname === link.href
-                  ? "text-[#c0392b]"
+                  ? "text-[#a8201a]"
                   : "text-gray-300 hover:text-white"
               }`}
             >
@@ -113,7 +114,7 @@ export default function Navbar() {
           ))}
           <Link
             href="/contact"
-            className="mt-3 px-4 py-3 bg-[#c0392b] text-white text-center font-semibold tracking-wide uppercase hover:bg-[#e74c3c] transition-colors rounded-sm"
+            className="mt-3 px-4 py-3 bg-[#a8201a] text-white text-center font-semibold tracking-wide uppercase hover:bg-[#c62828] transition-colors rounded-sm"
           >
             Join Now
           </Link>
