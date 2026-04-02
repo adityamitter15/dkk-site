@@ -84,7 +84,7 @@ export default function GalleryPage() {
       <section className="relative pt-40 pb-28 overflow-hidden">
         <div className="absolute inset-0 bg-black" />
         <div className="absolute inset-0">
-          <SafeImage src="/images/Camp/outdoor-kata-dynamic.JPG" alt="" fill className="object-cover object-center opacity-25" />
+          <SafeImage src="/images/Camp/outdoor-kata-dynamic.JPG" alt="" fill className="object-cover object-center opacity-35" />
         </div>
         <div className="absolute inset-0 bg-gradient-to-r from-black via-black/75 to-black/40" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0f0e0c] via-transparent to-black/60" />

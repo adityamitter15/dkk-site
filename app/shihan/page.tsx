@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ChevronRight, BookOpen, Award, Star, Shield } from "lucide-react";
+import { ChevronRight, BookOpen, Award, Star, Shield, Mic, ExternalLink } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
 import SafeImage from "@/components/SafeImage";
 
@@ -12,12 +12,12 @@ export const metadata: Metadata = {
 export default function ShihanPage() {
   return (
     <>
-      <section className="relative pt-32 pb-20 overflow-hidden">
+      <section className="relative pt-40 pb-28 overflow-hidden">
         <div className="absolute inset-0">
-          <SafeImage src="/images/Club/GavPunch.jpg" alt="" fill className="object-cover object-top opacity-15" />
+          <SafeImage src="/images/Club/GavPunch.jpg" alt="" fill className="object-cover object-top opacity-40" />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0f0e0c] via-[#0f0e0c]/90 to-[#0f0e0c]/60" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0f0e0c] via-transparent to-[#0f0e0c]/70" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0f0e0c]/90 via-[#0f0e0c]/60 to-[#0f0e0c]/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0f0e0c] via-transparent to-[#0f0e0c]/40" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="inline-flex items-center gap-2 text-[#b08d57] text-xs font-bold uppercase tracking-[0.35em] mb-4">
             <span className="w-6 h-px bg-[#b08d57]" />
@@ -154,7 +154,56 @@ export default function ShihanPage() {
         </div>
       </section>
 
-      <section className="py-14 bg-[#0f0e0c] border-t border-white/5">
+      {/* Interviews & Media */}
+      <section className="py-20 bg-[#0f0e0c] border-t border-white/5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeading eyebrow="Interviews" title="Podcasts & Media" />
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl">
+            {[
+              {
+                title: "\"Karate Doesn't Exist\"",
+                source: "World of Martial Arts",
+                description: "An in-depth exploration of the meaning of karate and the history of Goju Ryu.",
+                href: "https://www.worldofmartialarts.tv/karate-doesnt-exist-gavin-mulholland-goju-ryu-interview/",
+              },
+              {
+                title: "Kung-fu Kingdom Interview",
+                source: "Kung-fu Kingdom",
+                description: "A comprehensive biographical interview covering Shihan Mulholland's martial arts journey.",
+                href: "https://kungfukingdom.com/interview-with-gavin-mulholland/",
+              },
+              {
+                title: "Episode 60",
+                source: "MartialFocus Podcast",
+                description: "Training philosophy, the DKK approach, and what makes Goju Ryu different.",
+                href: "https://martialfocus.podbean.com/e/episode-sixty-gavin-mulholland/",
+              },
+            ].map((item) => (
+              <a
+                key={item.title}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex flex-col gap-3 p-5 bg-[#141311] border border-white/5 rounded-sm hover:border-[#a8201a]/40 transition-all duration-300 group"
+              >
+                <div className="w-9 h-9 rounded-sm bg-[#a8201a]/10 border border-[#a8201a]/20 flex items-center justify-center">
+                  <Mic className="text-[#a8201a]" size={16} />
+                </div>
+                <div className="flex-1">
+                  <p className="text-white text-sm font-medium flex items-center gap-2">
+                    {item.title}
+                    <ExternalLink size={11} className="text-gray-600 group-hover:text-[#a8201a] transition-colors" />
+                  </p>
+                  <p className="text-[#a8201a] text-[10px] font-bold uppercase tracking-[0.15em] mt-0.5">{item.source}</p>
+                  <p className="text-gray-500 text-xs mt-2 leading-relaxed">{item.description}</p>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-14 bg-[#12110f] border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex gap-5 items-start max-w-2xl">
             <Shield className="text-[#a8201a] flex-shrink-0 mt-1" size={28} />

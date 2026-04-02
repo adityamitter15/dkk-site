@@ -16,10 +16,10 @@ export default function GojuRyuPage() {
       <section className="relative pt-40 pb-28 overflow-hidden">
         <div className="absolute inset-0 bg-black" />
         <div className="absolute inset-0">
-          <SafeImage src="/images/Grading/kata-open-hand.JPG" alt="" fill className="object-cover object-top opacity-25" />
+          <SafeImage src="/images/Grading/bunkai-demo.JPG" alt="" fill className="object-cover object-center opacity-35" />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-black/40" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0f0e0c] via-transparent to-black/60" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0f0e0c] via-transparent to-black/40" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="inline-flex items-center gap-2 text-[#b08d57] text-xs font-bold uppercase tracking-[0.35em] mb-4">
             <span className="w-6 h-px bg-[#b08d57]" />

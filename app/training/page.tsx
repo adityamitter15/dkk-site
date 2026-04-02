@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ChevronRight, Clock, MapPin, Users, BookOpen, Award, HelpCircle } from "lucide-react";
+import { ChevronRight, Clock, MapPin, Users, BookOpen, Award, HelpCircle, TreePine, Flame } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
 import SafeImage from "@/components/SafeImage";
 
@@ -16,7 +16,7 @@ export default function TrainingPage() {
       <section className="relative pt-40 pb-28 overflow-hidden">
         <div className="absolute inset-0 bg-black" />
         <div className="absolute inset-0">
-          <SafeImage src="/images/Training/padwork-overhead.jpg" alt="" fill className="object-cover object-center opacity-25" />
+          <SafeImage src="/images/Training/padwork-overhead.jpg" alt="" fill className="object-cover object-center opacity-35" />
         </div>
         <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0f0e0c] via-transparent to-black/60" />
@@ -106,8 +106,8 @@ export default function TrainingPage() {
               </div>
             </div>
 
-            <div className="space-y-4 lg:pt-16">
-              <div className="relative rounded-sm overflow-hidden bg-[#141311]" style={{ aspectRatio: "340/359" }}>
+            <div className="space-y-4">
+              <div className="relative rounded-sm overflow-hidden bg-[#141311]" style={{ aspectRatio: "4/3" }}>
                 <SafeImage src="/images/Chishi2.jpg" alt="Chishi - traditional Okinawan conditioning" fill className="object-cover object-top" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4">
@@ -116,7 +116,7 @@ export default function TrainingPage() {
                   <p className="text-gray-400 text-xs mt-0.5">The chishi, an Okinawan training tool used for centuries to develop strength and technique</p>
                 </div>
               </div>
-              <div className="relative rounded-sm overflow-hidden bg-[#141311]" style={{ aspectRatio: "340/280" }}>
+              <div className="relative rounded-sm overflow-hidden bg-[#141311]" style={{ aspectRatio: "3/2" }}>
                 <SafeImage src="/images/GavThrowDom.jpg" alt="Throwing technique - Nage Waza" fill className="object-cover object-top" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
                 <div className="absolute bottom-4 left-4">
@@ -170,14 +170,107 @@ export default function TrainingPage() {
         </div>
       </section>
 
+      {/* ── SUMMER CAMP ──────────────────────────────────────── */}
+      <section className="py-20 lg:py-28 bg-[#12110f] border-t border-white/5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-start">
+            <div>
+              <SectionHeading eyebrow="Annual Event" title="Summer Camp" />
+              <p className="text-gray-400 leading-relaxed mb-5">
+                The cornerstone of the DKK calendar. Every June, all DKK factions gather at Glenny Wood, a 23-acre woodland campsite in Portishead, North Somerset, for four days of intensive training, gradings and socialising.
+              </p>
+              <p className="text-gray-400 leading-relaxed mb-5">
+                Practitioners from London, Bristol, Torbay, Oxfordshire and Switzerland train together outdoors. The most significant gradings of the year are held here, including the 30 Man Kumite for Nidan.
+              </p>
+              <div className="space-y-3 mb-8">
+                {[
+                  { icon: TreePine, title: "Glenny Wood", body: "23-acre woodland campsite in Portishead, North Somerset. Four days of camping, training and community." },
+                  { icon: Users, title: "All DKK Clubs", body: "London, Bristol, Torbay, Oxfordshire and Switzerland train together as one." },
+                  { icon: Award, title: "Major Gradings", body: "The most important gradings of the year, including the legendary 30 Man Kumite for Nidan." },
+                ].map((item) => (
+                  <div key={item.title} className="flex gap-4 items-start p-4 bg-[#141311] border border-white/5 rounded-sm">
+                    <div className="w-9 h-9 rounded-sm bg-[#a8201a]/10 border border-[#a8201a]/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <item.icon className="text-[#a8201a]" size={16} />
+                    </div>
+                    <div>
+                      <h3 className="font-['Bebas_Neue'] text-lg tracking-wide text-white mb-0.5">{item.title}</h3>
+                      <p className="text-gray-500 text-sm leading-relaxed">{item.body}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              <div className="relative rounded-sm overflow-hidden bg-[#141311] aspect-[4/3]">
+                <SafeImage src="/images/Camp/outdoor-kata-dynamic.JPG" alt="Outdoor kata at summer camp" fill className="object-cover object-center" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                <div className="absolute bottom-4 left-4">
+                  <p className="text-[#a8201a] text-[10px] uppercase tracking-[0.2em] mb-0.5">Summer Camp</p>
+                  <p className="text-white font-['Bebas_Neue'] text-xl tracking-wide">Outdoor Training</p>
+                </div>
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="relative rounded-sm overflow-hidden bg-[#141311] aspect-square">
+                  <SafeImage src="/images/Camp/bo-staff-sunflare.JPG" alt="Bo staff at sunrise" fill className="object-cover object-center" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                </div>
+                <div className="relative rounded-sm overflow-hidden bg-[#141311] aspect-square">
+                  <SafeImage src="/images/Camp/obstacle-crawl.JPG" alt="Obstacle course" fill className="object-cover object-center" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                </div>
+              </div>
+              <div className="relative rounded-sm overflow-hidden bg-[#141311] aspect-[3/1]">
+                <SafeImage src="/images/Camp/summer-camp-panoramic.JPG" alt="Summer camp panoramic" fill className="object-cover object-center" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                <div className="absolute bottom-3 left-4">
+                  <p className="text-white font-['Bebas_Neue'] text-lg tracking-wide">The Full DKK Family</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 30 MAN KUMITE ──────────────────────────────────────── */}
+      <section className="py-20 lg:py-28 bg-[#0f0e0c] border-t border-white/5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto text-center mb-12">
+            <p className="inline-flex items-center gap-2 text-[#a8201a] text-xs font-bold uppercase tracking-[0.35em] mb-4">
+              <span className="w-6 h-px bg-[#a8201a]" />
+              The Ultimate Test
+              <span className="w-6 h-px bg-[#a8201a]" />
+            </p>
+            <h2 className="font-['Bebas_Neue'] text-5xl sm:text-6xl lg:text-7xl text-white tracking-wide leading-none mb-6">The 30 Man Kumite</h2>
+            <p className="text-gray-400 leading-relaxed">
+              The test for Nidan (2nd Dan) at DKK. 30 minutes of full-contact kumite, fighting 30 opponents for one minute each with no rest. Upon completion, the student is awarded the coveted black dogi.
+            </p>
+          </div>
+          <div className="grid sm:grid-cols-3 gap-5 max-w-3xl mx-auto">
+            {[
+              { value: "30", label: "Opponents", sub: "One minute each" },
+              { value: "30", label: "Minutes", sub: "No rest between rounds" },
+              { value: "Nidan", label: "Requirement", sub: "2nd Dan grading" },
+            ].map((item) => (
+              <div key={item.label} className="p-6 bg-[#141311] border border-[#a8201a]/20 rounded-sm text-center">
+                <Flame className="text-[#a8201a] mx-auto mb-3" size={20} />
+                <p className="font-['Bebas_Neue'] text-4xl text-white tracking-wide leading-none">{item.value}</p>
+                <p className="text-[#a8201a] text-xs font-bold uppercase tracking-widest mt-1">{item.label}</p>
+                <p className="text-gray-500 text-xs mt-1">{item.sub}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── CAMP PHOTO STRIP ──────────────────────────────────── */}
       <section className="relative h-64 sm:h-80 overflow-hidden">
         <div className="grid grid-cols-4 h-full">
           {[
             { src: "/images/Camp/summer-camp-group.JPG", alt: "Summer camp group" },
-            { src: "/images/Camp/bo-staff-sunflare.JPG", alt: "Bo staff training at sunrise" },
-            { src: "/images/Camp/obstacle-crawl.JPG", alt: "Obstacle course" },
-            { src: "/images/Camp/outdoor-kata-dynamic.JPG", alt: "Outdoor kata" },
+            { src: "/images/Camp/pushups-outdoors.JPG", alt: "Outdoor conditioning" },
+            { src: "/images/Camp/grading-certificates.JPG", alt: "Summer camp grading" },
+            { src: "/images/Camp/black-belts-fists.JPG", alt: "Black belts at camp" },
           ].map((img) => (
             <div key={img.src} className="relative overflow-hidden">
               <SafeImage src={img.src} alt={img.alt} fill className="object-cover hover:scale-105 transition-transform duration-700" />
@@ -187,12 +280,24 @@ export default function TrainingPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#0f0e0c] via-transparent to-[#a8201a]/20 opacity-40 pointer-events-none" />
       </section>
 
+      {/* Winter Camp */}
+      <section className="py-16 bg-[#12110f] border-t border-white/5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-2xl">
+            <SectionHeading eyebrow="October" title="Winter Camp" />
+            <p className="text-gray-400 leading-relaxed">
+              A more technical and relaxed weekend of training held every October in North East London. Focused on detailed study of technique, kata analysis, and socialising with the wider DKK community.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-16 bg-[#a8201a]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
           <div>
             <p className="font-['Bebas_Neue'] text-3xl sm:text-4xl text-white tracking-wide">Ready to start training?</p>
-            <p className="text-white/70 text-sm mt-1">Monday & Wednesday · 6:00pm – 8:00pm · 309 Regent Street</p>
+            <p className="text-white/70 text-sm mt-1">Monday & Wednesday · 6:00pm - 8:00pm · 309 Regent Street</p>
           </div>
           <Link
             href="/contact"

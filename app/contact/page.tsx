@@ -13,7 +13,7 @@ export default function ContactPage() {
   return (
     <>
       {/* Hero - image-based for variety */}
-      <section className="relative pt-32 pb-20 overflow-hidden">
+      <section className="relative pt-40 pb-28 overflow-hidden">
         <div className="absolute inset-0">
           <SafeImage src="/images/Club/dojo-full-class.JPG" alt="DKK London dojo" fill className="object-cover object-center" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/75 to-black/50" />

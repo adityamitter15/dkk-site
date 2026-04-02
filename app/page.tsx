@@ -67,7 +67,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-white/20">
             {[
-              { value: "35+", label: "Years in London" },
+              { value: "Since 1990", label: "Oldest Club at Westminster" },
               { value: "7th Dan", label: "Shihan Gavin Mulholland" },
               { value: "Goju Ryu", label: "Okinawan Style" },
               { value: "16 / 20", label: "Cage Fight Wins" },
@@ -161,10 +161,10 @@ export default function Home() {
       <section className="relative h-64 sm:h-80 lg:h-96 overflow-hidden">
         <div className="grid grid-cols-3 h-full">
           <div className="relative overflow-hidden">
-            <SafeImage src="/images/Training/padwork-overhead.jpg" alt="Pad work training" fill className="object-cover hover:scale-105 transition-transform duration-700" />
+            <SafeImage src="/images/Grading/sparring-action.JPG" alt="Sparring at grading" fill className="object-cover hover:scale-105 transition-transform duration-700" />
           </div>
           <div className="relative overflow-hidden">
-            <SafeImage src="/images/Club/dojo-full-class.JPG" alt="Full dojo class" fill className="object-cover hover:scale-105 transition-transform duration-700" />
+            <SafeImage src="/images/Training/class-kata-aerial.JPG" alt="Kata training from above" fill className="object-cover hover:scale-105 transition-transform duration-700" />
           </div>
           <div className="relative overflow-hidden">
             <SafeImage src="/images/Camp/outdoor-kata-dynamic.JPG" alt="Outdoor kata training" fill className="object-cover hover:scale-105 transition-transform duration-700" />
@@ -184,7 +184,7 @@ export default function Home() {
           <ScrollReveal>
           <div className="grid sm:grid-cols-3 gap-5 mt-8">
             {[
-              { icon: Swords, title: "Combat Orientated", body: "We train for real-world effectiveness, not trophies. Close-quarter techniques rooted in genuine martial necessity — striking, grappling, throwing, ground work." },
+              { icon: Swords, title: "Combat Orientated", body: "We train for real-world effectiveness, not trophies. Close-quarter techniques rooted in genuine martial necessity: striking, grappling, throwing, ground work." },
               { icon: Shield, title: "Authentic Goju Ryu", body: "Okinawan Goju Ryu in its true form: hard and soft techniques, Sanchin breathing, kata, bunkai and kumite. Not sport karate." },
               { icon: Target, title: "Proven Record", body: "DKK Fighters have competed in Cage Rage, BAMMA and the UFC. 16 wins from the first 20 cage fights, plus a World Title." },
             ].map((card) => (
@@ -206,7 +206,7 @@ export default function Home() {
 
       {/* ── FULL-WIDTH QUOTE ─────────────────────────────────── */}
       <section className="relative py-24 bg-black overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/images/Training/class-kata-aerial.JPG')] bg-cover bg-center opacity-10" />
+        <div className="absolute inset-0 bg-[url('/images/Training/class-kata-aerial.JPG')] bg-cover bg-center opacity-20" />
         <div className="relative max-w-5xl mx-auto px-6 sm:px-10 text-center">
           <p className="text-[#b08d57] text-xs font-bold uppercase tracking-[0.3em] mb-6">Philosophy</p>
           <p className="font-['Bebas_Neue'] text-4xl sm:text-5xl lg:text-6xl text-white leading-tight tracking-wide">

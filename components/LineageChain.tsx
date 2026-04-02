@@ -1,8 +1,6 @@
 "use client";
 
 const lineage = [
-  { name: "Ryu Ryu Ko", desc: "White Crane Master \u00b7 Southern China" },
-  { name: "Kanryo Higaonna", desc: "Naha-te \u00b7 Okinawa" },
   { name: "Chojun Miyagi", desc: "Founder of Goju Ryu" },
   { name: "Ei\u2019ichi Miyazato", desc: "Jundokan \u00b7 Okinawa" },
   { name: "Kim Roberts", desc: "Kyoshi \u00b7 OMAA" },

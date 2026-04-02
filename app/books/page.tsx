@@ -14,8 +14,8 @@ const dkkBooks = [
     title: "Four Shades of Black",
     author: "Gavin Mulholland",
     cover: "/images/Book Covers/4SOB.jpg",
-    description: "The highly acclaimed debut by Shihan Gavin Mulholland. A deep, uncompromising exploration of Okinawan Goju Ryu covering technique, philosophy, and the real martial arts journey. Considered essential reading for any serious karate practitioner.",
-    endorsement: undefined as string | undefined,
+    description: "The highly acclaimed debut by Shihan Gavin Mulholland. A deep, uncompromising exploration of Okinawan Goju Ryu covering technique, philosophy, and the real martial arts journey. Rated 4.4/5 on Goodreads.",
+    endorsement: "\"One of, if not the best practical book I've read on karate. About time someone wrote the real deal about kata instead of the gibberish usually seen.\"" as string | undefined,
     ukUrl: "https://www.amazon.co.uk/s?k=Four+Shades+of+Black+Gavin+Mulholland",
     usUrl: "https://www.amazon.com/s?k=Four+Shades+of+Black+Gavin+Mulholland",
     featured: false,
@@ -99,10 +99,10 @@ export default function BooksPage() {
       <section className="relative pt-40 pb-28 overflow-hidden">
         <div className="absolute inset-0 bg-black" />
         <div className="absolute inset-0">
-          <SafeImage src="/images/GavPortrait.jpg" alt="" fill className="object-cover object-top opacity-15" />
+          <SafeImage src="/images/GavPortrait.jpg" alt="" fill className="object-cover object-top opacity-40" />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/85 to-black/50" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0f0e0c] via-transparent to-black/60" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0f0e0c] via-transparent to-black/40" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="inline-flex items-center gap-2 text-[#b08d57] text-xs font-bold uppercase tracking-[0.35em] mb-4">
             <span className="w-6 h-px bg-[#b08d57]" />
@@ -139,35 +139,37 @@ export default function BooksPage() {
             </div>
           </div>
 
-          {/* Waking Dragons */}
+          {/* Also Worth Reading */}
           <div className="mt-20">
             <SectionHeading
               eyebrow="Recommended"
               title="Also Worth Reading"
             />
-            <div className="flex gap-6 items-start max-w-2xl bg-[#141311] border border-white/5 rounded-sm p-6 hover:border-[#a8201a]/30 transition-all duration-300 group">
-              <div className="relative bg-[#0f0e0c] rounded-sm overflow-hidden flex-shrink-0" style={{ width: 100, aspectRatio: "2/3" }}>
-                <SafeImage
-                  src="/images/Book Covers/WD.jpg"
-                  alt="Waking Dragons"
-                  fill
-                  className="object-contain p-2 group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="flex-1">
-                <p className="text-[#a8201a] text-[10px] font-bold uppercase tracking-[0.2em] mb-1">by Goran Powell</p>
-                <h3 className="font-['Bebas_Neue'] text-2xl tracking-wide text-white mb-2 leading-tight">Waking Dragons</h3>
-                <p className="text-gray-400 text-sm leading-relaxed mb-4">
-                  A true account of Goran Powell&apos;s 30 Man Kumite and the lifetime of martial arts training that led up to it. Covers the physical preparation, mental fortitude, and spiritual dimensions of one of the most demanding tests in traditional karate. Highly recommended for any serious practitioner.
-                </p>
-                <a
-                  href="https://www.goranpowell.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-[#a8201a] font-semibold text-xs uppercase tracking-wider hover:gap-2.5 transition-all"
-                >
-                  goranpowell.com <ExternalLink size={11} />
-                </a>
+            <div className="space-y-4 max-w-2xl">
+              <div className="flex gap-6 items-start bg-[#141311] border border-white/5 rounded-sm p-6 hover:border-[#a8201a]/30 transition-all duration-300 group">
+                <div className="relative bg-[#0f0e0c] rounded-sm overflow-hidden flex-shrink-0" style={{ width: 100, aspectRatio: "2/3" }}>
+                  <SafeImage
+                    src="/images/Book Covers/WD.jpg"
+                    alt="Waking Dragons"
+                    fill
+                    className="object-contain p-2 group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <div className="flex-1">
+                  <p className="text-[#a8201a] text-[10px] font-bold uppercase tracking-[0.2em] mb-1">by Goran Powell</p>
+                  <h3 className="font-['Bebas_Neue'] text-2xl tracking-wide text-white mb-2 leading-tight">Waking Dragons</h3>
+                  <p className="text-gray-400 text-sm leading-relaxed mb-4">
+                    A true account of Goran Powell&apos;s 30 Man Kumite and the lifetime of martial arts training that led up to it. Covers the physical preparation, mental fortitude, and spiritual dimensions of one of the most demanding tests in traditional karate.
+                  </p>
+                  <a
+                    href="https://www.goranpowell.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-[#a8201a] font-semibold text-xs uppercase tracking-wider hover:gap-2.5 transition-all"
+                  >
+                    goranpowell.com <ExternalLink size={11} />
+                  </a>
+                </div>
               </div>
             </div>
           </div>

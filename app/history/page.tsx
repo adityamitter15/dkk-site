@@ -59,7 +59,7 @@ export default function HistoryPage() {
       <section className="relative pt-40 pb-28 overflow-hidden">
         <div className="absolute inset-0 bg-black" />
         <div className="absolute inset-0">
-          <SafeImage src="/images/Camp/summer-camp-panoramic.JPG" alt="" fill className="object-cover object-center opacity-20" />
+          <SafeImage src="/images/Camp/summer-camp-panoramic.JPG" alt="" fill className="object-cover object-center opacity-30" />
         </div>
         <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-black/40" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0f0e0c] via-transparent to-black/60" />
