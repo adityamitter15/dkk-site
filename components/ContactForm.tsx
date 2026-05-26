@@ -3,9 +3,7 @@
 import { useState } from "react";
 import { Send, CheckCircle } from "lucide-react";
 
-// To activate: create a free account at https://formspree.io
-// Register info@goju-karate.co.uk as your form email, then replace FORM_ID below.
-const FORMSPREE_ID = "YOUR_FORM_ID";
+const FORMSPREE_ID = "xeedpgvk";
 
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);

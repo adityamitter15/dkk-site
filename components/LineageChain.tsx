@@ -1,5 +1,7 @@
 "use client";
 
+import SafeImage from "@/components/SafeImage";
+
 const lineage = [
   { name: "Chojun Miyagi", desc: "Founder of Goju Ryu" },
   { name: "Ei\u2019ichi Miyazato", desc: "Jundokan \u00b7 Okinawa" },
@@ -77,6 +79,35 @@ export default function LineageChain() {
             </div>
           );
         })}
+      </div>
+
+      {/* DKK Branches - Mulholland & Lewis */}
+      <div className="mt-10 max-w-3xl mx-auto">
+        <p className="text-center text-[#c9a96e] text-[10px] font-bold uppercase tracking-[0.3em] mb-5">DKK Branches</p>
+        <div className="grid sm:grid-cols-2 gap-4">
+          {[
+            {
+              name: "Shihan Gavin Mulholland",
+              desc: "DKK London \u00b7 7th Dan",
+              src: "/images/GavPortrait.jpg",
+            },
+            {
+              name: "Shihan Dan Lewis",
+              desc: "DKK Bristol \u00b7 Combat Goju Ryu",
+              src: "/images/dan_lewis.jpg",
+            },
+          ].map((p) => (
+            <div key={p.name} className="flex items-center gap-4 p-3 bg-[#141311] border border-white/10 rounded-sm">
+              <div className="relative w-14 h-14 rounded-sm overflow-hidden bg-[#0f0e0c] flex-shrink-0">
+                <SafeImage src={p.src} alt={p.name} fill className="object-cover object-top" />
+              </div>
+              <div>
+                <p className="text-white font-['Bebas_Neue'] text-lg tracking-wide leading-tight">{p.name}</p>
+                <p className="text-gray-500 text-xs mt-0.5">{p.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

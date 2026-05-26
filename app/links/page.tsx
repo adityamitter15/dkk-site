@@ -16,7 +16,6 @@ const linkGroups = [
       { title: "DKK London - Instagram", description: "Follow DKK London on Instagram for training news, photos and updates.", href: "https://www.instagram.com/dkk_karate_london" },
       { title: "DKK Bristol", description: "Our sister club run by Shihan Dan Lewis, Bristol Combat Goju Ryu.", href: "http://www.gojukaratebristol.co.uk/" },
       { title: "DKK Oxfordshire", description: "Run by Sensei Simon Clinch. Goju Ryu karate in Oxfordshire.", href: "https://www.gojukarateoxford.com/" },
-      { title: "DKK Switzerland", description: "DKK Schweiz in Lucerne, run by Sensei Catherine Sandwell.", href: "https://www.goju-karate.ch/" },
       { title: "DKK Portishead", description: "DKK Bristol junior and senior classes in Portishead, North Somerset.", href: "https://www.instagram.com/dkk_karate_portishead/" },
     ],
   },
@@ -66,7 +65,7 @@ export default function LinksPage() {
       <section className="relative pt-40 pb-28 overflow-hidden">
         <div className="absolute inset-0 bg-black" />
         <div className="absolute inset-0">
-          <SafeImage src="/images/Camp/summer-camp-group.JPG" alt="" fill className="object-cover opacity-40" style={{ objectPosition: "center 25%" }} />
+          <SafeImage src="/images/Camp/summer-camp-panoramic.JPG" alt="" fill className="object-cover opacity-40" style={{ objectPosition: "center 25%" }} />
         </div>
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/30" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0f0e0c] via-transparent to-black/40" />
@@ -83,9 +82,9 @@ export default function LinksPage() {
       <section className="py-16 bg-[#0f0e0c]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading eyebrow="External Resources" title="Useful Links" />
-          <div className="grid lg:grid-cols-2 gap-x-12 gap-y-10 max-w-5xl">
+          <div className="columns-1 lg:columns-2 gap-x-12 max-w-5xl">
             {linkGroups.map((group) => (
-              <div key={group.category}>
+              <div key={group.category} className="mb-10 break-inside-avoid">
                 <h3 className="text-[#a8201a] text-xs font-bold uppercase tracking-[0.2em] mb-4 flex items-center gap-2">
                   <span className="w-4 h-px bg-[#a8201a]" />
                   {group.category}

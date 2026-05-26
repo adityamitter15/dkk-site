@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ChevronRight, ExternalLink } from "lucide-react";
 import SafeImage from "@/components/SafeImage";
 import CountUpStat from "@/components/CountUpStat";
+import ParallaxImage from "@/components/ParallaxImage";
 
 export const metadata: Metadata = {
   title: "DKK Fighters",
@@ -15,6 +16,8 @@ const fighters = [
     name: "Neil \"Goliath\" Grove",
     record: "12-8-1",
     highlight: "UFC · Bellator · UCMMA World Heavyweight Champion",
+    image: "/images/Fighters/neil-grove-victory-cage.jpg",
+    portrait: "/images/Fighters/neil-grove-title-portrait.jpg",
     bio: "After a nightclub incident, Neil and a fellow bouncer were made to take Goju Ryu classes at DKK. He earned his Shodan in 2005 and went on to compete at the highest level. At Cage Rage 22, he knocked out James \"Colossus\" Thompson in 10 seconds on two days notice. He was crowned UCMMA World Heavyweight Champion and fought in the UFC and Bellator. All 12 of his wins came by KO or TKO.",
     stats: [
       { label: "Wins", value: "12" },
@@ -26,6 +29,8 @@ const fighters = [
     name: "Edgelson \"Edge\" Lua",
     record: "7-7-0",
     highlight: "Cage Rage · BAMMA · UCMMA",
+    image: "/images/Fighters/edge-hand-raised.jpg",
+    portrait: "/images/Fighters/edge-back-patch.jpg",
     bio: "A DKK black belt since 2010, Edge competed across the UK's top MMA promotions. A powerful welterweight with fast hands, he recorded a 30-second knockout at Cage Rage Contenders 9 and went on to fight in BAMMA, FX3 and UCMMA.",
     stats: [
       { label: "Wins", value: "7" },
@@ -37,6 +42,8 @@ const fighters = [
     name: "Dyson Roberts",
     record: "Fighting Hurts Finalist",
     highlight: "Cage Rage · Fighting Hurts TV Show",
+    image: null,
+    portrait: null,
     bio: "Still an orange belt at the time, Dyson entered the reality TV show Fighting Hurts and was selected as one of 16 contestants. Though only a welterweight, he was matched against light-heavyweights, giving away almost 10kg per fight. He made it all the way to the final at the main Cage Rage show.",
     stats: [
       { label: "Result", value: "Finalist" },
@@ -51,9 +58,7 @@ export default function FightersPage() {
     <>
       <section className="relative pt-40 pb-28 overflow-hidden">
         <div className="absolute inset-0 bg-black" />
-        <div className="absolute inset-0">
-          <SafeImage src="/images/Fighters/dkk.jpg" alt="" fill className="object-cover object-center opacity-35" />
-        </div>
+        <ParallaxImage src="/images/Fighters/neil-grove-victory-cage.jpg" className="object-cover object-top opacity-45" intensity={70} priority />
         <div className="absolute inset-0 bg-gradient-to-r from-black via-black/75 to-black/40" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0f0e0c] via-transparent to-black/60" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -85,7 +90,7 @@ export default function FightersPage() {
       {/* Intro */}
       <section className="py-20 lg:py-28 bg-[#0f0e0c]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <SectionHeading eyebrow="DKK London" title="Tested Under Pressure" />
               <p className="text-gray-400 leading-relaxed mb-5">
@@ -99,9 +104,9 @@ export default function FightersPage() {
               </p>
             </div>
 
-            <div className="relative rounded-sm overflow-hidden aspect-video bg-[#141311]">
-              <SafeImage src="/images/Fighters/dkk.jpg" alt="DKK Fighters" fill className="object-cover object-top" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+            <div className="relative rounded-sm overflow-hidden aspect-[4/5] lg:aspect-[3/4] bg-[#141311]">
+              <SafeImage src="/images/Fighters/neil-grove-belts-crew.jpg" alt="DKK Fighters with championship belts" fill className="object-cover object-top" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
               <div className="absolute bottom-4 left-4">
                 <p className="text-white font-['Bebas_Neue'] text-xl tracking-wide">DKK Fighters</p>
                 <p className="text-[#a8201a] text-xs uppercase tracking-widest">Cage Rage · Bellator · BAMMA · UFC</p>
@@ -123,32 +128,40 @@ export default function FightersPage() {
                   i === 0 ? "border-[#a8201a]/30" : "border-white/5"
                 }`}
               >
-                <div className="p-6 sm:p-8">
-                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-5">
-                    <div>
-                      <h3 className="font-['Bebas_Neue'] text-3xl sm:text-4xl tracking-wide text-white leading-none">{fighter.name}</h3>
-                      <p className="text-[#a8201a] text-xs font-bold uppercase tracking-[0.2em] mt-1">{fighter.highlight}</p>
+                <div className={`grid ${fighter.image ? "lg:grid-cols-[1fr_1.4fr]" : ""} gap-0`}>
+                  {fighter.image && (
+                    <div className="relative aspect-[4/3] lg:aspect-auto lg:min-h-[360px] bg-black">
+                      <SafeImage src={fighter.image} alt={fighter.name} fill className="object-cover object-center" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#141311] via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-transparent lg:to-[#141311]" />
                     </div>
-                    <div className="px-4 py-2 bg-[#a8201a]/10 border border-[#a8201a]/20 rounded-sm flex-shrink-0">
-                      <p className="text-gray-500 text-[10px] uppercase tracking-widest">Record</p>
-                      <p className="font-['Bebas_Neue'] text-2xl text-white tracking-wide leading-none">{fighter.record}</p>
-                    </div>
-                  </div>
-
-                  <p className="text-gray-400 text-sm leading-relaxed mb-6 max-w-3xl">{fighter.bio}</p>
-
-                  <div className="flex flex-wrap gap-4">
-                    {fighter.stats.map((stat) => (
-                      <div key={stat.label} className="px-4 py-3 bg-[#0f0e0c] border border-white/5 rounded-sm min-w-[100px]">
-                        <p className="font-['Bebas_Neue'] text-xl text-white tracking-wide leading-none">{stat.value}</p>
-                        <p className="text-gray-500 text-[10px] uppercase tracking-widest mt-0.5">{stat.label}</p>
+                  )}
+                  <div className="p-6 sm:p-8">
+                    <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-5">
+                      <div>
+                        <h3 className="font-['Bebas_Neue'] text-3xl sm:text-4xl tracking-wide text-white leading-none">{fighter.name}</h3>
+                        <p className="text-[#a8201a] text-xs font-bold uppercase tracking-[0.2em] mt-1">{fighter.highlight}</p>
                       </div>
-                    ))}
+                      <div className="px-4 py-2 bg-[#a8201a]/10 border border-[#a8201a]/20 rounded-sm flex-shrink-0">
+                        <p className="text-gray-500 text-[10px] uppercase tracking-widest">Record</p>
+                        <p className="font-['Bebas_Neue'] text-2xl text-white tracking-wide leading-none">{fighter.record}</p>
+                      </div>
+                    </div>
+
+                    <p className="text-gray-400 text-sm leading-relaxed mb-6 max-w-3xl">{fighter.bio}</p>
+
+                    <div className="flex flex-wrap gap-4">
+                      {fighter.stats.map((stat) => (
+                        <div key={stat.label} className="px-4 py-3 bg-[#0f0e0c] border border-white/5 rounded-sm min-w-[100px]">
+                          <p className="font-['Bebas_Neue'] text-xl text-white tracking-wide leading-none">{stat.value}</p>
+                          <p className="text-gray-500 text-[10px] uppercase tracking-widest mt-0.5">{stat.label}</p>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
 
                 {i === 0 && (
-                  <div className="absolute top-4 right-4 px-2 py-0.5 bg-[#a8201a] text-white text-[9px] font-bold uppercase tracking-[0.2em] rounded-sm">
+                  <div className="absolute top-4 right-4 px-2 py-0.5 bg-[#a8201a] text-white text-[9px] font-bold uppercase tracking-[0.2em] rounded-sm z-10">
                     Featured
                   </div>
                 )}
@@ -162,20 +175,30 @@ export default function FightersPage() {
         </div>
       </section>
 
-      {/* Summer Camp photo strip */}
-      <section className="relative h-64 sm:h-80 overflow-hidden">
-        <div className="grid grid-cols-3 h-full">
-          {[
-            { src: "/images/Camp/summer-camp-group.JPG", alt: "DKK summer camp group" },
-            { src: "/images/Camp/black-belts-fists.JPG", alt: "Black belts at camp" },
-            { src: "/images/Camp/summer-camp-panoramic.JPG", alt: "Summer camp panoramic" },
-          ].map((img) => (
-            <div key={img.src} className="relative overflow-hidden">
-              <SafeImage src={img.src} alt={img.alt} fill className="object-cover hover:scale-105 transition-transform duration-700" />
-            </div>
-          ))}
+      {/* In the Cage - archive gallery */}
+      <section className="py-20 bg-black border-t border-white/5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
+            <SectionHeading eyebrow="From the Archive" title="In the Cage" />
+            <p className="text-gray-500 text-sm max-w-md sm:text-right">Wembley, Ultimate Challenge, and nights that became part of DKK history.</p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-3">
+            {[
+              { src: "/images/Fighters/neil-grove-walkout.jpg", caption: "Neil Grove - Walkout" },
+              { src: "/images/Fighters/neil-grove-portrait-mulholland.jpg", caption: "Grove & Mulholland" },
+              { src: "/images/Fighters/edge-cage-victory.jpg", caption: "Edge - Victory" },
+              { src: "/images/Fighters/domagoj-wembley-2007.jpg", caption: "Wembley 2007" },
+            ].map((img) => (
+              <div key={img.src} className="relative aspect-square rounded-sm overflow-hidden bg-[#141311] group">
+                <SafeImage src={img.src} alt={img.caption} fill className="object-cover object-top group-hover:scale-105 transition-transform duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-80 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute bottom-2 left-2 right-2">
+                  <p className="text-white text-[10px] uppercase tracking-widest font-semibold">{img.caption}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-[#12110f] via-transparent to-[#0f0e0c] opacity-30 pointer-events-none" />
       </section>
 
       {/* CTA */}

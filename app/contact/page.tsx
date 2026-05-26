@@ -83,7 +83,7 @@ export default function ContactPage() {
 
               <div className="pt-6 border-t border-white/10">
                 <SafeImage
-                  src="/images/wusu.png"
+                  src="/images/uwsu.png"
                   alt="Westminster Students' Union"
                   width={120}
                   height={50}
@@ -101,8 +101,8 @@ export default function ContactPage() {
       <section className="bg-[#12110f] border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="mb-8">
-            <p className="inline-flex items-center gap-2 text-[#b08d57] text-xs font-bold uppercase tracking-[0.35em] mb-3">
-              <span className="w-6 h-px bg-[#b08d57]" />
+            <p className="inline-flex items-center gap-2 text-[#c9a96e] text-xs font-bold uppercase tracking-[0.35em] mb-3">
+              <span className="w-6 h-px bg-[#c9a96e]" />
               Find Us
             </p>
             <h2 className="font-['Bebas_Neue'] text-4xl sm:text-5xl text-white tracking-wide leading-none">309 Regent Street</h2>
@@ -125,7 +125,7 @@ export default function ContactPage() {
               href="https://www.google.com/maps/place/309+Regent+St,+London+W1B+2HW"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#b08d57] text-xs uppercase tracking-widest hover:text-white transition-colors"
+              className="text-[#c9a96e] text-xs uppercase tracking-widest hover:text-white transition-colors"
             >
               Open in Google Maps &rarr;
             </a>

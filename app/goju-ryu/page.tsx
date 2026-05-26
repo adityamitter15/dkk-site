@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
 import SafeImage from "@/components/SafeImage";
+import ParallaxImage from "@/components/ParallaxImage";
 import LineageChain from "@/components/LineageChain";
 
 export const metadata: Metadata = {
@@ -15,18 +16,16 @@ export default function GojuRyuPage() {
     <>
       <section className="relative pt-40 pb-28 overflow-hidden">
         <div className="absolute inset-0 bg-black" />
-        <div className="absolute inset-0">
-          <SafeImage src="/images/Grading/bunkai-demo.JPG" alt="" fill className="object-cover object-center opacity-35" />
-        </div>
+        <ParallaxImage src="/images/Grading/bunkai-demo.JPG" className="object-cover object-center opacity-35" intensity={70} priority />
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/30" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0f0e0c] via-transparent to-black/40" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="inline-flex items-center gap-2 text-[#b08d57] text-xs font-bold uppercase tracking-[0.35em] mb-4">
-            <span className="w-6 h-px bg-[#b08d57]" />
+          <p className="inline-flex items-center gap-2 text-[#c9a96e] text-xs font-bold uppercase tracking-[0.35em] mb-4">
+            <span className="w-6 h-px bg-[#c9a96e]" />
             The Style
           </p>
           <h1 className="font-['Bebas_Neue'] text-7xl sm:text-8xl lg:text-[9rem] text-white tracking-wide leading-none mb-2">Goju Ryu</h1>
-          <h2 className="font-['Bebas_Neue'] text-4xl sm:text-5xl text-[#b08d57]/50 tracking-wide leading-none mb-6">剛柔流</h2>
+          <h2 className="font-['Bebas_Neue'] text-4xl sm:text-5xl text-[#c9a96e]/50 tracking-wide leading-none mb-6">剛柔流</h2>
           <p className="text-gray-300 text-lg max-w-lg font-light leading-relaxed">Hard and soft. An Okinawan fighting system built for close-quarter reality.</p>
         </div>
       </section>
@@ -43,7 +42,7 @@ export default function GojuRyuPage() {
               </div>
 
               <div>
-                <p className="text-[#b08d57] text-xs font-semibold uppercase tracking-[0.2em] mb-2">Heritage</p>
+                <p className="text-[#c9a96e] text-xs font-semibold uppercase tracking-[0.2em] mb-2">Heritage</p>
                 <h3 className="font-['Bebas_Neue'] text-3xl tracking-wide text-white mb-4">Origins</h3>
                 <p className="text-gray-400 leading-relaxed mb-4">
                   Goju Ryu traced its roots to the late 19th century, when an Okinawan islander named Kanryo Higaonna travelled to Southern China and trained under a White Crane master named Ryu Ryu Ko. On his return, he taught his art and one of his students began to emerge as exceptional. His name was <strong className="text-white">Chojun Miyagi</strong>.
@@ -74,7 +73,7 @@ export default function GojuRyuPage() {
             </div>
 
             {/* Sidebar */}
-            <div className="space-y-5">
+            <div className="space-y-5 lg:sticky lg:top-24 lg:self-start">
               <div className="relative rounded-sm overflow-hidden bg-[#141311]" style={{ aspectRatio: "340/366" }}>
                 <SafeImage src="/images/Gavheadlock4.jpg" alt="Close-quarter grappling, a hallmark of Goju Ryu" fill className="object-cover object-top" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
@@ -83,8 +82,8 @@ export default function GojuRyuPage() {
                   <p className="text-gray-400 text-[10px] uppercase tracking-widest mt-0.5">The Goju Ryu Way</p>
                 </div>
               </div>
-              <div className="p-6 bg-[#141311] border border-[#b08d57]/15 rounded-sm">
-                <h3 className="font-['Bebas_Neue'] text-xl tracking-wide text-[#b08d57] mb-4">Quick Facts</h3>
+              <div className="p-6 bg-[#141311] border border-[#c9a96e]/15 rounded-sm">
+                <h3 className="font-['Bebas_Neue'] text-xl tracking-wide text-[#c9a96e] mb-4">Quick Facts</h3>
                 <ul className="space-y-3">
                   {[
                     { label: "Name", value: "Goju Ryu (剛柔流)" },
@@ -137,7 +136,7 @@ export default function GojuRyuPage() {
       <section className="py-16 bg-[#12110f]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <p className="text-[#b08d57] text-xs font-semibold uppercase tracking-[0.2em] mb-2">Lineage</p>
+            <p className="text-[#c9a96e] text-xs font-semibold uppercase tracking-[0.2em] mb-2">Lineage</p>
             <h2 className="font-['Bebas_Neue'] text-4xl sm:text-5xl lg:text-6xl tracking-wide leading-none text-white">From Okinawa to London</h2>
           </div>
           <LineageChain />

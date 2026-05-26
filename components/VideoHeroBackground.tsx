@@ -16,12 +16,14 @@ export default function VideoHeroBackground() {
     <video
       ref={videoRef}
       className="absolute inset-0 w-full h-full object-cover object-center opacity-35"
-      src="/videos/dkk_hero.mp4"
       poster="/images/video-poster.jpg"
       muted
       loop
       playsInline
       preload="auto"
-    />
+    >
+      <source src="/videos/dkk_hero.webm" type="video/webm" />
+      <source src="/videos/dkk_hero.mp4" type="video/mp4" />
+    </video>
   );
 }

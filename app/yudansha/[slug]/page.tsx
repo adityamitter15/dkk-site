@@ -1,9 +1,17 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Clock, MapPin, Video, ExternalLink } from "lucide-react";
 import SafeImage from "@/components/SafeImage";
 import { getAllMembers, getMemberBySlug } from "@/data/yudansha";
+
+const gradeDescriptor: Record<string, string> = {
+  Godan: "Master Grade",
+  Yondan: "Weapons Grade",
+  Sandan: "Teaching Grade",
+  Nidan: "30 Man Kumite",
+  Shodan: "Black Belt",
+};
 
 export function generateStaticParams() {
   return getAllMembers().map((m) => ({ slug: m.slug }));
@@ -37,6 +45,7 @@ export default async function MemberPage({ params }: { params: Promise<{ slug: s
   const firstMilestone = member.milestones?.find((m) => m.year)?.year;
   const lastMilestone = member.milestones?.[member.milestones.length - 1];
   const yearsTraining = firstMilestone ? new Date().getFullYear() - parseInt(firstMilestone) : null;
+  const completed30Man = member.milestones?.some((m) => m.event.includes("30 Man Kumite"));
 
   return (
     <>
@@ -55,9 +64,12 @@ export default async function MemberPage({ params }: { params: Promise<{ slug: s
             <ChevronLeft size={14} />
             All Yudansha
           </Link>
-          <div className="flex items-center gap-3 mb-4">
+          <div className="flex items-center gap-3 mb-4 flex-wrap">
             <span className="px-3 py-1 bg-[#a8201a] text-white text-xs font-bold uppercase tracking-wider rounded-sm">{member.dan}</span>
             <span className="text-[#a8201a] text-xs uppercase tracking-wider">{member.grade}</span>
+            {gradeDescriptor[member.grade] && (
+              <span className="text-[#c9a96e] text-[10px] uppercase tracking-[0.2em] border-l border-[#c9a96e]/30 pl-3">{gradeDescriptor[member.grade]}</span>
+            )}
           </div>
           <h1 className="font-['Bebas_Neue'] text-6xl sm:text-7xl lg:text-8xl text-white tracking-wide leading-none mb-4">{member.name}</h1>
           <p className="text-gray-300 text-lg max-w-lg font-light">Daigaku Karate Kai London</p>
@@ -101,7 +113,18 @@ export default async function MemberPage({ params }: { params: Promise<{ slug: s
 
           {/* Bio + Stats */}
           <div className="max-w-4xl">
-            <p className="text-[#a8201a] text-xs font-bold uppercase tracking-[0.2em] mb-3">{member.grade} &middot; {member.dan}</p>
+            <div className="flex items-center gap-3 mb-3 flex-wrap">
+              <p className="text-[#a8201a] text-xs font-bold uppercase tracking-[0.2em]">
+                {member.grade} &middot; {member.dan}
+                {gradeDescriptor[member.grade] && <span className="text-[#c9a96e] ml-2">&middot; {gradeDescriptor[member.grade]}</span>}
+              </p>
+              {member.instructor && (
+                <span className="px-2.5 py-1 bg-[#c9a96e]/15 border border-[#c9a96e]/30 text-[#c9a96e] text-[10px] font-bold uppercase tracking-wider rounded-sm">Instructor</span>
+              )}
+              {completed30Man && (
+                <span className="px-2.5 py-1 bg-[#a8201a]/10 border border-[#a8201a]/30 text-[#a8201a] text-[10px] font-bold uppercase tracking-wider rounded-sm">30 Man Kumite</span>
+              )}
+            </div>
             <h2 className="font-['Bebas_Neue'] text-4xl sm:text-5xl text-white tracking-wide leading-none mb-6">{member.name}</h2>
 
             {member.bio && (
@@ -131,27 +154,92 @@ export default async function MemberPage({ params }: { params: Promise<{ slug: s
             )}
           </div>
 
-          {/* Grading History */}
+          {/* Journey Timeline */}
           {member.milestones && member.milestones.length > 0 && (
             <div className="max-w-4xl mt-2">
-              <p className="text-[#a8201a] text-xs font-bold uppercase tracking-[0.2em] mb-4">Grading History</p>
-              <div className="flex flex-wrap gap-3">
-                {member.milestones.map((m, i) => (
-                  <div
-                    key={i}
-                    className={`px-4 py-3 rounded-sm border ${
-                      i === member.milestones!.length - 1
-                        ? "bg-[#a8201a]/10 border-[#a8201a]/30"
-                        : "bg-[#141311] border-white/5"
-                    }`}
-                  >
-                    <p className="text-white font-['Bebas_Neue'] text-xl tracking-wide leading-none">
-                      {m.year || "\u2014"}
-                    </p>
-                    <p className="text-gray-400 text-xs mt-1">{m.event}</p>
+              <p className="text-[#a8201a] text-xs font-bold uppercase tracking-[0.2em] mb-8">Journey</p>
+              <div className="relative ml-[5px]">
+                {/* Continuous vertical line */}
+                <div className="absolute left-0 top-[6px] bottom-[6px] w-px bg-gradient-to-b from-white/20 via-white/10 to-[#a8201a]/40" />
+                {member.milestones.map((m, i) => {
+                  const isLast = i === member.milestones!.length - 1;
+                  const is30Man = m.event.includes("30 Man Kumite");
+                  return (
+                    <div key={i} className="relative flex items-start gap-6 pb-10 last:pb-0">
+                      {/* Dot - centred on the line */}
+                      <div className="relative flex-shrink-0 w-[11px] h-[11px] -ml-[5px] mt-[3px]">
+                        <span className={`block w-full h-full rounded-full ${
+                          isLast
+                            ? "bg-[#a8201a] shadow-[0_0_8px_rgba(168,32,26,0.5)]"
+                            : is30Man
+                              ? "bg-[#c9a96e] shadow-[0_0_8px_rgba(176,141,87,0.4)]"
+                              : "bg-white/20"
+                        }`} />
+                        {(isLast || is30Man) && (
+                          <span className={`absolute inset-[-3px] rounded-full border ${
+                            isLast ? "border-[#a8201a]/30" : "border-[#c9a96e]/30"
+                          }`} />
+                        )}
+                      </div>
+                      {/* Content */}
+                      <div className="flex items-baseline gap-4 min-h-[1.5rem]">
+                        <p className={`font-['Bebas_Neue'] text-xl tracking-wide leading-none min-w-[3.5rem] ${
+                          isLast ? "text-[#a8201a]" : "text-white/80"
+                        }`}>
+                          {m.year || "\u2014"}
+                        </p>
+                        <div>
+                          <p className={`text-sm leading-tight ${isLast ? "text-white font-medium" : "text-gray-400"}`}>
+                            {m.event}
+                          </p>
+                          {is30Man && (
+                            <p className="text-[#c9a96e] text-[11px] mt-1 italic">30 consecutive fights without rest</p>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
+          {/* Classes They Run (instructors only) */}
+          {member.classes && member.classes.length > 0 && (
+            <div className="max-w-4xl mt-14 pt-10 border-t border-white/5">
+              <p className="text-[#c9a96e] text-xs font-bold uppercase tracking-[0.2em] mb-6">Classes Taught</p>
+              <div className="grid sm:grid-cols-2 gap-3">
+                {member.classes.map((c, i) => (
+                  <div key={i} className="p-5 bg-[#141311] border border-white/5 rounded-sm">
+                    <div className="flex items-start gap-3">
+                      {c.format === "zoom" ? (
+                        <Video className="text-[#c9a96e] flex-shrink-0 mt-0.5" size={18} />
+                      ) : (
+                        <Clock className="text-[#a8201a] flex-shrink-0 mt-0.5" size={18} />
+                      )}
+                      <div className="flex-1">
+                        <p className="text-white font-['Bebas_Neue'] text-xl tracking-wide leading-none">{c.day} · {c.time}</p>
+                        <p className="text-gray-400 text-sm mt-1 flex items-center gap-1.5">
+                          {c.format === "in-person" && <MapPin size={12} className="text-gray-500 flex-shrink-0" />}
+                          {c.venue}
+                        </p>
+                        {c.address && (
+                          c.mapUrl ? (
+                            <a href={c.mapUrl} target="_blank" rel="noopener noreferrer" className="text-[#a8201a] text-xs hover:underline inline-flex items-center gap-1 mt-1">
+                              {c.address} <ExternalLink size={10} />
+                            </a>
+                          ) : (
+                            <p className="text-gray-500 text-xs mt-1">{c.address}</p>
+                          )
+                        )}
+                      </div>
+                    </div>
                   </div>
                 ))}
               </div>
+              <Link href="/training" className="inline-flex items-center gap-2 mt-5 text-[#a8201a] font-semibold text-xs uppercase tracking-wider hover:gap-3 transition-all">
+                Full training schedule <ChevronRight size={14} />
+              </Link>
             </div>
           )}
 
@@ -206,29 +294,28 @@ export default async function MemberPage({ params }: { params: Promise<{ slug: s
       {/* Prev / Next */}
       <section className="bg-[#12110f] border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 divide-x divide-white/5">
-            <div className="py-6 pr-6">
-              {prev ? (
-                <Link href={`/yudansha/${prev.slug}`} className="group flex items-center gap-3">
-                  <ChevronLeft size={16} className="text-gray-600 group-hover:text-[#a8201a] transition-colors" />
-                  <div>
-                    <p className="text-gray-600 text-[10px] uppercase tracking-widest">Previous</p>
-                    <p className="text-gray-400 text-sm font-medium group-hover:text-white transition-colors">{prev.name}</p>
-                  </div>
-                </Link>
-              ) : <div />}
-            </div>
-            <div className="py-6 pl-6 text-right">
-              {next ? (
-                <Link href={`/yudansha/${next.slug}`} className="group inline-flex items-center gap-3">
-                  <div>
-                    <p className="text-gray-600 text-[10px] uppercase tracking-widest">Next</p>
-                    <p className="text-gray-400 text-sm font-medium group-hover:text-white transition-colors">{next.name}</p>
-                  </div>
-                  <ChevronRight size={16} className="text-gray-600 group-hover:text-[#a8201a] transition-colors" />
-                </Link>
-              ) : <div />}
-            </div>
+          <div className="flex items-center justify-between py-6 gap-4">
+            {prev ? (
+              <Link href={`/yudansha/${prev.slug}`} className="group flex items-center gap-3 min-w-0">
+                <ChevronLeft size={16} className="text-gray-600 group-hover:text-[#a8201a] transition-colors flex-shrink-0" />
+                <div className="min-w-0">
+                  <p className="text-gray-600 text-[10px] uppercase tracking-widest">Previous</p>
+                  <p className="text-gray-400 text-sm font-medium group-hover:text-white transition-colors truncate">{prev.name}</p>
+                </div>
+              </Link>
+            ) : <span />}
+            <Link href="/yudansha" className="hidden sm:inline-flex items-center gap-2 text-gray-600 hover:text-[#a8201a] text-[10px] uppercase tracking-widest font-bold transition-colors flex-shrink-0">
+              All Black Belts
+            </Link>
+            {next ? (
+              <Link href={`/yudansha/${next.slug}`} className="group flex items-center gap-3 min-w-0 text-right">
+                <div className="min-w-0">
+                  <p className="text-gray-600 text-[10px] uppercase tracking-widest">Next</p>
+                  <p className="text-gray-400 text-sm font-medium group-hover:text-white transition-colors truncate">{next.name}</p>
+                </div>
+                <ChevronRight size={16} className="text-gray-600 group-hover:text-[#a8201a] transition-colors flex-shrink-0" />
+              </Link>
+            ) : <span />}
           </div>
         </div>
       </section>

@@ -27,7 +27,7 @@ export default function Footer() {
             </p>
             <div className="mt-4">
               <SafeImage
-                src="/images/wusu.png"
+                src="/images/uwsu.png"
                 alt="Westminster Students' Union"
                 width={100}
                 height={40}

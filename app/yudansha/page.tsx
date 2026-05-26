@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import SafeImage from "@/components/SafeImage";
 import SectionHeading from "@/components/SectionHeading";
+import ParallaxImage from "@/components/ParallaxImage";
 import { grades, type Member } from "@/data/yudansha";
 
 export const metadata: Metadata = {
@@ -47,8 +48,11 @@ function MemberCard({ member, dan }: { member: Member; dan: string }) {
           </div>
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-        <div className="absolute top-3 right-3 px-2 py-0.5 bg-[#a8201a] rounded-sm">
-          <span className="text-white text-[10px] font-bold uppercase tracking-wider">{dan}</span>
+        <div className="absolute top-3 right-3 flex gap-1.5">
+          {member.instructor && (
+            <span className="px-2 py-0.5 bg-[#c9a96e] rounded-sm text-white text-[10px] font-bold uppercase tracking-wider">Instructor</span>
+          )}
+          <span className="px-2 py-0.5 bg-[#a8201a] rounded-sm text-white text-[10px] font-bold uppercase tracking-wider">{dan}</span>
         </div>
       </div>
 
@@ -65,6 +69,14 @@ function MemberCard({ member, dan }: { member: Member; dan: string }) {
   );
 }
 
+const gradeDescriptor: Record<string, string> = {
+  Godan: "Master Grade",
+  Yondan: "Weapons Grade",
+  Sandan: "Teaching Grade",
+  Nidan: "30 Man Kumite",
+  Shodan: "Black Belt",
+};
+
 export default function YudanshaPage() {
   const tunde = grades[0].members[0];
 
@@ -72,9 +84,7 @@ export default function YudanshaPage() {
     <>
       <section className="relative pt-40 pb-28 overflow-hidden">
         <div className="absolute inset-0 bg-black" />
-        <div className="absolute inset-0">
-          <SafeImage src="/images/Club/grading-group-red.JPG" alt="" fill className="object-cover object-center opacity-30" />
-        </div>
+        <ParallaxImage src="/images/Club/grading-group-red.JPG" className="object-cover object-center opacity-30" intensity={70} priority />
         <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-black/40" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0f0e0c] via-transparent to-black/60" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -103,21 +113,24 @@ export default function YudanshaPage() {
               <div className="w-2 h-8 bg-[#a8201a] rounded-sm" />
               <div>
                 <p className="text-[#a8201a] text-xs font-bold uppercase tracking-[0.2em]">Godan</p>
-                <h2 className="font-['Bebas_Neue'] text-3xl text-white tracking-wide">5th Dan</h2>
+                <h2 className="font-['Bebas_Neue'] text-3xl text-white tracking-wide">5th Dan <span className="text-gray-500 text-lg tracking-widest">· {gradeDescriptor.Godan}</span></h2>
               </div>
             </div>
 
             <Link href={`/yudansha/${tunde.slug}`} className="block">
               <div className="grid lg:grid-cols-4 gap-0 bg-[#141311] border border-[#a8201a]/20 rounded-sm overflow-hidden hover:border-[#a8201a]/40 transition-all duration-300 group">
-                <div className="relative w-full" style={{ aspectRatio: "3/4" }}>
+                <div className="relative w-full max-h-[400px]" style={{ aspectRatio: "4/5" }}>
                   {tunde.portrait && (
-                    <SafeImage src={tunde.portrait} alt={tunde.name} fill className="object-cover object-center group-hover:scale-105 transition-transform duration-500" />
+                    <SafeImage src={tunde.portrait} alt={tunde.name} fill className="object-cover object-top group-hover:scale-105 transition-transform duration-500" />
                   )}
                 </div>
                 <div className="lg:col-span-3 p-8 flex flex-col justify-center">
-                  <div className="inline-flex items-center gap-2 mb-3">
+                  <div className="inline-flex items-center gap-2 mb-3 flex-wrap">
                     <span className="px-2 py-0.5 bg-[#a8201a] text-white text-xs font-bold uppercase tracking-wider rounded-sm">5th Dan</span>
                     <span className="text-[#a8201a] text-xs uppercase tracking-wider">Godan</span>
+                    {tunde.instructor && (
+                      <span className="px-2 py-0.5 bg-[#c9a96e] text-white text-xs font-bold uppercase tracking-wider rounded-sm">Instructor</span>
+                    )}
                   </div>
                   <p className="font-['Bebas_Neue'] text-4xl text-white tracking-wide mb-4">{tunde.name}</p>
                   <p className="text-gray-400 text-sm leading-relaxed mb-5">{tunde.bio}</p>
@@ -138,12 +151,22 @@ export default function YudanshaPage() {
                 <div className="w-2 h-8 bg-[#a8201a]/60 rounded-sm" />
                 <div>
                   <p className="text-[#a8201a] text-xs font-bold uppercase tracking-[0.2em]">{tier.grade}</p>
-                  <h2 className="font-['Bebas_Neue'] text-3xl text-white tracking-wide">{tier.dan}</h2>
+                  <h2 className="font-['Bebas_Neue'] text-3xl text-white tracking-wide">
+                    {tier.dan}
+                    {gradeDescriptor[tier.grade] && (
+                      <span className="text-gray-500 text-lg tracking-widest"> · {gradeDescriptor[tier.grade]}</span>
+                    )}
+                  </h2>
                 </div>
               </div>
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+              <div className="flex flex-wrap justify-center gap-4">
                 {tier.members.map((member) => (
-                  <MemberCard key={member.name} member={member} dan={tier.dan} />
+                  <div
+                    key={member.name}
+                    className="w-[calc(50%-0.5rem)] sm:w-[calc(33.333%-0.667rem)] lg:w-[calc(25%-0.75rem)]"
+                  >
+                    <MemberCard member={member} dan={tier.dan} />
+                  </div>
                 ))}
               </div>
             </div>

@@ -48,12 +48,14 @@ export default function VideoShowcase() {
             <video
               ref={videoRef}
               className="w-full h-full object-cover"
-              src="/videos/dkk_training.mp4"
               poster="/images/video-poster.jpg"
               controls={started}
               playsInline
               preload="metadata"
-            />
+            >
+              <source src="/videos/dkk_training.webm" type="video/webm" />
+              <source src="/videos/dkk_training.mp4" type="video/mp4" />
+            </video>
 
             {/* Pre-play overlay */}
             {!started && (

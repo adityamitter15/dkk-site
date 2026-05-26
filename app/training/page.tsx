@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ChevronRight, Clock, MapPin, Users, BookOpen, Award, HelpCircle, TreePine, Flame } from "lucide-react";
+import { ChevronRight, Clock, MapPin, Users, BookOpen, Award, HelpCircle, TreePine, Flame, Video, ExternalLink } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
 import SafeImage from "@/components/SafeImage";
+import ParallaxImage from "@/components/ParallaxImage";
 
 export const metadata: Metadata = {
   title: "Training",
@@ -15,9 +16,7 @@ export default function TrainingPage() {
       {/* Hero - split layout with action photo */}
       <section className="relative pt-40 pb-28 overflow-hidden">
         <div className="absolute inset-0 bg-black" />
-        <div className="absolute inset-0">
-          <SafeImage src="/images/Training/padwork-overhead.jpg" alt="" fill className="object-cover object-center opacity-35" />
-        </div>
+        <ParallaxImage src="/images/Training/kumite-high-kick.jpg" className="object-cover object-center opacity-45" intensity={70} priority />
         <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0f0e0c] via-transparent to-black/60" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -32,12 +31,12 @@ export default function TrainingPage() {
         </div>
       </section>
 
-      {/* Schedule + location with image */}
+      {/* Main Dojo - Westminster */}
       <section className="py-20 lg:py-28 bg-[#0f0e0c]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
+          <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-stretch">
             <div>
-              <SectionHeading eyebrow="Class Times" title="When We Train" />
+              <SectionHeading eyebrow="Main Dojo" title="When We Train" />
               <div className="space-y-3 mb-8">
                 {[
                   { day: "Monday", time: "6:00pm – 8:00pm" },
@@ -62,8 +61,8 @@ export default function TrainingPage() {
               </div>
             </div>
 
-            <div className="relative">
-              <div className="aspect-[4/3] relative rounded-sm overflow-hidden bg-[#141311]">
+            <div className="relative aspect-[4/3] lg:aspect-auto lg:min-h-full">
+              <div className="absolute inset-0 rounded-sm overflow-hidden bg-[#141311]">
                 <SafeImage src="/images/Training/dojo-sparring.JPG" alt="DKK training - sparring in the dojo" fill className="object-cover object-center" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                 <div className="absolute bottom-4 left-4">
@@ -77,10 +76,129 @@ export default function TrainingPage() {
         </div>
       </section>
 
+      {/* Affiliated DKK Classes */}
+      <section className="py-20 lg:py-28 bg-black border-t border-white/5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <p className="inline-flex items-center gap-2 text-[#c9a96e] text-xs font-bold uppercase tracking-[0.35em] mb-4">
+              <span className="w-6 h-px bg-[#c9a96e]" />
+              Affiliated DKK Classes
+              <span className="w-6 h-px bg-[#c9a96e]" />
+            </p>
+            <h2 className="font-['Bebas_Neue'] text-5xl sm:text-6xl text-white tracking-wide leading-none">Train Across the Network</h2>
+            <p className="text-gray-400 text-sm mt-3 max-w-2xl mx-auto">DKK instructors run additional classes in Oxfordshire and North London, plus online sessions on Zoom. All members are welcome at any session.</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {/* Simon Clinch - Oxfordshire */}
+            <div className="bg-[#141311] border border-white/5 rounded-sm overflow-hidden">
+              <div className="p-6 border-b border-white/5 flex items-center gap-4">
+                <div className="relative w-14 h-14 rounded-sm overflow-hidden bg-black flex-shrink-0">
+                  <SafeImage src="/images/Yudansha/simon_clinch_studio.jpg" alt="Simon Clinch" fill className="object-cover object-top" />
+                </div>
+                <div>
+                  <p className="text-[#c9a96e] text-[10px] uppercase tracking-[0.2em] font-bold">Instructor</p>
+                  <Link href="/yudansha/simon-clinch" className="font-['Bebas_Neue'] text-2xl tracking-wide text-white hover:text-[#c9a96e] transition-colors inline-flex items-center gap-1.5">
+                    Simon Clinch <ChevronRight size={14} />
+                  </Link>
+                  <p className="text-gray-500 text-xs">Oxfordshire · 4th Dan</p>
+                </div>
+              </div>
+              <div className="p-6 space-y-4">
+                <div className="flex gap-4">
+                  <Clock className="text-[#a8201a] flex-shrink-0 mt-0.5" size={18} />
+                  <div className="flex-1">
+                    <p className="text-white font-['Bebas_Neue'] text-xl tracking-wide leading-none">Monday · 7:00pm – 8:30pm</p>
+                    <p className="text-gray-400 text-sm mt-1">Oakley Village Hall</p>
+                    <a href="https://maps.app.goo.gl/jnqjMNQKbRCm6fmCA" target="_blank" rel="noopener noreferrer" className="text-[#a8201a] text-xs hover:underline inline-flex items-center gap-1 mt-0.5">
+                      9 Oxford Road, Oakley, Bucks, HP18 9RS <ExternalLink size={10} />
+                    </a>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <Clock className="text-[#a8201a] flex-shrink-0 mt-0.5" size={18} />
+                  <div className="flex-1">
+                    <p className="text-white font-['Bebas_Neue'] text-xl tracking-wide leading-none">Thursday · 7:30pm – 9:00pm</p>
+                    <p className="text-gray-400 text-sm mt-1">Brill Memorial Hall</p>
+                    <a href="https://maps.app.goo.gl/JRbY289Y33ocM4sm6" target="_blank" rel="noopener noreferrer" className="text-[#a8201a] text-xs hover:underline inline-flex items-center gap-1 mt-0.5">
+                      19 Church St, Brill, Aylesbury HP18 9RT <ExternalLink size={10} />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Ragi Marmar - North London */}
+            <div className="bg-[#141311] border border-white/5 rounded-sm overflow-hidden">
+              <div className="p-6 border-b border-white/5 flex items-center gap-4">
+                <div className="relative w-14 h-14 rounded-sm overflow-hidden bg-black flex-shrink-0">
+                  <SafeImage src="/images/Yudansha/ragi1.jpeg" alt="Ragi Marmar" fill className="object-cover object-top" />
+                </div>
+                <div>
+                  <p className="text-[#c9a96e] text-[10px] uppercase tracking-[0.2em] font-bold">Instructor</p>
+                  <Link href="/yudansha/ragi-marmar" className="font-['Bebas_Neue'] text-2xl tracking-wide text-white hover:text-[#c9a96e] transition-colors inline-flex items-center gap-1.5">
+                    Ragi Marmar <ChevronRight size={14} />
+                  </Link>
+                  <p className="text-gray-500 text-xs">North London · 4th Dan</p>
+                </div>
+              </div>
+              <div className="p-6 space-y-4">
+                <div className="flex gap-4">
+                  <Clock className="text-[#a8201a] flex-shrink-0 mt-0.5" size={18} />
+                  <div className="flex-1">
+                    <p className="text-white font-['Bebas_Neue'] text-xl tracking-wide leading-none">Thursday · 6:15pm – 8:00pm</p>
+                    <p className="text-gray-400 text-sm mt-1">St Andrew&apos;s C of E School</p>
+                    <a href="https://maps.app.goo.gl/1Jw7TbaSNBR44MBt5" target="_blank" rel="noopener noreferrer" className="text-[#a8201a] text-xs hover:underline inline-flex items-center gap-1 mt-0.5">
+                      The Green, Totteridge, London N20 8NX <ExternalLink size={10} />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Tunde Oladimeji - Online Zoom */}
+            <div className="bg-[#141311] border border-white/5 rounded-sm overflow-hidden md:col-span-2">
+              <div className="p-6 border-b border-white/5 flex items-center gap-4">
+                <div className="relative w-14 h-14 rounded-sm overflow-hidden bg-black flex-shrink-0">
+                  <SafeImage src="/images/Yudansha/Tundepot.gif" alt="Tunde Oladimeji" fill className="object-cover object-top" />
+                </div>
+                <div>
+                  <p className="text-[#c9a96e] text-[10px] uppercase tracking-[0.2em] font-bold">Instructor</p>
+                  <Link href="/yudansha/tunde-oladimeji" className="font-['Bebas_Neue'] text-2xl tracking-wide text-white hover:text-[#c9a96e] transition-colors inline-flex items-center gap-1.5">
+                    Tunde Oladimeji <ChevronRight size={14} />
+                  </Link>
+                  <p className="text-gray-500 text-xs">Online · 5th Dan</p>
+                </div>
+              </div>
+              <div className="p-6 grid sm:grid-cols-2 gap-4">
+                <div className="flex gap-4">
+                  <Video className="text-[#c9a96e] flex-shrink-0 mt-0.5" size={18} />
+                  <div className="flex-1">
+                    <p className="text-white font-['Bebas_Neue'] text-xl tracking-wide leading-none">Monday · 6:15pm – 7:15pm</p>
+                    <p className="text-gray-400 text-sm mt-1">Zoom · online session</p>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <Video className="text-[#c9a96e] flex-shrink-0 mt-0.5" size={18} />
+                  <div className="flex-1">
+                    <p className="text-white font-['Bebas_Neue'] text-xl tracking-wide leading-none">Friday · 6:00pm – 7:00pm</p>
+                    <p className="text-gray-400 text-sm mt-1">Zoom · online session</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p className="text-gray-600 text-xs text-center mt-8">
+            All DKK members are welcome at any affiliated session. <Link href="/contact" className="text-[#a8201a] hover:underline">Contact us</Link> for Zoom access or to confirm attendance.
+          </p>
+        </div>
+      </section>
+
       {/* Syllabus - with chishi image */}
       <section className="py-20 lg:py-28 bg-[#12110f]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-start">
+          <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
             <div>
               <SectionHeading eyebrow="Syllabus" title="What We Cover" />
               <p className="text-gray-400 leading-relaxed mb-8 max-w-md">
@@ -106,23 +224,13 @@ export default function TrainingPage() {
               </div>
             </div>
 
-            <div className="space-y-4">
-              <div className="relative rounded-sm overflow-hidden bg-[#141311]" style={{ aspectRatio: "4/3" }}>
-                <SafeImage src="/images/Chishi2.jpg" alt="Chishi - traditional Okinawan conditioning" fill className="object-cover object-top" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />
-                <div className="absolute bottom-4 left-4 right-4">
-                  <p className="text-[#a8201a] text-[10px] uppercase tracking-[0.2em] mb-0.5">Hojo Undo</p>
-                  <p className="text-white font-['Bebas_Neue'] text-xl tracking-wide">Traditional Conditioning</p>
-                  <p className="text-gray-400 text-xs mt-0.5">The chishi, an Okinawan training tool used for centuries to develop strength and technique</p>
-                </div>
-              </div>
-              <div className="relative rounded-sm overflow-hidden bg-[#141311]" style={{ aspectRatio: "3/2" }}>
-                <SafeImage src="/images/GavThrowDom.jpg" alt="Throwing technique - Nage Waza" fill className="object-cover object-top" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-                <div className="absolute bottom-4 left-4">
-                  <p className="text-[#a8201a] text-[10px] uppercase tracking-[0.2em] mb-0.5">Nage Waza</p>
-                  <p className="text-white font-['Bebas_Neue'] text-xl tracking-wide">Throwing Technique</p>
-                </div>
+            <div className="relative rounded-sm overflow-hidden bg-[#141311]" style={{ aspectRatio: "3/4" }}>
+              <SafeImage src="/images/Chishi2.jpg" alt="Chishi - traditional Okinawan conditioning" fill className="object-cover object-top" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
+              <div className="absolute bottom-6 left-6 right-6">
+                <p className="text-[#a8201a] text-[10px] uppercase tracking-[0.25em] mb-1">Hojo Undo</p>
+                <p className="text-white font-['Bebas_Neue'] text-3xl tracking-wide leading-tight mb-2">Traditional Conditioning</p>
+                <p className="text-gray-300 text-sm leading-relaxed">The chishi - an Okinawan training tool used for centuries to forge the strength behind authentic technique.</p>
               </div>
             </div>
           </div>
@@ -173,7 +281,7 @@ export default function TrainingPage() {
       {/* ── SUMMER CAMP ──────────────────────────────────────── */}
       <section className="py-20 lg:py-28 bg-[#12110f] border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-start">
+          <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-stretch">
             <div>
               <SectionHeading eyebrow="Annual Event" title="Summer Camp" />
               <p className="text-gray-400 leading-relaxed mb-5">
@@ -201,7 +309,7 @@ export default function TrainingPage() {
               </div>
             </div>
 
-            <div className="space-y-4">
+            <div className="flex flex-col gap-4 lg:min-h-full">
               <div className="relative rounded-sm overflow-hidden bg-[#141311] aspect-[4/3]">
                 <SafeImage src="/images/Camp/outdoor-kata-dynamic.JPG" alt="Outdoor kata at summer camp" fill className="object-cover object-center" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
@@ -212,7 +320,7 @@ export default function TrainingPage() {
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div className="relative rounded-sm overflow-hidden bg-[#141311] aspect-square">
-                  <SafeImage src="/images/Camp/bo-staff-sunflare.JPG" alt="Bo staff at sunrise" fill className="object-cover object-center" />
+                  <SafeImage src="/images/Camp/camp-padwork-outdoor.jpg" alt="Outdoor padwork at camp" fill className="object-cover object-center" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                 </div>
                 <div className="relative rounded-sm overflow-hidden bg-[#141311] aspect-square">
@@ -220,8 +328,8 @@ export default function TrainingPage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                 </div>
               </div>
-              <div className="relative rounded-sm overflow-hidden bg-[#141311] aspect-[3/1]">
-                <SafeImage src="/images/Camp/summer-camp-panoramic.JPG" alt="Summer camp panoramic" fill className="object-cover object-center" />
+              <div className="relative rounded-sm overflow-hidden bg-[#141311] aspect-[3/1] lg:aspect-auto lg:flex-1 lg:min-h-[120px]">
+                <SafeImage src="/images/Camp/summer-camp-panoramic.JPG" alt="Summer camp panoramic - the full DKK family" fill className="object-cover object-center" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                 <div className="absolute bottom-3 left-4">
                   <p className="text-white font-['Bebas_Neue'] text-lg tracking-wide">The Full DKK Family</p>
@@ -246,7 +354,7 @@ export default function TrainingPage() {
               The test for Nidan (2nd Dan) at DKK. 30 minutes of full-contact kumite, fighting 30 opponents for one minute each with no rest. Upon completion, the student is awarded the coveted black dogi.
             </p>
           </div>
-          <div className="grid sm:grid-cols-3 gap-5 max-w-3xl mx-auto">
+          <div className="grid sm:grid-cols-3 gap-5 max-w-3xl mx-auto mb-16">
             {[
               { value: "30", label: "Opponents", sub: "One minute each" },
               { value: "30", label: "Minutes", sub: "No rest between rounds" },
@@ -260,14 +368,42 @@ export default function TrainingPage() {
               </div>
             ))}
           </div>
+
+          {/* Beyond Nidan - the full dan progression */}
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-10">
+              <p className="inline-flex items-center gap-2 text-[#c9a96e] text-xs font-bold uppercase tracking-[0.35em] mb-3">
+                <span className="w-6 h-px bg-[#c9a96e]" />
+                Beyond Nidan
+                <span className="w-6 h-px bg-[#c9a96e]" />
+              </p>
+              <h3 className="font-['Bebas_Neue'] text-3xl sm:text-4xl text-white tracking-wide leading-none">The Black Belt Journey</h3>
+              <p className="text-gray-500 text-sm mt-3 max-w-xl mx-auto">Each dan grade at DKK carries a distinct requirement and responsibility.</p>
+            </div>
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+              {[
+                { grade: "Nidan", dan: "2nd Dan", descriptor: "30 Man Kumite", sub: "Combat endurance", accent: "#a8201a" },
+                { grade: "Sandan", dan: "3rd Dan", descriptor: "Teaching Grade", sub: "Ability to instruct", accent: "#c9a96e" },
+                { grade: "Yondan", dan: "4th Dan", descriptor: "Weapons Grade", sub: "Okinawan kobudo", accent: "#c9a96e" },
+                { grade: "Godan", dan: "5th Dan", descriptor: "Master Grade", sub: "Decades of service", accent: "#c9a96e" },
+              ].map((g) => (
+                <div key={g.grade} className="p-5 bg-[#141311] border border-white/5 rounded-sm text-center hover:border-white/10 transition-colors">
+                  <p className="text-[10px] uppercase tracking-[0.2em] font-bold mb-1" style={{ color: g.accent }}>{g.grade}</p>
+                  <p className="font-['Bebas_Neue'] text-2xl text-white tracking-wide leading-none">{g.dan}</p>
+                  <p className="text-white text-sm font-medium mt-3">{g.descriptor}</p>
+                  <p className="text-gray-500 text-xs mt-0.5">{g.sub}</p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
       {/* ── CAMP PHOTO STRIP ──────────────────────────────────── */}
-      <section className="relative h-64 sm:h-80 overflow-hidden">
-        <div className="grid grid-cols-4 h-full">
+      <section className="relative h-[32rem] sm:h-80 overflow-hidden">
+        <div className="grid grid-cols-2 sm:grid-cols-4 h-full">
           {[
-            { src: "/images/Camp/summer-camp-group.JPG", alt: "Summer camp group" },
+            { src: "/images/Camp/camp-lineup-trees.jpg", alt: "Summer camp lineup" },
             { src: "/images/Camp/pushups-outdoors.JPG", alt: "Outdoor conditioning" },
             { src: "/images/Camp/grading-certificates.JPG", alt: "Summer camp grading" },
             { src: "/images/Camp/black-belts-fists.JPG", alt: "Black belts at camp" },

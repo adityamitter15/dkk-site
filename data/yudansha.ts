@@ -3,6 +3,15 @@ export type Milestone = {
   event: string;
 };
 
+export type ClassSchedule = {
+  day: string;
+  time: string;
+  venue: string;
+  address?: string;
+  mapUrl?: string;
+  format: "in-person" | "zoom";
+};
+
 export type Member = {
   name: string;
   slug: string;
@@ -11,6 +20,8 @@ export type Member = {
   bio?: string;
   quote?: string;
   milestones?: Milestone[];
+  instructor?: boolean;
+  classes?: ClassSchedule[];
 };
 
 export type GradeTier = {
@@ -35,6 +46,7 @@ export const grades: GradeTier[] = [
         action: "/images/Yudansha/tundeact.gif",
         bio: "Tunde began karate training in 1998 during his final year as an undergraduate at the University of Westminster. While primarily trained in Goju Ryu, he has studied under multiple karate systems.",
         quote: "I believe one should train to the point where the whole combat process becomes natural and its application seemingly 'planned' and 'calculated'. I consider it a privilege to train with the calibre of people in the club.",
+        instructor: true,
         milestones: [
           { year: "1998", event: "Began Training" },
           { year: "2004", event: "Shodan" },
@@ -42,6 +54,10 @@ export const grades: GradeTier[] = [
           { year: "2011", event: "Sandan" },
           { year: "2017", event: "Yondan" },
           { year: "", event: "Godan" },
+        ],
+        classes: [
+          { day: "Monday", time: "6:15pm – 7:15pm", venue: "Zoom · online session", format: "zoom" },
+          { day: "Friday",  time: "6:00pm – 7:00pm", venue: "Zoom · online session", format: "zoom" },
         ],
       },
     ],
@@ -72,6 +88,7 @@ export const grades: GradeTier[] = [
         action: "/images/Yudansha/ragi2.jpeg",
         bio: "Ragi began her Goju Ryu training in 2001 under Sensei Gavin Mulholland at Daigaku's Westminster Dojo.",
         quote: "Karate is a major part of my life and has had a positive impact on the way it is shaped. Through karate I have learnt that nothing is too difficult or distant for the mind that dares to believe.",
+        instructor: true,
         milestones: [
           { year: "2001", event: "Began Training" },
           { year: "2009", event: "Shodan-Ho" },
@@ -80,14 +97,18 @@ export const grades: GradeTier[] = [
           { year: "2016", event: "Sandan" },
           { year: "2021", event: "Yondan" },
         ],
+        classes: [
+          { day: "Thursday", time: "6:15pm – 8:00pm", venue: "St Andrew's C of E School", address: "The Green, Totteridge, London N20 8NX", mapUrl: "https://maps.app.goo.gl/1Jw7TbaSNBR44MBt5", format: "in-person" },
+        ],
       },
       {
         name: "Simon Clinch",
         slug: toSlug("Simon Clinch"),
-        portrait: "/images/Yudansha/simon_clinch1.jpg",
-        action: "/images/Yudansha/simon_clinch2.jpg",
+        portrait: "/images/Yudansha/simon_clinch_studio.jpg",
+        action: "/images/Yudansha/simon_clinch_weapons.jpg",
         bio: "Simon began karate at his school's Shotokan club, achieving Shodan at age 18. After joining DKK in 2008, he progressed steadily through the ranks.",
         quote: "Training with the DKK has broadened my understanding of what it means to be a martial artist. Shihan Mulholland has shown that one must constantly learn from others.",
+        instructor: true,
         milestones: [
           { year: "2008", event: "Joined DKK" },
           { year: "2009", event: "Shodan-Ho" },
@@ -95,6 +116,10 @@ export const grades: GradeTier[] = [
           { year: "2013", event: "30 Man Kumite & Nidan" },
           { year: "2016", event: "Sandan" },
           { year: "2021", event: "Yondan" },
+        ],
+        classes: [
+          { day: "Monday",   time: "7:00pm – 8:30pm", venue: "Oakley Village Hall",    address: "9 Oxford Road, Oakley, Bucks, HP18 9RS", mapUrl: "https://maps.app.goo.gl/jnqjMNQKbRCm6fmCA", format: "in-person" },
+          { day: "Thursday", time: "7:30pm – 9:00pm", venue: "Brill Memorial Hall",   address: "19 Church St, Brill, Aylesbury HP18 9RT", mapUrl: "https://maps.app.goo.gl/JRbY289Y33ocM4sm6", format: "in-person" },
         ],
       },
       {
@@ -145,7 +170,7 @@ export const grades: GradeTier[] = [
           { year: "2011", event: "Shodan-Ho (DKK)" },
           { year: "2012", event: "Shodan" },
           { year: "2014", event: "30 Man Kumite & Nidan" },
-          { year: "", event: "Sandan" },
+          { year: "2024", event: "Sandan" },
         ],
       },
       {
@@ -165,8 +190,8 @@ export const grades: GradeTier[] = [
       {
         name: "Laila Al-Minyawi",
         slug: toSlug("Laila Al-Minyawi"),
-        portrait: "/images/Yudansha/laila.jpeg",
-        action: null,
+        portrait: "/images/Yudansha/laila_bo.jpg",
+        action: "/images/Yudansha/laila.jpeg",
         bio: "Laila began karate as a child and rejoined at university in 2005 with a Shotokan club, transferring to DKK in 2007.",
         quote: "I wanted to train where my fitness was challenged while learning self-protection. DKK provided that and taught me control, inner strength, resilience, and how to surpass my own limits.",
         milestones: [
@@ -204,7 +229,7 @@ export const grades: GradeTier[] = [
           { year: "2009", event: "Shodan-Ho" },
           { year: "2010", event: "Shodan" },
           { year: "2015", event: "30 Man Kumite & Nidan" },
-          { year: "", event: "Sandan" },
+          { year: "2024", event: "Sandan" },
         ],
       },
       {
@@ -217,7 +242,7 @@ export const grades: GradeTier[] = [
         milestones: [
           { year: "2005", event: "Shodan-Ho" },
           { year: "2006", event: "Shodan" },
-          { year: "2015", event: "Sandan" },
+          { year: "2024", event: "Sandan" },
         ],
       },
     ],
@@ -238,20 +263,6 @@ export const grades: GradeTier[] = [
           { year: "2015", event: "Shodan-Ho" },
           { year: "2016", event: "Shodan" },
           { year: "2019", event: "30 Man Kumite & Nidan" },
-        ],
-      },
-      {
-        name: "Daniel Bradley",
-        slug: toSlug("Daniel Bradley"),
-        portrait: "/images/Yudansha/photo1.JPG",
-        action: "/images/Yudansha/photo2.JPG",
-        bio: "Daniel trained in Judo as a child before exploring various karate clubs as an adult. He joined DKK in 2007.",
-        quote: "From the first class, training with DKK was a kick to the gut, both literally and metaphorically. The sweet thrill of fear I feel walking into the dojo is a big part of what I love about it.",
-        milestones: [
-          { year: "2007", event: "Joined DKK" },
-          { year: "2013", event: "Shodan-Ho" },
-          { year: "2014", event: "Shodan" },
-          { year: "2017", event: "30 Man Kumite & Nidan" },
         ],
       },
       {
@@ -296,6 +307,42 @@ export const grades: GradeTier[] = [
         ],
       },
       {
+        name: "James Tolson",
+        slug: toSlug("James Tolson"),
+        portrait: "/images/Yudansha/james_tolson_sparring.jpg",
+        action: null,
+        milestones: [
+          { year: "", event: "Nidan" },
+        ],
+      },
+      {
+        name: "Glenn Malpass",
+        slug: toSlug("Glenn Malpass"),
+        portrait: "/images/Yudansha/glenn_sidney_nidan.jpg",
+        action: "/images/Yudansha/glenn_malpass_early90s.jpeg",
+        bio: "Glenn began training in Goju Ryu at age 14 in Canvey Island. At the University of Westminster he connected with Sensei Mulholland. After relocating to Oxford his training became sporadic until resuming contact during pandemic online sessions.",
+        quote: "Training was always meaningful, hard, and developed spirit. The skills I learnt augmented my physical techniques in every other sport I still play today.",
+        milestones: [
+          { year: "1998", event: "Shodan-Ho" },
+          { year: "2021", event: "Full Shodan" },
+          { year: "", event: "Nidan" },
+        ],
+      },
+      {
+        name: "Sidney Ushurhe",
+        slug: toSlug("Sidney Ushurhe"),
+        portrait: "/images/Yudansha/sidney1.jpg",
+        action: "/images/Yudansha/glenn_sidney_nidan.jpg",
+        bio: "Sidney began training in Goju Ryu karate in 2005, joining DKK London that year. He describes his first class as transformative despite initial nerves about sparring with a much larger partner.",
+        quote: "The fight-or-flee rush of my first class isn't one I'll easily ever forget. I found myself replaying every movement in my head over and over again like a movie.",
+        milestones: [
+          { year: "2005", event: "Joined DKK" },
+          { year: "2020", event: "Shodan-Ho" },
+          { year: "2022", event: "Full Shodan" },
+          { year: "", event: "Nidan" },
+        ],
+      },
+      {
         name: "Mizuki Murai",
         slug: toSlug("Mizuki Murai"),
         portrait: "/images/Yudansha/miki1.jpg",
@@ -309,6 +356,15 @@ export const grades: GradeTier[] = [
           { year: "2021", event: "Nidan" },
         ],
       },
+      {
+        name: "Lina Amir",
+        slug: toSlug("Lina Amir"),
+        portrait: null,
+        action: null,
+        milestones: [
+          { year: "", event: "Nidan" },
+        ],
+      },
     ],
   },
   {
@@ -318,7 +374,7 @@ export const grades: GradeTier[] = [
       {
         name: "Alex Haslehurst",
         slug: toSlug("Alex Haslehurst"),
-        portrait: null,
+        portrait: "/images/Yudansha/alex_haslehurst.jpg",
         action: null,
       },
       {
@@ -335,22 +391,10 @@ export const grades: GradeTier[] = [
         ],
       },
       {
-        name: "Glenn Malpass",
-        slug: toSlug("Glenn Malpass"),
-        portrait: null,
-        action: null,
-        bio: "Glenn began training in Goju Ryu at age 14 in Canvey Island. At the University of Westminster he connected with Sensei Mulholland. After relocating to Oxford his training became sporadic until resuming contact during pandemic online sessions.",
-        quote: "Training was always meaningful, hard, and developed spirit. The skills I learnt augmented my physical techniques in every other sport I still play today.",
-        milestones: [
-          { year: "1998", event: "Shodan-Ho" },
-          { year: "2021", event: "Full Shodan" },
-        ],
-      },
-      {
         name: "Mark Haslehurst",
         slug: toSlug("Mark Haslehurst"),
         portrait: "/images/Yudansha/mark_haslehurst1.jpeg",
-        action: "/images/Yudansha/mark_haslehurst2.jpeg",
+        action: "/images/Yudansha/mark_haslehurst_breaking.png",
         bio: "Mark started training under Shihan Lewis between 2006 and 2010 while studying in Bristol and rejoined DKK under Shihan Mulholland in 2017.",
         quote: undefined,
         milestones: [
@@ -358,19 +402,6 @@ export const grades: GradeTier[] = [
           { year: "2017", event: "Rejoined DKK London" },
           { year: "2018", event: "DKK Badge" },
           { year: "2023", event: "Shodan" },
-        ],
-      },
-      {
-        name: "Sidney Ushurhe",
-        slug: toSlug("Sidney Ushurhe"),
-        portrait: "/images/Yudansha/sidney1.jpg",
-        action: "/images/Yudansha/sidney2.jpg",
-        bio: "Sidney began training in Goju Ryu karate in 2005, joining DKK London that year. He describes his first class as transformative despite initial nerves about sparring with a much larger partner.",
-        quote: "The fight-or-flee rush of my first class isn't one I'll easily ever forget. I found myself replaying every movement in my head over and over again like a movie.",
-        milestones: [
-          { year: "2005", event: "Joined DKK" },
-          { year: "2020", event: "Shodan-Ho" },
-          { year: "2022", event: "Full Shodan" },
         ],
       },
     ],
