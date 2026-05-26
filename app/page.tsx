@@ -175,8 +175,8 @@ export default function Home() {
       </section>
 
       {/* ── PHOTO STRIP - VISUAL BREAK ──────────────────────── */}
-      <section className="relative h-64 sm:h-80 lg:h-96 overflow-hidden">
-        <div className="grid grid-cols-3 h-full">
+      <section className="relative h-80 sm:h-80 lg:h-96 overflow-hidden">
+        <div className="grid grid-cols-1 sm:grid-cols-3 h-full">
           <div className="relative overflow-hidden">
             <SafeImage src="/images/Training/kumite-high-kick.jpg" alt="Kumite in the dojo" fill className="object-cover hover:scale-105 transition-transform duration-700" />
           </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 import { motion, useScroll, useTransform, useReducedMotion } from "motion/react";
 import SafeImage from "@/components/SafeImage";
 
@@ -29,13 +29,20 @@ export default function ParallaxImage({
 }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
   const reduced = useReducedMotion();
+  const [isTouch, setIsTouch] = useState(false);
+
+  useEffect(() => {
+    setIsTouch(window.matchMedia("(hover: none) and (pointer: coarse)").matches);
+  }, []);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"],
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], reduced ? [0, 0] : [-intensity, intensity]);
+  // Disable parallax on touch devices — scroll-tied transforms cause jank on touch scroll
+  const effectiveIntensity = reduced || isTouch ? 0 : intensity;
+  const y = useTransform(scrollYProgress, [0, 1], [-effectiveIntensity, effectiveIntensity]);
 
   return (
     <div ref={containerRef} className="absolute inset-0 overflow-hidden">

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function ShihanPage() {
   return (
     <>
-      <section className="relative pt-40 pb-28 overflow-hidden">
+      <section className="relative pt-28 pb-16 sm:pt-40 sm:pb-28 overflow-hidden">
         <ParallaxImage src="/images/Shihan/shihan-bo-black.jpg" className="object-cover object-top opacity-45" intensity={70} priority />
         <div className="absolute inset-0 bg-gradient-to-r from-[#0f0e0c]/95 via-[#0f0e0c]/70 to-[#0f0e0c]/30" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0f0e0c] via-transparent to-[#0f0e0c]/40" />

@@ -94,7 +94,7 @@ const chapters: Chapter[] = [
 export default function HistoryPage() {
   return (
     <>
-      <section className="relative pt-40 pb-28 overflow-hidden">
+      <section className="relative pt-28 pb-16 sm:pt-40 sm:pb-28 overflow-hidden">
         <div className="absolute inset-0 bg-[#0a0907]" />
         <ParallaxImage src="/images/Site/archive-1982-group-rising-sun.jpg" className="object-cover object-center opacity-55" intensity={70} priority />
         <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/50 to-black/30" />

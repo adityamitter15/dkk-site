@@ -17,6 +17,19 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: 'Inter', sans-serif;
+  /* Bottom padding so the sticky mobile CTA doesn't cover footer content */
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* Disable text size adjustment on iOS landscape */
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Better touch defaults */
+button, a {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 h1, h2, h3, .heading {
@@ -81,6 +94,13 @@ html {
     filter: none;
     transition: none;
   }
+}
+
+/* Yudansha card: on touch devices, alternate portrait/action with slow pulse */
+@keyframes fade-pulse {
+  0%, 45% { opacity: 1; }
+  55%, 95% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
 /* Light section styling */

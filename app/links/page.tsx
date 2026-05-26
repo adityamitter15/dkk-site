@@ -62,7 +62,7 @@ const linkGroups = [
 export default function LinksPage() {
   return (
     <>
-      <section className="relative pt-40 pb-28 overflow-hidden">
+      <section className="relative pt-28 pb-16 sm:pt-40 sm:pb-28 overflow-hidden">
         <div className="absolute inset-0 bg-black" />
         <div className="absolute inset-0">
           <SafeImage src="/images/Camp/summer-camp-panoramic.JPG" alt="" fill className="object-cover opacity-40" style={{ objectPosition: "center 25%" }} />

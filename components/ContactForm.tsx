@@ -61,8 +61,9 @@ export default function ContactForm() {
             id="name"
             name="name"
             type="text"
+            autoComplete="name"
             required
-            className="w-full bg-[#141311] border border-white/10 text-white px-4 py-3 text-sm rounded-sm focus:outline-none focus:border-[#a8201a] transition-colors placeholder:text-gray-600"
+            className="w-full bg-[#141311] border border-white/10 text-white px-4 py-3 text-base rounded-sm focus:outline-none focus:border-[#a8201a] transition-colors placeholder:text-gray-600"
             placeholder="Your full name"
           />
         </div>
@@ -74,8 +75,10 @@ export default function ContactForm() {
             id="email"
             name="email"
             type="email"
+            inputMode="email"
+            autoComplete="email"
             required
-            className="w-full bg-[#141311] border border-white/10 text-white px-4 py-3 text-sm rounded-sm focus:outline-none focus:border-[#a8201a] transition-colors placeholder:text-gray-600"
+            className="w-full bg-[#141311] border border-white/10 text-white px-4 py-3 text-base rounded-sm focus:outline-none focus:border-[#a8201a] transition-colors placeholder:text-gray-600"
             placeholder="your@email.com"
           />
         </div>
@@ -88,7 +91,7 @@ export default function ContactForm() {
         <select
           id="experience"
           name="experience"
-          className="w-full bg-[#141311] border border-white/10 text-white px-4 py-3 text-sm rounded-sm focus:outline-none focus:border-[#a8201a] transition-colors appearance-none"
+          className="w-full bg-[#141311] border border-white/10 text-white px-4 py-3 text-base rounded-sm focus:outline-none focus:border-[#a8201a] transition-colors appearance-none"
         >
           <option value="">Select your experience</option>
           <option value="none">Complete beginner - no martial arts experience</option>
@@ -108,7 +111,7 @@ export default function ContactForm() {
           name="message"
           required
           rows={5}
-          className="w-full bg-[#141311] border border-white/10 text-white px-4 py-3 text-sm rounded-sm focus:outline-none focus:border-[#a8201a] transition-colors placeholder:text-gray-600 resize-none"
+          className="w-full bg-[#141311] border border-white/10 text-white px-4 py-3 text-base rounded-sm focus:outline-none focus:border-[#a8201a] transition-colors placeholder:text-gray-600 resize-none"
           placeholder="Tell us a bit about yourself and what you're looking for..."
         />
       </div>

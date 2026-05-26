@@ -20,10 +20,11 @@ export default function VideoHeroBackground() {
       muted
       loop
       playsInline
-      preload="auto"
+      preload="metadata"
     >
-      <source src="/videos/dkk_hero.webm" type="video/webm" />
-      <source src="/videos/dkk_hero.mp4" type="video/mp4" />
+      {/* Only load video on tablet+ — saves ~10MB on cellular. Smaller phones see the poster image. */}
+      <source src="/videos/dkk_hero.webm" type="video/webm" media="(min-width: 768px)" />
+      <source src="/videos/dkk_hero.mp4" type="video/mp4" media="(min-width: 768px)" />
     </video>
   );
 }

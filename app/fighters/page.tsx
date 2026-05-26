@@ -56,7 +56,7 @@ const fighters = [
 export default function FightersPage() {
   return (
     <>
-      <section className="relative pt-40 pb-28 overflow-hidden">
+      <section className="relative pt-28 pb-16 sm:pt-40 sm:pb-28 overflow-hidden">
         <div className="absolute inset-0 bg-black" />
         <ParallaxImage src="/images/Fighters/neil-grove-victory-cage.jpg" className="object-cover object-top opacity-45" intensity={70} priority />
         <div className="absolute inset-0 bg-gradient-to-r from-black via-black/75 to-black/40" />

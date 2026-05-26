@@ -1,7 +1,15 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import StickyMobileCTA from "@/components/StickyMobileCTA";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: "#0f0e0c",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.goju-karate.co.uk"),
@@ -27,6 +35,11 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     images: ["/images/Club/dojo-full-class.JPG"],
+  },
+  manifest: "/manifest.webmanifest",
+  appleWebApp: {
+    title: "DKK London",
+    statusBarStyle: "black-translucent",
   },
 };
 
@@ -73,6 +86,7 @@ export default function RootLayout({
         <Navbar />
         <main>{children}</main>
         <Footer />
+        <StickyMobileCTA />
       </body>
     </html>
   );

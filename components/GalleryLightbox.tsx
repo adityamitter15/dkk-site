@@ -50,7 +50,7 @@ function Lightbox({
       {/* Close */}
       <button
         onClick={onClose}
-        className="absolute top-4 right-4 z-10 p-2 text-white/70 hover:text-white transition-colors"
+        className="absolute top-3 right-3 z-10 p-3 text-white/70 hover:text-white transition-colors min-w-11 min-h-11 flex items-center justify-center"
         aria-label="Close"
       >
         <X size={28} />
@@ -64,7 +64,7 @@ function Lightbox({
       {/* Prev */}
       <button
         onClick={(e) => { e.stopPropagation(); prev(); }}
-        className="absolute left-3 sm:left-6 z-10 p-2 text-white/60 hover:text-white transition-colors"
+        className="absolute left-1 sm:left-6 top-1/2 -translate-y-1/2 z-10 p-3 text-white/60 hover:text-white active:text-white transition-colors min-w-11 min-h-11 flex items-center justify-center"
         aria-label="Previous"
       >
         <ChevronLeft size={36} />
@@ -101,7 +101,7 @@ function Lightbox({
       {/* Next */}
       <button
         onClick={(e) => { e.stopPropagation(); next(); }}
-        className="absolute right-3 sm:right-6 z-10 p-2 text-white/60 hover:text-white transition-colors"
+        className="absolute right-1 sm:right-6 top-1/2 -translate-y-1/2 z-10 p-3 text-white/60 hover:text-white active:text-white transition-colors min-w-11 min-h-11 flex items-center justify-center"
         aria-label="Next"
       >
         <ChevronRight size={36} />

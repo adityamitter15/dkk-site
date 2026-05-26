@@ -51,9 +51,9 @@ export default function CountUpStat({ value, label }: Props) {
   const display = parsed ? `${count}${parsed.suffix}` : value;
 
   return (
-    <div ref={ref} className="py-6 px-6 text-center">
-      <p className="font-['Bebas_Neue'] text-2xl sm:text-3xl text-white tracking-wide tabular-nums">{display}</p>
-      <p className="text-white/60 text-xs uppercase tracking-widest mt-0.5">{label}</p>
+    <div ref={ref} className="py-5 px-3 sm:py-6 sm:px-6 text-center">
+      <p className="font-['Bebas_Neue'] text-xl sm:text-3xl text-white tracking-wide tabular-nums leading-tight">{display}</p>
+      <p className="text-white/60 text-[10px] sm:text-xs uppercase tracking-widest mt-1">{label}</p>
     </div>
   );
 }

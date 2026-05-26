@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 export default function GojuRyuPage() {
   return (
     <>
-      <section className="relative pt-40 pb-28 overflow-hidden">
+      <section className="relative pt-28 pb-16 sm:pt-40 sm:pb-28 overflow-hidden">
         <div className="absolute inset-0 bg-black" />
         <ParallaxImage src="/images/Grading/bunkai-demo.JPG" className="object-cover object-center opacity-35" intensity={70} priority />
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/30" />

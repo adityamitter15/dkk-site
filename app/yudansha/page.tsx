@@ -32,7 +32,7 @@ function MemberCard({ member, dan }: { member: Member; dan: string }) {
               className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
             />
             {member.action && member.action !== primaryImg && (
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 [@media(hover:none)]:opacity-100 [@media(hover:none)]:animate-[fade-pulse_6s_ease-in-out_infinite]">
                 <SafeImage
                   src={member.action}
                   alt={`${member.name} - action`}
@@ -62,7 +62,7 @@ function MemberCard({ member, dan }: { member: Member; dan: string }) {
           <p className="text-gray-500 text-xs italic mt-1 leading-relaxed line-clamp-3">&ldquo;{member.quote}&rdquo;</p>
         )}
         {!member.quote && member.action && member.portrait && (
-          <p className="text-gray-600 text-[10px] uppercase tracking-wider mt-0.5">Hover to see action</p>
+          <p className="text-gray-600 text-[10px] uppercase tracking-wider mt-0.5 hidden [@media(hover:hover)]:block">Hover to see action</p>
         )}
       </div>
     </Link>
@@ -82,7 +82,7 @@ export default function YudanshaPage() {
 
   return (
     <>
-      <section className="relative pt-40 pb-28 overflow-hidden">
+      <section className="relative pt-28 pb-16 sm:pt-40 sm:pb-28 overflow-hidden">
         <div className="absolute inset-0 bg-black" />
         <ParallaxImage src="/images/Club/grading-group-red.JPG" className="object-cover object-center opacity-30" intensity={70} priority />
         <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-black/40" />

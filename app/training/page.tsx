@@ -14,7 +14,7 @@ export default function TrainingPage() {
   return (
     <>
       {/* Hero - split layout with action photo */}
-      <section className="relative pt-40 pb-28 overflow-hidden">
+      <section className="relative pt-28 pb-16 sm:pt-40 sm:pb-28 overflow-hidden">
         <div className="absolute inset-0 bg-black" />
         <ParallaxImage src="/images/Training/kumite-high-kick.jpg" className="object-cover object-center opacity-45" intensity={70} priority />
         <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent" />

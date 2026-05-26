@@ -179,7 +179,7 @@ const images: GalleryImage[] = [
 export default function GalleryPage() {
   return (
     <>
-      <section className="relative pt-40 pb-28 overflow-hidden">
+      <section className="relative pt-28 pb-16 sm:pt-40 sm:pb-28 overflow-hidden">
         <div className="absolute inset-0 bg-black" />
         <div className="absolute inset-0">
           <SafeImage src="/images/Camp/outdoor-kata-dynamic.JPG" alt="" fill className="object-cover object-center opacity-35" />
