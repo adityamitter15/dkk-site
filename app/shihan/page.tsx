@@ -285,7 +285,7 @@ export default function ShihanPage() {
       <section className="py-20 lg:py-28 bg-[#0f0e0c] border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
-            <div className="flex lg:justify-end">
+            <div className="flex justify-center lg:justify-end">
               <div className="relative rounded-sm overflow-hidden bg-[#141311] w-full max-w-[360px]" style={{ aspectRatio: "4/5" }}>
                 <SafeImage src="/images/dan_lewis.jpg" alt="Shihan Dan Lewis" fill className="object-cover object-top" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
