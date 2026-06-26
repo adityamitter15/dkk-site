@@ -212,7 +212,6 @@ export const grades: GradeTier[] = [
         portrait: "/images/Alumni/mark.gif",
         action: "/images/Alumni/markact.gif",
         bio: "Mark started boxing in the early 1990s and began Shotokan shortly after. He transitioned to Goju Ryu under Sensei Mulholland in 1994. He now runs Torbay Goju Ryu Karate under the DKK banner.",
-        quote: undefined,
         milestones: [
           { year: "1994", event: "Joined DKK" },
           { year: "1998", event: "Shodan" },
@@ -302,7 +301,6 @@ export const grades: GradeTier[] = [
         portrait: "/images/Yudansha/seki.jpg",
         action: null,
         bio: "Seki began training with DKK London and progressed steadily through the ranks.",
-        quote: undefined,
         milestones: [
           { year: "", event: "Shodan-Ho" },
           { year: "", event: "Shodan" },
@@ -335,7 +333,7 @@ export const grades: GradeTier[] = [
         name: "Sidney Ushurhe",
         slug: toSlug("Sidney Ushurhe"),
         portrait: "/images/Yudansha/sidney1.jpg",
-        action: "/images/Yudansha/glenn_sidney_nidan.jpg",
+        action: "/images/Camp/camp_weapons_lineup_2021.jpg",
         bio: "Sidney began training in Goju Ryu karate in 2005, joining DKK London that year. He describes his first class as transformative despite initial nerves about sparring with a much larger partner.",
         quote: "The fight-or-flee rush of my first class isn't one I'll easily ever forget. I found myself replaying every movement in my head over and over again like a movie.",
         milestones: [
@@ -386,7 +384,6 @@ export const grades: GradeTier[] = [
         portrait: "/images/Yudansha/ak_kata.jpeg",
         action: "/images/Yudansha/ak_kata2.jpeg",
         bio: "Alexey first experienced Okinawan karate in the Channel Islands and joined DKK as a white belt the day after returning to London in autumn 2016.",
-        quote: undefined,
         milestones: [
           { year: "2016", event: "Joined DKK" },
           { year: "2023", event: "Shodan-Ho" },
@@ -399,7 +396,6 @@ export const grades: GradeTier[] = [
         portrait: "/images/Yudansha/mark_haslehurst1.jpeg",
         action: "/images/Yudansha/mark_haslehurst_breaking.png",
         bio: "Mark started training under Shihan Lewis between 2006 and 2010 while studying in Bristol and rejoined DKK under Shihan Mulholland in 2017.",
-        quote: undefined,
         milestones: [
           { year: "2006", event: "Began Training (Bristol)" },
           { year: "2017", event: "Rejoined DKK London" },

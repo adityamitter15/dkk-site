@@ -8,6 +8,8 @@ import ParallaxImage from "@/components/ParallaxImage";
 export const metadata: Metadata = {
   title: "University of Westminster",
   description: "Daigaku Karate Kai - the oldest sports club at the University of Westminster, training continuously since 1990. UWSU Club of the Year 25/26.",
+  openGraph: { images: ["/images/Awards/uwsu-award-111.jpg"] },
+  twitter: { images: ["/images/Awards/uwsu-award-111.jpg"] },
 };
 
 const AWARDS_PHOTOS = [

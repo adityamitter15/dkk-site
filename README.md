@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# DKK London
 
-## Getting Started
+Daigaku Karate Kai London website. Okinawan Goju Ryu karate club at the University of Westminster.
 
-First, run the development server:
+- **Live:** https://www.goju-karate.co.uk
+- **Stack:** Next.js 16 (App Router) · React 19 · TypeScript · Tailwind CSS v4
+- **Output:** Static export, hosted on Firebase Hosting
+
+## Setup
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev -- -p 3001    # http://localhost:3001
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Build & deploy
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build                       # outputs static site to /out
+firebase deploy --only hosting      # pushes /out to Firebase Hosting
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Project layout
 
-## Learn More
+```
+app/              # routes (App Router)
+  layout.tsx      # root layout, JSON-LD, navbar, footer
+  page.tsx        # homepage
+  [route]/        # one folder per route
+  yudansha/[slug] # dynamic per-member pages (generateStaticParams)
+  sitemap.ts      # generated sitemap.xml
+  robots.ts       # generated robots.txt
+components/       # shared React components
+data/             # static content (yudansha list, etc.)
+public/images/    # all imagery, organised by section
+public/videos/    # hero + showcase videos
+firebase.json     # hosting config + cache + CSP headers
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Design tokens
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Tailwind v4 `@theme` block in `app/globals.css` exposes:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Token              | Value     | Use for                                          |
+| ------------------ | --------- | ------------------------------------------------ |
+| `brand`            | `#a8201a` | Club identity, CTAs, action content              |
+| `brand-hover`      | `#c62828` | Button hover                                     |
+| `gold`             | `#c9a96e` | Cultural / heritage content (history, books)     |
+| `bg`               | `#0f0e0c` | Page background                                  |
+| `card`             | `#141311` | Card / surface background                        |
+| `warm-light`       | `#f5f0e8` | "Your First Class" warm section only             |
+| `font-display`     | Bebas Neue| Headings                                         |
 
-## Deploy on Vercel
+Body font is Inter. Both loaded from Google Fonts (see `globals.css`).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Key conventions
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Static export** (`next.config.ts`): no SSR, all images `unoptimized: true`.
+- **GIFs:** use `<SafeImage>` (forces `unoptimized` so animation isn't stripped).
+- **All `target="_blank"` links** need `rel="noopener noreferrer"`.
+- **Contact form** posts to Formspree (`xeedpgvk`). Honeypot + 60s cooldown + min render time guard against bots.
+- **Mobile CTA** ("Come and Train") and **Back-to-top** button live on separate breakpoints (`lg:hidden` / `hidden lg:flex`) so they never overlap.
+- **prefers-reduced-motion** disables ScrollReveal blur, CountUp animation and TestimonialRotator auto-advance.
+
+## Adding a yudansha member
+
+Edit `data/yudansha.ts`. Drop portrait + (optional) action image into `public/images/Yudansha/`. The dynamic route `/yudansha/[slug]` and the sitemap pick up the new entry automatically. Use the existing `Member` type as a template.
+
+## Adding gallery photos
+
+Edit the `images` array in `app/gallery/page.tsx`. Each entry needs `src`, `alt`, `caption`, `tall` (boolean — true = portrait aspect, false = landscape) and `category` (used for the filter tabs).

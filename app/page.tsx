@@ -2,7 +2,6 @@ import Link from "next/link";
 import { Shield, Target, ChevronRight, Swords, Clock, MapPin, CheckCircle, Award } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
 import SafeImage from "@/components/SafeImage";
-import CountUpStat from "@/components/CountUpStat";
 import TestimonialRotator from "@/components/TestimonialRotator";
 import ScrollReveal from "@/components/ScrollReveal";
 import VideoHeroBackground from "@/components/VideoHeroBackground";
@@ -146,25 +145,9 @@ export default function Home() {
                 <p className="text-gray-400 leading-relaxed mb-5">
                   We practise Okinawan Goju Ryu, a practical karate style which places heavy emphasis on close-quarter effectiveness. Training is combat-orientated rather than for sport or competition fighting, which require different skills and mindset.
                 </p>
-                <p className="text-gray-400 leading-relaxed mb-8">
+                <p className="text-gray-400 leading-relaxed mb-10">
                   Classes are open to all adults. We welcome beginners and practitioners from other styles at every level. The club has a good mix of men and women training regularly.
                 </p>
-                <div className="grid grid-cols-3 gap-3 mb-10">
-                  <div className="p-4 bg-[#141311] border border-white/5 rounded-sm">
-                    <p className="font-['Bebas_Neue'] text-xl text-white tracking-wide leading-none">Since 1990</p>
-                    <p className="text-[#a8201a] text-[10px] uppercase tracking-widest mt-2">At Westminster</p>
-                  </div>
-                  <div className="p-4 bg-[#141311] border border-white/5 rounded-sm">
-                    <p className="font-['Bebas_Neue'] text-xl text-white tracking-wide leading-none">
-                      7<sup className="font-sans normal-case text-[0.45em] tracking-tight align-super -ml-px font-medium">th</sup> Dan
-                    </p>
-                    <p className="text-[#a8201a] text-[10px] uppercase tracking-widest mt-2">Shihan Mulholland</p>
-                  </div>
-                  <div className="p-4 bg-[#141311] border border-white/5 rounded-sm">
-                    <p className="font-['Bebas_Neue'] text-xl text-white tracking-wide leading-none">Goju Ryu</p>
-                    <p className="text-[#a8201a] text-[10px] uppercase tracking-widest mt-2">Okinawan Style</p>
-                  </div>
-                </div>
                 <div className="flex flex-wrap gap-4">
                   <Link href="/goju-ryu" className="inline-flex items-center gap-2 text-[#a8201a] font-semibold text-sm uppercase tracking-wider hover:gap-3 transition-all">
                     About Goju Ryu <ChevronRight size={16} />

@@ -51,10 +51,13 @@ export default function RootLayout({
 }>) {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "SportsActivityLocation",
+    "@type": ["SportsActivityLocation", "SportsClub", "Organization"],
     name: "Daigaku Karate Kai London",
+    alternateName: "DKK London",
     description: "Okinawan Goju Ryu karate for adults in central London. Combat-orientated training under Shihan Gavin Mulholland, 7th Dan.",
     url: "https://www.goju-karate.co.uk",
+    logo: "https://www.goju-karate.co.uk/images/DKKCircularLogo.jpg",
+    foundingDate: "1990",
     telephone: "+447976411901",
     email: "info@goju-karate.co.uk",
     address: {
@@ -74,7 +77,11 @@ export default function RootLayout({
       { "@type": "OpeningHoursSpecification", dayOfWeek: "Wednesday", opens: "18:00", closes: "20:00" },
     ],
     sport: "Karate",
-    image: "/images/Club/dojo-full-class.JPG",
+    image: "https://www.goju-karate.co.uk/images/Club/dojo-full-class.JPG",
+    sameAs: [
+      "https://www.instagram.com/dkk_karate_london",
+      "https://www.facebook.com/groups/24449490051/",
+    ],
   };
 
   return (

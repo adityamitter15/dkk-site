@@ -6,6 +6,8 @@ import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
 
+// Primary nav. "Books" and "Links" intentionally not here — they live in the footer.
+// Keeping the bar at 9 items prevents wrap/cramping at the lg breakpoint (1024–1279px).
 const links = [
   { href: "/", label: "Home" },
   { href: "/training", label: "Training" },
@@ -16,6 +18,11 @@ const links = [
   { href: "/fighters", label: "Fighters" },
   { href: "/university", label: "University" },
   { href: "/gallery", label: "Gallery" },
+];
+
+// Full list including footer-only items — used for the mobile menu so nothing is hidden on phones.
+const mobileLinks = [
+  ...links,
   { href: "/books", label: "Books" },
   { href: "/links", label: "Links" },
 ];
@@ -67,9 +74,9 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 aria-current={pathname === link.href ? "page" : undefined}
-                className={`px-2 xl:px-2.5 py-2 text-[13px] xl:text-sm font-medium tracking-wide transition-colors duration-200 rounded-sm whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-[#c9a96e] focus-visible:ring-offset-2 focus-visible:ring-offset-black ${
+                className={`relative px-2 xl:px-2.5 py-2 text-[13px] xl:text-sm font-medium tracking-wide transition-colors duration-200 rounded-sm whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-[#c9a96e] focus-visible:ring-offset-2 focus-visible:ring-offset-black ${
                   pathname === link.href
-                    ? "text-[#a8201a]"
+                    ? "text-[#a8201a] after:absolute after:left-2 after:right-2 after:-bottom-0.5 after:h-px after:bg-[#a8201a]"
                     : "text-gray-300 hover:text-white"
                 }`}
               >
@@ -106,14 +113,14 @@ export default function Navbar() {
         } bg-black/98 backdrop-blur-sm border-t border-white/10`}
       >
         <div className="px-4 py-4 flex flex-col gap-1">
-          {links.map((link) => (
+          {mobileLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               aria-current={pathname === link.href ? "page" : undefined}
               className={`px-4 py-3 text-base font-medium tracking-wide border-b border-white/5 transition-colors focus:outline-none focus-visible:bg-white/5 ${
                 pathname === link.href
-                  ? "text-[#a8201a]"
+                  ? "text-[#a8201a] border-l-2 border-l-[#a8201a]"
                   : "text-gray-300 hover:text-white"
               }`}
             >

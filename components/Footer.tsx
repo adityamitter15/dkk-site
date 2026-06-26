@@ -47,6 +47,7 @@ export default function Footer() {
                 { href: "/history", label: "History" },
                 { href: "/yudansha", label: "Yudansha" },
                 { href: "/fighters", label: "DKK Fighters" },
+                { href: "/university", label: "University" },
                 { href: "/gallery", label: "Gallery" },
                 { href: "/books", label: "Books" },
                 { href: "/links", label: "Links" },

@@ -8,6 +8,8 @@ import ParallaxImage from "@/components/ParallaxImage";
 export const metadata: Metadata = {
   title: "Shihan Gavin Mulholland",
   description: "Shihan Gavin Mulholland, 7th Dan. Founder and chief instructor of Daigaku Karate Kai London. Combat Hall of Fame inductee and published author.",
+  openGraph: { images: ["/images/Shihan/shihan-portrait-black.jpg"] },
+  twitter: { images: ["/images/Shihan/shihan-portrait-black.jpg"] },
 };
 
 export default function ShihanPage() {

@@ -12,7 +12,11 @@ export default function SafeImage({ src, ...props }: ImageProps) {
       {...props}
       unoptimized={isGif ? true : (props.unoptimized ?? false)}
       onError={(e) => {
-        (e.target as HTMLImageElement).style.display = "none";
+        const target = e.target as HTMLImageElement;
+        if (process.env.NODE_ENV !== "production") {
+          console.warn("[SafeImage] failed to load:", typeof src === "string" ? src : target.currentSrc);
+        }
+        target.style.display = "none";
       }}
     />
   );

@@ -2,6 +2,19 @@
 
 @import "tailwindcss";
 
+/* Design tokens — exposed to Tailwind utilities (text-brand, bg-card, font-display, etc.)
+   Adding a token here makes it available as a Tailwind class automatically. */
+@theme {
+  --color-brand: #a8201a;
+  --color-brand-hover: #c62828;
+  --color-gold: #c9a96e;
+  --color-bg: #0f0e0c;
+  --color-card: #141311;
+  --color-warm-light: #f5f0e8;
+
+  --font-display: "Bebas Neue", sans-serif;
+}
+
 :root {
   --background: #0f0e0c;
   --foreground: #ededed;
@@ -61,6 +74,7 @@ select:focus-visible {
   border-radius: 2px;
   transition: top 200ms ease;
 }
+.skip-link:focus,
 .skip-link:focus-visible {
   top: 1rem;
   outline: 2px solid #fff;

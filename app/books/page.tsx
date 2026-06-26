@@ -7,6 +7,8 @@ import SafeImage from "@/components/SafeImage";
 export const metadata: Metadata = {
   title: "Books",
   description: "Books by Shihan Gavin Mulholland on Okinawan Goju Ryu karate. Four Shades of Black and More Shades of Black.",
+  openGraph: { images: ["/images/Book Covers/4SOB.jpg"] },
+  twitter: { images: ["/images/Book Covers/4SOB.jpg"] },
 };
 
 const dkkBooks = [

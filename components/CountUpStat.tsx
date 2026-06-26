@@ -23,6 +23,11 @@ export default function CountUpStat({ value, label }: Props) {
     if (!parsed) return;
     const target = parsed.leading;
 
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setCount(target);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting && !started.current) {

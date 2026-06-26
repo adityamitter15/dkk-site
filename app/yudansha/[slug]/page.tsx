@@ -22,9 +22,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const member = getMemberBySlug(slug);
   if (!member) return { title: "Not Found" };
+  const ogImage = member.portrait || member.action || "/images/Club/grading-group-red.JPG";
   return {
     title: `${member.name} - ${member.dan} - DKK London Yudansha`,
     description: member.bio || `${member.name}, ${member.dan} at Daigaku Karate Kai London.`,
+    openGraph: { images: [ogImage] },
+    twitter: { images: [ogImage] },
   };
 }
 

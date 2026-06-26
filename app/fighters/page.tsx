@@ -9,6 +9,8 @@ import ParallaxImage from "@/components/ParallaxImage";
 export const metadata: Metadata = {
   title: "DKK Fighters",
   description: "DKK Fighters - 16 wins from our first 20 professional cage fights, a British Heavyweight title, a World Title fight, and one member who reached the UFC.",
+  openGraph: { images: ["/images/Fighters/edge-hand-raised.jpg"] },
+  twitter: { images: ["/images/Fighters/edge-hand-raised.jpg"] },
 };
 
 const fighters = [

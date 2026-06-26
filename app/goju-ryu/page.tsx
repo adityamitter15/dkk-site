@@ -8,6 +8,8 @@ import ParallaxImage from "@/components/ParallaxImage";
 export const metadata: Metadata = {
   title: "Goju Ryu",
   description: "Goju Ryu - hard and soft style. An Okinawan karate system emphasising close-quarter combat, breathing, and practical self-defence. Learn about its origins and philosophy.",
+  openGraph: { images: ["/images/Shihan/shihan-kuwa-black.jpg"] },
+  twitter: { images: ["/images/Shihan/shihan-kuwa-black.jpg"] },
 };
 
 export default function GojuRyuPage() {

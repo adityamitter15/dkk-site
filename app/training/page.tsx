@@ -9,6 +9,8 @@ import DanGrade from "@/components/DanGrade";
 export const metadata: Metadata = {
   title: "Training",
   description: "Okinawan Goju Ryu training every Monday and Wednesday, 6-8pm at the University of Westminster, 309 Regent Street, London. Adults of all levels welcome.",
+  openGraph: { images: ["/images/Training/class-kata-aerial.JPG"] },
+  twitter: { images: ["/images/Training/class-kata-aerial.JPG"] },
 };
 
 export default function TrainingPage() {

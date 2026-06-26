@@ -9,6 +9,8 @@ import LineageChain from "@/components/LineageChain";
 export const metadata: Metadata = {
   title: "Goju Ryu History",
   description: "The history of Goju Ryu - from Chojun Miyagi's founding of the style on Okinawa to the founding of Daigaku Karate Kai by Shihan Gavin Mulholland (DKK London) and Shihan Dan Lewis (DKK Portishead).",
+  openGraph: { images: ["/images/Camp/camp_morning_lineup_2025.jpg"] },
+  twitter: { images: ["/images/Camp/camp_morning_lineup_2025.jpg"] },
 };
 
 type Entry = {

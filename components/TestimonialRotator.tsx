@@ -63,6 +63,9 @@ export default function TestimonialRotator() {
   const next = useCallback(() => goTo((active + 1) % testimonials.length), [active, goTo]);
 
   useEffect(() => {
+    if (typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return;
+    }
     const id = setInterval(next, 6000);
     return () => clearInterval(id);
   }, [next]);

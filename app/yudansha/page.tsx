@@ -10,6 +10,8 @@ import DanGrade from "@/components/DanGrade";
 export const metadata: Metadata = {
   title: "Yudansha - Black Belts",
   description: "The black belts of DKK London. Meet the yudansha who have earned their dan grades through years of demanding training.",
+  openGraph: { images: ["/images/Club/grading-group-red.JPG"] },
+  twitter: { images: ["/images/Club/grading-group-red.JPG"] },
 };
 
 function MemberCard({ member, dan }: { member: Member; dan: string }) {

@@ -102,15 +102,8 @@ const images: GalleryImage[] = [
   { src: "/images/Tournament/kumite-sparring-medals.jpg",        alt: "Kumite with medals visible",             caption: "Competing for Medals",                   tall: false, category: "Tournament" },
   { src: "/images/Tournament/grappling-with-referee.jpg",        alt: "Grappling takedown with referee",        caption: "Grappling - Takedown",                   tall: false, category: "Tournament" },
   { src: "/images/Tournament/ground-fight-wide-crowd.jpg",       alt: "Ground fight with crowd surrounding",    caption: "Ground Fight - Centre Stage",            tall: false, category: "Tournament" },
-  { src: "/images/Tournament/dramatic-ground-reversal.jpg",      alt: "Dramatic ground reversal",               caption: "The Reversal",                           tall: false, category: "Tournament" },
   { src: "/images/Tournament/sensei-mae-geri-pads.jpg",          alt: "Sensei front kick on pads",              caption: "Leading by Example - Mae Geri",          tall: true,  category: "Tournament" },
-  { src: "/images/Tournament/young-fighter-staredown.jpg",       alt: "Young fighter focused staredown",        caption: "Determination",                          tall: true,  category: "Tournament" },
-  { src: "/images/Tournament/sensei-addressing-group.jpg",       alt: "Sensei addressing the group",            caption: "Sensei Speaks",                          tall: true,  category: "Tournament" },
-  { src: "/images/Tournament/post-match-hug.jpg",                alt: "Post-match sportsmanship hug",           caption: "Sportsmanship",                          tall: false, category: "Tournament" },
-  { src: "/images/Tournament/award-presentation-applause.jpg",   alt: "Award presentation with applause",       caption: "Award Presentation",                     tall: false, category: "Tournament" },
-  { src: "/images/Tournament/group-laughing-candid.jpg",         alt: "Group laughing together",                caption: "Camaraderie",                            tall: false, category: "Tournament" },
   { src: "/images/Tournament/team-group-fun.jpg",                alt: "Team group fun photo",                   caption: "More Than a Dojo",                       tall: false, category: "Tournament" },
-  { src: "/images/Tournament/group-selfie-friends.jpg",          alt: "Group selfie of friends",                caption: "Tournament Friends",                     tall: false, category: "Tournament" },
   { src: "/images/Tournament/senior-blackbelts-modern-dojo.jpg", alt: "Senior black belts at modern dojo",      caption: "Senior Black Belts",                     tall: false, category: "Tournament" },
 
   // ── Awards ───────────────────────────────────────────────
@@ -170,7 +163,7 @@ const images: GalleryImage[] = [
   { src: "/images/Camp/camp_morning_lineup_2025.jpg",        alt: "Summer Camp - morning lineup",                 caption: "Summer Camp - Morning Lineup",     tall: true,  category: "Camps" },
   { src: "/images/Camp/camp_big_group_kata_2024.jpg",        alt: "Summer Camp - big group kata",                 caption: "Summer Camp - Group Kata",         tall: true,  category: "Camps" },
   { src: "/images/Camp/camp_piggyback_carries.jpg",          alt: "Summer Camp - partner carries",                caption: "Conditioning - Carries",           tall: true,  category: "Camps" },
-  { src: "/images/Camp/camp_weapons_lineup_2021.jpg",        alt: "Summer Camp 2021 - weapons lineup",            caption: "Summer Camp 2021 - Weapons",       tall: false, category: "Camps" },
+  { src: "/images/Camp/camp_weapons_lineup_2021.jpg",        alt: "Summer Camp 2021",                             caption: "Summer Camp 2021",                 tall: false, category: "Camps" },
   { src: "/images/Camp/camp_evening_circle.jpg",             alt: "Summer Camp - evening circle",                 caption: "Summer Camp - Evening Circle",     tall: false, category: "Camps" },
   { src: "/images/Camp/primrose_partner_carries.jpg",        alt: "Primrose Hill - partner carries",              caption: "Primrose Hill - Carries",          tall: true,  category: "Camps" },
 ];
