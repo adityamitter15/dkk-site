@@ -89,7 +89,7 @@ export default function FightersPage() {
       {/* Stats banner */}
       <section className="bg-[#a8201a]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-white/20">
+          <div className="grid grid-cols-2 lg:grid-cols-4 [&>*:nth-child(2)]:border-l [&>*:nth-child(4)]:border-l [&>*:nth-child(3)]:border-t [&>*:nth-child(4)]:border-t lg:[&>*]:border-t-0 lg:[&>*:not(:first-child)]:border-l [&>*]:border-white/20">
             {[
               { value: "16/20", label: "First 20 Fights Won" },
               { value: "1", label: "British Heavyweight Title" },

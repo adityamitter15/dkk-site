@@ -42,7 +42,7 @@ export default function UniversityPage() {
       {/* Quick stats strip */}
       <section className="bg-[#a8201a]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-white/20 py-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 [&>*:nth-child(2)]:border-l [&>*:nth-child(4)]:border-l [&>*:nth-child(3)]:border-t [&>*:nth-child(4)]:border-t lg:[&>*]:border-t-0 lg:[&>*:not(:first-child)]:border-l [&>*]:border-white/20 py-6">
             <div className="px-4 sm:px-6 text-center">
               <p className="font-['Bebas_Neue'] text-3xl sm:text-4xl text-white tracking-wide leading-none">1990</p>
               <p className="text-white/70 text-[10px] sm:text-xs uppercase tracking-widest mt-2">Established</p>

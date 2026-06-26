@@ -35,7 +35,7 @@ export default function Home() {
             ]}
           />
 
-          <p className="text-gray-300 text-base sm:text-xl leading-relaxed max-w-lg mb-8 sm:mb-10 font-light">
+          <p className="text-gray-300 text-base sm:text-xl leading-relaxed max-w-sm sm:max-w-lg mb-8 sm:mb-10 font-light">
             One of the strongest karate clubs in the UK. Combat-orientated training for adults of all levels, every Monday and Wednesday in central London.
           </p>
 
@@ -49,7 +49,7 @@ export default function Home() {
           </div>
 
           {/* Quick info strip */}
-          <div className="flex flex-wrap gap-6 border-t border-white/10 pt-8">
+          <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 sm:gap-6 border-t border-white/10 pt-6 sm:pt-8">
             {[
               { icon: Clock, text: "Mon & Wed  ·  6:00 – 8:00pm" },
               { icon: MapPin, text: "309 Regent Street, London W1B 2HW" },
@@ -69,23 +69,23 @@ export default function Home() {
       {/* ── STATS STRIP ──────────────────────────────────────── */}
       <section className="bg-[#a8201a]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-white/20">
+          <div className="grid grid-cols-2 lg:grid-cols-4 [&>*:nth-child(2)]:border-l [&>*:nth-child(4)]:border-l [&>*:nth-child(3)]:border-t [&>*:nth-child(4)]:border-t lg:[&>*]:border-t-0 lg:[&>*:not(:first-child)]:border-l [&>*]:border-white/20">
             <div className="py-5 px-3 sm:py-6 sm:px-6 text-center">
-              <p className="font-['Bebas_Neue'] text-xl sm:text-3xl text-white tracking-wide leading-tight">Since 1990</p>
+              <p className="font-['Bebas_Neue'] text-2xl sm:text-3xl text-white tracking-wide leading-tight">Since 1990</p>
               <p className="text-white/60 text-[10px] sm:text-xs uppercase tracking-widest mt-1">Oldest Club at Westminster</p>
             </div>
             <div className="py-5 px-3 sm:py-6 sm:px-6 text-center">
-              <p className="font-['Bebas_Neue'] text-xl sm:text-3xl text-white tracking-wide leading-tight">
+              <p className="font-['Bebas_Neue'] text-2xl sm:text-3xl text-white tracking-wide leading-tight">
                 7<sup className="font-sans normal-case text-[0.45em] tracking-tight align-super -ml-px font-medium">th</sup> Dan
               </p>
               <p className="text-white/60 text-[10px] sm:text-xs uppercase tracking-widest mt-1">Shihan Gavin Mulholland</p>
             </div>
             <div className="py-5 px-3 sm:py-6 sm:px-6 text-center">
-              <p className="font-['Bebas_Neue'] text-xl sm:text-3xl text-white tracking-wide leading-tight">Goju Ryu</p>
+              <p className="font-['Bebas_Neue'] text-2xl sm:text-3xl text-white tracking-wide leading-tight">Goju Ryu</p>
               <p className="text-white/60 text-[10px] sm:text-xs uppercase tracking-widest mt-1">Okinawan &middot; Combat-Orientated</p>
             </div>
             <div className="py-5 px-3 sm:py-6 sm:px-6 text-center">
-              <p className="font-['Bebas_Neue'] text-xl sm:text-3xl text-white tracking-wide leading-tight">Mon &amp; Wed</p>
+              <p className="font-['Bebas_Neue'] text-2xl sm:text-3xl text-white tracking-wide leading-tight">Mon &amp; Wed</p>
               <p className="text-white/60 text-[10px] sm:text-xs uppercase tracking-widest mt-1">6 - 8pm, Central London</p>
             </div>
           </div>
@@ -116,7 +116,7 @@ export default function Home() {
                 { step: "04", title: "Decide", desc: "No pressure. Come back next session, or take time to think. When you're ready, we'll be here." },
               ].map((item) => (
                 <div key={item.step} className="relative p-7 bg-white border border-[#e8e3d9] rounded-sm group hover:shadow-lg transition-shadow duration-300">
-                  <span className="font-['Bebas_Neue'] text-5xl text-[#a8201a]/15 absolute top-4 right-5 leading-none">{item.step}</span>
+                  <span className="font-['Bebas_Neue'] text-3xl sm:text-5xl text-[#a8201a]/15 absolute top-4 right-5 leading-none">{item.step}</span>
                   <h3 className="font-['Bebas_Neue'] text-2xl text-[#1a1a18] tracking-wide mb-2">{item.title}</h3>
                   <p className="text-[#5a5a52] text-sm leading-relaxed">{item.desc}</p>
                 </div>

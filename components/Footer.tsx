@@ -68,7 +68,7 @@ export default function Footer() {
             <p className="text-gray-400 text-sm mb-4">
               Interested in training? Whether you&apos;re a complete beginner or an experienced martial artist, we welcome you.
             </p>
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-col sm:flex-row gap-3">
               <Link
                 href="/contact"
                 className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#a8201a] text-white text-sm font-semibold uppercase tracking-wide hover:bg-[#c62828] transition-colors rounded-sm"

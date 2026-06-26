@@ -36,7 +36,7 @@ export default function StickyMobileCTA() {
         show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6 pointer-events-none"
       }`}
       style={{
-        bottom: "calc(env(safe-area-inset-bottom, 0px) + 1rem)",
+        bottom: "calc(env(safe-area-inset-bottom, 0px) + 1.25rem)",
       }}
     >
       <Link
