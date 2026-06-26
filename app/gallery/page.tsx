@@ -85,60 +85,33 @@ const images: GalleryImage[] = [
   // ── DKK Fighters ─────────────────────────────────────────
   { src: "/images/Fighters/dkk.jpg",                           alt: "DKK Fighters",                     caption: "DKK Fighters",                    tall: false, category: "DKK Fighters" },
   { src: "/images/Fighters/neil-grove-victory-cage.jpg",       alt: "Neil Grove victory in cage",       caption: "Neil Grove - Victory",            tall: false, category: "DKK Fighters" },
-  { src: "/images/Fighters/neil-grove-title-portrait.jpg",     alt: "Neil Grove with world title belt", caption: "UCMMA World Heavyweight Title",    tall: false, category: "DKK Fighters" },
+  { src: "/images/Fighters/neil-grove-title-portrait.jpg",     alt: "Neil Grove with British title belt", caption: "UCMMA British Heavyweight Title",  tall: false, category: "DKK Fighters" },
   { src: "/images/Fighters/neil-grove-belts-crew.jpg",         alt: "DKK crew with title belts",         caption: "The Belts Come Home",             tall: false, category: "DKK Fighters" },
   { src: "/images/Fighters/neil-grove-walkout.jpg",            alt: "Neil Grove walkout",                caption: "Walkout",                         tall: true,  category: "DKK Fighters" },
   { src: "/images/Fighters/neil-grove-portrait-mulholland.jpg", alt: "Neil Grove and Shihan Mulholland", caption: "Grove & Mulholland",              tall: false, category: "DKK Fighters" },
+  { src: "/images/Fighters/shola-adeniran-victory.jpg",        alt: "Shola Adeniran wins by TKO at UWC", caption: "Shola Adeniran - UWC Victory",    tall: false, category: "DKK Fighters" },
   { src: "/images/Fighters/edge-back-patch.jpg",               alt: "Edge walking out - DKK patch",      caption: "Edge - Walkout",                  tall: true,  category: "DKK Fighters" },
   { src: "/images/Fighters/edge-hand-raised.jpg",              alt: "Edge hand raised in victory",      caption: "Edge - Hand Raised",              tall: false, category: "DKK Fighters" },
   { src: "/images/Fighters/edge-cage-victory.jpg",             alt: "Edge cage victory",                 caption: "Edge - In the Cage",              tall: false, category: "DKK Fighters" },
   { src: "/images/Fighters/domagoj-wembley-2007.jpg",          alt: "Wembley September 2007",            caption: "Wembley - September 2007",        tall: false, category: "DKK Fighters" },
 
   // ── Tournament ───────────────────────────────────────────
-  // Venue / Overview
-  { src: "/images/Tournament/venue-overhead-wide.jpg",           alt: "Tournament venue overhead",              caption: "Tournament 2026 - Full Venue",           tall: false, category: "Tournament" },
-  { src: "/images/Tournament/venue-dual-mats-elevated.jpg",      alt: "Dual mats from above",                   caption: "Tournament 2026 - Two Mats",             tall: false, category: "Tournament" },
-  { src: "/images/Tournament/venue-bowing-elevated.jpg",         alt: "Competitor bowing on mat",               caption: "Tournament 2026 - Respect",              tall: false, category: "Tournament" },
-  { src: "/images/Tournament/venue-sparring-overhead.jpg",       alt: "Tournament sparring overhead",           caption: "Tournament 2026 - Kumite",               tall: false, category: "Tournament" },
-  { src: "/images/Tournament/overhead-referee-entering-mat.jpg", alt: "Referee entering mat overhead",          caption: "Tournament 2026 - The Stage",            tall: false, category: "Tournament" },
-  // Action - Sparring
   { src: "/images/Tournament/kumite-black-white-action.jpg",     alt: "Kumite in black and white",              caption: "The Art of Combat",                      tall: false, category: "Tournament" },
   { src: "/images/Tournament/sparring-women-dynamic.jpg",        alt: "Women's sparring",                       caption: "Women's Kumite",                         tall: false, category: "Tournament" },
-  { src: "/images/Tournament/kumite-intense-closeup.jpg",        alt: "Intense kumite close-up",                caption: "Kumite - Standing Exchange",             tall: false, category: "Tournament" },
   { src: "/images/Tournament/senior-kumite-faceoff.jpg",         alt: "Senior black belts squaring off",        caption: "Senior Kumite - Face Off",               tall: false, category: "Tournament" },
   { src: "/images/Tournament/kumite-sparring-medals.jpg",        alt: "Kumite with medals visible",             caption: "Competing for Medals",                   tall: false, category: "Tournament" },
-  { src: "/images/Tournament/womens-sparring-exchange.jpg",      alt: "Women's sparring exchange",              caption: "Women's Kumite - Exchange",              tall: false, category: "Tournament" },
-  { src: "/images/Tournament/youth-sparring-instructor.jpg",     alt: "Youth sparring with instructor",         caption: "Youth Kumite",                           tall: false, category: "Tournament" },
-  { src: "/images/Tournament/sparring-thumbsup-action.jpg",      alt: "Sparring with thumbs up",                caption: "Friendly Competition",                   tall: false, category: "Tournament" },
-  // Action - Grappling & Throws
   { src: "/images/Tournament/grappling-with-referee.jpg",        alt: "Grappling takedown with referee",        caption: "Grappling - Takedown",                   tall: false, category: "Tournament" },
-  { src: "/images/Tournament/ground-grappling-closeup.jpg",      alt: "Ground grappling close-up",              caption: "Ground Work",                            tall: false, category: "Tournament" },
   { src: "/images/Tournament/ground-fight-wide-crowd.jpg",       alt: "Ground fight with crowd surrounding",    caption: "Ground Fight - Centre Stage",            tall: false, category: "Tournament" },
   { src: "/images/Tournament/dramatic-ground-reversal.jpg",      alt: "Dramatic ground reversal",               caption: "The Reversal",                           tall: false, category: "Tournament" },
-  { src: "/images/Tournament/throw-takedown-mid-action.jpg",     alt: "Throw takedown mid-action",              caption: "Nage Waza - Mid-Throw",                  tall: false, category: "Tournament" },
-  // Technique & Training
-  { src: "/images/Tournament/technique-demonstration.jpg",       alt: "Technique demonstration",                caption: "Technique Demonstration",                tall: false, category: "Tournament" },
   { src: "/images/Tournament/sensei-mae-geri-pads.jpg",          alt: "Sensei front kick on pads",              caption: "Leading by Example - Mae Geri",          tall: true,  category: "Tournament" },
-  { src: "/images/Tournament/kicking-demonstration-wide.jpg",    alt: "Kicking demonstration wide shot",        caption: "Technique Demonstration",                tall: false, category: "Tournament" },
-  // Portraits & Focus
-  { src: "/images/Tournament/fighter-portrait-ready.jpg",        alt: "Fighter ready to compete",               caption: "Ready to Compete",                       tall: true,  category: "Tournament" },
-  { src: "/images/Tournament/fighter-intense-focus.jpg",         alt: "Fighter in intense focus",                caption: "Focus",                                  tall: true,  category: "Tournament" },
   { src: "/images/Tournament/young-fighter-staredown.jpg",       alt: "Young fighter focused staredown",        caption: "Determination",                          tall: true,  category: "Tournament" },
   { src: "/images/Tournament/sensei-addressing-group.jpg",       alt: "Sensei addressing the group",            caption: "Sensei Speaks",                          tall: true,  category: "Tournament" },
-  // Community & Sportsmanship
-  { src: "/images/Tournament/post-match-hug.jpg",               alt: "Post-match sportsmanship hug",           caption: "Sportsmanship",                          tall: false, category: "Tournament" },
-  { src: "/images/Tournament/award-presentation-applause.jpg",  alt: "Award presentation with applause",       caption: "Award Presentation",                     tall: false, category: "Tournament" },
-  { src: "/images/Tournament/ceremony-judges-laughter.jpg",     alt: "Ceremony judges laughing",               caption: "Celebrating Together",                   tall: false, category: "Tournament" },
-  { src: "/images/Tournament/recognition-applause.jpg",          alt: "Student receiving recognition",           caption: "Recognition",                            tall: false, category: "Tournament" },
-  { src: "/images/Tournament/peace-sign-portrait.jpg",           alt: "Smiling practitioner peace signs",       caption: "Tournament Spirit",                      tall: false, category: "Tournament" },
+  { src: "/images/Tournament/post-match-hug.jpg",                alt: "Post-match sportsmanship hug",           caption: "Sportsmanship",                          tall: false, category: "Tournament" },
+  { src: "/images/Tournament/award-presentation-applause.jpg",   alt: "Award presentation with applause",       caption: "Award Presentation",                     tall: false, category: "Tournament" },
   { src: "/images/Tournament/group-laughing-candid.jpg",         alt: "Group laughing together",                caption: "Camaraderie",                            tall: false, category: "Tournament" },
-  { src: "/images/Tournament/team-group-fun.jpg",               alt: "Team group fun photo",                    caption: "More Than a Dojo",                       tall: false, category: "Tournament" },
+  { src: "/images/Tournament/team-group-fun.jpg",                alt: "Team group fun photo",                   caption: "More Than a Dojo",                       tall: false, category: "Tournament" },
   { src: "/images/Tournament/group-selfie-friends.jpg",          alt: "Group selfie of friends",                caption: "Tournament Friends",                     tall: false, category: "Tournament" },
-  { src: "/images/Tournament/student-lineup-belts.jpg",          alt: "Student lineup mixed belt colours",      caption: "Student Lineup",                         tall: false, category: "Tournament" },
-  // Instructors
-  { src: "/images/Tournament/head-instructor-portrait.jpg",      alt: "Head instructor portrait",               caption: "Head Instructor",                        tall: true,  category: "Tournament" },
-  { src: "/images/Tournament/instructor-pair.jpg",               alt: "Two instructors",                        caption: "Instructors",                            tall: true,  category: "Tournament" },
-  { src: "/images/Tournament/senior-blackbelts-modern-dojo.jpg", alt: "Senior black belts at modern dojo",     caption: "Senior Black Belts",                     tall: false, category: "Tournament" },
+  { src: "/images/Tournament/senior-blackbelts-modern-dojo.jpg", alt: "Senior black belts at modern dojo",      caption: "Senior Black Belts",                     tall: false, category: "Tournament" },
 
   // ── Awards ───────────────────────────────────────────────
   { src: "/images/Awards/uwsu-award-111.jpg", alt: "DKK London at the UWSU Awards 25/26", caption: "UWSU Awards Night - DKK London", tall: false, category: "Awards" },
@@ -174,6 +147,32 @@ const images: GalleryImage[] = [
   { src: "/images/Yudansha/ak_kata2.jpeg",          alt: "Alexey Kryazhev - kata 2",           caption: "Kata Training",                    tall: false, category: "Yudansha" },
   { src: "/images/Alumni/karen.jpg",                alt: "Karen Sheldon",                      caption: "Karen Sheldon - 3rd Dan",          tall: true,  category: "Yudansha" },
   { src: "/images/Alumni/mark.gif",                 alt: "Mark Salomone",                      caption: "Mark Salomone - 3rd Dan (DKK Torbay)", tall: true, category: "Yudansha" },
+
+  // ── New studio portraits & recent shoots ─────────────────
+  { src: "/images/Yudansha/tunde_black_gi_studio.jpg",       alt: "Tunde Oladimeji - black dogi studio portrait", caption: "Tunde Oladimeji - 5th Dan",        tall: true,  category: "Yudansha" },
+  { src: "/images/Yudansha/mizuki_kata_studio.jpg",          alt: "Mizuki Murai - kata studio portrait",          caption: "Mizuki Murai - Kata",              tall: true,  category: "Yudansha" },
+  { src: "/images/Yudansha/laila_bo.jpg",                    alt: "Laila Al-Minyawi with bo - studio portrait",   caption: "Laila Al-Minyawi - Bo Staff",      tall: true,  category: "Yudansha" },
+  { src: "/images/Yudansha/simon_clinch_headshot_bw.jpg",    alt: "Simon Clinch - black & white headshot",        caption: "Simon Clinch - Studio",            tall: true,  category: "Yudansha" },
+  { src: "/images/Yudansha/simon_clinch_portrait_color.jpg", alt: "Simon Clinch - portrait",                      caption: "Simon Clinch - Portrait",          tall: true,  category: "Yudansha" },
+
+  // Training - recent
+  { src: "/images/Training/kumite_high_kick_dramatic.jpg",   alt: "Dramatic high kick in kumite",                 caption: "Kumite - Dramatic High Kick",      tall: false, category: "Training" },
+  { src: "/images/Training/outdoor_padwork_women.jpg",       alt: "Outdoor pad work",                             caption: "Outdoor Pad Work",                 tall: true,  category: "Training" },
+  { src: "/images/Training/primrose_squats_evening.jpg",     alt: "Primrose Hill conditioning - squats",          caption: "Primrose Hill - Conditioning",     tall: true,  category: "Training" },
+  { src: "/images/Training/mma_gloves_close_portrait.jpg",   alt: "Close portrait with MMA gloves",               caption: "Ready",                            tall: false, category: "Training" },
+  { src: "/images/Club/club_big_group_indoor_dans.jpg",      alt: "Big club group photo - mixed dans",            caption: "DKK London - Full House",          tall: false, category: "Training" },
+
+  // Grading - recent
+  { src: "/images/Grading/glenn_sidney_nidan_certificates.jpg", alt: "Glenn Malpass & Sidney Ushurhe with Nidan certificates", caption: "Nidan - Glenn & Sidney",  tall: false, category: "Grading" },
+
+  // Camps - recent
+  { src: "/images/Camp/camp_partner_drill_shirtless.jpg",    alt: "Summer Camp - partner drill",                  caption: "Summer Camp - Partner Drill",      tall: false, category: "Camps" },
+  { src: "/images/Camp/camp_morning_lineup_2025.jpg",        alt: "Summer Camp - morning lineup",                 caption: "Summer Camp - Morning Lineup",     tall: true,  category: "Camps" },
+  { src: "/images/Camp/camp_big_group_kata_2024.jpg",        alt: "Summer Camp - big group kata",                 caption: "Summer Camp - Group Kata",         tall: true,  category: "Camps" },
+  { src: "/images/Camp/camp_piggyback_carries.jpg",          alt: "Summer Camp - partner carries",                caption: "Conditioning - Carries",           tall: true,  category: "Camps" },
+  { src: "/images/Camp/camp_weapons_lineup_2021.jpg",        alt: "Summer Camp 2021 - weapons lineup",            caption: "Summer Camp 2021 - Weapons",       tall: false, category: "Camps" },
+  { src: "/images/Camp/camp_evening_circle.jpg",             alt: "Summer Camp - evening circle",                 caption: "Summer Camp - Evening Circle",     tall: false, category: "Camps" },
+  { src: "/images/Camp/primrose_partner_carries.jpg",        alt: "Primrose Hill - partner carries",              caption: "Primrose Hill - Carries",          tall: true,  category: "Camps" },
 ];
 
 export default function GalleryPage() {
@@ -196,7 +195,7 @@ export default function GalleryPage() {
         </div>
       </section>
 
-      <section className="py-16 bg-[#0f0e0c]">
+      <section className="py-20 lg:py-28 bg-[#0f0e0c]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-3">
             <SectionHeading eyebrow="Photos" title="In the Dojo" />

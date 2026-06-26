@@ -19,7 +19,7 @@ export default function GalleryFilter({ images }: { images: GalleryImage[] }) {
           <button
             key={cat}
             onClick={() => setActive(cat!)}
-            className={`px-4 py-2.5 sm:px-3 sm:py-1.5 text-xs font-medium uppercase tracking-wider rounded-sm border transition-all duration-200 ${
+            className={`min-h-[44px] sm:min-h-0 px-4 py-2.5 sm:px-3.5 sm:py-2 text-xs font-medium uppercase tracking-wider rounded-sm border transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#c9a96e] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0f0e0c] ${
               active === cat
                 ? "bg-[#a8201a] border-[#a8201a] text-white"
                 : "bg-[#141311] border-white/10 text-gray-300 hover:border-[#a8201a]/40 hover:text-white"

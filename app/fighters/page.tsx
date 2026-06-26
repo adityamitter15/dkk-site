@@ -8,17 +8,17 @@ import ParallaxImage from "@/components/ParallaxImage";
 
 export const metadata: Metadata = {
   title: "DKK Fighters",
-  description: "DKK Fighters - 16 wins from 20 cage fights, a World Title, and one member who reached the UFC. The competitive record of DKK London.",
+  description: "DKK Fighters - 16 wins from our first 20 professional cage fights, a British Heavyweight title, a World Title fight, and one member who reached the UFC.",
 };
 
 const fighters = [
   {
     name: "Neil \"Goliath\" Grove",
     record: "12-8-1",
-    highlight: "UFC · Bellator · UCMMA World Heavyweight Champion",
+    highlight: "UCMMA British Heavyweight Champion \u00b7 Bellator World Title Fight \u00b7 UFC",
     image: "/images/Fighters/neil-grove-victory-cage.jpg",
     portrait: "/images/Fighters/neil-grove-title-portrait.jpg",
-    bio: "After a nightclub incident, Neil and a fellow bouncer were made to take Goju Ryu classes at DKK. He earned his Shodan in 2005 and went on to compete at the highest level. At Cage Rage 22, he knocked out James \"Colossus\" Thompson in 10 seconds on two days notice. He was crowned UCMMA World Heavyweight Champion and fought in the UFC and Bellator. All 12 of his wins came by KO or TKO.",
+    bio: "After a nightclub incident, Neil and a fellow bouncer were made to take Goju Ryu classes at DKK. He earned his Shodan in 2005 and went on to compete at the highest level. At Cage Rage 22, he knocked out James \"Colossus\" Thompson in 10 seconds on two days notice. He was crowned UCMMA British Heavyweight Champion, fought for the World Title in the Bellator Heavyweight Tournament Final, and competed in the UFC. All 12 of his wins came by KO or TKO.",
     stats: [
       { label: "Wins", value: "12" },
       { label: "All by KO/TKO", value: "100%" },
@@ -28,7 +28,7 @@ const fighters = [
   {
     name: "Edgelson \"Edge\" Lua",
     record: "7-7-0",
-    highlight: "Cage Rage · BAMMA · UCMMA",
+    highlight: "Cage Rage \u00b7 BAMMA \u00b7 UCMMA",
     image: "/images/Fighters/edge-hand-raised.jpg",
     portrait: "/images/Fighters/edge-back-patch.jpg",
     bio: "A DKK black belt since 2010, Edge competed across the UK's top MMA promotions. A powerful welterweight with fast hands, he recorded a 30-second knockout at Cage Rage Contenders 9 and went on to fight in BAMMA, FX3 and UCMMA.",
@@ -40,14 +40,27 @@ const fighters = [
   },
   {
     name: "Dyson Roberts",
-    record: "Fighting Hurts Finalist",
-    highlight: "Cage Rage · Fighting Hurts TV Show",
+    record: "5-3-0",
+    highlight: "Cage Rage \u00b7 Fighting Hurts Finalist",
     image: null,
     portrait: null,
-    bio: "Still an orange belt at the time, Dyson entered the reality TV show Fighting Hurts and was selected as one of 16 contestants. Though only a welterweight, he was matched against light-heavyweights, giving away almost 10kg per fight. He made it all the way to the final at the main Cage Rage show.",
+    bio: "Still an orange belt at the time, Dyson entered the reality TV show Fighting Hurts and was selected as one of 16 contestants. Though only a welterweight, he was matched against light-heavyweights, giving away almost 10kg per fight. He made it all the way to the final at the main Cage Rage show. Four of his five wins came inside the first round - two by TKO, two by submission to strikes - with his fastest finish in just 12 seconds.",
     stats: [
-      { label: "Result", value: "Finalist" },
-      { label: "Weight", value: "Welterweight" },
+      { label: "Wins", value: "5" },
+      { label: "1st-round Finishes", value: "4" },
+      { label: "Fastest KO", value: "12s" },
+    ],
+  },
+  {
+    name: "Shola Adeniran",
+    record: "TKO Victory",
+    highlight: "Ultimate Warrior Challenge",
+    image: "/images/Fighters/shola-adeniran-victory.jpg",
+    portrait: null,
+    bio: "An orange belt at the time, Shola stepped into the cage at Ultimate Warrior Challenge in November 2008 and won by TKO in the third round. A fighting performance straight out of the DKK combat-orientated reading of Goju Ryu.",
+    stats: [
+      { label: "Method", value: "TKO" },
+      { label: "Round", value: "3" },
       { label: "Grade", value: "Orange Belt" },
     ],
   },
@@ -67,7 +80,7 @@ export default function FightersPage() {
             Competition & Combat
           </p>
           <h1 className="font-['Bebas_Neue'] text-7xl sm:text-8xl lg:text-[9rem] text-white tracking-wide leading-none mb-4">DKK Fighters</h1>
-          <p className="text-gray-300 text-lg max-w-lg font-light leading-relaxed">16 wins from 20 cage fights. A World Title. One member who reached the UFC.</p>
+          <p className="text-gray-300 text-lg max-w-lg font-light leading-relaxed">16 wins from our first 20 professional cage fights. A British Heavyweight title, a World Title fight, and one member who reached the UFC.</p>
         </div>
       </section>
 
@@ -77,7 +90,7 @@ export default function FightersPage() {
           <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-white/20">
             {[
               { value: "16/20", label: "First 20 Fights Won" },
-              { value: "1", label: "World Title" },
+              { value: "1", label: "British Heavyweight Title" },
               { value: "UFC", label: "Level Reached" },
               { value: "BAMMA", label: "Competed In" },
             ].map((s) => (
@@ -97,10 +110,13 @@ export default function FightersPage() {
                 While the club&apos;s primary focus is on combat, not competition, there is genuine benefit to be had from testing yourself against an aggressive, non-cooperative opponent, and the MMA scene offers just that challenge.
               </p>
               <p className="text-gray-400 leading-relaxed mb-5">
-                There is never any pressure on students to compete. But several have chosen to test themselves in this extreme environment. For a karate club, the record is remarkable: the first 20 fights yielded <strong className="text-white">16 wins</strong>, one finalist in the reality TV show <em>Fighting Hurts</em>, and one <strong className="text-white">World Title</strong>. One member even made it as far as the <strong className="text-white">UFC</strong>.
+                There is never any pressure on students to compete. But several have chosen to test themselves in this extreme environment. For a karate club, the record is remarkable: the first 20 fights yielded <strong className="text-white">16 wins</strong>, one finalist in the reality TV show <em>Fighting Hurts</em>, the <strong className="text-white">UCMMA British Heavyweight title</strong>, and a fight for the <strong className="text-white">World Title</strong> in the Bellator Heavyweight Tournament. One member even made it as far as the <strong className="text-white">UFC</strong>.
               </p>
-              <p className="text-gray-400 leading-relaxed">
+              <p className="text-gray-400 leading-relaxed mb-5">
                 Members of DKK Fighters have appeared regularly in the UK&apos;s premier MMA events including Cage Rage, Ultimate Challenge, Bellator and BAMMA.
+              </p>
+              <p className="text-white font-['Bebas_Neue'] text-2xl tracking-[0.25em] uppercase mt-8 pt-6 border-t border-[#a8201a]/30">
+                Tested. Passed. Done.
               </p>
             </div>
 
@@ -176,7 +192,7 @@ export default function FightersPage() {
       </section>
 
       {/* In the Cage - archive gallery */}
-      <section className="py-20 bg-black border-t border-white/5">
+      <section className="py-20 lg:py-28 bg-black border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
             <SectionHeading eyebrow="From the Archive" title="In the Cage" />

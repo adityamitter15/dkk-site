@@ -7,8 +7,8 @@ import ParallaxImage from "@/components/ParallaxImage";
 import LineageChain from "@/components/LineageChain";
 
 export const metadata: Metadata = {
-  title: "Karate History",
-  description: "The history of karate from ancient Okinawan fighting arts to the founding of Goju Ryu by Chojun Miyagi and the establishment of DKK London.",
+  title: "Goju Ryu History",
+  description: "The history of Goju Ryu - from Chojun Miyagi's founding of the style on Okinawa to the founding of Daigaku Karate Kai by Shihan Gavin Mulholland (DKK London) and Shihan Dan Lewis (DKK Portishead).",
 };
 
 type Entry = {
@@ -27,60 +27,37 @@ type Chapter = {
 const chapters: Chapter[] = [
   {
     number: "I",
-    label: "The Origins",
-    title: "Before Karate",
-    subtitle: "Thousands of years of Asian fighting systems converge on a small Pacific island.",
+    label: "Goju Ryu is Born",
+    title: "The Style Takes Form",
+    subtitle: "Hard and soft. Chojun Miyagi forges the system on Okinawa, and the world learns the name 'Karate'.",
     entries: [
       {
-        period: "Thousands of Years Ago",
-        title: "Asian Fighting Systems",
-        body: "Fighting systems had existed in Asia for thousands of years before the name 'Karate' was ever used. When the various martial arts that existed in China were practised on Okinawa, they were collectively known as Tode, or Chinese Hand.",
+        period: "Early 20th Century",
+        title: "Chojun Miyagi Creates Goju Ryu",
+        body: "Chojun Miyagi, the outstanding student of Kanryo Higaonna, combined his teacher's knowledge of Chinese systems with native Okinawan fighting arts to create Goju Ryu Karate. He named it after a line in the Bubishi: 'The way of inhaling and exhaling is hardness and softness.'",
       },
       {
-        period: "Ancient Okinawa",
-        title: "Te - The Indigenous Art",
-        body: "Okinawa had its own indigenous systems of combat known as Te (hand). The main ones were Naha-te, Shuri-te and Tomari-te, each developed in different regions of the island, reflecting the unique martial culture of Okinawa.",
+        period: "1936",
+        title: "The Name 'Karate' Agreed",
+        body: "A council of Okinawan masters agreed the term 'Karate' (empty hand) in 1936. It was never meant to be a single style - rather a global term representing all unarmed fighting arts that traced through Okinawa.",
       },
       {
-        period: "Late 19th Century",
-        title: "Kanryo Higaonna & Chinese Roots",
-        body: "An Okinawan islander named Kanryo Higaonna travelled to Southern China and trained under a White Crane master named Ryu Ryu Ko. On his return he taught what would become the foundation of Goju Ryu, a fusion of Chinese arts and Okinawan Naha-te.",
+        period: "1953",
+        title: "Miyagi's Death & the Jundokan",
+        body: "On Chojun Miyagi's death in 1953, Ei'ichi Miyazato took over as head of the Jundokan and the Okinawan Goju Ryu system, continuing to develop and preserve the style for the generations that would follow.",
       },
     ],
   },
   {
     number: "II",
-    label: "Goju Ryu is Born",
-    title: "The Style Takes Form",
-    subtitle: "Hard and soft. Chojun Miyagi forges the system, and the world learns the name 'Karate'.",
-    entries: [
-      {
-        period: "Early 20th Century",
-        title: "Chojun Miyagi Creates Goju Ryu",
-        body: "After Higaonna's death in 1915, his outstanding student Chojun Miyagi combined his knowledge of Chinese systems with native Okinawan fighting arts (Tode) to create Goju Ryu Karate. He named it after a line in the Bubishi: 'The way of inhaling and exhaling is hardness and softness.'",
-      },
-      {
-        period: "1936",
-        title: "The Name 'Karate' Agreed",
-        body: "It was the fusion and development of Te and Tode that became widely known as Kara-te when a council of Okinawan-te masters agreed the term in 1936. Karate (empty hand) was never meant to be a single style; rather a global term representing all unarmed fighting arts.",
-      },
-      {
-        period: "1953",
-        title: "Miyagi's Death & the Jundokan",
-        body: "On Chojun Miyagi's death in 1953, Ei'ichi Miyazato took over as head of the Jundokan and the Okinawan Goju Ryu system, continuing to develop and preserve the style.",
-      },
-    ],
-  },
-  {
-    number: "III",
     label: "The DKK Era",
     title: "The Tradition Reaches London",
-    subtitle: "Shihan Mulholland brings authentic Okinawan Goju Ryu to the UK and builds DKK into one of the country's strongest karate clubs.",
+    subtitle: "Shihan Mulholland and Shihan Lewis carry the Okinawan tradition into a new generation, building DKK into one of the UK's strongest karate clubs.",
     entries: [
       {
-        period: "Late 1980s",
-        title: "DKK London Founded",
-        body: "Shihan Gavin Mulholland established the London branch of Daigaku Karate Kai, bringing authentic Okinawan Goju Ryu to the UK. The club has grown into one of the strongest karate clubs in Britain, maintaining the combat-orientated ethos of the original style.",
+        period: "1990 - 1992",
+        title: "DKK Founded",
+        body: "After meeting as Black Belts under Kyoshi Kim Roberts in 1990, Gavin Mulholland and Dan Lewis set up Daigaku Karate Kai in 1992. The name - 'university' or 'place of learning' - was chosen because both clubs were initially established inside universities. From the outset DKK held to a combat-orientated reading of Goju Ryu, drawing additionally on Shihan Dave Arnold, Master Steve Morris, and Sensei Nick Hughes.",
       },
       {
         period: "Today",
@@ -104,8 +81,8 @@ export default function HistoryPage() {
             <span className="w-6 h-px bg-[#c9a96e]" />
             Heritage
           </p>
-          <h1 className="font-['Bebas_Neue'] text-7xl sm:text-8xl lg:text-[9rem] text-white tracking-wide leading-none mb-4">Karate History</h1>
-          <p className="text-gray-300 text-lg max-w-xl font-light leading-relaxed">From ancient Okinawa to 309 Regent Street - a tradition spanning several thousand years.</p>
+          <h1 className="font-['Bebas_Neue'] text-7xl sm:text-8xl lg:text-[9rem] text-white tracking-wide leading-none mb-4">Goju Ryu History</h1>
+          <p className="text-gray-300 text-lg max-w-xl font-light leading-relaxed">From the dojos of Okinawa to 309 Regent Street - the Goju Ryu tradition lives on.</p>
         </div>
       </section>
 
@@ -118,15 +95,15 @@ export default function HistoryPage() {
             <span className="w-6 h-px bg-[#c9a96e]" />
           </p>
           <h2 className="font-['Bebas_Neue'] text-4xl sm:text-5xl lg:text-6xl text-white tracking-wide leading-[1.05] mb-6">
-            Karate is older than the name we give it.
+            Hard and soft. Forged in Okinawa.
           </h2>
           <p className="text-gray-400 text-lg leading-relaxed max-w-2xl mx-auto">
-            The fighting art we practise traces back several thousand years - from the indigenous arts of Okinawa, through the Chinese masters who shaped its movement, to a small dojo in central London where the tradition continues every Monday and Wednesday.
+            The style we practise was hand-built by Chojun Miyagi on Okinawa in the early 20th century - a fusion of Chinese systems and the island's own fighting arts. Today the same Goju Ryu lives on at 309 Regent Street, every Monday and Wednesday.
           </p>
           <div className="grid grid-cols-3 gap-3 sm:gap-6 mt-12 max-w-2xl mx-auto">
             {[
               { value: "Okinawa", label: "Birthplace" },
-              { value: "1936", label: "Name Agreed" },
+              { value: "Miyagi", label: "Founder" },
               { value: "London", label: "DKK Today" },
             ].map((item) => (
               <div key={item.label} className="p-4 sm:p-5 bg-[#141311] border border-white/5 rounded-sm">
@@ -143,7 +120,7 @@ export default function HistoryPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <p className="text-[#a8201a] text-xs font-bold uppercase tracking-[0.35em] mb-3">The Journey</p>
-            <h2 className="font-['Bebas_Neue'] text-5xl sm:text-6xl lg:text-7xl text-white tracking-wide leading-none">Three Acts &middot; Three Eras</h2>
+            <h2 className="font-['Bebas_Neue'] text-5xl sm:text-6xl lg:text-7xl text-white tracking-wide leading-none">From Okinawa to London</h2>
           </div>
 
           <div className="max-w-3xl mx-auto space-y-20">
@@ -212,7 +189,7 @@ export default function HistoryPage() {
       <div className="section-divider-gold" />
 
       {/* From the Archive - vintage DKK photos */}
-      <section className="py-20 bg-black">
+      <section className="py-20 lg:py-28 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <p className="inline-flex items-center gap-2 text-[#c9a96e] text-xs font-bold uppercase tracking-[0.35em] mb-4">
@@ -236,7 +213,7 @@ export default function HistoryPage() {
             {[
               { src: "/images/Site/archive-group-exit-sign.jpg",       label: "Old Hall",     sub: "Training days past" },
               { src: "/images/Site/archive-group-sepia.jpg",            label: "Club Photo",   sub: "The early members" },
-              { src: "/images/Site/archive-shihan-neil-grading.jpg",    label: "Grading Day",  sub: "Shihan & Neil Grove" },
+              { src: "/images/Site/archive-shihan-neil-grading.jpg",    label: "Title Belts",  sub: "Neil Grove with Shihan & Dan Lewis" },
               { src: "/images/Shihan/Archive/shihan-young-flying-kick.jpg", label: "Flying Kick",   sub: "A young Shihan" },
               { src: "/images/Shihan/Archive/shihan-young-headlock.jpg",    label: "Control",       sub: "From the early archive" },
               { src: "/images/Shihan/Archive/shihan-young-technique.jpg",   label: "Technique",     sub: "Early DKK" },
@@ -254,11 +231,16 @@ export default function HistoryPage() {
         </div>
       </section>
 
-      <section className="py-16 bg-[#0f0e0c]">
+      <section id="lineage" className="py-20 lg:py-24 bg-[#0f0e0c] border-t border-white/5 scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <p className="text-[#c9a96e] text-xs font-semibold uppercase tracking-[0.2em] mb-2">Lineage</p>
+          <div className="text-center mb-14">
+            <p className="inline-flex items-center gap-2 text-[#c9a96e] text-xs font-bold uppercase tracking-[0.35em] mb-4">
+              <span className="w-6 h-px bg-[#c9a96e]" />
+              Lineage of Daigaku Karate Kai
+              <span className="w-6 h-px bg-[#c9a96e]" />
+            </p>
             <h2 className="font-['Bebas_Neue'] text-4xl sm:text-5xl lg:text-6xl tracking-wide leading-none text-white">From Okinawa to London</h2>
+            <p className="text-gray-400 text-sm mt-4 max-w-2xl mx-auto">DKK&apos;s lineage runs through the Jundokan in Okinawa, the early UK Goju pioneers, and a small group of teachers who shaped the way we still train today.</p>
           </div>
           <LineageChain />
         </div>

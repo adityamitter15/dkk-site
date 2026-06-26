@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import DanGrade from "@/components/DanGrade";
 
 const testimonials = [
   {
@@ -88,7 +89,7 @@ export default function TestimonialRotator() {
           <div className="flex items-center justify-center gap-3">
             <div className="w-8 h-px bg-[#a8201a]" />
             <p className="text-white font-semibold text-sm">{t.name}</p>
-            <span className="text-[#a8201a] text-xs uppercase tracking-widest">{t.grade}</span>
+            <span className="text-[#a8201a] text-xs uppercase tracking-widest"><DanGrade text={t.grade} /></span>
             <div className="w-8 h-px bg-[#a8201a]" />
           </div>
         </div>

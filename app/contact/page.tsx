@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import SectionHeading from "@/components/SectionHeading";
 import ContactForm from "@/components/ContactForm";
 import SafeImage from "@/components/SafeImage";
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -25,11 +25,11 @@ export default function ContactPage() {
             Get Started
           </p>
           <h1 className="font-['Bebas_Neue'] text-6xl sm:text-7xl lg:text-8xl text-white tracking-wide leading-none mb-4">Contact</h1>
-          <p className="text-gray-300 text-lg max-w-lg">Your first class is free. No registration fee, no commitment. Just turn up or get in touch first.</p>
+          <p className="text-gray-300 text-lg max-w-lg">Come and try a class. No commitment. Just turn up or get in touch first.</p>
         </div>
       </section>
 
-      <section className="py-16 bg-[#0f0e0c]">
+      <section className="py-20 lg:py-28 bg-[#0f0e0c]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
             <div>
@@ -39,43 +39,62 @@ export default function ContactPage() {
               </p>
 
               <div className="space-y-4 mb-10">
-                <div className="flex gap-4 items-start p-5 bg-[#141311] border border-white/5 rounded-sm">
-                  <Phone className="text-[#a8201a] flex-shrink-0 mt-0.5" size={20} />
-                  <div>
-                    <p className="text-gray-500 text-xs uppercase tracking-widest mb-0.5">Mobile</p>
-                    <a href="tel:07976411901" className="text-white font-medium hover:text-[#a8201a] transition-colors text-lg">
-                      07976 411 901
-                    </a>
-                    <p className="text-gray-500 text-xs mt-0.5">Shihan Gavin Mulholland</p>
-                  </div>
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <a
+                    href="tel:07976411901"
+                    className="flex gap-4 items-start p-5 bg-[#141311] border border-white/10 hover:border-[#a8201a]/40 rounded-sm transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#a8201a]/50"
+                  >
+                    <Phone className="text-[#a8201a] flex-shrink-0 mt-0.5" size={20} aria-hidden="true" />
+                    <div>
+                      <p className="text-gray-500 text-xs uppercase tracking-widest mb-0.5">Call</p>
+                      <p className="text-white font-medium text-lg leading-tight">07976 411 901</p>
+                      <p className="text-gray-500 text-xs mt-0.5">Shihan Gavin</p>
+                    </div>
+                  </a>
+
+                  <a
+                    href="https://wa.me/447976411901?text=Hi%2C%20I%27d%20like%20to%20come%20and%20try%20a%20class%20at%20DKK%20London."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex gap-4 items-start p-5 bg-[#141311] border border-white/10 hover:border-[#25D366]/40 rounded-sm transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366]/50"
+                  >
+                    <MessageCircle className="text-[#25D366] flex-shrink-0 mt-0.5" size={20} aria-hidden="true" />
+                    <div>
+                      <p className="text-gray-500 text-xs uppercase tracking-widest mb-0.5">WhatsApp</p>
+                      <p className="text-white font-medium text-lg leading-tight">Quick chat</p>
+                      <p className="text-gray-500 text-xs mt-0.5">Usually replies same day</p>
+                    </div>
+                  </a>
                 </div>
 
-                <div className="flex gap-4 items-start p-5 bg-[#141311] border border-white/5 rounded-sm">
-                  <Mail className="text-[#a8201a] flex-shrink-0 mt-0.5" size={20} />
+                <a
+                  href="mailto:info@goju-karate.co.uk"
+                  className="flex gap-4 items-start p-5 bg-[#141311] border border-white/10 hover:border-[#a8201a]/40 rounded-sm transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#a8201a]/50"
+                >
+                  <Mail className="text-[#a8201a] flex-shrink-0 mt-0.5" size={20} aria-hidden="true" />
                   <div>
                     <p className="text-gray-500 text-xs uppercase tracking-widest mb-0.5">Email</p>
-                    <a href="mailto:info@goju-karate.co.uk" className="text-white font-medium hover:text-[#a8201a] transition-colors">
-                      info@goju-karate.co.uk
-                    </a>
+                    <p className="text-white font-medium leading-tight">info@goju-karate.co.uk</p>
+                    <p className="text-gray-500 text-xs mt-0.5">Replies within 48 hours</p>
                   </div>
-                </div>
+                </a>
 
-                <div className="flex gap-4 items-start p-5 bg-[#141311] border border-white/5 rounded-sm">
-                  <MapPin className="text-[#a8201a] flex-shrink-0 mt-0.5" size={20} />
+                <div className="flex gap-4 items-start p-5 bg-[#141311] border border-white/10 rounded-sm">
+                  <MapPin className="text-[#a8201a] flex-shrink-0 mt-0.5" size={20} aria-hidden="true" />
                   <div>
                     <p className="text-gray-500 text-xs uppercase tracking-widest mb-0.5">Location</p>
-                    <p className="text-white font-medium">University of Westminster, Main Hall</p>
-                    <p className="text-gray-400 text-sm">309 Regent Street, London W1B 2HW</p>
+                    <p className="text-white font-medium leading-tight">University of Westminster, Main Hall</p>
+                    <p className="text-gray-400 text-sm mt-0.5">309 Regent Street, London W1B 2HW</p>
                     <p className="text-gray-500 text-xs mt-1">No student membership required</p>
                   </div>
                 </div>
 
-                <div className="flex gap-4 items-start p-5 bg-[#141311] border border-white/5 rounded-sm">
-                  <Clock className="text-[#a8201a] flex-shrink-0 mt-0.5" size={20} />
+                <div className="flex gap-4 items-start p-5 bg-[#141311] border border-white/10 rounded-sm">
+                  <Clock className="text-[#a8201a] flex-shrink-0 mt-0.5" size={20} aria-hidden="true" />
                   <div>
                     <p className="text-gray-500 text-xs uppercase tracking-widest mb-0.5">Class Times</p>
-                    <p className="text-white font-medium">Monday &amp; Wednesday</p>
-                    <p className="text-gray-400 text-sm">6:00pm – 8:00pm</p>
+                    <p className="text-white font-medium leading-tight">Monday &amp; Wednesday</p>
+                    <p className="text-gray-400 text-sm mt-0.5">6:00pm – 8:00pm</p>
                     <p className="text-gray-500 text-xs mt-1">Classes continue during University breaks</p>
                   </div>
                 </div>
@@ -99,7 +118,7 @@ export default function ContactPage() {
 
       {/* ── GOOGLE MAP ───────────────────────────────────────── */}
       <section className="bg-[#12110f] border-t border-white/5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
           <div className="mb-8">
             <p className="inline-flex items-center gap-2 text-[#c9a96e] text-xs font-bold uppercase tracking-[0.35em] mb-3">
               <span className="w-6 h-px bg-[#c9a96e]" />

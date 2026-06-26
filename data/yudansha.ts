@@ -42,7 +42,7 @@ export const grades: GradeTier[] = [
       {
         name: "Tunde Oladimeji",
         slug: toSlug("Tunde Oladimeji"),
-        portrait: "/images/Yudansha/Tundepot.gif",
+        portrait: "/images/Yudansha/tunde_black_gi_studio.jpg",
         action: "/images/Yudansha/tundeact.gif",
         bio: "Tunde began karate training in 1998 during his final year as an undergraduate at the University of Westminster. While primarily trained in Goju Ryu, he has studied under multiple karate systems.",
         quote: "I believe one should train to the point where the whole combat process becomes natural and its application seemingly 'planned' and 'calculated'. I consider it a privilege to train with the calibre of people in the club.",
@@ -56,8 +56,7 @@ export const grades: GradeTier[] = [
           { year: "", event: "Godan" },
         ],
         classes: [
-          { day: "Monday", time: "6:15pm – 7:15pm", venue: "Zoom · online session", format: "zoom" },
-          { day: "Friday",  time: "6:00pm – 7:00pm", venue: "Zoom · online session", format: "zoom" },
+          { day: "Monday", time: "6:15pm - 7:15pm", venue: "Zoom · online session", format: "zoom" },
         ],
       },
     ],
@@ -98,7 +97,7 @@ export const grades: GradeTier[] = [
           { year: "2021", event: "Yondan" },
         ],
         classes: [
-          { day: "Thursday", time: "6:15pm – 8:00pm", venue: "St Andrew's C of E School", address: "The Green, Totteridge, London N20 8NX", mapUrl: "https://maps.app.goo.gl/1Jw7TbaSNBR44MBt5", format: "in-person" },
+          { day: "Thursday", time: "6:15pm - 8:00pm", venue: "St Andrew's C of E School", address: "The Green, Totteridge, London N20 8NX", mapUrl: "https://maps.app.goo.gl/1Jw7TbaSNBR44MBt5", format: "in-person" },
         ],
       },
       {
@@ -118,8 +117,8 @@ export const grades: GradeTier[] = [
           { year: "2021", event: "Yondan" },
         ],
         classes: [
-          { day: "Monday",   time: "7:00pm – 8:30pm", venue: "Oakley Village Hall",    address: "9 Oxford Road, Oakley, Bucks, HP18 9RS", mapUrl: "https://maps.app.goo.gl/jnqjMNQKbRCm6fmCA", format: "in-person" },
-          { day: "Thursday", time: "7:30pm – 9:00pm", venue: "Brill Memorial Hall",   address: "19 Church St, Brill, Aylesbury HP18 9RT", mapUrl: "https://maps.app.goo.gl/JRbY289Y33ocM4sm6", format: "in-person" },
+          { day: "Monday",   time: "7:00pm - 8:30pm", venue: "Oakley Village Hall",    address: "9 Oxford Road, Oakley, Bucks, HP18 9RS", mapUrl: "https://maps.app.goo.gl/jnqjMNQKbRCm6fmCA", format: "in-person" },
+          { day: "Thursday", time: "7:30pm - 9:00pm", venue: "Brill Memorial Hall",   address: "19 Church St, Brill, Aylesbury HP18 9RT", mapUrl: "https://maps.app.goo.gl/JRbY289Y33ocM4sm6", format: "in-person" },
         ],
       },
       {
@@ -129,11 +128,15 @@ export const grades: GradeTier[] = [
         action: null,
         bio: "Simon began training in Wado Ryu Karate in 1985, earning his Brown Belt within three years. He later studied Goju Ryu with Chris Rowen, progressing to Sandan before joining DKK in 2000.",
         quote: "Two things inspire me at DKK: the vast knowledge base and holistic approach to combat, encompassing grappling, strikes, kicks and armed combat.",
+        instructor: true,
         milestones: [
           { year: "1985", event: "Began Wado Ryu" },
           { year: "2000", event: "Joined DKK" },
           { year: "2018", event: "Sandan (DKK)" },
           { year: "2021", event: "Yondan" },
+        ],
+        classes: [
+          { day: "Friday", time: "6:15pm - 7:15pm", venue: "Zoom · online session", format: "zoom" },
         ],
       },
     ],
@@ -345,7 +348,7 @@ export const grades: GradeTier[] = [
       {
         name: "Mizuki Murai",
         slug: toSlug("Mizuki Murai"),
-        portrait: "/images/Yudansha/miki1.jpg",
+        portrait: "/images/Yudansha/mizuki_kata_studio.jpg",
         action: "/images/Yudansha/miki2.jpg",
         bio: "Mizuki began training in 2006 under Sensei Lewis at DKK Bristol while at the University of Bristol, relocating to London and joining DKK London.",
         quote: "Having come from a background in ballet, I wanted to try something completely different. DKK has been a fundamental part of my life ever since. The breadth of Goju Ryu and the depth to which we study it fascinates me.",

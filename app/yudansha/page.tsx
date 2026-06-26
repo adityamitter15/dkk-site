@@ -5,6 +5,7 @@ import SafeImage from "@/components/SafeImage";
 import SectionHeading from "@/components/SectionHeading";
 import ParallaxImage from "@/components/ParallaxImage";
 import { grades, type Member } from "@/data/yudansha";
+import DanGrade from "@/components/DanGrade";
 
 export const metadata: Metadata = {
   title: "Yudansha - Black Belts",
@@ -52,7 +53,7 @@ function MemberCard({ member, dan }: { member: Member; dan: string }) {
           {member.instructor && (
             <span className="px-2 py-0.5 bg-[#c9a96e] rounded-sm text-white text-[10px] font-bold uppercase tracking-wider">Instructor</span>
           )}
-          <span className="px-2 py-0.5 bg-[#a8201a] rounded-sm text-white text-[10px] font-bold uppercase tracking-wider">{dan}</span>
+          <span className="px-2 py-0.5 bg-[#a8201a] rounded-sm text-white text-[10px] font-bold uppercase tracking-wider"><DanGrade text={dan} /></span>
         </div>
       </div>
 
@@ -70,7 +71,7 @@ function MemberCard({ member, dan }: { member: Member; dan: string }) {
 }
 
 const gradeDescriptor: Record<string, string> = {
-  Godan: "Master Grade",
+  Godan: "Advanced Teachings",
   Yondan: "Weapons Grade",
   Sandan: "Teaching Grade",
   Nidan: "30 Man Kumite",
@@ -94,16 +95,16 @@ export default function YudanshaPage() {
           </p>
           <h1 className="font-['Bebas_Neue'] text-7xl sm:text-8xl lg:text-[9rem] text-white tracking-wide leading-none mb-2">Yudansha</h1>
           <p className="font-['Bebas_Neue'] text-3xl sm:text-4xl text-[#a8201a]/40 tracking-widest mb-4">有段者</p>
-          <p className="text-gray-300 text-lg max-w-lg font-light leading-relaxed">Grades earned on genuine ability, not time served.</p>
+          <p className="text-gray-300 text-lg max-w-lg font-light leading-relaxed">Grades earned on a combination of attendance and performance.</p>
         </div>
       </section>
 
-      <section className="py-16 bg-[#0f0e0c]">
+      <section className="py-20 lg:py-28 bg-[#0f0e0c]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-16">
             <SectionHeading eyebrow="Dan Grades" title="The Black Belts of DKK London" />
             <p className="text-gray-400 leading-relaxed">
-              Yudansha (有段者) refers to those holding a dan grade. At DKK London, grades are earned on genuine ability, not time served. Every name below represents years of demanding training under Shihan Mulholland&apos;s exacting standards.
+              Yudansha (有段者) refers to those holding a dan grade. At DKK London, grades are earned on a combination of attendance and performance. Every name below represents years of demanding training under Shihan Mulholland&apos;s exacting standards.
             </p>
           </div>
 
@@ -113,7 +114,7 @@ export default function YudanshaPage() {
               <div className="w-2 h-8 bg-[#a8201a] rounded-sm" />
               <div>
                 <p className="text-[#a8201a] text-xs font-bold uppercase tracking-[0.2em]">Godan</p>
-                <h2 className="font-['Bebas_Neue'] text-3xl text-white tracking-wide">5th Dan <span className="text-gray-500 text-lg tracking-widest">· {gradeDescriptor.Godan}</span></h2>
+                <h2 className="font-['Bebas_Neue'] text-3xl text-white tracking-wide"><DanGrade text="5th Dan" /> <span className="text-gray-500 text-lg tracking-widest">· {gradeDescriptor.Godan}</span></h2>
               </div>
             </div>
 
@@ -126,7 +127,7 @@ export default function YudanshaPage() {
                 </div>
                 <div className="lg:col-span-3 p-8 flex flex-col justify-center">
                   <div className="inline-flex items-center gap-2 mb-3 flex-wrap">
-                    <span className="px-2 py-0.5 bg-[#a8201a] text-white text-xs font-bold uppercase tracking-wider rounded-sm">5th Dan</span>
+                    <span className="px-2 py-0.5 bg-[#a8201a] text-white text-xs font-bold uppercase tracking-wider rounded-sm"><DanGrade text="5th Dan" /></span>
                     <span className="text-[#a8201a] text-xs uppercase tracking-wider">Godan</span>
                     {tunde.instructor && (
                       <span className="px-2 py-0.5 bg-[#c9a96e] text-white text-xs font-bold uppercase tracking-wider rounded-sm">Instructor</span>
@@ -152,7 +153,7 @@ export default function YudanshaPage() {
                 <div>
                   <p className="text-[#a8201a] text-xs font-bold uppercase tracking-[0.2em]">{tier.grade}</p>
                   <h2 className="font-['Bebas_Neue'] text-3xl text-white tracking-wide">
-                    {tier.dan}
+                    <DanGrade text={tier.dan} />
                     {gradeDescriptor[tier.grade] && (
                       <span className="text-gray-500 text-lg tracking-widest"> · {gradeDescriptor[tier.grade]}</span>
                     )}
@@ -171,6 +172,57 @@ export default function YudanshaPage() {
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* The DKK Bell - rung by Dan grades at every Black Belt grading */}
+      <section className="py-24 lg:py-32 bg-black border-t border-white/5 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.06]" style={{ background: "radial-gradient(ellipse at center top, #c9a96e 0%, transparent 70%)" }} />
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="inline-flex items-center gap-2 text-[#c9a96e] text-xs font-bold uppercase tracking-[0.4em] mb-4">
+            <span className="w-6 h-px bg-[#c9a96e]" />
+            From the Student Handbook
+            <span className="w-6 h-px bg-[#c9a96e]" />
+          </p>
+          <h2 className="font-['Bebas_Neue'] text-5xl sm:text-6xl lg:text-7xl text-white tracking-wide leading-none mb-3">The DKK Bell</h2>
+          <p className="text-[#c9a96e]/60 text-xs uppercase tracking-[0.3em] mb-12">Rung by Dan Grades on Every Black Belt Grading</p>
+
+          <div className="grid lg:grid-cols-[280px_1fr] gap-10 lg:gap-14 items-center text-left">
+            <div className="flex justify-center">
+              <div className="relative w-[200px] sm:w-[260px] aspect-[5/8] bg-black rounded-sm overflow-hidden ring-1 ring-[#c9a96e]/20 shadow-[0_0_60px_-10px_rgba(201,169,110,0.4)]">
+                <SafeImage src="/images/dkk-bell.jpg" alt="The DKK Bell - hand-made from a spent artillery shell" fill className="object-cover object-center" />
+              </div>
+            </div>
+
+            <div>
+              <p className="text-gray-300 leading-relaxed mb-5">
+                The <strong className="text-white">DKK Bell</strong> was a gift from <strong className="text-white">Grove Martial Arts</strong> and the <strong className="text-white">29 Commando Royal Artillery Regiment</strong>. Hand-made from a <strong className="text-white">spent artillery shell</strong>, the bell is rung by Dan grades of all levels on successful completion of their Black Belt gradings.
+              </p>
+              <p className="text-gray-300 leading-relaxed">
+                Alongside our name and badge is engraved part of a James Elroy Flecker poem - the same poem inscribed on the clock tower of the SAS barracks in Hereford. For GMA to believe it suited the character of DKK is an enormous honour.
+              </p>
+            </div>
+          </div>
+
+          {/* The Flecker poem */}
+          <div className="mt-16 pt-12 border-t border-[#c9a96e]/15">
+            <p className="text-[#c9a96e] text-[10px] font-bold uppercase tracking-[0.4em] mb-7">Engraved on the Bell</p>
+            <blockquote className="space-y-3 max-w-2xl mx-auto">
+              {[
+                "We are the Pilgrims, master; we shall go,",
+                "Always a little further; it may be,",
+                "Beyond that last blue mountain barred with snow,",
+                "Across that angry or that glimmering sea.",
+              ].map((line) => (
+                <p key={line} className="font-['Bebas_Neue'] text-xl sm:text-2xl text-white/90 tracking-[0.08em] italic leading-snug">
+                  {line}
+                </p>
+              ))}
+            </blockquote>
+            <p className="mt-10 font-['Bebas_Neue'] text-3xl sm:text-4xl text-[#c9a96e] tracking-[0.25em] uppercase">
+              Always A Little Further
+            </p>
+          </div>
         </div>
       </section>
 

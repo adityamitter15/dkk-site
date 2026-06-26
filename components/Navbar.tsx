@@ -14,6 +14,7 @@ const links = [
   { href: "/history", label: "History" },
   { href: "/yudansha", label: "Yudansha" },
   { href: "/fighters", label: "Fighters" },
+  { href: "/university", label: "University" },
   { href: "/gallery", label: "Gallery" },
   { href: "/books", label: "Books" },
   { href: "/links", label: "Links" },
@@ -42,7 +43,7 @@ export default function Navbar() {
       style={{ paddingTop: "env(safe-area-inset-top, 0px)" }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 lg:h-20">
+        <div className="flex items-center h-16 lg:h-20 gap-4">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 flex-shrink-0">
             <div className="relative h-10 w-10 rounded-full overflow-hidden">
@@ -60,12 +61,13 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop nav */}
-          <div className="hidden lg:flex items-center gap-1">
+          <div className="hidden lg:flex items-center gap-0.5 ml-auto">
             {links.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`px-3 py-2 text-sm font-medium tracking-wide transition-colors duration-200 rounded-sm ${
+                aria-current={pathname === link.href ? "page" : undefined}
+                className={`px-2 xl:px-2.5 py-2 text-[13px] xl:text-sm font-medium tracking-wide transition-colors duration-200 rounded-sm whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-[#c9a96e] focus-visible:ring-offset-2 focus-visible:ring-offset-black ${
                   pathname === link.href
                     ? "text-[#a8201a]"
                     : "text-gray-300 hover:text-white"
@@ -76,11 +78,14 @@ export default function Navbar() {
             ))}
             <Link
               href="/contact"
-              className="ml-4 px-4 py-2 bg-[#a8201a] text-white text-sm font-semibold tracking-wide uppercase hover:bg-[#c62828] transition-colors duration-200 rounded-sm"
+              className="ml-3 px-4 py-2 bg-[#a8201a] text-white text-sm font-semibold tracking-wide uppercase hover:bg-[#c62828] transition-colors duration-200 rounded-sm whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-[#c9a96e] focus-visible:ring-offset-2 focus-visible:ring-offset-black"
             >
               Join Now
             </Link>
           </div>
+
+          {/* Spacer to keep mobile hamburger on the right */}
+          <div className="flex-1 lg:hidden" />
 
           {/* Mobile hamburger */}
           <button
@@ -105,7 +110,8 @@ export default function Navbar() {
             <Link
               key={link.href}
               href={link.href}
-              className={`px-4 py-3 text-base font-medium tracking-wide border-b border-white/5 transition-colors ${
+              aria-current={pathname === link.href ? "page" : undefined}
+              className={`px-4 py-3 text-base font-medium tracking-wide border-b border-white/5 transition-colors focus:outline-none focus-visible:bg-white/5 ${
                 pathname === link.href
                   ? "text-[#a8201a]"
                   : "text-gray-300 hover:text-white"

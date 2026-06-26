@@ -14,9 +14,9 @@ const linkGroups = [
     links: [
       { title: "DKK London - Facebook", description: "Join the DKK London Facebook group for news, discussion and updates.", href: "https://www.facebook.com/groups/24449490051/" },
       { title: "DKK London - Instagram", description: "Follow DKK London on Instagram for training news, photos and updates.", href: "https://www.instagram.com/dkk_karate_london" },
-      { title: "DKK Bristol", description: "Our sister club run by Shihan Dan Lewis, Bristol Combat Goju Ryu.", href: "http://www.gojukaratebristol.co.uk/" },
+      { title: "DKK Portishead", description: "Our sister club run by Shihan Dan Lewis. Junior and senior classes in Portishead, North Somerset.", href: "https://www.instagram.com/dkk_karate_portishead/" },
+      { title: "DKK Bristol", description: "Bristol Combat Goju Ryu - our long-standing affiliate in the West Country.", href: "http://www.gojukaratebristol.co.uk/" },
       { title: "DKK Oxfordshire", description: "Run by Sensei Simon Clinch. Goju Ryu karate in Oxfordshire.", href: "https://www.gojukarateoxford.com/" },
-      { title: "DKK Portishead", description: "DKK Bristol junior and senior classes in Portishead, North Somerset.", href: "https://www.instagram.com/dkk_karate_portishead/" },
     ],
   },
   {
@@ -79,7 +79,7 @@ export default function LinksPage() {
         </div>
       </section>
 
-      <section className="py-16 bg-[#0f0e0c]">
+      <section className="py-20 lg:py-28 bg-[#0f0e0c]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading eyebrow="External Resources" title="Useful Links" />
           <div className="columns-1 lg:columns-2 gap-x-12 max-w-5xl">

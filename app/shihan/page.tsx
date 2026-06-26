@@ -23,11 +23,11 @@ export default function ShihanPage() {
             Founder & Chief Instructor
           </p>
           <h1 className="font-['Bebas_Neue'] text-6xl sm:text-7xl lg:text-8xl text-white tracking-wide leading-none mb-4">Shihan<br /><span className="text-[#a8201a]">Mulholland</span></h1>
-          <p className="text-gray-300 text-lg max-w-lg">7th Dan · Combat Hall of Fame · Published Author</p>
+          <p className="text-gray-300 text-lg max-w-lg">7<sup className="text-[0.65em] align-super">th</sup> Dan · Combat Hall of Fame · Published Author</p>
         </div>
       </section>
 
-      <section className="py-16 bg-[#0f0e0c]">
+      <section className="py-20 lg:py-28 bg-[#0f0e0c]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
             <div className="lg:sticky lg:top-24 space-y-3">
@@ -36,7 +36,7 @@ export default function ShihanPage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
                 <div className="absolute bottom-4 left-4">
                   <p className="text-white font-['Bebas_Neue'] text-2xl tracking-widest">Gavin Mulholland</p>
-                  <p className="text-[#a8201a] text-xs uppercase tracking-widest">Shihan · 7th Dan</p>
+                  <p className="text-[#a8201a] text-xs uppercase tracking-widest">Shihan · 7<sup className="text-[0.7em] normal-case align-super">th</sup> Dan</p>
                 </div>
               </div>
               <div className="grid grid-cols-3 gap-3">
@@ -55,36 +55,45 @@ export default function ShihanPage() {
             <div>
               <SectionHeading eyebrow="Founder & Chief Instructor" title="Gavin Mulholland" />
               <div className="flex flex-wrap gap-2 mb-6">
-                {["7th Dan", "Shihan", "Founder", "Author", "Combat Hall of Fame"].map((badge) => (
+                <span className="px-3 py-1 bg-[#c9a96e]/10 border border-[#c9a96e]/30 text-[#c9a96e] text-xs font-semibold uppercase tracking-wider rounded-sm">
+                  7<sup className="text-[0.7em] normal-case align-super">th</sup> Dan
+                </span>
+                {["Shihan", "Founder", "Author", "Combat Hall of Fame"].map((badge) => (
                   <span key={badge} className="px-3 py-1 bg-[#c9a96e]/10 border border-[#c9a96e]/30 text-[#c9a96e] text-xs font-semibold uppercase tracking-wider rounded-sm">
                     {badge}
                   </span>
                 ))}
               </div>
               <p className="text-gray-400 leading-relaxed mb-5">
-                Gavin began training at an early age alongside his brothers under the tutelage of their father, who was teaching Judo and unarmed combat in the British Forces throughout the 1960s. After witnessing a demonstration of Goju Ryu by Kyoshi Kim Roberts in the late 70s, he became an immediate convert and trains with Kim to this day.
+                Gavin began training at an early age alongside his brothers under the tutelage of their father, who was teaching Judo and unarmed combat in the British Forces throughout the 1960s. After witnessing a demonstration of Goju Ryu by <strong className="text-white">Kyoshi Kim Roberts</strong> and <strong className="text-white">Shihan Dave Arnold</strong> in the late 1970s, he became an immediate convert and has been studying Okinawan Goju Ryu ever since.
               </p>
               <p className="text-gray-400 leading-relaxed mb-5">
                 Gavin has travelled extensively throughout Asia experiencing a wide diversity of martial arts. However, as a holistic fighting art, Goju already incorporates elements from virtually every other fighting system and Gavin has remained within the Goju framework.
               </p>
               <p className="text-gray-400 leading-relaxed mb-5">
-                A member of the Combat Hall of Fame, Gavin was awarded Godan in 2002, Rokudan in June 2009, and was promoted to Nanadan (7th Dan) in June 2019 by the Chairman of the OMAA, Shihan Roger Sheldon.
+                A member of the Combat Hall of Fame, Gavin was awarded Godan in 2002, Rokudan in June 2009, and was promoted to Nanadan (7<sup className="text-[0.65em] align-super">th</sup> Dan) in June 2019 by the Chairman of the OMAA, Shihan Roger Sheldon.
               </p>
               <p className="text-gray-400 leading-relaxed mb-8">
-                He spent many years on the door as a regular instructor for Meido Ltd, specialising in door supervision, security and close protection. He has made TV and film appearances, published regular articles, and wrote the highly acclaimed <em>Four Shades of Black</em>. He is Chief Instructor of DKK alongside Shihan Dan Lewis of Bristol Combat Goju Ryu.
+                He spent many years on the door as a regular instructor for Meido Ltd, specialising in door supervision, security and close protection. He has made TV and film appearances, published regular articles, and wrote the highly acclaimed <em>Four Shades of Black</em>. He is Chief Instructor of DKK alongside Shihan Dan Lewis of DKK Portishead.
               </p>
               <div className="grid sm:grid-cols-3 gap-4 mb-8">
-                {[
-                  { icon: Award, label: "Grade", value: "7th Dan" },
-                  { icon: Star, label: "Title", value: "Shihan" },
-                  { icon: BookOpen, label: "Books", value: "Published" },
-                ].map((item) => (
-                  <div key={item.label} className="p-4 bg-[#141311] border border-white/5 rounded-sm text-center">
-                    <item.icon className="text-[#a8201a] mx-auto mb-2" size={20} />
-                    <p className="text-white font-['Bebas_Neue'] text-xl tracking-wide">{item.value}</p>
-                    <p className="text-gray-500 text-xs uppercase tracking-wider">{item.label}</p>
-                  </div>
-                ))}
+                <div className="p-4 bg-[#141311] border border-white/5 rounded-sm text-center">
+                  <Award className="text-[#a8201a] mx-auto mb-2" size={20} />
+                  <p className="text-white font-['Bebas_Neue'] text-xl tracking-wide">
+                    7<sup className="font-sans normal-case text-[0.5em] tracking-tight align-super -ml-px font-medium">th</sup> Dan
+                  </p>
+                  <p className="text-gray-500 text-xs uppercase tracking-wider">Grade</p>
+                </div>
+                <div className="p-4 bg-[#141311] border border-white/5 rounded-sm text-center">
+                  <Star className="text-[#a8201a] mx-auto mb-2" size={20} />
+                  <p className="text-white font-['Bebas_Neue'] text-xl tracking-wide">Shihan</p>
+                  <p className="text-gray-500 text-xs uppercase tracking-wider">Title</p>
+                </div>
+                <div className="p-4 bg-[#141311] border border-white/5 rounded-sm text-center">
+                  <BookOpen className="text-[#a8201a] mx-auto mb-2" size={20} />
+                  <p className="text-white font-['Bebas_Neue'] text-xl tracking-wide">Published</p>
+                  <p className="text-gray-500 text-xs uppercase tracking-wider">Books</p>
+                </div>
               </div>
               <div className="flex gap-6 flex-wrap">
                 <Link href="/books" className="inline-flex items-center gap-2 text-[#a8201a] font-semibold text-sm uppercase tracking-wider hover:gap-3 transition-all">
@@ -100,16 +109,16 @@ export default function ShihanPage() {
       </section>
 
       {/* Fighters record */}
-      <section className="py-16 bg-[#12110f] border-t border-white/5">
+      <section className="py-20 lg:py-28 bg-[#12110f] border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-10 items-center">
             <div>
               <SectionHeading eyebrow="DKK Fighters" title="A Record in the Cage" />
               <p className="text-gray-400 leading-relaxed mb-6">
-                Shihan Mulholland has guided his team DKK Fighters to compete in Cage Rage, Ultimate Challenge, and BAMMA. The club&apos;s first 20 cage fights yielded 16 wins, one finalist in <em>Fighting Hurts</em>, and one World Title. One student even made it as far as the UFC.
+                Shihan Mulholland has guided his team DKK Fighters to compete in Cage Rage, Ultimate Challenge, Bellator, BAMMA and the UFC. The club&apos;s first 20 professional cage fights yielded 16 wins, the <strong className="text-white">UCMMA British Heavyweight title</strong>, a fight for the <strong className="text-white">World Title</strong> in the Bellator Heavyweight Tournament, and a finalist in <em>Fighting Hurts</em>.
               </p>
               <div className="grid grid-cols-3 gap-3 mb-6">
-                {[{ value: "16/20", label: "Cage Wins" }, { value: "1", label: "World Title" }, { value: "UFC", label: "Reached" }].map((s) => (
+                {[{ value: "16/20", label: "Cage Wins" }, { value: "1", label: "British Title" }, { value: "UFC", label: "Reached" }].map((s) => (
                   <div key={s.label} className="p-4 bg-[#141311] border border-[#a8201a]/20 rounded-sm text-center">
                     <p className="font-['Bebas_Neue'] text-2xl text-white tracking-wide leading-none">{s.value}</p>
                     <p className="text-[#a8201a] text-[10px] uppercase tracking-widest mt-1.5">{s.label}</p>
@@ -146,9 +155,9 @@ export default function ShihanPage() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 max-w-5xl mx-auto">
             {[
-              { src: "/images/Shihan/shihan-kuwa-black.jpg", label: "Kuwa", sub: "Farming hoe" },
-              { src: "/images/Shihan/shihan-bo-black.jpg",   label: "Bo",   sub: "Six-foot staff" },
-              { src: "/images/Shihan/shihan-tanto-black.jpg", label: "Tanto", sub: "Short blade" },
+              { src: "/images/Shihan/shihan-kuwa-black.jpg", label: "Shillelagh", sub: "Irish fighting stick" },
+              { src: "/images/Shihan/shihan-bo-black.jpg",   label: "Eku",        sub: "Okinawan oar" },
+              { src: "/images/Shihan/shihan-tanto-black.jpg", label: "Tanto",     sub: "Short blade" },
             ].map((item) => (
               <div key={item.src} className="relative aspect-[4/5] rounded-sm overflow-hidden bg-[#141311] ring-1 ring-[#c9a96e]/10 hover:ring-[#c9a96e]/40 transition-all duration-500 group">
                 <SafeImage src={item.src} alt={`Shihan Mulholland - ${item.label}`} fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
@@ -162,7 +171,7 @@ export default function ShihanPage() {
           </div>
           <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
             <div className="relative aspect-[16/9] rounded-sm overflow-hidden bg-[#141311] ring-1 ring-white/5 group">
-              <SafeImage src="/images/Shihan/shihan-forest-kick.jpg" alt="Shihan Mulholland - high kick outdoors" fill className="object-cover object-center group-hover:scale-105 transition-transform duration-700" />
+              <SafeImage src="/images/Shihan/shihan-forest-kick.jpg" alt="Shihan Mulholland - high kick outdoors" fill className="object-cover object-top group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
               <div className="absolute bottom-3 left-4">
                 <p className="text-white font-['Bebas_Neue'] text-xl tracking-widest">Outdoors</p>
@@ -170,7 +179,7 @@ export default function ShihanPage() {
               </div>
             </div>
             <div className="relative aspect-[16/9] rounded-sm overflow-hidden bg-[#141311] ring-1 ring-white/5 group">
-              <SafeImage src="/images/Shihan/shihan-outdoor-instruction-bw.jpg" alt="Shihan Mulholland - instruction outdoors" fill className="object-cover object-center group-hover:scale-105 transition-transform duration-700" />
+              <SafeImage src="/images/Shihan/shihan-outdoor-instruction-bw.jpg" alt="Shihan Mulholland - instruction outdoors" fill className="object-cover object-top group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
               <div className="absolute bottom-3 left-4">
                 <p className="text-white font-['Bebas_Neue'] text-xl tracking-widest">Instruction</p>
@@ -182,7 +191,7 @@ export default function ShihanPage() {
       </section>
 
       {/* B&W Photoshoot Video */}
-      <section className="py-20 bg-black border-t border-white/5">
+      <section className="py-20 lg:py-28 bg-black border-t border-white/5">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <p className="inline-flex items-center gap-2 text-[#c9a96e] text-xs font-bold uppercase tracking-[0.35em] mb-4">
@@ -207,7 +216,7 @@ export default function ShihanPage() {
       </section>
 
       {/* Interviews & Media */}
-      <section className="py-20 bg-[#0f0e0c] border-t border-white/5">
+      <section className="py-20 lg:py-28 bg-[#0f0e0c] border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading eyebrow="Interviews" title="Podcasts & Media" />
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl">
@@ -271,30 +280,51 @@ export default function ShihanPage() {
       </section>
 
       {/* Alongside Shihan Dan Lewis */}
-      <section className="py-16 bg-[#0f0e0c] border-t border-white/5">
+      <section className="py-20 lg:py-28 bg-[#0f0e0c] border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
             <div className="flex lg:justify-end">
-              <div className="relative rounded-sm overflow-hidden bg-[#141311] w-full max-w-[320px]" style={{ aspectRatio: "4/5" }}>
+              <div className="relative rounded-sm overflow-hidden bg-[#141311] w-full max-w-[360px]" style={{ aspectRatio: "4/5" }}>
                 <SafeImage src="/images/dan_lewis.jpg" alt="Shihan Dan Lewis" fill className="object-cover object-top" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
                 <div className="absolute bottom-4 left-4">
                   <p className="text-white font-['Bebas_Neue'] text-xl tracking-widest">Dan Lewis</p>
-                  <p className="text-[#a8201a] text-[10px] uppercase tracking-widest">Shihan &middot; DKK Bristol</p>
+                  <p className="text-[#a8201a] text-[10px] uppercase tracking-widest">Shihan &middot; 7<sup className="text-[0.75em] normal-case align-super">th</sup> Dan &middot; Co-Founder</p>
                 </div>
               </div>
             </div>
             <div>
               <p className="inline-flex items-center gap-2 text-[#c9a96e] text-xs font-bold uppercase tracking-[0.35em] mb-3">
                 <span className="w-6 h-px bg-[#c9a96e]" />
-                Alongside
+                Co-Founder of DKK
               </p>
-              <h2 className="font-['Bebas_Neue'] text-4xl sm:text-5xl text-white tracking-wide leading-none mb-4">Shihan Dan Lewis</h2>
+              <h2 className="font-['Bebas_Neue'] text-4xl sm:text-5xl text-white tracking-wide leading-none mb-5">Shihan Dan Lewis</h2>
+
+              <div className="flex flex-wrap gap-2 mb-6">
+                <span className="px-3 py-1 bg-[#c9a96e]/10 border border-[#c9a96e]/30 text-[#c9a96e] text-xs font-semibold uppercase tracking-wider rounded-sm">
+                  7<sup className="text-[0.7em] normal-case align-super">th</sup> Dan
+                </span>
+                {["Shihan", "Co-Founder", "Eskrima World Silver", "Unsung Hero BMA 2017"].map((badge) => (
+                  <span key={badge} className="px-3 py-1 bg-[#c9a96e]/10 border border-[#c9a96e]/30 text-[#c9a96e] text-xs font-semibold uppercase tracking-wider rounded-sm">
+                    {badge}
+                  </span>
+                ))}
+              </div>
+
               <p className="text-gray-400 leading-relaxed mb-5">
-                Shihan Mulholland is Chief Instructor of DKK alongside <strong className="text-white">Shihan Dan Lewis</strong>, who runs Bristol Combat Goju Ryu and the wider DKK network outside London. The two Shihans have worked side-by-side for decades, shaping the direction of Daigaku Karate Kai as a combat-orientated Goju Ryu organisation.
+                Dan started his training in <strong className="text-white">Kyokushinkai Karate</strong> in the early 1980s under Shihan Bryan Dowler and Sensei Albert Burton. Having already developed a solid grounding in the hard side of martial arts, the change to Goju Ryu was an obvious choice. At this point he joined up with Gavin and, as their training, mindset, and teaching methods were so similar, setting up <em>Daigaku Karate Kai</em> together was a natural progression.
               </p>
+
+              <p className="text-gray-400 leading-relaxed mb-5">
+                Daniel&apos;s obsession with the arts led him to train in a wide range of different systems including <strong className="text-white">Mugendo Kick Boxing, Muay Thai, Eskrima, Ju-Jutsu, MFS (Modern Fighting System), Wing Chun</strong> and other Gung Fu systems. Like Gavin, he acknowledges the holistic nature of Goju Ryu, which encompasses elements from all of these seemingly distinct systems.
+              </p>
+
+              <p className="text-gray-400 leading-relaxed mb-6">
+                A <strong className="text-white">British Champion in stick fighting (Eskrima)</strong>, Dan travelled to the Philippines as part of the English squad where he gained a <strong className="text-white">Silver medal at the Eskrima World Championships 2000</strong>. He also ran a security business in Bristol for nearly 20 years, working at the sharp end as a doorman. Generally the quieter of the two, Dan was presented with the <strong className="text-white">&apos;Unsung Hero&apos;</strong> award at <em>The British Martial Arts Awards</em> in 2017.
+              </p>
+
               <Link href="/links" className="inline-flex items-center gap-2 text-[#a8201a] font-semibold text-sm uppercase tracking-wider hover:gap-3 transition-all">
-                DKK Bristol <ChevronRight size={16} />
+                DKK Portishead <ChevronRight size={16} />
               </Link>
             </div>
           </div>

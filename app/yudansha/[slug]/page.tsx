@@ -3,10 +3,11 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight, Clock, MapPin, Video, ExternalLink } from "lucide-react";
 import SafeImage from "@/components/SafeImage";
+import DanGrade from "@/components/DanGrade";
 import { getAllMembers, getMemberBySlug } from "@/data/yudansha";
 
 const gradeDescriptor: Record<string, string> = {
-  Godan: "Master Grade",
+  Godan: "Advanced Teachings",
   Yondan: "Weapons Grade",
   Sandan: "Teaching Grade",
   Nidan: "30 Man Kumite",
@@ -60,12 +61,24 @@ export default async function MemberPage({ params }: { params: Promise<{ slug: s
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/30" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0f0e0c] via-transparent to-black/40" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link href="/yudansha" className="inline-flex items-center gap-1 text-gray-400 text-xs uppercase tracking-widest hover:text-[#a8201a] transition-colors mb-6">
-            <ChevronLeft size={14} />
-            All Yudansha
-          </Link>
+          <nav aria-label="Breadcrumb" className="mb-6">
+            <ol className="flex items-center gap-2 text-xs uppercase tracking-widest">
+              <li>
+                <Link href="/" className="text-gray-500 hover:text-[#a8201a] transition-colors">Home</Link>
+              </li>
+              <li aria-hidden="true" className="text-gray-700">/</li>
+              <li>
+                <Link href="/yudansha" className="text-gray-400 hover:text-[#a8201a] transition-colors inline-flex items-center gap-1">
+                  <ChevronLeft size={12} aria-hidden="true" />
+                  Yudansha
+                </Link>
+              </li>
+              <li aria-hidden="true" className="text-gray-700">/</li>
+              <li aria-current="page" className="text-white truncate max-w-[140px] sm:max-w-none">{member.name}</li>
+            </ol>
+          </nav>
           <div className="flex items-center gap-3 mb-4 flex-wrap">
-            <span className="px-3 py-1 bg-[#a8201a] text-white text-xs font-bold uppercase tracking-wider rounded-sm">{member.dan}</span>
+            <span className="px-3 py-1 bg-[#a8201a] text-white text-xs font-bold uppercase tracking-wider rounded-sm"><DanGrade text={member.dan} /></span>
             <span className="text-[#a8201a] text-xs uppercase tracking-wider">{member.grade}</span>
             {gradeDescriptor[member.grade] && (
               <span className="text-[#c9a96e] text-[10px] uppercase tracking-[0.2em] border-l border-[#c9a96e]/30 pl-3">{gradeDescriptor[member.grade]}</span>
@@ -77,7 +90,7 @@ export default async function MemberPage({ params }: { params: Promise<{ slug: s
       </section>
 
       {/* Profile */}
-      <section className="py-16 sm:py-20 bg-[#0f0e0c]">
+      <section className="py-20 lg:py-28 bg-[#0f0e0c]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 
           {/* Images */}
@@ -105,7 +118,7 @@ export default async function MemberPage({ params }: { params: Promise<{ slug: s
               <div className="relative rounded-sm overflow-hidden bg-[#141311] flex items-center justify-center" style={{ aspectRatio: "3/4" }}>
                 <div className="flex flex-col items-center gap-3">
                   <span className="font-['Bebas_Neue'] text-7xl text-[#a8201a]/20 tracking-widest">{initials}</span>
-                  <p className="text-gray-600 text-xs uppercase tracking-widest">{member.dan}</p>
+                  <p className="text-gray-600 text-xs uppercase tracking-widest"><DanGrade text={member.dan} /></p>
                 </div>
               </div>
             </div>
@@ -115,7 +128,7 @@ export default async function MemberPage({ params }: { params: Promise<{ slug: s
           <div className="max-w-4xl">
             <div className="flex items-center gap-3 mb-3 flex-wrap">
               <p className="text-[#a8201a] text-xs font-bold uppercase tracking-[0.2em]">
-                {member.grade} &middot; {member.dan}
+                {member.grade} &middot; <DanGrade text={member.dan} />
                 {gradeDescriptor[member.grade] && <span className="text-[#c9a96e] ml-2">&middot; {gradeDescriptor[member.grade]}</span>}
               </p>
               {member.instructor && (
@@ -148,7 +161,7 @@ export default async function MemberPage({ params }: { params: Promise<{ slug: s
                 )}
                 <div className="border-l-2 border-[#a8201a]/40 pl-4">
                   <p className="text-gray-500 text-[10px] uppercase tracking-widest">Current grade</p>
-                  <p className="text-white font-['Bebas_Neue'] text-2xl tracking-wide">{member.dan}</p>
+                  <p className="text-white font-['Bebas_Neue'] text-2xl tracking-wide"><DanGrade text={member.dan} /></p>
                 </div>
               </div>
             )}
@@ -186,7 +199,7 @@ export default async function MemberPage({ params }: { params: Promise<{ slug: s
                         <p className={`font-['Bebas_Neue'] text-xl tracking-wide leading-none min-w-[3.5rem] ${
                           isLast ? "text-[#a8201a]" : "text-white/80"
                         }`}>
-                          {m.year || "\u2014"}
+                          {m.year || "-"}
                         </p>
                         <div>
                           <p className={`text-sm leading-tight ${isLast ? "text-white font-medium" : "text-gray-400"}`}>
