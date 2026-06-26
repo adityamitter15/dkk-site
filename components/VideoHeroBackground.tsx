@@ -22,9 +22,10 @@ export default function VideoHeroBackground() {
       playsInline
       preload="metadata"
     >
-      {/* Only load video on tablet+ — saves ~10MB on cellular. Smaller phones see the poster image. */}
+      {/* Phones get a 480p 3.7MB build, tablets+ get the 720p original. WebM first for the browsers that prefer it. */}
       <source src="/videos/dkk_hero.webm" type="video/webm" media="(min-width: 768px)" />
-      <source src="/videos/dkk_hero.mp4" type="video/mp4" media="(min-width: 768px)" />
+      <source src="/videos/dkk_hero.mp4"  type="video/mp4"  media="(min-width: 768px)" />
+      <source src="/videos/dkk_hero_mobile.mp4" type="video/mp4" />
     </video>
   );
 }

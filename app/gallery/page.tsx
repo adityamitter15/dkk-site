@@ -76,7 +76,7 @@ const images: GalleryImage[] = [
   { src: "/images/Camp/camp-lineup-trees.jpg",      alt: "Camp lineup under trees",            caption: "Summer Camp - Under the Trees",    tall: false, category: "Camps" },
   { src: "/images/Camp/camp-post-training-pair.jpg", alt: "Post training pair at camp",        caption: "After Training",                    tall: false, category: "Camps" },
   { src: "/images/Camp/camp-shihan-student-fists.jpg", alt: "Shihan with student at camp",    caption: "Shihan & Student",                  tall: false, category: "Camps" },
-  { src: "/images/Camp/camp-board-break-intense.png", alt: "Board break at camp",              caption: "Board Break - Summer Camp",         tall: false, category: "Camps" },
+  { src: "/images/Camp/camp-board-break-intense.jpg", alt: "Board break at camp",              caption: "Board Break - Summer Camp",         tall: false, category: "Camps" },
 
   // ── 30 Man Kumite - goes under Grading ───────────────────
   { src: "/images/Camp/women-trees-lineup.JPG",     alt: "30 Man Kumite lineup - woman's",     caption: "30 Man Kumite - Fight Lineup (Woman's)", tall: false, category: "Grading" },
@@ -174,7 +174,7 @@ export default function GalleryPage() {
       <section className="relative pt-28 pb-16 sm:pt-40 sm:pb-28 overflow-hidden">
         <div className="absolute inset-0 bg-black" />
         <div className="absolute inset-0">
-          <SafeImage src="/images/Camp/outdoor-kata-dynamic.JPG" alt="" fill className="object-cover object-center opacity-35" />
+          <SafeImage src="/images/Camp/outdoor-kata-dynamic.JPG" alt="" fill priority sizes="100vw" className="object-cover object-center opacity-35" />
         </div>
         <div className="absolute inset-0 bg-gradient-to-r from-black via-black/75 to-black/40" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0f0e0c] via-transparent to-black/60" />

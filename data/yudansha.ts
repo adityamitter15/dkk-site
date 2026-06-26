@@ -394,7 +394,7 @@ export const grades: GradeTier[] = [
         name: "Mark Haslehurst",
         slug: toSlug("Mark Haslehurst"),
         portrait: "/images/Yudansha/mark_haslehurst1.jpeg",
-        action: "/images/Yudansha/mark_haslehurst_breaking.png",
+        action: "/images/Yudansha/mark_haslehurst_breaking.jpg",
         bio: "Mark started training under Shihan Lewis between 2006 and 2010 while studying in Bristol and rejoined DKK under Shihan Mulholland in 2017.",
         milestones: [
           { year: "2006", event: "Began Training (Bristol)" },

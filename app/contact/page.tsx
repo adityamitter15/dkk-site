@@ -15,7 +15,7 @@ export default function ContactPage() {
       {/* Hero - image-based for variety */}
       <section className="relative pt-28 pb-16 sm:pt-40 sm:pb-28 overflow-hidden">
         <div className="absolute inset-0">
-          <SafeImage src="/images/Club/dojo-full-class.JPG" alt="DKK London dojo" fill className="object-cover object-center" />
+          <SafeImage src="/images/Club/dojo-full-class.JPG" alt="DKK London dojo" fill priority sizes="100vw" className="object-cover object-center" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/75 to-black/50" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0f0e0c] via-transparent to-black/60" />
         </div>

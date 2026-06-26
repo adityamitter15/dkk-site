@@ -172,15 +172,15 @@ export default function Home() {
       </section>
 
       {/* ── PHOTO STRIP - VISUAL BREAK ──────────────────────── */}
-      <section className="relative h-80 sm:h-80 lg:h-96 overflow-hidden">
-        <div className="grid grid-cols-1 sm:grid-cols-3 h-full">
-          <div className="relative overflow-hidden">
+      <section className="relative sm:h-80 lg:h-96 overflow-hidden">
+        <div className="grid grid-cols-1 sm:grid-cols-3 sm:h-full">
+          <div className="relative aspect-[3/2] sm:aspect-auto sm:h-full overflow-hidden">
             <SafeImage src="/images/Training/kumite-high-kick.jpg" alt="Kumite in the dojo" fill sizes="(max-width: 640px) 100vw, 33vw" className="object-cover hover:scale-105 transition-transform duration-700" />
           </div>
-          <div className="relative overflow-hidden">
+          <div className="relative aspect-[3/2] sm:aspect-auto sm:h-full overflow-hidden">
             <SafeImage src="/images/Camp/outdoor-kata-dynamic.JPG" alt="Outdoor mass kata at camp" fill sizes="(max-width: 640px) 100vw, 33vw" className="object-cover hover:scale-105 transition-transform duration-700" />
           </div>
-          <div className="relative overflow-hidden">
+          <div className="relative aspect-[3/2] sm:aspect-auto sm:h-full overflow-hidden">
             <SafeImage src="/images/Shihan/shihan-kuwa-black.jpg" alt="Shihan with traditional kuwa" fill sizes="(max-width: 640px) 100vw, 33vw" className="object-cover object-top hover:scale-105 transition-transform duration-700" />
           </div>
         </div>
