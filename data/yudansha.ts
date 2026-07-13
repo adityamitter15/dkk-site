@@ -420,8 +420,8 @@ export const grades: GradeTier[] = [
       {
         name: "Sebastien Montemurro",
         slug: toSlug("Sebastien Montemurro"),
-        portrait: null,
-        action: null,
+        portrait: "/images/Yudansha/sebastien_montemurro.jpg",
+        action: "/images/Yudansha/sebastien_montemurro_action.jpg",
         milestones: [
           { year: "2025", event: "Shodan" },
         ],
@@ -429,8 +429,8 @@ export const grades: GradeTier[] = [
       {
         name: "Albert",
         slug: toSlug("Albert"),
-        portrait: null,
-        action: null,
+        portrait: "/images/Yudansha/albert_portrait.jpg",
+        action: "/images/Yudansha/albert_action.jpg",
         milestones: [
           { year: "2025", event: "Shodan" },
         ],
@@ -439,7 +439,7 @@ export const grades: GradeTier[] = [
         name: "Carlotta Roveri",
         slug: toSlug("Carlotta Roveri"),
         portrait: "/images/Yudansha/carlotta_roveri.jpg",
-        action: "/images/Yudansha/carlotta_action.jpg",
+        action: null,
         milestones: [
           { year: "2025", event: "Shodan-Ho" },
           { year: "2026", event: "Shodan" },

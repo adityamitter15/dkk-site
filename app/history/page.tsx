@@ -156,7 +156,7 @@ export default function HistoryPage() {
                             </div>
                             <div className="relative overflow-hidden flex-1 p-5 bg-card border border-white/5 rounded-sm hover:border-brand/25 hover:-translate-y-0.5 hover:shadow-[0_4px_24px_-4px_rgba(168,32,26,0.12)] transition-all duration-300">
                               {/\d{4}/.test(item.period) && (
-                                <span aria-hidden="true" className="absolute -top-3 right-2 font-display text-7xl sm:text-8xl leading-none text-white/[0.05] select-none pointer-events-none">
+                                <span aria-hidden="true" className="absolute top-3 right-3 font-display text-6xl sm:text-7xl leading-none text-white/[0.05] select-none pointer-events-none">
                                   {item.period.match(/\d{4}/)?.[0]}
                                 </span>
                               )}

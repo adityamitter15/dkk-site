@@ -7,9 +7,9 @@ type Props = {
 };
 
 const TONES = {
-  white: "text-white/[0.045]",
-  gold: "text-gold/[0.06]",
-  brand: "text-brand/[0.07]",
+  white: "text-white/[0.10]",
+  gold: "text-gold/[0.13]",
+  brand: "text-brand/[0.14]",
 };
 
 /**
