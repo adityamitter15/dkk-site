@@ -21,27 +21,28 @@ export default function VideoShowcase() {
       {/* Subtle radial glow behind video */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_60%,_#1a0000_0%,_transparent_70%)] opacity-70 pointer-events-none" />
 
-      <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header — sits on the site-wide gutter so edges line up section to section */}
         <div className="mb-10">
-          <p className="inline-flex items-center gap-3 text-[#a8201a] text-xs font-bold uppercase tracking-[0.35em] mb-5">
-            <span className="w-6 h-px bg-[#a8201a]" />
+          <p className="inline-flex items-center gap-3 text-brand text-xs font-bold uppercase tracking-[0.35em] mb-5">
+            <span className="w-6 h-px bg-brand" />
             See For Yourself
           </p>
-          <h2 className="font-['Bebas_Neue'] text-5xl sm:text-6xl lg:text-[5.5rem] text-white tracking-wide leading-none">
+          <h2 className="font-display text-5xl sm:text-6xl lg:text-[5.5rem] text-white tracking-wide leading-none">
             Inside the<br />Dojo
           </h2>
           <p className="text-gray-400 mt-5 max-w-xl font-light leading-relaxed text-base sm:text-lg">
-            Pad work. Sparring. Grappling. Kata. Defence drills. Weapons. Conditioning. Every session. No performance, no padding. Okinawan Goju Ryu as it was meant to be trained.
+            Pad work. Sparring. Grappling. Kata. Defence drills. Weapons. Conditioning. Every session. No performance. Okinawan Goju Ryu as it was meant to be trained.
           </p>
         </div>
 
         {/* Video Container */}
+        <div className="max-w-5xl mx-auto">
         <div
           className={`relative rounded-sm overflow-hidden transition-shadow duration-500 ${
             started
-              ? "ring-1 ring-[#a8201a]/40 shadow-[0_0_60px_rgba(168,32,26,0.2)]"
-              : "ring-1 ring-[#a8201a]/20 shadow-[0_0_40px_rgba(168,32,26,0.08)] hover:ring-[#a8201a]/50 hover:shadow-[0_0_80px_rgba(168,32,26,0.3)]"
+              ? "ring-1 ring-brand/40 shadow-[0_0_60px_rgba(168,32,26,0.2)]"
+              : "ring-1 ring-brand/20 shadow-[0_0_40px_rgba(168,32,26,0.08)] hover:ring-brand/50 hover:shadow-[0_0_80px_rgba(168,32,26,0.3)]"
           }`}
         >
           <div className="aspect-video bg-[#080808]">
@@ -69,7 +70,7 @@ export default function VideoShowcase() {
 
                 {/* Play button + label */}
                 <div className="relative flex flex-col items-center gap-5">
-                  <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-[#a8201a] flex items-center justify-center shadow-[0_0_50px_rgba(168,32,26,0.55)] group-hover/play:scale-110 group-hover/play:shadow-[0_0_90px_rgba(168,32,26,0.9)] transition-all duration-300">
+                  <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-brand flex items-center justify-center shadow-[0_0_50px_rgba(168,32,26,0.55)] group-hover/play:scale-110 group-hover/play:shadow-[0_0_90px_rgba(168,32,26,0.9)] transition-all duration-300">
                     <Play fill="white" className="text-white ml-1.5" size={36} />
                   </div>
                   <span className="text-white/75 text-[10px] sm:text-xs uppercase tracking-[0.35em] font-semibold">
@@ -88,10 +89,11 @@ export default function VideoShowcase() {
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#a8201a] text-white font-bold uppercase tracking-widest text-sm hover:bg-[#c62828] transition-colors duration-200 rounded-sm flex-shrink-0"
+            className="inline-flex items-center gap-2 px-7 py-3.5 bg-brand text-white font-bold uppercase tracking-widest text-sm hover:bg-brand-hover transition-colors duration-200 rounded-sm flex-shrink-0"
           >
             Start Training <ChevronRight size={16} />
           </Link>
+        </div>
         </div>
       </div>
     </section>

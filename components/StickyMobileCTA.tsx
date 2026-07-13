@@ -28,11 +28,11 @@ export default function StickyMobileCTA() {
   }, []);
 
   // Don't show on contact (redundant) or yudansha individual pages (would compete with their nav)
-  if (pathname === "/contact") return null;
+  if (pathname === "/contact" || /^\/yudansha\/.+/.test(pathname)) return null;
 
   return (
     <div
-      className={`lg:hidden fixed left-1/2 -translate-x-1/2 z-40 transition-all duration-300 ease-out ${
+      className={`lg:hidden print:hidden fixed left-1/2 -translate-x-1/2 z-40 transition-all duration-300 ease-out ${
         show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6 pointer-events-none"
       }`}
       style={{
@@ -41,7 +41,7 @@ export default function StickyMobileCTA() {
     >
       <Link
         href="/contact"
-        className="inline-flex items-center gap-2 px-5 py-3 bg-[#a8201a] text-white font-bold uppercase tracking-widest text-[13px] rounded-full shadow-[0_8px_24px_rgba(0,0,0,0.5),0_0_30px_-8px_rgba(168,32,26,0.5)] active:scale-[0.97] transition-transform"
+        className="inline-flex items-center gap-2 px-5 py-3 bg-brand text-white font-bold uppercase tracking-widest text-[13px] rounded-full shadow-[0_8px_24px_rgba(0,0,0,0.5),0_0_30px_-8px_rgba(168,32,26,0.5)] active:scale-[0.97] transition-transform"
       >
         Come and Train
         <ChevronRight size={16} />

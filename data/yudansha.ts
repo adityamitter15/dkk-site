@@ -212,6 +212,7 @@ export const grades: GradeTier[] = [
         portrait: "/images/Alumni/mark.gif",
         action: "/images/Alumni/markact.gif",
         bio: "Mark started boxing in the early 1990s and began Shotokan shortly after. He transitioned to Goju Ryu under Sensei Mulholland in 1994. He now runs Torbay Goju Ryu Karate under the DKK banner.",
+        instructor: true,
         milestones: [
           { year: "1994", event: "Joined DKK" },
           { year: "1998", event: "Shodan" },
@@ -360,10 +361,23 @@ export const grades: GradeTier[] = [
       {
         name: "Lina Amir",
         slug: toSlug("Lina Amir"),
-        portrait: null,
+        portrait: "/images/Yudansha/lina_portrait.jpeg",
+        action: "/images/Yudansha/lina_action.jpeg",
+        bio: "Lina started training at DKK in 2013 whilst working for a domestic violence charity. She came to DKK just to try it out having no prior martial arts experience, loved it from the first class and stuck with it for the immense physical, mental and social health and wellbeing benefits.",
+        quote: "I came to DKK just to try it out having no prior martial arts experience. I loved it from the first class and stuck with it as the health and wellbeing benefits were immense, both physically and mentally, and even socially.",
+        milestones: [
+          { year: "2013", event: "First Class at DKK" },
+          { year: "2020", event: "Shodan (Covid Lockdown)" },
+          { year: "2024", event: "Nidan (Summer Camp)" },
+        ],
+      },
+      {
+        name: "Dieter Liepsch",
+        slug: toSlug("Dieter Liepsch"),
+        portrait: "/images/Yudansha/dieter_liepsch.jpg",
         action: null,
         milestones: [
-          { year: "", event: "Nidan" },
+          { year: "2026", event: "Nidan" },
         ],
       },
     ],
@@ -403,9 +417,75 @@ export const grades: GradeTier[] = [
           { year: "2023", event: "Shodan" },
         ],
       },
+      {
+        name: "Sebastien Montemurro",
+        slug: toSlug("Sebastien Montemurro"),
+        portrait: null,
+        action: null,
+        milestones: [
+          { year: "2025", event: "Shodan" },
+        ],
+      },
+      {
+        name: "Albert",
+        slug: toSlug("Albert"),
+        portrait: null,
+        action: null,
+        milestones: [
+          { year: "2025", event: "Shodan" },
+        ],
+      },
+      {
+        name: "Carlotta Roveri",
+        slug: toSlug("Carlotta Roveri"),
+        portrait: "/images/Yudansha/carlotta_roveri.jpg",
+        action: "/images/Yudansha/carlotta_action.jpg",
+        milestones: [
+          { year: "2025", event: "Shodan-Ho" },
+          { year: "2026", event: "Shodan" },
+        ],
+      },
+      {
+        name: "Zoe Mak",
+        slug: toSlug("Zoe Mak"),
+        portrait: "/images/Yudansha/zoe_mak.jpg",
+        action: null,
+        milestones: [
+          { year: "2025", event: "Shodan-Ho" },
+          { year: "2026", event: "Shodan" },
+        ],
+      },
+      {
+        name: "Alex Lowther",
+        slug: toSlug("Alex Lowther"),
+        portrait: null,
+        action: null,
+        milestones: [
+          { year: "", event: "Shodan" },
+        ],
+      },
+      {
+        name: "Elizabeth Hanna",
+        slug: toSlug("Elizabeth Hanna"),
+        portrait: "/images/Yudansha/elizabeth_hanna.jpg",
+        action: null,
+        bio: "When her dojo closed down during the first lockdown, Elizabeth joined DKK as classes were being held online. The commitment and dedication to continue training as best they could, to teach and develop regardless of the circumstances, was what kept her coming back. She ultimately joined the club as a fully paid-up full-time member, badging in in 2022.",
+        quote: "Karate has genuinely changed my life for the better. Beyond the physical skills and the resilience it teaches you, DKK provides a group of like-minded people who accept, welcome, challenge and support me in equal measure. It's a tough club with high standards but I wouldn't have it any other way.",
+        milestones: [
+          { year: "2020", event: "Joined DKK, training online through lockdown" },
+          { year: "2022", event: "Badged In" },
+          { year: "2025", event: "Shodan-Ho" },
+          { year: "2026", event: "Shodan at Summer Camp" },
+        ],
+      },
     ],
   },
 ];
+
+// Register reads alphabetically by name within each grade tier.
+for (const tier of grades) {
+  tier.members.sort((a, b) => a.name.localeCompare(b.name, "en"));
+}
 
 export function getAllMembers(): (Member & { grade: string; dan: string })[] {
   return grades.flatMap((tier) =>

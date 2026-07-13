@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback, useRef } from "react";
+import { flushSync } from "react-dom";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import SafeImage from "@/components/SafeImage";
 
@@ -12,6 +13,29 @@ export type GalleryImage = {
   category?: string;
 };
 
+/**
+ * Runs a state update inside a View Transition so the tagged thumbnail morphs
+ * into the lightbox image (and back). Plain update when the API is missing or
+ * the user prefers reduced motion.
+ */
+function morphTransition(thumb: HTMLElement | null | undefined, update: () => void) {
+  const doc = document as Document & {
+    startViewTransition?: (cb: () => void) => { finished: Promise<void> };
+  };
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!doc.startViewTransition || reduced) {
+    update();
+    return;
+  }
+  thumb?.style.setProperty("view-transition-name", "gallery-morph");
+  const transition = doc.startViewTransition(() => {
+    flushSync(update);
+  });
+  transition.finished.finally(() => {
+    thumb?.style.removeProperty("view-transition-name");
+  });
+}
+
 function Lightbox({
   images,
   index,
@@ -19,7 +43,8 @@ function Lightbox({
 }: {
   images: GalleryImage[];
   index: number;
-  onClose: () => void;
+  /** Called with the index being viewed at close time, so the morph can land on the right thumbnail */
+  onClose: (currentIndex: number) => void;
 }) {
   const [current, setCurrent] = useState(index);
   const dialogRef = useRef<HTMLDivElement>(null);
@@ -27,6 +52,10 @@ function Lightbox({
   const lastFocused = useRef<HTMLElement | null>(null);
   const touchStartX = useRef<number | null>(null);
   const touchStartY = useRef<number | null>(null);
+
+  const currentRef = useRef(current);
+  currentRef.current = current;
+  const requestClose = useCallback(() => onClose(currentRef.current), [onClose]);
 
   const prev = useCallback(() => setCurrent((c) => (c - 1 + images.length) % images.length), [images.length]);
   const next = useCallback(() => setCurrent((c) => (c + 1) % images.length), [images.length]);
@@ -39,7 +68,7 @@ function Lightbox({
     const handler = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         e.preventDefault();
-        onClose();
+        requestClose();
         return;
       }
       if (e.key === "ArrowLeft") {
@@ -78,7 +107,7 @@ function Lightbox({
       document.body.style.overflow = prevOverflow;
       lastFocused.current?.focus();
     };
-  }, [onClose, prev, next]);
+  }, [requestClose, prev, next]);
 
   // Swipe support
   const onTouchStart = (e: React.TouchEvent) => {
@@ -106,14 +135,14 @@ function Lightbox({
       aria-modal="true"
       aria-label={img.caption || img.alt || "Gallery image"}
       className="fixed inset-0 z-50 flex items-center justify-center bg-black/95"
-      onClick={onClose}
+      onClick={requestClose}
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}
     >
       {/* Close */}
       <button
         ref={closeBtnRef}
-        onClick={onClose}
+        onClick={requestClose}
         className="absolute top-3 right-3 z-10 p-3 text-white/70 hover:text-white transition-colors min-w-11 min-h-11 flex items-center justify-center"
         aria-label="Close"
       >
@@ -146,7 +175,8 @@ function Lightbox({
             height: img.tall ? "min(80vh, 100vw)" : "min(60vh, 70vw)",
             maxWidth: "85vw",
             maxHeight: "82vh",
-          }}
+            viewTransitionName: "gallery-morph",
+          } as React.CSSProperties}
         >
           <SafeImage
             src={img.src}
@@ -176,6 +206,10 @@ function Lightbox({
 
 export default function GalleryGrid({ images }: { images: GalleryImage[] }) {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const thumbRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  const openAt = (i: number) => morphTransition(thumbRefs.current[i], () => setLightboxIndex(i));
+  const closeFrom = (i: number) => morphTransition(thumbRefs.current[i], () => setLightboxIndex(null));
 
   return (
     <>
@@ -184,11 +218,11 @@ export default function GalleryGrid({ images }: { images: GalleryImage[] }) {
           <button
             type="button"
             key={i}
-            className="break-inside-avoid relative overflow-hidden rounded-sm bg-[#141311] border border-white/5 hover:border-[#a8201a]/40 transition-all duration-300 group cursor-pointer w-full text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#c9a96e] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0f0e0c]"
-            onClick={() => setLightboxIndex(i)}
+            className="break-inside-avoid relative overflow-hidden rounded-sm bg-card border border-white/5 hover:border-brand/40 transition-all duration-300 group cursor-pointer w-full text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-night"
+            onClick={() => openAt(i)}
             aria-label={`Open ${img.caption || img.alt} in lightbox`}
           >
-            <div className={`relative w-full ${img.tall ? "aspect-[3/4]" : "aspect-[4/3]"}`}>
+            <div ref={(el) => { thumbRefs.current[i] = el; }} className={`relative w-full ${img.tall ? "aspect-[3/4]" : "aspect-[4/3]"}`}>
               <SafeImage
                 src={img.src}
                 alt={img.alt}
@@ -208,7 +242,7 @@ export default function GalleryGrid({ images }: { images: GalleryImage[] }) {
         <Lightbox
           images={images}
           index={lightboxIndex}
-          onClose={() => setLightboxIndex(null)}
+          onClose={closeFrom}
         />
       )}
     </>

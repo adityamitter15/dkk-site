@@ -9,9 +9,9 @@ export default function SectionHeading({ eyebrow, title, subtitle, centered = fa
   return (
     <div className={`mb-12 ${centered ? "text-center" : ""}`}>
       {eyebrow && (
-        <p className="text-[#a8201a] text-xs font-semibold uppercase tracking-[0.2em] mb-2">{eyebrow}</p>
+        <p className="text-brand text-xs font-semibold uppercase tracking-[0.2em] mb-2">{eyebrow}</p>
       )}
-      <h2 className="font-['Bebas_Neue'] text-4xl sm:text-5xl lg:text-6xl tracking-wide leading-none text-white">
+      <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl tracking-wide leading-none text-white">
         {title}
       </h2>
       {subtitle && (

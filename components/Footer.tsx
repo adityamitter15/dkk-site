@@ -1,26 +1,38 @@
 import Link from "next/link";
 import SafeImage from "@/components/SafeImage";
+import { footerLinks } from "@/data/site";
 
 export default function Footer() {
   return (
-    <footer className="bg-black border-t border-white/10 pt-14 pb-8">
+    <footer className="bg-black border-t border-white/10 pt-14 pb-8 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Editorial wordmark band */}
+        <div className="relative border-b border-white/10 pb-10 mb-12">
+          <p className="font-display text-[clamp(2.6rem,7.5vw,6.5rem)] leading-[0.95] tracking-wide text-white select-none">
+            Daigaku Karate Kai
+          </p>
+          <span
+            aria-hidden="true"
+            className="pointer-events-none select-none absolute right-0 bottom-2 leading-none text-white/[0.06] text-[clamp(3rem,8vw,6rem)] hidden sm:block"
+            style={{ fontFamily: "var(--font-kanji)" }}
+          >
+            剛柔流
+          </span>
+          <p className="mt-3 text-brand text-[10px] sm:text-xs font-bold uppercase tracking-[0.35em]">
+            Okinawan Goju Ryu · London · Est. 1992
+          </p>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 mb-10">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-3 mb-4">
-              <div className="relative h-12 w-12 rounded-full overflow-hidden flex-shrink-0">
-                <SafeImage
-                  src="/images/DKKCircularLogo.jpg"
-                  alt="Daigaku Karate Kai"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div>
-                <p className="font-['Bebas_Neue'] text-xl tracking-widest text-white leading-none">Daigaku Karate Kai</p>
-                <p className="text-[#a8201a] text-[9px] uppercase tracking-[0.25em] leading-none mt-0.5">London</p>
-              </div>
+            <div className="relative h-12 w-12 rounded-full overflow-hidden mb-4">
+              <SafeImage
+                src="/images/DKKCircularLogo.jpg"
+                alt="Daigaku Karate Kai"
+                fill
+                className="object-cover"
+              />
             </div>
             <p className="text-gray-400 text-sm leading-relaxed">
               Okinawan Goju Ryu. Combat-orientated karate for adults of all levels. Training at the University of Westminster since 1990. The oldest sports club at Westminster.
@@ -38,23 +50,11 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-['Bebas_Neue'] text-lg tracking-widest text-white mb-4">Quick Links</h4>
+            <h4 className="font-display text-lg tracking-widest text-white mb-4">Quick Links</h4>
             <ul className="space-y-2">
-              {[
-                { href: "/training", label: "Training" },
-                { href: "/shihan", label: "Shihan" },
-                { href: "/goju-ryu", label: "Goju Ryu" },
-                { href: "/history", label: "History" },
-                { href: "/yudansha", label: "Yudansha" },
-                { href: "/fighters", label: "DKK Fighters" },
-                { href: "/university", label: "University" },
-                { href: "/gallery", label: "Gallery" },
-                { href: "/books", label: "Books" },
-                { href: "/links", label: "Links" },
-                { href: "/contact", label: "Contact" },
-              ].map((link) => (
+              {footerLinks.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-gray-400 hover:text-[#a8201a] text-sm transition-colors">
+                  <Link href={link.href} className="link-underline text-gray-400 hover:text-brand text-sm transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -64,14 +64,14 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="font-['Bebas_Neue'] text-lg tracking-widest text-white mb-4">Get In Touch</h4>
+            <h4 className="font-display text-lg tracking-widest text-white mb-4">Get In Touch</h4>
             <p className="text-gray-400 text-sm mb-4">
               Interested in training? Whether you&apos;re a complete beginner or an experienced martial artist, we welcome you.
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#a8201a] text-white text-sm font-semibold uppercase tracking-wide hover:bg-[#c62828] transition-colors rounded-sm"
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-brand text-white text-sm font-semibold uppercase tracking-wide hover:bg-brand-hover transition-colors rounded-sm"
               >
                 Contact Us
               </Link>
@@ -120,9 +120,9 @@ export default function Footer() {
           <p className="text-gray-600 text-xs flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
             <span>Okinawan Goju Ryu</span>
             <span aria-hidden="true">·</span>
-            <Link href="/goju-ryu" className="hover:text-[#a8201a] transition-colors">Learn more</Link>
+            <Link href="/goju-ryu" className="hover:text-brand transition-colors">Learn more</Link>
             <span aria-hidden="true">·</span>
-            <Link href="/privacy" className="hover:text-[#a8201a] transition-colors">Privacy</Link>
+            <Link href="/privacy" className="hover:text-brand transition-colors">Privacy</Link>
           </p>
         </div>
       </div>

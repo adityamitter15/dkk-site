@@ -1,9 +1,34 @@
 import type { Metadata, Viewport } from "next";
+import { Bebas_Neue, Inter } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
 import BackToTop from "@/components/BackToTop";
+import ScrollProgress from "@/components/ScrollProgress";
+
+const bebas = Bebas_Neue({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-bebas",
+  display: "swap",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+// 16-glyph Noto Serif JP subset (6.5KB) — used only for the heritage kanji watermarks
+const kanji = localFont({
+  src: "./fonts/kanji-subset.woff2",
+  variable: "--font-kanji-src",
+  display: "swap",
+  fallback: ["Hiragino Mincho ProN", "Yu Mincho", "serif"],
+  preload: false,
+});
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -26,7 +51,7 @@ export const metadata: Metadata = {
     siteName: "Daigaku Karate Kai London",
     images: [
       {
-        url: "/images/Club/dojo-full-class.JPG",
+        url: "/og/home.jpg",
         width: 1200,
         height: 630,
         alt: "Daigaku Karate Kai London - Okinawan Goju Ryu",
@@ -35,7 +60,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    images: ["/images/Club/dojo-full-class.JPG"],
+    images: ["/og/home.jpg"],
   },
   manifest: "/manifest.webmanifest",
   appleWebApp: {
@@ -57,7 +82,7 @@ export default function RootLayout({
     description: "Okinawan Goju Ryu karate for adults in central London. Combat-orientated training under Shihan Gavin Mulholland, 7th Dan.",
     url: "https://www.goju-karate.co.uk",
     logo: "https://www.goju-karate.co.uk/images/DKKCircularLogo.jpg",
-    foundingDate: "1990",
+    foundingDate: "1992",
     telephone: "+447976411901",
     email: "info@goju-karate.co.uk",
     address: {
@@ -85,13 +110,14 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en">
-      <body className="bg-[#0f0e0c] text-white antialiased">
+    <html lang="en" className={`${bebas.variable} ${inter.variable} ${kanji.variable}`}>
+      <body className="bg-night text-white antialiased">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <a href="#main-content" className="skip-link">Skip to content</a>
+        <ScrollProgress />
         <Navbar />
         <main id="main-content">{children}</main>
         <Footer />

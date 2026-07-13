@@ -7,9 +7,15 @@ type Props = {
   label: string;
 };
 
-function parse(value: string): { leading: number; suffix: string } | null {
-  const match = value.match(/^(\d+)(.*)/);
-  if (match) return { leading: parseInt(match[1]), suffix: match[2] };
+function parse(value: string): { leading: number; suffix: string; grouped: boolean } | null {
+  const match = value.match(/^([\d,]*\d)(.*)/);
+  if (match) {
+    return {
+      leading: parseInt(match[1].replace(/,/g, ""), 10),
+      suffix: match[2],
+      grouped: match[1].includes(","),
+    };
+  }
   return null;
 }
 
@@ -53,11 +59,13 @@ export default function CountUpStat({ value, label }: Props) {
     return () => observer.disconnect();
   }, [parsed?.leading]);
 
-  const display = parsed ? `${count}${parsed.suffix}` : value;
+  const display = parsed
+    ? `${parsed.grouped ? count.toLocaleString("en-GB") : count}${parsed.suffix}`
+    : value;
 
   return (
     <div ref={ref} className="py-5 px-3 sm:py-6 sm:px-6 text-center">
-      <p className="font-['Bebas_Neue'] text-xl sm:text-3xl text-white tracking-wide tabular-nums leading-tight">{display}</p>
+      <p className="font-display text-xl sm:text-3xl text-white tracking-wide tabular-nums leading-tight">{display}</p>
       <p className="text-white/60 text-[10px] sm:text-xs uppercase tracking-widest mt-1">{label}</p>
     </div>
   );

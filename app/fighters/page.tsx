@@ -1,16 +1,18 @@
+import PageHero from "@/components/ui/PageHero";
+import CTABand from "@/components/ui/CTABand";
+import StatStrip from "@/components/ui/StatStrip";
 import type { Metadata } from "next";
 import SectionHeading from "@/components/SectionHeading";
 import Link from "next/link";
 import { ChevronRight, ExternalLink } from "lucide-react";
 import SafeImage from "@/components/SafeImage";
 import CountUpStat from "@/components/CountUpStat";
-import ParallaxImage from "@/components/ParallaxImage";
 
 export const metadata: Metadata = {
   title: "DKK Fighters",
   description: "DKK Fighters - 16 wins from our first 20 professional cage fights, a British Heavyweight title, a World Title fight, and one member who reached the UFC.",
-  openGraph: { images: ["/images/Fighters/edge-hand-raised.jpg"] },
-  twitter: { images: ["/images/Fighters/edge-hand-raised.jpg"] },
+  openGraph: { images: ["/og/fighters.jpg"] },
+  twitter: { images: ["/og/fighters.jpg"] },
 };
 
 const fighters = [
@@ -55,7 +57,7 @@ const fighters = [
   },
   {
     name: "Shola Adeniran",
-    record: "TKO Victory",
+    record: "1-0-0",
     highlight: "Ultimate Warrior Challenge",
     image: "/images/Fighters/shola-adeniran-victory.jpg",
     portrait: null,
@@ -71,39 +73,31 @@ const fighters = [
 export default function FightersPage() {
   return (
     <>
-      <section className="relative pt-28 pb-16 sm:pt-40 sm:pb-28 overflow-hidden">
-        <div className="absolute inset-0 bg-black" />
-        <ParallaxImage src="/images/Fighters/neil-grove-victory-cage.jpg" className="object-cover object-top opacity-45" intensity={70} priority />
-        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/75 to-black/40" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0f0e0c] via-transparent to-black/60" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="inline-flex items-center gap-2 text-[#a8201a] text-xs font-bold uppercase tracking-[0.35em] mb-4">
-            <span className="w-6 h-px bg-[#a8201a]" />
-            Competition & Combat
-          </p>
-          <h1 className="font-['Bebas_Neue'] text-7xl sm:text-8xl lg:text-[9rem] text-white tracking-wide leading-none mb-4">DKK Fighters</h1>
-          <p className="text-gray-300 text-lg max-w-lg font-light leading-relaxed">16 wins from our first 20 professional cage fights. A British Heavyweight title, a World Title fight, and one member who reached the UFC.</p>
-        </div>
-      </section>
+      <PageHero
+        variant="full"
+        eyebrow="Competition & Combat"
+        folio="07 / Fighters"
+        kanji="組手"
+        kanjiTone="brand"
+        title="DKK Fighters"
+        lead="16 wins from our first 20 professional cage fights. A British Heavyweight title, a World Title fight, and one member who reached the UFC."
+        image={{ src: "/images/Fighters/neil-grove-victory-cage.jpg", alt: "Neil Grove celebrating victory in the cage", position: "center 42%" }}
+      />
 
       {/* Stats banner */}
-      <section className="bg-[#a8201a]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 [&>*:nth-child(2)]:border-l [&>*:nth-child(4)]:border-l [&>*:nth-child(3)]:border-t [&>*:nth-child(4)]:border-t lg:[&>*]:border-t-0 lg:[&>*:not(:first-child)]:border-l [&>*]:border-white/20">
-            {[
-              { value: "16/20", label: "First 20 Fights Won" },
-              { value: "1", label: "British Heavyweight Title" },
-              { value: "UFC", label: "Level Reached" },
-              { value: "BAMMA", label: "Competed In" },
-            ].map((s) => (
-              <CountUpStat key={s.label} value={s.value} label={s.label} />
-            ))}
-          </div>
-        </div>
-      </section>
+      <StatStrip>
+        {[
+          { value: "16/20", label: "First 20 Fights Won" },
+          { value: "1", label: "British Heavyweight Title" },
+          { value: "UFC", label: "Level Reached" },
+          { value: "BAMMA", label: "Competed In" },
+        ].map((s) => (
+          <CountUpStat key={s.label} value={s.value} label={s.label} />
+        ))}
+      </StatStrip>
 
       {/* Intro */}
-      <section className="py-20 lg:py-28 bg-[#0f0e0c]">
+      <section className="section-reveal py-20 lg:py-28 bg-night">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -117,17 +111,17 @@ export default function FightersPage() {
               <p className="text-gray-400 leading-relaxed mb-5">
                 Members of DKK Fighters have appeared regularly in the UK&apos;s premier MMA events including Cage Rage, Ultimate Challenge, Bellator and BAMMA.
               </p>
-              <p className="text-white font-['Bebas_Neue'] text-2xl tracking-[0.25em] uppercase mt-8 pt-6 border-t border-[#a8201a]/30">
+              <p className="text-white font-display text-2xl tracking-[0.25em] uppercase mt-8 pt-6 border-t border-brand/30">
                 Tested. Passed. Done.
               </p>
             </div>
 
-            <div className="relative rounded-sm overflow-hidden aspect-[4/5] lg:aspect-[3/4] bg-[#141311]">
+            <div className="relative rounded-sm overflow-hidden aspect-[4/5] lg:aspect-[3/4] bg-card">
               <SafeImage src="/images/Fighters/neil-grove-belts-crew.jpg" alt="DKK Fighters with championship belts" fill className="object-cover object-top" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
               <div className="absolute bottom-4 left-4">
-                <p className="text-white font-['Bebas_Neue'] text-xl tracking-wide">DKK Fighters</p>
-                <p className="text-[#a8201a] text-xs uppercase tracking-widest">Cage Rage · Bellator · BAMMA · UFC</p>
+                <p className="text-white font-display text-xl tracking-wide">DKK Fighters</p>
+                <p className="text-brand text-xs uppercase tracking-widest">Cage Rage · Bellator · BAMMA · UFC</p>
               </div>
             </div>
           </div>
@@ -135,42 +129,54 @@ export default function FightersPage() {
       </section>
 
       {/* Fighter Profiles */}
-      <section className="py-20 lg:py-28 bg-[#12110f] border-t border-white/5">
+      <section className="section-reveal py-20 lg:py-28 bg-card border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading eyebrow="The Fighters" title="Individual Records" />
           <div className="space-y-6">
             {fighters.map((fighter, i) => (
               <div
                 key={fighter.name}
-                className={`relative bg-[#141311] border rounded-sm overflow-hidden transition-all duration-300 hover:border-[#a8201a]/40 ${
-                  i === 0 ? "border-[#a8201a]/30" : "border-white/5"
+                className={`relative bg-card border rounded-sm overflow-hidden transition-all duration-300 hover:border-brand/40 ${
+                  i === 0 ? "border-brand/30" : "border-white/5"
                 }`}
               >
                 <div className={`grid ${fighter.image ? "lg:grid-cols-[1fr_1.4fr]" : ""} gap-0`}>
                   {fighter.image && (
                     <div className="relative aspect-[4/3] lg:aspect-auto lg:min-h-[360px] bg-black">
                       <SafeImage src={fighter.image} alt={fighter.name} fill className="object-cover object-center" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#141311] via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-transparent lg:to-[#141311]" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-card via-card/0 to-card/0 lg:bg-gradient-to-r lg:from-card/0 lg:via-card/0 lg:to-card" />
                     </div>
                   )}
                   <div className="p-6 sm:p-8">
                     <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-5">
                       <div>
-                        <h3 className="font-['Bebas_Neue'] text-3xl sm:text-4xl tracking-wide text-white leading-none">{fighter.name}</h3>
-                        <p className="text-[#a8201a] text-xs font-bold uppercase tracking-[0.2em] mt-1">{fighter.highlight}</p>
+                        <h3 className="font-display text-3xl sm:text-4xl tracking-wide text-white leading-none">{fighter.name}</h3>
+                        <p className="text-brand text-xs font-bold uppercase tracking-[0.2em] mt-1">{fighter.highlight}</p>
                       </div>
-                      <div className="px-4 py-2 bg-[#a8201a]/10 border border-[#a8201a]/20 rounded-sm flex-shrink-0">
-                        <p className="text-gray-500 text-[10px] uppercase tracking-widest">Record</p>
-                        <p className="font-['Bebas_Neue'] text-2xl text-white tracking-wide leading-none">{fighter.record}</p>
-                      </div>
+                      {/* Tale of the tape — W/L/D columns when the record parses */}
+                      {/^\d+-\d+-\d+$/.test(fighter.record) ? (
+                        <div className="flex flex-shrink-0 divide-x divide-white/10 bg-brand/10 border border-brand/20 rounded-sm">
+                          {fighter.record.split("-").map((n, j) => (
+                            <div key={j} className="px-4 py-2 text-center min-w-[3.5rem]">
+                              <p className={`font-display text-2xl tracking-wide leading-none tabular-nums ${j === 0 ? "text-brand" : "text-white"}`}>{n}</p>
+                              <p className="text-gray-500 text-[10px] uppercase tracking-widest mt-0.5">{["Wins", "Losses", "Draws"][j]}</p>
+                            </div>
+                          ))}
+                        </div>
+                      ) : (
+                        <div className="px-4 py-2 bg-brand/10 border border-brand/20 rounded-sm flex-shrink-0">
+                          <p className="text-gray-500 text-[10px] uppercase tracking-widest">Record</p>
+                          <p className="font-display text-2xl text-white tracking-wide leading-none">{fighter.record}</p>
+                        </div>
+                      )}
                     </div>
 
                     <p className="text-gray-400 text-sm leading-relaxed mb-6 max-w-3xl">{fighter.bio}</p>
 
-                    <div className="flex flex-wrap gap-4">
+                    <div className="flex flex-wrap gap-3 sm:gap-4">
                       {fighter.stats.map((stat) => (
-                        <div key={stat.label} className="px-4 py-3 bg-[#0f0e0c] border border-white/5 rounded-sm min-w-[100px]">
-                          <p className="font-['Bebas_Neue'] text-xl text-white tracking-wide leading-none">{stat.value}</p>
+                        <div key={stat.label} className="px-3 sm:px-4 py-3 bg-night border border-white/5 rounded-sm min-w-[90px] sm:min-w-[100px]">
+                          <p className="font-display text-xl text-white tracking-wide leading-none">{stat.value}</p>
                           <p className="text-gray-500 text-[10px] uppercase tracking-widest mt-0.5">{stat.label}</p>
                         </div>
                       ))}
@@ -179,7 +185,7 @@ export default function FightersPage() {
                 </div>
 
                 {i === 0 && (
-                  <div className="absolute top-4 right-4 px-2 py-0.5 bg-[#a8201a] text-white text-[9px] font-bold uppercase tracking-[0.2em] rounded-sm z-10">
+                  <div className="absolute top-4 right-4 px-2 py-0.5 bg-brand text-white text-[9px] font-bold uppercase tracking-[0.2em] rounded-sm z-10">
                     Featured
                   </div>
                 )}
@@ -194,7 +200,7 @@ export default function FightersPage() {
       </section>
 
       {/* In the Cage - archive gallery */}
-      <section className="py-20 lg:py-28 bg-black border-t border-white/5">
+      <section className="section-reveal py-20 lg:py-28 bg-black border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
             <SectionHeading eyebrow="From the Archive" title="In the Cage" />
@@ -207,7 +213,7 @@ export default function FightersPage() {
               { src: "/images/Fighters/edge-cage-victory.jpg", caption: "Edge - Victory" },
               { src: "/images/Fighters/domagoj-wembley-2007.jpg", caption: "Wembley 2007" },
             ].map((img) => (
-              <div key={img.src} className="relative aspect-square rounded-sm overflow-hidden bg-[#141311] group">
+              <div key={img.src} className="relative aspect-square rounded-sm overflow-hidden bg-card group">
                 <SafeImage src={img.src} alt={img.caption} fill className="object-cover object-top group-hover:scale-105 transition-transform duration-500" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-80 group-hover:opacity-100 transition-opacity" />
                 <div className="absolute bottom-2 left-2 right-2">
@@ -220,20 +226,10 @@ export default function FightersPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-[#a8201a]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
-          <div>
-            <p className="font-['Bebas_Neue'] text-3xl sm:text-4xl text-white tracking-wide">Want to train with us?</p>
-            <p className="text-white/70 text-sm mt-1">There is never any pressure to compete. Just come and train.</p>
-          </div>
-          <Link
-            href="/contact"
-            className="px-8 py-4 bg-white text-[#a8201a] font-bold uppercase tracking-wider text-sm hover:bg-gray-100 transition-colors rounded-sm flex-shrink-0 inline-flex items-center gap-2"
-          >
-            Get In Touch <ChevronRight size={16} />
-          </Link>
-        </div>
-      </section>
+      <CTABand
+        title="Want to train with us?"
+        sub="There is never any pressure to compete. Just come and train."
+      />
     </>
   );
 }

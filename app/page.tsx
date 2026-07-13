@@ -1,9 +1,10 @@
 import Link from "next/link";
-import { Shield, Target, ChevronRight, Swords, Clock, MapPin, CheckCircle, Award } from "lucide-react";
+import { ChevronRight, Clock, MapPin, CheckCircle, Award } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
 import SafeImage from "@/components/SafeImage";
 import TestimonialRotator from "@/components/TestimonialRotator";
-import ScrollReveal from "@/components/ScrollReveal";
+import Reveal from "@/components/ui/Reveal";
+import StatStrip, { StatCell } from "@/components/ui/StatStrip";
 import VideoHeroBackground from "@/components/VideoHeroBackground";
 import VideoShowcase from "@/components/VideoShowcase";
 import KineticHeadline from "@/components/KineticHeadline";
@@ -13,25 +14,27 @@ export default function Home() {
   return (
     <>
       {/* ── HERO ─────────────────────────────────────────────── */}
-      <section className="relative min-h-screen flex items-center overflow-hidden">
+      {/* svh: stable height on mobile — vh jumps when the iOS/Android URL bar collapses */}
+      <section className="relative min-h-[100svh] flex items-center overflow-hidden">
         {/* Layered background */}
         <div className="absolute inset-0 bg-black" />
         <VideoHeroBackground />
         <div className="absolute inset-0 bg-gradient-to-r from-black via-black/75 to-black/30" />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/40" />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 pt-28 pb-12 sm:pt-24 sm:pb-16">
-          <p className="inline-flex items-center gap-2 text-[#a8201a] text-[11px] sm:text-xs font-bold uppercase tracking-[0.3em] sm:tracking-[0.35em] mb-5 sm:mb-6">
-            <span className="w-6 h-px bg-[#a8201a]" />
-            Combat Okinawan Goju Ryu · Established 1990
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-12 sm:pt-24 sm:pb-16">
+          <p className="inline-flex items-center gap-2 text-brand text-[11px] sm:text-xs font-bold uppercase tracking-[0.3em] sm:tracking-[0.35em] mb-5 sm:mb-6">
+            <span className="w-6 h-px bg-brand" />
+            Combat Okinawan Goju Ryu · Since 1990
           </p>
 
           <KineticHeadline
-            className="font-['Bebas_Neue'] text-[clamp(3.25rem,13vw,10rem)] text-white leading-[0.9] tracking-wide mb-6 sm:mb-8"
+            label="Daigaku Karate Kai"
+            className="font-display text-[clamp(3.25rem,13vw,10rem)] text-white leading-[0.9] tracking-wide mb-6 sm:mb-8"
             lines={[
               "Daigaku",
               <span key="k" className="text-white">Karate</span>,
-              <span key="ka" className="text-[#a8201a]">Kai</span>,
+              <span key="ka" className="text-brand">Kai</span>,
             ]}
           />
 
@@ -40,10 +43,10 @@ export default function Home() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 mb-10 sm:mb-16">
-            <MagneticButton href="/contact" className="px-8 py-4 bg-[#a8201a] text-white font-bold uppercase tracking-widest text-sm hover:bg-[#c62828] transition-colors duration-200 inline-flex items-center justify-center gap-2 rounded-sm">
+            <MagneticButton href="/contact" className="px-8 py-4 bg-brand text-white font-bold uppercase tracking-widest text-sm hover:bg-brand-hover transition-colors duration-200 inline-flex items-center justify-center gap-2 rounded-sm">
               Start Training <ChevronRight size={18} />
             </MagneticButton>
-            <MagneticButton href="/training" className="px-8 py-4 border border-white/20 text-white font-semibold uppercase tracking-widest text-sm hover:border-[#a8201a] hover:bg-[#a8201a]/10 transition-colors duration-200 inline-flex items-center justify-center gap-2 rounded-sm">
+            <MagneticButton href="/training" className="px-8 py-4 border border-white/20 text-white font-semibold uppercase tracking-widest text-sm hover:border-brand hover:bg-brand/10 transition-colors duration-200 inline-flex items-center justify-center gap-2 rounded-sm">
               Class Times <Clock size={16} />
             </MagneticButton>
           </div>
@@ -55,7 +58,7 @@ export default function Home() {
               { icon: MapPin, text: "309 Regent Street, London W1B 2HW" },
             ].map((item) => (
               <div key={item.text} className="flex items-center gap-2 text-gray-400 text-sm">
-                <item.icon size={14} className="text-[#a8201a] flex-shrink-0" />
+                <item.icon size={14} className="text-brand flex-shrink-0" />
                 {item.text}
               </div>
             ))}
@@ -63,46 +66,31 @@ export default function Home() {
         </div>
 
         {/* Bottom fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#0f0e0c] to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-night to-transparent" />
       </section>
 
       {/* ── STATS STRIP ──────────────────────────────────────── */}
-      <section className="bg-[#a8201a]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 [&>*:nth-child(2)]:border-l [&>*:nth-child(4)]:border-l [&>*:nth-child(3)]:border-t [&>*:nth-child(4)]:border-t lg:[&>*]:border-t-0 lg:[&>*:not(:first-child)]:border-l [&>*]:border-white/20">
-            <div className="py-5 px-3 sm:py-6 sm:px-6 text-center">
-              <p className="font-['Bebas_Neue'] text-2xl sm:text-3xl text-white tracking-wide leading-tight">Since 1990</p>
-              <p className="text-white/60 text-[10px] sm:text-xs uppercase tracking-widest mt-1">Oldest Club at Westminster</p>
-            </div>
-            <div className="py-5 px-3 sm:py-6 sm:px-6 text-center">
-              <p className="font-['Bebas_Neue'] text-2xl sm:text-3xl text-white tracking-wide leading-tight">
-                7<sup className="font-sans normal-case text-[0.45em] tracking-tight align-super -ml-px font-medium">th</sup> Dan
-              </p>
-              <p className="text-white/60 text-[10px] sm:text-xs uppercase tracking-widest mt-1">Shihan Gavin Mulholland</p>
-            </div>
-            <div className="py-5 px-3 sm:py-6 sm:px-6 text-center">
-              <p className="font-['Bebas_Neue'] text-2xl sm:text-3xl text-white tracking-wide leading-tight">Goju Ryu</p>
-              <p className="text-white/60 text-[10px] sm:text-xs uppercase tracking-widest mt-1">Okinawan &middot; Combat-Orientated</p>
-            </div>
-            <div className="py-5 px-3 sm:py-6 sm:px-6 text-center">
-              <p className="font-['Bebas_Neue'] text-2xl sm:text-3xl text-white tracking-wide leading-tight">Mon &amp; Wed</p>
-              <p className="text-white/60 text-[10px] sm:text-xs uppercase tracking-widest mt-1">6 - 8pm, Central London</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <StatStrip>
+        <StatCell value="Since 1990" label="Oldest Club at Westminster" />
+        <StatCell
+          value={<>7<sup className="font-sans normal-case text-[0.45em] tracking-normal align-baseline relative -top-[0.6em] ml-[0.07em] mr-[0.08em] font-medium">th</sup> Dan</>}
+          label="Shihan Gavin Mulholland"
+        />
+        <StatCell value="Goju Ryu" label={<>Okinawan &middot; Combat-Orientated</>} />
+        <StatCell value={<>Mon &amp; Wed</>} label="6 - 8pm, Central London" />
+      </StatStrip>
 
       {/* ── YOUR FIRST CLASS - WARM LIGHT SECTION ────────────── */}
-      <section className="py-24 lg:py-32 bg-[#f5f0e8]">
+      <section className="py-24 lg:py-32 bg-cream">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollReveal>
+          <Reveal>
             <div className="text-center mb-16">
-              <p className="inline-flex items-center gap-2 text-[#a8201a] text-xs font-bold uppercase tracking-[0.35em] mb-4">
-                <span className="w-6 h-px bg-[#a8201a]" />
+              <p className="inline-flex items-center gap-2 text-brand text-xs font-bold uppercase tracking-[0.35em] mb-4">
+                <span className="w-6 h-px bg-brand" />
                 New to DKK
-                <span className="w-6 h-px bg-[#a8201a]" />
+                <span className="w-6 h-px bg-brand" />
               </p>
-              <h2 className="font-['Bebas_Neue'] text-5xl sm:text-6xl lg:text-7xl text-[#1a1a18] tracking-wide leading-none mb-4">Your First Class</h2>
+              <h2 className="font-display text-5xl sm:text-6xl lg:text-7xl text-ink tracking-wide leading-none mb-4">Your First Class</h2>
               <p className="text-[#4a4a42] text-lg max-w-2xl mx-auto leading-relaxed">
                 No uniform needed. Just turn up, or get in touch first if you prefer. Here&apos;s what to expect.
               </p>
@@ -116,31 +104,31 @@ export default function Home() {
                 { step: "04", title: "Decide", desc: "No pressure. Come back next session, or take time to think. When you're ready, we'll be here." },
               ].map((item) => (
                 <div key={item.step} className="relative p-7 bg-white border border-[#e8e3d9] rounded-sm group hover:shadow-lg transition-shadow duration-300">
-                  <span className="font-['Bebas_Neue'] text-3xl sm:text-5xl text-[#a8201a]/15 absolute top-4 right-5 leading-none">{item.step}</span>
-                  <h3 className="font-['Bebas_Neue'] text-2xl text-[#1a1a18] tracking-wide mb-2">{item.title}</h3>
+                  <span className="font-display text-3xl sm:text-5xl text-brand/15 absolute top-4 right-5 leading-none">{item.step}</span>
+                  <h3 className="font-display text-2xl text-ink tracking-wide mb-2">{item.title}</h3>
                   <p className="text-[#5a5a52] text-sm leading-relaxed">{item.desc}</p>
                 </div>
               ))}
             </div>
 
             <div className="text-center mt-12">
-              <Link href="/contact" className="inline-flex items-center gap-2 px-8 py-4 bg-[#a8201a] text-white font-bold uppercase tracking-widest text-sm hover:bg-[#c62828] transition-all duration-200 rounded-sm">
+              <Link href="/contact" className="inline-flex items-center gap-2 px-8 py-4 bg-brand text-white font-bold uppercase tracking-widest text-sm hover:bg-brand-hover transition-all duration-200 rounded-sm">
                 Come and Train <ChevronRight size={18} />
               </Link>
             </div>
-          </ScrollReveal>
+          </Reveal>
         </div>
       </section>
 
       {/* ── ABOUT ────────────────────────────────────────────── */}
-      <section className="py-24 lg:py-32 bg-[#0f0e0c]">
+      <section className="py-24 lg:py-32 bg-night">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollReveal>
+          <Reveal>
             <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
               <div>
                 <SectionHeading eyebrow="About the Club" title="Real Karate.&#10;No Compromises." />
                 <p className="text-gray-400 leading-relaxed mb-5">
-                  The London branch of Daigaku Karate Kai was started by Shihan Gavin Mulholland (7th Dan) in the late 1980s and is now one of the strongest karate clubs in the UK.
+                  The London branch of Daigaku Karate Kai was started by Shihan Gavin Mulholland (7th Dan) in the early 1990s and is now one of the strongest karate clubs in the UK.
                 </p>
                 <p className="text-gray-400 leading-relaxed mb-5">
                   We practise Okinawan Goju Ryu, a practical karate style which places heavy emphasis on close-quarter effectiveness. Training is combat-orientated rather than for sport or competition fighting, which require different skills and mindset.
@@ -149,7 +137,7 @@ export default function Home() {
                   Classes are open to all adults. We welcome beginners and practitioners from other styles at every level. The club has a good mix of men and women training regularly.
                 </p>
                 <div className="flex flex-wrap gap-4">
-                  <Link href="/goju-ryu" className="inline-flex items-center gap-2 text-[#a8201a] font-semibold text-sm uppercase tracking-wider hover:gap-3 transition-all">
+                  <Link href="/goju-ryu" className="inline-flex items-center gap-2 text-brand font-semibold text-sm uppercase tracking-wider hover:gap-3 transition-all">
                     About Goju Ryu <ChevronRight size={16} />
                   </Link>
                   <Link href="/training" className="inline-flex items-center gap-2 text-gray-400 font-semibold text-sm uppercase tracking-wider hover:text-white transition-colors">
@@ -158,16 +146,16 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="relative rounded-sm overflow-hidden bg-[#141311] ring-1 ring-[#a8201a]/20" style={{ aspectRatio: "4/5" }}>
+              <div className="relative rounded-sm overflow-hidden bg-card ring-1 ring-brand/20" style={{ aspectRatio: "4/5" }}>
                 <SafeImage src="/images/Shihan/shihan-portrait-black.jpg" alt="Shihan Gavin Mulholland" fill className="object-cover object-top" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <p className="font-['Bebas_Neue'] text-2xl text-white tracking-widest">Shihan Gavin Mulholland</p>
-                  <p className="text-[#c9a96e] text-xs uppercase tracking-[0.2em] mt-0.5">7<sup className="text-[0.65em] normal-case">th</sup> Dan · Founder · Combat Hall of Fame</p>
+                  <p className="font-display text-2xl text-white tracking-widest">Shihan Gavin Mulholland</p>
+                  <p className="text-gold text-xs uppercase tracking-[0.2em] mt-0.5">7<sup className="text-[0.65em] normal-case">th</sup> Dan · Founder · Combat Hall of Fame</p>
                 </div>
               </div>
             </div>
-          </ScrollReveal>
+          </Reveal>
         </div>
       </section>
 
@@ -181,79 +169,78 @@ export default function Home() {
             <SafeImage src="/images/Camp/outdoor-kata-dynamic.JPG" alt="Outdoor mass kata at camp" fill sizes="(max-width: 640px) 100vw, 33vw" className="object-cover hover:scale-105 transition-transform duration-700" />
           </div>
           <div className="relative aspect-[3/2] sm:aspect-auto sm:h-full overflow-hidden">
-            <SafeImage src="/images/Shihan/shihan-kuwa-black.jpg" alt="Shihan with traditional kuwa" fill sizes="(max-width: 640px) 100vw, 33vw" className="object-cover object-top hover:scale-105 transition-transform duration-700" />
+            <SafeImage src="/images/Shihan/shihan-kuwa-black.jpg" alt="Shihan with shillelagh" fill sizes="(max-width: 640px) 100vw, 33vw" className="object-cover object-top hover:scale-105 transition-transform duration-700" />
           </div>
         </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0f0e0c] via-transparent to-[#0f0e0c] opacity-30 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-night via-transparent to-night opacity-30 pointer-events-none" />
       </section>
 
       {/* ── VIDEO SHOWCASE ───────────────────────────────────── */}
       <VideoShowcase />
 
-      {/* ── WHY TRAIN ────────────────────────────────────────── */}
+      {/* ── WHY TRAIN — numbered editorial list beside one strong image ── */}
       <div className="section-divider" />
-      <section className="py-24 lg:py-32 bg-[#12110f]">
+      <section className="py-24 lg:py-32 bg-card">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading eyebrow="Why DKK" title="What Sets Us Apart" centered />
-          <ScrollReveal>
-          <div className="grid sm:grid-cols-3 gap-5 mt-8">
-            {[
-              { icon: Swords, title: "Combat Orientated", body: "We train for real-world effectiveness, not trophies. Close-quarter techniques rooted in genuine martial necessity: striking, grappling, throwing, ground work." },
-              { icon: Shield, title: "Authentic Goju Ryu", body: "Okinawan Goju Ryu in its true form: kata, kumite, ne-waza and weapons. Not sport karate." },
-              { icon: Target, title: "Proven Record", body: "DKK Fighters have competed in Cage Rage, Bellator, BAMMA and the UFC. 16 wins from the first 20 cage fights, a British Heavyweight title and a World Title fight." },
-            ].map((card) => (
-              <div key={card.title} className="p-7 bg-[#141311] border border-white/5 hover:border-[#a8201a]/40 hover:bg-[#a8201a]/5 hover:-translate-y-0.5 hover:shadow-[0_4px_24px_-4px_rgba(168,32,26,0.15)] transition-all duration-300 rounded-sm group">
-                <div className="w-10 h-10 rounded-sm bg-[#a8201a]/10 border border-[#a8201a]/20 flex items-center justify-center mb-5 group-hover:bg-[#a8201a]/20 transition-colors">
-                  <card.icon className="text-[#a8201a]" size={20} />
-                </div>
-                <h3 className="font-['Bebas_Neue'] text-xl tracking-wide text-white mb-2">{card.title}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed">{card.body}</p>
+          <Reveal>
+            <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
+              <div>
+                <SectionHeading eyebrow="Why DKK" title="What Sets Us Apart" />
+                <ol className="mt-2">
+                  {[
+                    { n: "01", title: "Combat Orientated", body: "We train for real-world effectiveness, not trophies. Close-quarter techniques rooted in genuine martial necessity: striking, grappling, throwing, ground work." },
+                    { n: "02", title: "Authentic Goju Ryu", body: "Okinawan Goju Ryu in its true form: kata, kumite, ne-waza and weapons. Not sport karate." },
+                    { n: "03", title: "Proven Record", body: "DKK Fighters have competed in Cage Rage, Bellator, BAMMA and the UFC. 16 wins from the first 20 cage fights, a British Heavyweight title and a World Title fight." },
+                  ].map((item, i) => (
+                    <li key={item.n} className={`flex gap-6 py-7 ${i > 0 ? "border-t border-white/5" : ""}`}>
+                      <span className="font-display text-5xl sm:text-6xl text-brand/25 leading-none flex-shrink-0 w-16" aria-hidden="true">{item.n}</span>
+                      <div>
+                        <h3 className="font-display text-2xl tracking-wide text-white mb-2">{item.title}</h3>
+                        <p className="text-gray-400 text-sm leading-relaxed">{item.body}</p>
+                      </div>
+                    </li>
+                  ))}
+                </ol>
               </div>
-            ))}
-          </div>
-          </ScrollReveal>
+              <div className="relative rounded-sm overflow-hidden hidden lg:block" style={{ aspectRatio: "4/5" }}>
+                <SafeImage src="/images/Grading/bunkai-demo.JPG" alt="Bunkai demonstration at a DKK grading" fill className="object-cover" />
+                <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/80 to-black/0" />
+                <div className="absolute bottom-5 left-5">
+                  <p className="text-white/80 text-[11px] uppercase tracking-[0.25em]">Bunkai · Grading Day</p>
+                </div>
+              </div>
+            </div>
+          </Reveal>
         </div>
       </section>
 
       {/* ── TESTIMONIALS ─────────────────────────────────────── */}
       <TestimonialRotator />
 
-      {/* ── FULL-WIDTH QUOTE ─────────────────────────────────── */}
-      <section className="relative py-24 lg:py-32 bg-black overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/images/Training/class-kata-aerial.JPG')] bg-cover bg-center opacity-20" />
-        <div className="relative max-w-5xl mx-auto px-6 sm:px-10 text-center">
-          <p className="text-[#c9a96e] text-xs font-bold uppercase tracking-[0.3em] mb-6">Philosophy</p>
-          <p className="font-['Bebas_Neue'] text-4xl sm:text-5xl lg:text-6xl text-white leading-tight tracking-wide">
-            &ldquo;The ultimate aim of karate lies not in victory or defeat, but in the perfection of the character of its participants.&rdquo;
-          </p>
-          <p className="mt-8 text-[#c9a96e] text-sm uppercase tracking-widest">Gichin Funakoshi</p>
-        </div>
-      </section>
-
       {/* ── TRAINING TIMES ───────────────────────────────────── */}
       <div className="section-divider" />
-      <section className="py-24 lg:py-32 bg-[#0f0e0c]">
+      <section className="py-24 lg:py-32 bg-night">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollReveal>
+          <Reveal>
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <SectionHeading eyebrow="Schedule" title="When & Where" />
               <div className="space-y-4">
                 {[{ day: "Monday", time: "6:00pm – 8:00pm" }, { day: "Wednesday", time: "6:00pm – 8:00pm" }].map((s) => (
-                  <div key={s.day} className="flex items-center gap-5 p-5 bg-[#141311] border-l-2 border-[#a8201a] rounded-sm">
+                  <div key={s.day} className="flex items-center gap-5 p-5 bg-card border-l-2 border-brand rounded-sm">
                     <div>
-                      <p className="font-['Bebas_Neue'] text-3xl text-white tracking-wide">{s.day}</p>
-                      <p className="text-gray-400 text-sm flex items-center gap-1.5 mt-0.5"><Clock size={13} className="text-[#a8201a]" />{s.time}</p>
+                      <p className="font-display text-3xl text-white tracking-wide">{s.day}</p>
+                      <p className="text-gray-400 text-sm flex items-center gap-1.5 mt-0.5"><Clock size={13} className="text-brand" />{s.time}</p>
                     </div>
                   </div>
                 ))}
-                <div className="p-5 bg-[#141311] border-l-2 border-[#c9a96e]/40 rounded-sm">
-                  <p className="font-['Bebas_Neue'] text-xl text-white tracking-wide flex items-center gap-2"><MapPin size={16} className="text-[#c9a96e]" />University of Westminster</p>
+                <div className="p-5 bg-card border-l-2 border-gold/40 rounded-sm">
+                  <p className="font-display text-xl text-white tracking-wide flex items-center gap-2"><MapPin size={16} className="text-gold" />University of Westminster</p>
                   <p className="text-gray-400 text-sm mt-1">Main Hall · 309 Regent Street · London W1B 2HW</p>
                   <p className="text-gray-600 text-xs mt-1">No student card required. Classes run during all University breaks.</p>
                 </div>
               </div>
-              <Link href="/training" className="inline-flex items-center gap-2 mt-6 text-[#a8201a] font-semibold text-sm uppercase tracking-wider hover:gap-3 transition-all">
+              <Link href="/training" className="inline-flex items-center gap-2 mt-6 text-brand font-semibold text-sm uppercase tracking-wider hover:gap-3 transition-all">
                 Full Training Info <ChevronRight size={16} />
               </Link>
             </div>
@@ -263,7 +250,7 @@ export default function Home() {
               <SafeImage src="/images/Club/modern-group-hall.jpg" alt="DKK London class group" fill className="object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-8">
-                <p className="font-['Bebas_Neue'] text-3xl text-white tracking-wide mb-2">New Students Welcome</p>
+                <p className="font-display text-3xl text-white tracking-wide mb-2">New Students Welcome</p>
                 <ul className="space-y-2 mb-6">
                   {[
                     "All experience levels welcome",
@@ -272,7 +259,7 @@ export default function Home() {
                     "No uniform required for first visit",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2 text-sm text-gray-300">
-                      <CheckCircle size={14} className="text-[#c9a96e] mt-0.5 flex-shrink-0" />
+                      <CheckCircle size={14} className="text-gold mt-0.5 flex-shrink-0" />
                       {item}
                     </li>
                   ))}
@@ -280,27 +267,27 @@ export default function Home() {
               </div>
             </div>
           </div>
-          </ScrollReveal>
+          </Reveal>
         </div>
       </section>
 
       {/* ── WESTMINSTER TEASER ──────────────────────────────── */}
-      <section className="py-14 lg:py-16 bg-[#0a0907] border-t border-white/5">
+      <section className="py-14 lg:py-16 bg-coal border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-5">
-              <div className="w-12 h-12 rounded-sm bg-[#c9a96e]/10 border border-[#c9a96e]/30 flex items-center justify-center flex-shrink-0">
-                <Award className="text-[#c9a96e]" size={20} />
+              <div className="w-12 h-12 rounded-sm bg-gold/10 border border-gold/30 flex items-center justify-center flex-shrink-0">
+                <Award className="text-gold" size={20} />
               </div>
               <div>
-                <p className="text-[#c9a96e] text-[10px] font-bold uppercase tracking-[0.35em] mb-1">University of Westminster</p>
-                <p className="text-white font-['Bebas_Neue'] text-2xl sm:text-3xl tracking-wide leading-none">The Oldest Sports Club at Westminster</p>
+                <p className="text-gold text-[10px] font-bold uppercase tracking-[0.35em] mb-1">University of Westminster</p>
+                <p className="text-white font-display text-2xl sm:text-3xl tracking-wide leading-none">The Oldest Sports Club at Westminster</p>
                 <p className="text-gray-400 text-sm mt-1">Trained continuously since 1990, under the same instructor.</p>
               </div>
             </div>
             <Link
               href="/university"
-              className="flex-shrink-0 px-6 py-3 border border-[#c9a96e]/40 text-[#c9a96e] font-bold uppercase tracking-wider text-xs hover:bg-[#c9a96e]/10 hover:border-[#c9a96e] transition-colors rounded-sm inline-flex items-center gap-2"
+              className="flex-shrink-0 px-6 py-3 border border-gold/40 text-gold font-bold uppercase tracking-wider text-xs hover:bg-gold/10 hover:border-gold transition-colors rounded-sm inline-flex items-center gap-2"
             >
               About the Partnership <ChevronRight size={14} />
             </Link>

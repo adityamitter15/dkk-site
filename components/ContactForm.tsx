@@ -107,10 +107,10 @@ export default function ContactForm() {
       <div
         role="status"
         aria-live="polite"
-        className="flex flex-col items-center justify-center p-10 bg-[#141311] border border-[#a8201a]/30 rounded-sm text-center h-full min-h-[400px]"
+        className="flex flex-col items-center justify-center p-10 bg-card border border-brand/30 rounded-sm text-center h-full min-h-[400px]"
       >
-        <CheckCircle className="text-[#a8201a] mb-4" size={40} aria-hidden="true" />
-        <h3 className="font-['Bebas_Neue'] text-2xl tracking-wide text-white mb-2">Message Sent</h3>
+        <CheckCircle className="text-brand mb-4" size={40} aria-hidden="true" />
+        <h3 className="font-display text-2xl tracking-wide text-white mb-2">Message Sent</h3>
         <p className="text-gray-400 text-sm max-w-sm">
           Thanks for getting in touch. We aim to reply within 48 hours. If it&apos;s urgent,
           WhatsApp Shihan on{" "}
@@ -118,7 +118,7 @@ export default function ContactForm() {
             href="https://wa.me/447976411901"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#c9a96e] hover:text-white transition-colors underline-offset-2 hover:underline"
+            className="text-gold hover:text-white transition-colors underline-offset-2 hover:underline"
           >
             07976 411 901
           </a>
@@ -135,7 +135,7 @@ export default function ContactForm() {
       <div className="grid sm:grid-cols-2 gap-5">
         <div>
           <label className="block text-gray-400 text-xs uppercase tracking-widest mb-2" htmlFor="name">
-            Name <span className="text-[#a8201a]" aria-hidden="true">*</span>
+            Name <span className="text-brand" aria-hidden="true">*</span>
             <span className="sr-only">(required)</span>
           </label>
           <input
@@ -145,13 +145,13 @@ export default function ContactForm() {
             autoComplete="name"
             required
             maxLength={MAX_NAME}
-            className="w-full bg-[#141311] border border-white/10 text-white px-4 py-3 text-base rounded-sm focus:outline-none focus-visible:border-[#a8201a] focus-visible:ring-2 focus-visible:ring-[#a8201a]/40 transition-colors placeholder:text-gray-600"
+            className="w-full bg-card border border-white/10 text-white px-4 py-3 text-base rounded-sm focus:outline-none focus-visible:border-brand focus-visible:ring-2 focus-visible:ring-brand/40 transition-colors placeholder:text-gray-600"
             placeholder="Your full name"
           />
         </div>
         <div>
           <label className="block text-gray-400 text-xs uppercase tracking-widest mb-2" htmlFor="email">
-            Email <span className="text-[#a8201a]" aria-hidden="true">*</span>
+            Email <span className="text-brand" aria-hidden="true">*</span>
             <span className="sr-only">(required)</span>
           </label>
           <input
@@ -162,7 +162,7 @@ export default function ContactForm() {
             autoComplete="email"
             required
             maxLength={120}
-            className="w-full bg-[#141311] border border-white/10 text-white px-4 py-3 text-base rounded-sm focus:outline-none focus-visible:border-[#a8201a] focus-visible:ring-2 focus-visible:ring-[#a8201a]/40 transition-colors placeholder:text-gray-600"
+            className="w-full bg-card border border-white/10 text-white px-4 py-3 text-base rounded-sm focus:outline-none focus-visible:border-brand focus-visible:ring-2 focus-visible:ring-brand/40 transition-colors placeholder:text-gray-600"
             placeholder="your@email.com"
           />
         </div>
@@ -175,7 +175,7 @@ export default function ContactForm() {
         <select
           id="experience"
           name="experience"
-          className="w-full bg-[#141311] border border-white/10 text-white px-4 py-3 text-base rounded-sm focus:outline-none focus-visible:border-[#a8201a] focus-visible:ring-2 focus-visible:ring-[#a8201a]/40 transition-colors appearance-none"
+          className="w-full bg-card border border-white/10 text-white px-4 py-3 text-base rounded-sm focus:outline-none focus-visible:border-brand focus-visible:ring-2 focus-visible:ring-brand/40 transition-colors appearance-none"
         >
           <option value="">Select your experience</option>
           <option value="none">Complete beginner - no martial arts experience</option>
@@ -189,12 +189,12 @@ export default function ContactForm() {
       <div>
         <div className="flex items-baseline justify-between mb-2">
           <label className="block text-gray-400 text-xs uppercase tracking-widest" htmlFor="message">
-            Message <span className="text-[#a8201a]" aria-hidden="true">*</span>
+            Message <span className="text-brand" aria-hidden="true">*</span>
             <span className="sr-only">(required)</span>
           </label>
           <span
             className={`text-[10px] tabular-nums ${
-              messageLen > MAX_MESSAGE * 0.9 ? "text-[#a8201a]" : "text-gray-600"
+              messageLen > MAX_MESSAGE * 0.9 ? "text-brand" : "text-gray-600"
             }`}
             aria-live="polite"
           >
@@ -208,7 +208,7 @@ export default function ContactForm() {
           rows={5}
           maxLength={MAX_MESSAGE}
           onChange={(e) => setMessageLen(e.target.value.length)}
-          className="w-full bg-[#141311] border border-white/10 text-white px-4 py-3 text-base rounded-sm focus:outline-none focus-visible:border-[#a8201a] focus-visible:ring-2 focus-visible:ring-[#a8201a]/40 transition-colors placeholder:text-gray-600 resize-none"
+          className="w-full bg-card border border-white/10 text-white px-4 py-3 text-base rounded-sm focus:outline-none focus-visible:border-brand focus-visible:ring-2 focus-visible:ring-brand/40 transition-colors placeholder:text-gray-600 resize-none"
           placeholder="Tell us a bit about yourself and what you're looking for..."
         />
       </div>
@@ -226,7 +226,7 @@ export default function ContactForm() {
       </div>
 
       {error && (
-        <p role="alert" className="text-[#a8201a] text-xs">
+        <p role="alert" className="text-brand text-xs">
           {error}
         </p>
       )}
@@ -234,7 +234,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={disabled}
-        className="w-full sm:w-auto px-8 py-4 bg-[#a8201a] text-white font-semibold uppercase tracking-wider text-sm hover:bg-[#c62828] transition-colors rounded-sm flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed focus:outline-none focus-visible:ring-2 focus-visible:ring-[#c9a96e] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0f0e0c]"
+        className="w-full sm:w-auto px-8 py-4 bg-brand text-white font-semibold uppercase tracking-wider text-sm hover:bg-brand-hover transition-colors rounded-sm flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-night"
       >
         {loading ? (
           <>
@@ -254,7 +254,7 @@ export default function ContactForm() {
         We aim to respond within 48 hours. Your details are never shared with third parties — see our{" "}
         <Link
           href="/privacy"
-          className="text-gray-400 underline-offset-2 hover:text-[#c9a96e] hover:underline transition-colors"
+          className="text-gray-400 underline-offset-2 hover:text-gold hover:underline transition-colors"
         >
           privacy policy
         </Link>

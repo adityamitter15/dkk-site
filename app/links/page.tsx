@@ -1,6 +1,6 @@
+import PageHero from "@/components/ui/PageHero";
 import type { Metadata } from "next";
 import SectionHeading from "@/components/SectionHeading";
-import SafeImage from "@/components/SafeImage";
 import { ExternalLink } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -36,7 +36,6 @@ const linkGroups = [
   {
     category: "Authors & Publishers",
     links: [
-      { title: "Goran Powell", description: "Author of Chojun, A Sudden Dawn, Matryoshka and Waking Dragons. British Martial Arts Awards Writer of the Year 2017.", href: "https://www.goranpowell.com" },
       { title: "Summersdale Publishers", description: "Leading UK martial arts publisher.", href: "https://www.summersdale.com" },
       { title: "YMAA Publication Center", description: "Leading US martial arts publisher.", href: "https://ymaa.com" },
     ],
@@ -62,31 +61,23 @@ const linkGroups = [
 export default function LinksPage() {
   return (
     <>
-      <section className="relative pt-28 pb-16 sm:pt-40 sm:pb-28 overflow-hidden">
-        <div className="absolute inset-0 bg-black" />
-        <div className="absolute inset-0">
-          <SafeImage src="/images/Camp/summer-camp-panoramic.JPG" alt="" fill className="object-cover opacity-40" style={{ objectPosition: "center 25%" }} />
-        </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/30" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0f0e0c] via-transparent to-black/40" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="inline-flex items-center gap-2 text-[#a8201a] text-xs font-bold uppercase tracking-[0.35em] mb-4">
-            <span className="w-6 h-px bg-[#a8201a]" />
-            Resources
-          </p>
-          <h1 className="font-['Bebas_Neue'] text-7xl sm:text-8xl lg:text-[9rem] text-white tracking-wide leading-none mb-4">Links</h1>
-          <p className="text-gray-300 text-lg max-w-lg font-light leading-relaxed">DKK clubs, affiliations, instructors, authors and martial arts resources.</p>
-        </div>
-      </section>
+      <PageHero
+        variant="full"
+        eyebrow="Resources"
+        folio="11 / Links"
+        title="Links"
+        lead="DKK clubs, affiliations, instructors, authors and martial arts resources."
+        image={{ src: "/images/Club/group-cross-monument.JPG", alt: "DKK group photo at the monument" }}
+      />
 
-      <section className="py-20 lg:py-28 bg-[#0f0e0c]">
+      <section className="section-reveal py-20 lg:py-28 bg-night">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading eyebrow="External Resources" title="Useful Links" />
           <div className="columns-1 lg:columns-2 gap-x-12 max-w-5xl">
             {linkGroups.map((group) => (
               <div key={group.category} className="mb-10 break-inside-avoid">
-                <h3 className="text-[#a8201a] text-xs font-bold uppercase tracking-[0.2em] mb-4 flex items-center gap-2">
-                  <span className="w-4 h-px bg-[#a8201a]" />
+                <h3 className="text-brand text-xs font-bold uppercase tracking-[0.2em] mb-4 flex items-center gap-2">
+                  <span className="w-4 h-px bg-brand" />
                   {group.category}
                 </h3>
                 <div className="space-y-2">
@@ -96,12 +87,12 @@ export default function LinksPage() {
                       href={link.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-start justify-between gap-4 p-4 bg-[#141311] border border-white/5 rounded-sm transition-all duration-200 group hover:border-[#a8201a]/40"
+                      className="flex items-start justify-between gap-4 p-4 bg-card border border-white/5 rounded-sm transition-all duration-200 group hover:border-brand/40"
                     >
                       <div>
                         <p className="text-white text-sm font-medium flex items-center gap-2">
                           {link.title}
-                          <ExternalLink size={11} className="text-gray-600 group-hover:text-[#a8201a] transition-colors" />
+                          <ExternalLink size={11} className="text-gray-600 group-hover:text-brand transition-colors" />
                         </p>
                         <p className="text-gray-500 text-xs mt-0.5 leading-relaxed">{link.description}</p>
                       </div>

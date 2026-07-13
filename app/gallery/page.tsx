@@ -1,18 +1,20 @@
+import PageHero from "@/components/ui/PageHero";
 import type { Metadata } from "next";
 import SectionHeading from "@/components/SectionHeading";
-import SafeImage from "@/components/SafeImage";
 import GalleryFilter from "@/components/GalleryFilter";
 import type { GalleryImage } from "@/components/GalleryLightbox";
 
 export const metadata: Metadata = {
   title: "Gallery",
   description: "Photos from DKK London. Training, gradings, tournaments, summer camps and members of Daigaku Karate Kai.",
+  openGraph: { images: ["/og/gallery.jpg"] },
+  twitter: { images: ["/og/gallery.jpg"] },
 };
 
 const images: GalleryImage[] = [
   // ── Shihan ──────────────────────────────────────────────
   { src: "/images/Shihan/shihan-portrait-black.jpg", alt: "Shihan Gavin Mulholland - studio portrait", caption: "Shihan Gavin Mulholland · 7th Dan",   tall: true,  category: "Shihan" },
-  { src: "/images/Shihan/shihan-kuwa-black.jpg",     alt: "Shihan with kuwa",                         caption: "Kuwa - farming tool weapon",           tall: true,  category: "Shihan" },
+  { src: "/images/Shihan/shihan-kuwa-black.jpg",     alt: "Shihan with shillelagh",                   caption: "Shillelagh - Irish fighting stick",           tall: true,  category: "Shihan" },
   { src: "/images/Shihan/shihan-bo-black.jpg",       alt: "Shihan with bo staff",                     caption: "Bo - six-foot staff",                  tall: true,  category: "Shihan" },
   { src: "/images/Shihan/shihan-tanto-black.jpg",    alt: "Shihan with tanto",                        caption: "Tanto - short blade",                  tall: false, category: "Shihan" },
   { src: "/images/Shihan/shihan-forest-kick.jpg",    alt: "Shihan high kick outdoors",                caption: "Shihan - High Kick",                   tall: true,  category: "Shihan" },
@@ -166,29 +168,31 @@ const images: GalleryImage[] = [
   { src: "/images/Camp/camp_weapons_lineup_2021.jpg",        alt: "Summer Camp 2021",                             caption: "Summer Camp 2021",                 tall: false, category: "Camps" },
   { src: "/images/Camp/camp_evening_circle.jpg",             alt: "Summer Camp - evening circle",                 caption: "Summer Camp - Evening Circle",     tall: false, category: "Camps" },
   { src: "/images/Camp/primrose_partner_carries.jpg",        alt: "Primrose Hill - partner carries",              caption: "Primrose Hill - Carries",          tall: true,  category: "Camps" },
+  { src: "/images/Camp/summer_camp_recent.jpg",              alt: "Summer Camp group",                            caption: "Summer Camp",                       tall: false, category: "Camps" },
+
+  // Newest additions
+  { src: "/images/Shihan/shihan_uwsu_tshirt.jpg",            alt: "Shihan Mulholland in DKK x UWSU tshirt",       caption: "Shihan - DKK x UWSU",               tall: true,  category: "Shihan" },
+  { src: "/images/Yudansha/lina_portrait.jpeg",              alt: "Lina Amir portrait",                           caption: "Lina Amir - 2nd Dan",               tall: true,  category: "Yudansha" },
+  { src: "/images/Yudansha/lina_action.jpeg",                alt: "Lina Amir action",                             caption: "Lina Amir - Training",              tall: false, category: "Yudansha" },
+  { src: "/images/Yudansha/dieter_liepsch.jpg",              alt: "Dieter Liepsch",                               caption: "Dieter Liepsch - 2nd Dan",          tall: true,  category: "Yudansha" },
+  { src: "/images/Yudansha/carlotta_roveri.jpg",             alt: "Carlotta Roveri",                              caption: "Carlotta Roveri - 1st Dan",         tall: true,  category: "Yudansha" },
+  { src: "/images/Yudansha/scarlett.jpg",                    alt: "Scarlett",                                     caption: "Scarlett",                          tall: true,  category: "Yudansha" },
 ];
 
 export default function GalleryPage() {
   return (
     <>
-      <section className="relative pt-28 pb-16 sm:pt-40 sm:pb-28 overflow-hidden">
-        <div className="absolute inset-0 bg-black" />
-        <div className="absolute inset-0">
-          <SafeImage src="/images/Camp/outdoor-kata-dynamic.JPG" alt="" fill priority sizes="100vw" className="object-cover object-center opacity-35" />
-        </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/75 to-black/40" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0f0e0c] via-transparent to-black/60" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="inline-flex items-center gap-2 text-[#a8201a] text-xs font-bold uppercase tracking-[0.35em] mb-4">
-            <span className="w-6 h-px bg-[#a8201a]" />
-            Photos
-          </p>
-          <h1 className="font-['Bebas_Neue'] text-7xl sm:text-8xl lg:text-[9rem] text-white tracking-wide leading-none mb-4">Gallery</h1>
-          <p className="text-gray-300 text-lg max-w-lg font-light leading-relaxed">Training, camps, gradings, tournaments and members of DKK London.</p>
-        </div>
-      </section>
+      <PageHero
+        variant="full"
+        eyebrow="Photos"
+        folio="09 / Gallery"
+        kanji="記録"
+        title="Gallery"
+        lead="Training, camps, gradings, tournaments and members of DKK London."
+        image={{ src: "/images/Camp/outdoor-kata-dynamic.JPG" }}
+      />
 
-      <section className="py-20 lg:py-28 bg-[#0f0e0c]">
+      <section className="py-20 lg:py-28 bg-night">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-3">
             <SectionHeading eyebrow="Photos" title="In the Dojo" />

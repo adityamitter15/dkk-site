@@ -18,7 +18,9 @@ export default function DanGrade({ text, className = "" }: { text: string; class
     <span className={className}>
       {prefix}
       {num}
-      <sup className="font-sans normal-case text-[0.55em] tracking-tight align-super -ml-px font-medium">{suffix}</sup>
+      {/* align-baseline + relative shift: `align-super` escapes the line box in
+          leading-none display headings and collides with the eyebrow above */}
+      <sup className="font-sans normal-case text-[0.5em] tracking-normal align-baseline relative -top-[0.55em] ml-[0.07em] mr-[0.12em] font-medium">{suffix}</sup>
       {rest}
     </span>
   );

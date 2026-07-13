@@ -1,3 +1,4 @@
+import PageHero from "@/components/ui/PageHero";
 import type { Metadata } from "next";
 import SectionHeading from "@/components/SectionHeading";
 import ContactForm from "@/components/ContactForm";
@@ -12,24 +13,17 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
-      {/* Hero - image-based for variety */}
-      <section className="relative pt-28 pb-16 sm:pt-40 sm:pb-28 overflow-hidden">
-        <div className="absolute inset-0">
-          <SafeImage src="/images/Club/dojo-full-class.JPG" alt="DKK London dojo" fill priority sizes="100vw" className="object-cover object-center" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/75 to-black/50" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0f0e0c] via-transparent to-black/60" />
-        </div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="inline-flex items-center gap-2 text-[#a8201a] text-xs font-bold uppercase tracking-[0.35em] mb-4">
-            <span className="w-6 h-px bg-[#a8201a]" />
-            Get Started
-          </p>
-          <h1 className="font-['Bebas_Neue'] text-6xl sm:text-7xl lg:text-8xl text-white tracking-wide leading-none mb-4">Contact</h1>
-          <p className="text-gray-300 text-lg max-w-lg">Come and try a class. No commitment. Just turn up or get in touch first.</p>
-        </div>
-      </section>
+      <PageHero
+        variant="full"
+        eyebrow="Get Started"
+        folio="12 / Contact"
+        kanji="道場"
+        title="Contact"
+        lead="Come and try a class. No commitment. Just turn up or get in touch first."
+        image={{ src: "/images/Club/dojo-full-class.JPG", alt: "A full class training in the main hall" }}
+      />
 
-      <section className="py-20 lg:py-28 bg-[#0f0e0c]">
+      <section className="section-reveal py-20 lg:py-28 bg-night">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
             <div>
@@ -42,9 +36,9 @@ export default function ContactPage() {
                 <div className="grid sm:grid-cols-2 gap-4">
                   <a
                     href="tel:07976411901"
-                    className="flex gap-4 items-start p-5 bg-[#141311] border border-white/10 hover:border-[#a8201a]/40 rounded-sm transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#a8201a]/50"
+                    className="flex gap-4 items-start p-5 bg-card border border-white/10 hover:border-brand/40 rounded-sm transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/50"
                   >
-                    <Phone className="text-[#a8201a] flex-shrink-0 mt-0.5" size={20} aria-hidden="true" />
+                    <Phone className="text-brand flex-shrink-0 mt-0.5" size={20} aria-hidden="true" />
                     <div>
                       <p className="text-gray-500 text-xs uppercase tracking-widest mb-0.5">Call</p>
                       <p className="text-white font-medium text-lg leading-tight">07976 411 901</p>
@@ -56,7 +50,7 @@ export default function ContactPage() {
                     href="https://wa.me/447976411901?text=Hi%2C%20I%27d%20like%20to%20come%20and%20try%20a%20class%20at%20DKK%20London."
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex gap-4 items-start p-5 bg-[#141311] border border-white/10 hover:border-[#25D366]/40 rounded-sm transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366]/50"
+                    className="flex gap-4 items-start p-5 bg-card border border-white/10 hover:border-[#25D366]/40 rounded-sm transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366]/50"
                   >
                     <MessageCircle className="text-[#25D366] flex-shrink-0 mt-0.5" size={20} aria-hidden="true" />
                     <div>
@@ -69,9 +63,9 @@ export default function ContactPage() {
 
                 <a
                   href="mailto:info@goju-karate.co.uk"
-                  className="flex gap-4 items-start p-5 bg-[#141311] border border-white/10 hover:border-[#a8201a]/40 rounded-sm transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#a8201a]/50"
+                  className="flex gap-4 items-start p-5 bg-card border border-white/10 hover:border-brand/40 rounded-sm transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/50"
                 >
-                  <Mail className="text-[#a8201a] flex-shrink-0 mt-0.5" size={20} aria-hidden="true" />
+                  <Mail className="text-brand flex-shrink-0 mt-0.5" size={20} aria-hidden="true" />
                   <div>
                     <p className="text-gray-500 text-xs uppercase tracking-widest mb-0.5">Email</p>
                     <p className="text-white font-medium leading-tight">info@goju-karate.co.uk</p>
@@ -79,8 +73,8 @@ export default function ContactPage() {
                   </div>
                 </a>
 
-                <div className="flex gap-4 items-start p-5 bg-[#141311] border border-white/10 rounded-sm">
-                  <MapPin className="text-[#a8201a] flex-shrink-0 mt-0.5" size={20} aria-hidden="true" />
+                <div className="flex gap-4 items-start p-5 bg-card border border-white/10 rounded-sm">
+                  <MapPin className="text-brand flex-shrink-0 mt-0.5" size={20} aria-hidden="true" />
                   <div>
                     <p className="text-gray-500 text-xs uppercase tracking-widest mb-0.5">Location</p>
                     <p className="text-white font-medium leading-tight">University of Westminster, Main Hall</p>
@@ -89,8 +83,8 @@ export default function ContactPage() {
                   </div>
                 </div>
 
-                <div className="flex gap-4 items-start p-5 bg-[#141311] border border-white/10 rounded-sm">
-                  <Clock className="text-[#a8201a] flex-shrink-0 mt-0.5" size={20} aria-hidden="true" />
+                <div className="flex gap-4 items-start p-5 bg-card border border-white/10 rounded-sm">
+                  <Clock className="text-brand flex-shrink-0 mt-0.5" size={20} aria-hidden="true" />
                   <div>
                     <p className="text-gray-500 text-xs uppercase tracking-widest mb-0.5">Class Times</p>
                     <p className="text-white font-medium leading-tight">Monday &amp; Wednesday</p>
@@ -117,21 +111,21 @@ export default function ContactPage() {
       </section>
 
       {/* ── GOOGLE MAP ───────────────────────────────────────── */}
-      <section className="bg-[#12110f] border-t border-white/5">
+      <section className="bg-card border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
           <div className="mb-8">
-            <p className="inline-flex items-center gap-2 text-[#c9a96e] text-xs font-bold uppercase tracking-[0.35em] mb-3">
-              <span className="w-6 h-px bg-[#c9a96e]" />
+            <p className="inline-flex items-center gap-2 text-gold text-xs font-bold uppercase tracking-[0.35em] mb-3">
+              <span className="w-6 h-px bg-gold" />
               Find Us
             </p>
-            <h2 className="font-['Bebas_Neue'] text-4xl sm:text-5xl text-white tracking-wide leading-none">309 Regent Street</h2>
+            <h2 className="font-display text-4xl sm:text-5xl text-white tracking-wide leading-none">309 Regent Street</h2>
             <p className="text-gray-400 text-sm mt-2">University of Westminster · Main Hall · London W1B 2HW</p>
           </div>
-          <div className="rounded-sm overflow-hidden ring-1 ring-white/10">
+          <div className="rounded-sm overflow-hidden ring-1 ring-white/10 h-[280px] sm:h-[400px]">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1241.5!2d-0.14267!3d51.51713!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761ad55726b3c1%3A0x4c01d4e431b1a60!2s309%20Regent%20St%2C%20London%20W1B%202HW!5e0!3m2!1sen!2suk!4v1"
               width="100%"
-              height="400"
+              height="100%"
               style={{ border: 0, filter: "invert(90%) hue-rotate(180deg) brightness(0.95) contrast(1.1)" }}
               allowFullScreen
               loading="lazy"
@@ -144,7 +138,7 @@ export default function ContactPage() {
               href="https://www.google.com/maps/place/309+Regent+St,+London+W1B+2HW"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#c9a96e] text-xs uppercase tracking-widest hover:text-white transition-colors"
+              className="text-gold text-xs uppercase tracking-widest hover:text-white transition-colors"
             >
               Open in Google Maps &rarr;
             </a>

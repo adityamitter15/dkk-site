@@ -1,107 +1,77 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { ChevronLeft, ChevronRight, Pause, Play } from "lucide-react";
 import DanGrade from "@/components/DanGrade";
-
-const testimonials = [
-  {
-    quote: "From the first class, training with DKK was a kick to the gut, both literally and metaphorically. The sweet thrill of fear I feel walking into the dojo is a big part of what I love about it.",
-    name: "Daniel Bradley",
-    grade: "2nd Dan",
-  },
-  {
-    quote: "Of all the places I've trained, nowhere else have I been surrounded by so many people who work so hard to push each other past what they thought were their limits.",
-    name: "Catherine Sandwell",
-    grade: "2nd Dan",
-  },
-  {
-    quote: "I wanted to train where my fitness was challenged while learning self-protection. DKK provided that and taught me control, inner strength, resilience, and how to surpass my own limits.",
-    name: "Laila Al-Minyawi",
-    grade: "3rd Dan",
-  },
-  {
-    quote: "Through DKK, I have been given the opportunity to push myself beyond what I thought were my limits and achieve what I thought was beyond me.",
-    name: "Richard Gaillard",
-    grade: "3rd Dan",
-  },
-  {
-    quote: "In DKK and Shihan Mulholland, I found exactly what I was looking for in a martial arts association. The people who make up DKK are just a joy to spend time with.",
-    name: "Luke Wilcox",
-    grade: "2nd Dan",
-  },
-  {
-    quote: "The fight-or-flee rush of my first class isn't one I'll easily ever forget. I found myself replaying every movement in my head over and over again like a movie.",
-    name: "Sidney Ushurhe",
-    grade: "1st Dan",
-  },
-  {
-    quote: "The breadth of Goju Ryu and the depth to which we study it fascinates me. DKK has been a fundamental part of my life ever since my first class.",
-    name: "Mizuki Murai",
-    grade: "2nd Dan",
-  },
-  {
-    quote: "I consider it a privilege to train with the calibre of people in the club.",
-    name: "Tunde Oladimeji",
-    grade: "5th Dan",
-  },
-];
+import { testimonials } from "@/data/testimonials";
+import { EASE, DUR } from "@/lib/motion";
 
 export default function TestimonialRotator() {
   const [active, setActive] = useState(0);
-  const [fading, setFading] = useState(false);
+  const [paused, setPaused] = useState(false);
+  const [hovered, setHovered] = useState(false);
+  const reduced = useReducedMotion();
 
   const goTo = useCallback((index: number) => {
-    setFading(true);
-    setTimeout(() => {
-      setActive(index);
-      setFading(false);
-    }, 300);
+    setActive((index + testimonials.length) % testimonials.length);
   }, []);
 
-  const prev = () => goTo((active - 1 + testimonials.length) % testimonials.length);
-  const next = useCallback(() => goTo((active + 1) % testimonials.length), [active, goTo]);
+  const prev = () => goTo(active - 1);
+  const next = useCallback(() => setActive((a) => (a + 1) % testimonials.length), []);
 
+  // Auto-rotate only when not paused, not hovered/focused, and motion is allowed (WCAG 2.2.2)
   useEffect(() => {
-    if (typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      return;
-    }
+    if (reduced || paused || hovered) return;
     const id = setInterval(next, 6000);
     return () => clearInterval(id);
-  }, [next]);
+  }, [next, reduced, paused, hovered]);
 
   const t = testimonials[active];
 
   return (
-    <section className="py-20 lg:py-28 bg-[#12110f]">
+    <section className="py-20 lg:py-28 bg-card">
       <div className="section-divider mb-0" />
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <p className="inline-flex items-center gap-2 text-[#a8201a] text-xs font-bold uppercase tracking-[0.35em] mb-10 justify-center">
-          <span className="w-6 h-px bg-[#a8201a]" />
+      <div
+        className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        onFocus={() => setHovered(true)}
+        onBlur={() => setHovered(false)}
+      >
+        <p className="inline-flex items-center gap-2 text-brand text-xs font-bold uppercase tracking-[0.35em] mb-10 justify-center">
+          <span className="w-6 h-px bg-brand" />
           What Members Say
-          <span className="w-6 h-px bg-[#a8201a]" />
+          <span className="w-6 h-px bg-brand" />
         </p>
 
-        <div
-          className="transition-opacity duration-300"
-          style={{ opacity: fading ? 0 : 1 }}
-        >
-          <p className="font-['Bebas_Neue'] text-2xl sm:text-3xl lg:text-4xl text-white leading-snug tracking-wide mb-8">
-            &ldquo;{t.quote}&rdquo;
-          </p>
-          <div className="flex items-center justify-center gap-3">
-            <div className="w-8 h-px bg-[#a8201a]" />
-            <p className="text-white font-semibold text-sm">{t.name}</p>
-            <span className="text-[#a8201a] text-xs uppercase tracking-widest"><DanGrade text={t.grade} /></span>
-            <div className="w-8 h-px bg-[#a8201a]" />
-          </div>
+        <div className="relative">
+          <AnimatePresence mode="wait" initial={false}>
+            <motion.div
+              key={active}
+              initial={reduced ? { opacity: 1 } : { opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={reduced ? { opacity: 1 } : { opacity: 0 }}
+              transition={{ duration: DUR.fast, ease: EASE }}
+            >
+              <p className="font-display text-2xl sm:text-3xl lg:text-4xl text-white leading-snug tracking-wide mb-8">
+                &ldquo;{t.quote}&rdquo;
+              </p>
+              <div className="flex items-center justify-center gap-3">
+                <div className="w-8 h-px bg-brand" />
+                <p className="text-white font-semibold text-sm">{t.name}</p>
+                <span className="text-brand text-xs uppercase tracking-widest"><DanGrade text={t.grade} /></span>
+                <div className="w-8 h-px bg-brand" />
+              </div>
+            </motion.div>
+          </AnimatePresence>
         </div>
 
         {/* Controls */}
         <div className="flex items-center justify-center gap-6 mt-10">
           <button
             onClick={prev}
-            className="w-9 h-9 rounded-sm border border-white/10 flex items-center justify-center text-gray-500 hover:text-white hover:border-[#a8201a]/40 transition-colors"
+            className="w-9 h-9 rounded-sm border border-white/10 flex items-center justify-center text-gray-500 hover:text-white hover:border-brand/40 transition-colors"
             aria-label="Previous"
           >
             <ChevronLeft size={16} />
@@ -114,7 +84,7 @@ export default function TestimonialRotator() {
                 onClick={() => goTo(i)}
                 className={`transition-all duration-300 rounded-full ${
                   i === active
-                    ? "w-6 h-1.5 bg-[#a8201a]"
+                    ? "w-6 h-1.5 bg-brand"
                     : "w-1.5 h-1.5 bg-white/20 hover:bg-white/40"
                 }`}
                 aria-label={`Go to testimonial ${i + 1}`}
@@ -124,10 +94,19 @@ export default function TestimonialRotator() {
 
           <button
             onClick={next}
-            className="w-9 h-9 rounded-sm border border-white/10 flex items-center justify-center text-gray-500 hover:text-white hover:border-[#a8201a]/40 transition-colors"
+            className="w-9 h-9 rounded-sm border border-white/10 flex items-center justify-center text-gray-500 hover:text-white hover:border-brand/40 transition-colors"
             aria-label="Next"
           >
             <ChevronRight size={16} />
+          </button>
+
+          <button
+            onClick={() => setPaused((p) => !p)}
+            aria-pressed={paused}
+            className="w-9 h-9 rounded-sm border border-white/10 flex items-center justify-center text-gray-500 hover:text-white hover:border-brand/40 transition-colors"
+            aria-label={paused ? "Resume auto-rotation" : "Pause auto-rotation"}
+          >
+            {paused ? <Play size={14} /> : <Pause size={14} />}
           </button>
         </div>
       </div>

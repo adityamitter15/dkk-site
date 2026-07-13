@@ -1,16 +1,15 @@
+import PageHero from "@/components/ui/PageHero";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
 import SafeImage from "@/components/SafeImage";
-import ParallaxImage from "@/components/ParallaxImage";
-import LineageChain from "@/components/LineageChain";
 
 export const metadata: Metadata = {
   title: "Goju Ryu History",
   description: "The history of Goju Ryu - from Chojun Miyagi's founding of the style on Okinawa to the founding of Daigaku Karate Kai by Shihan Gavin Mulholland (DKK London) and Shihan Dan Lewis (DKK Portishead).",
-  openGraph: { images: ["/images/Camp/camp_morning_lineup_2025.jpg"] },
-  twitter: { images: ["/images/Camp/camp_morning_lineup_2025.jpg"] },
+  openGraph: { images: ["/og/history.jpg"] },
+  twitter: { images: ["/og/history.jpg"] },
 };
 
 type Entry = {
@@ -73,30 +72,28 @@ const chapters: Chapter[] = [
 export default function HistoryPage() {
   return (
     <>
-      <section className="relative pt-28 pb-16 sm:pt-40 sm:pb-28 overflow-hidden">
-        <div className="absolute inset-0 bg-[#0a0907]" />
-        <ParallaxImage src="/images/Site/archive-1982-group-rising-sun.jpg" className="object-cover object-center opacity-55" intensity={70} priority />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/50 to-black/30" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0f0e0c] via-transparent to-transparent" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="inline-flex items-center gap-2 text-[#c9a96e] text-xs font-bold uppercase tracking-[0.35em] mb-4">
-            <span className="w-6 h-px bg-[#c9a96e]" />
-            Heritage
-          </p>
-          <h1 className="font-['Bebas_Neue'] text-7xl sm:text-8xl lg:text-[9rem] text-white tracking-wide leading-none mb-4">Goju Ryu History</h1>
-          <p className="text-gray-300 text-lg max-w-xl font-light leading-relaxed">From the dojos of Okinawa to 309 Regent Street - the Goju Ryu tradition lives on.</p>
-        </div>
-      </section>
+      <PageHero
+        variant="archive"
+        eyebrow="Heritage"
+        eyebrowTone="gold"
+        folio="05 / History"
+        kanji="系譜"
+        kanjiTone="gold"
+        title="Goju Ryu History"
+        lead="From the dojos of Okinawa to 309 Regent Street - the Goju Ryu tradition lives on."
+        caption="Archive photograph · 1982"
+        image={{ src: "/images/Site/archive-1982-group-rising-sun.jpg" }}
+      />
 
       {/* Intro statement - centered, impactful */}
-      <section className="py-20 lg:py-28 bg-[#0f0e0c] border-b border-white/5">
+      <section className="section-reveal py-20 lg:py-28 bg-night border-b border-white/5">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="inline-flex items-center gap-2 text-[#c9a96e] text-xs font-bold uppercase tracking-[0.35em] mb-5">
-            <span className="w-6 h-px bg-[#c9a96e]" />
+          <p className="inline-flex items-center gap-2 text-gold text-xs font-bold uppercase tracking-[0.35em] mb-5">
+            <span className="w-6 h-px bg-gold" />
             A Living Tradition
-            <span className="w-6 h-px bg-[#c9a96e]" />
+            <span className="w-6 h-px bg-gold" />
           </p>
-          <h2 className="font-['Bebas_Neue'] text-4xl sm:text-5xl lg:text-6xl text-white tracking-wide leading-[1.05] mb-6">
+          <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl text-white tracking-wide leading-[1.05] mb-6">
             Hard and soft. Forged in Okinawa.
           </h2>
           <p className="text-gray-400 text-lg leading-relaxed max-w-2xl mx-auto">
@@ -108,9 +105,9 @@ export default function HistoryPage() {
               { value: "Miyagi", label: "Founder" },
               { value: "London", label: "DKK Today" },
             ].map((item) => (
-              <div key={item.label} className="p-4 sm:p-5 bg-[#141311] border border-white/5 rounded-sm">
-                <p className="font-['Bebas_Neue'] text-2xl sm:text-3xl text-white tracking-wide leading-none">{item.value}</p>
-                <p className="text-[#c9a96e] text-[10px] uppercase tracking-widest mt-2">{item.label}</p>
+              <div key={item.label} className="p-4 sm:p-5 bg-card border border-white/5 rounded-sm">
+                <p className="font-display text-2xl sm:text-3xl text-white tracking-wide leading-none">{item.value}</p>
+                <p className="text-gold text-[10px] uppercase tracking-widest mt-2">{item.label}</p>
               </div>
             ))}
           </div>
@@ -118,11 +115,11 @@ export default function HistoryPage() {
       </section>
 
       {/* Timeline - chaptered */}
-      <section className="py-20 lg:py-28 bg-[#0f0e0c]">
+      <section className="section-reveal py-20 lg:py-28 bg-night">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <p className="text-[#a8201a] text-xs font-bold uppercase tracking-[0.35em] mb-3">The Journey</p>
-            <h2 className="font-['Bebas_Neue'] text-5xl sm:text-6xl lg:text-7xl text-white tracking-wide leading-none">From Okinawa to London</h2>
+            <p className="text-brand text-xs font-bold uppercase tracking-[0.35em] mb-3">The Journey</p>
+            <h2 className="font-display text-5xl sm:text-6xl lg:text-7xl text-white tracking-wide leading-none">From Okinawa to London</h2>
           </div>
 
           <div className="max-w-3xl mx-auto space-y-20">
@@ -132,21 +129,21 @@ export default function HistoryPage() {
                 <div key={chapter.number} className="relative">
                   {/* Chapter header */}
                   <div className="flex items-end gap-5 mb-10 pb-6 border-b border-white/10">
-                    <span className={`font-['Bebas_Neue'] text-[5.5rem] sm:text-[7rem] leading-none tracking-wide ${isFinal ? "text-[#a8201a]" : "text-[#c9a96e]/70"}`}>
+                    <span className={`font-display text-[5.5rem] sm:text-[7rem] leading-none tracking-wide ${isFinal ? "text-brand" : "text-gold/70"}`}>
                       {chapter.number}
                     </span>
                     <div className="flex-1 pb-3">
-                      <p className={`text-[11px] font-bold uppercase tracking-[0.3em] mb-2 ${isFinal ? "text-[#a8201a]" : "text-[#c9a96e]"}`}>
+                      <p className={`text-[11px] font-bold uppercase tracking-[0.3em] mb-2 ${isFinal ? "text-brand" : "text-gold"}`}>
                         {chapter.label}
                       </p>
-                      <h3 className="font-['Bebas_Neue'] text-3xl sm:text-4xl text-white tracking-wide leading-none mb-3">{chapter.title}</h3>
+                      <h3 className="font-display text-3xl sm:text-4xl text-white tracking-wide leading-none mb-3">{chapter.title}</h3>
                       <p className="text-gray-500 text-sm leading-relaxed max-w-lg">{chapter.subtitle}</p>
                     </div>
                   </div>
 
                   {/* Chapter entries - fixed-width dot rail with centred line */}
                   <div className="relative">
-                    <div className={`absolute left-[7px] top-4 bottom-4 w-px ${isFinal ? "bg-gradient-to-b from-[#a8201a] via-[#a8201a]/40 to-transparent" : "bg-gradient-to-b from-[#c9a96e] via-[#c9a96e]/30 to-transparent"}`} />
+                    <div className={`absolute left-[7px] top-4 bottom-4 w-px ${isFinal ? "bg-gradient-to-b from-brand via-brand/40 to-brand/0" : "bg-gradient-to-b from-gold via-gold/30 to-gold/0"}`} />
 
                     <div className="space-y-4">
                       {chapter.entries.map((item, ei) => {
@@ -155,11 +152,16 @@ export default function HistoryPage() {
                         return (
                           <div key={ei} className="relative flex gap-5 sm:gap-7 group">
                             <div className="w-[15px] flex-shrink-0 relative">
-                              <div className={`absolute left-0 top-5 w-3.5 h-3.5 rounded-full ring-4 ring-[#0f0e0c] z-10 transition-all duration-300 ${isFinal ? "bg-[#a8201a] group-hover:ring-[#a8201a]/20" : "bg-[#c9a96e] group-hover:ring-[#c9a96e]/20"}`} />
+                              <div className={`absolute left-0 top-5 w-3.5 h-3.5 rounded-full ring-4 ring-night z-10 transition-all duration-300 ${isFinal ? "bg-brand group-hover:ring-brand/20" : "bg-gold group-hover:ring-gold/20"}`} />
                             </div>
-                            <div className="flex-1 p-5 bg-[#141311] border border-white/5 rounded-sm hover:border-[#a8201a]/25 hover:-translate-y-0.5 hover:shadow-[0_4px_24px_-4px_rgba(168,32,26,0.12)] transition-all duration-300">
-                              <p className={`text-[10px] font-bold uppercase tracking-[0.25em] mb-1.5 ${isFinal ? "text-[#a8201a]" : "text-[#c9a96e]"}`}>{item.period}</p>
-                              <h4 className="font-['Bebas_Neue'] text-2xl tracking-wide text-white mb-2 leading-tight">{item.title}</h4>
+                            <div className="relative overflow-hidden flex-1 p-5 bg-card border border-white/5 rounded-sm hover:border-brand/25 hover:-translate-y-0.5 hover:shadow-[0_4px_24px_-4px_rgba(168,32,26,0.12)] transition-all duration-300">
+                              {/\d{4}/.test(item.period) && (
+                                <span aria-hidden="true" className="absolute -top-3 right-2 font-display text-7xl sm:text-8xl leading-none text-white/[0.05] select-none pointer-events-none">
+                                  {item.period.match(/\d{4}/)?.[0]}
+                                </span>
+                              )}
+                              <p className={`text-[10px] font-bold uppercase tracking-[0.25em] mb-1.5 ${isFinal ? "text-brand" : "text-gold"}`}>{item.period}</p>
+                              <h4 className="font-display text-2xl tracking-wide text-white mb-2 leading-tight">{item.title}</h4>
                               <p className="text-gray-400 text-sm leading-relaxed">{item.body}</p>
                               {isFoundingEra && (
                                 <div className="mt-4 relative rounded-sm overflow-hidden" style={{ aspectRatio: "4/3" }}>
@@ -191,24 +193,24 @@ export default function HistoryPage() {
       <div className="section-divider-gold" />
 
       {/* From the Archive - vintage DKK photos */}
-      <section className="py-20 lg:py-28 bg-black">
+      <section className="section-reveal py-20 lg:py-28 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <p className="inline-flex items-center gap-2 text-[#c9a96e] text-xs font-bold uppercase tracking-[0.35em] mb-4">
-              <span className="w-6 h-px bg-[#c9a96e]" />
+            <p className="inline-flex items-center gap-2 text-gold text-xs font-bold uppercase tracking-[0.35em] mb-4">
+              <span className="w-6 h-px bg-gold" />
               From the Archive
-              <span className="w-6 h-px bg-[#c9a96e]" />
+              <span className="w-6 h-px bg-gold" />
             </p>
-            <h2 className="font-['Bebas_Neue'] text-4xl sm:text-5xl lg:text-6xl text-white tracking-wide leading-none">Four Decades of DKK</h2>
+            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl text-white tracking-wide leading-none">Four Decades of DKK</h2>
             <p className="text-gray-400 text-sm mt-3 max-w-xl mx-auto">Photographs from the club&apos;s earliest days - training halls, grading lines, and a young Shihan making his name on the mats.</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-            <div className="relative aspect-[4/3] rounded-sm overflow-hidden bg-[#141311] group lg:col-span-2 lg:row-span-2 lg:aspect-auto">
+            <div className="relative aspect-[4/3] rounded-sm overflow-hidden bg-card group lg:col-span-2 lg:row-span-2 lg:aspect-auto">
               <SafeImage src="/images/Site/archive-1982-group-rising-sun.jpg" alt="1982 DKK group photo with Rising Sun flag" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent" />
               <div className="absolute bottom-4 left-4">
-                <p className="text-[#c9a96e] text-[10px] uppercase tracking-[0.2em]">1982</p>
-                <p className="text-white font-['Bebas_Neue'] text-2xl tracking-widest">Earliest Days</p>
+                <p className="text-gold text-[10px] uppercase tracking-[0.2em]">1982</p>
+                <p className="text-white font-display text-2xl tracking-widest">Earliest Days</p>
                 <p className="text-gray-400 text-xs mt-1">Certificates under the Rising Sun</p>
               </div>
             </div>
@@ -220,12 +222,12 @@ export default function HistoryPage() {
               { src: "/images/Shihan/Archive/shihan-young-headlock.jpg",    label: "Control",       sub: "From the early archive" },
               { src: "/images/Shihan/Archive/shihan-young-technique.jpg",   label: "Technique",     sub: "Early DKK" },
             ].map((img) => (
-              <div key={img.src} className="relative aspect-[4/3] rounded-sm overflow-hidden bg-[#141311] group">
+              <div key={img.src} className="relative aspect-[4/3] rounded-sm overflow-hidden bg-card group">
                 <SafeImage src={img.src} alt={img.label} fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                 <div className="absolute bottom-3 left-3 right-3">
-                  <p className="text-white font-['Bebas_Neue'] text-lg tracking-widest">{img.label}</p>
-                  <p className="text-[#c9a96e] text-[10px] uppercase tracking-[0.2em]">{img.sub}</p>
+                  <p className="text-white font-display text-lg tracking-widest">{img.label}</p>
+                  <p className="text-gold text-[10px] uppercase tracking-[0.2em]">{img.sub}</p>
                 </div>
               </div>
             ))}
@@ -233,32 +235,17 @@ export default function HistoryPage() {
         </div>
       </section>
 
-      <section id="lineage" className="py-20 lg:py-24 bg-[#0f0e0c] border-t border-white/5 scroll-mt-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <p className="inline-flex items-center gap-2 text-[#c9a96e] text-xs font-bold uppercase tracking-[0.35em] mb-4">
-              <span className="w-6 h-px bg-[#c9a96e]" />
-              Lineage of Daigaku Karate Kai
-              <span className="w-6 h-px bg-[#c9a96e]" />
-            </p>
-            <h2 className="font-['Bebas_Neue'] text-4xl sm:text-5xl lg:text-6xl tracking-wide leading-none text-white">From Okinawa to London</h2>
-            <p className="text-gray-400 text-sm mt-4 max-w-2xl mx-auto">DKK&apos;s lineage runs through the Jundokan in Okinawa, the early UK Goju pioneers, and a small group of teachers who shaped the way we still train today.</p>
-          </div>
-          <LineageChain />
-        </div>
-      </section>
-
-      <section className="py-14 bg-[#12110f] border-t border-white/5">
+      <section className="py-14 bg-card border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           <div>
-            <p className="text-white font-['Bebas_Neue'] text-2xl tracking-wide">Explore further</p>
+            <p className="text-white font-display text-2xl tracking-wide">Explore further</p>
             <p className="text-gray-400 text-sm">Learn about the style, or come and train it.</p>
           </div>
           <div className="flex gap-4 flex-wrap">
-            <Link href="/goju-ryu" className="inline-flex items-center gap-2 text-[#a8201a] font-semibold text-sm uppercase tracking-wider hover:gap-3 transition-all">
+            <Link href="/goju-ryu" className="inline-flex items-center gap-2 text-brand font-semibold text-sm uppercase tracking-wider hover:gap-3 transition-all">
               Goju Ryu <ChevronRight size={16} />
             </Link>
-            <Link href="/contact" className="px-6 py-2.5 bg-[#a8201a] text-white font-semibold uppercase tracking-wider text-sm hover:bg-[#c62828] transition-colors rounded-sm">
+            <Link href="/contact" className="px-6 py-2.5 bg-brand text-white font-semibold uppercase tracking-wider text-sm hover:bg-brand-hover transition-colors rounded-sm">
               Train With Us
             </Link>
           </div>
