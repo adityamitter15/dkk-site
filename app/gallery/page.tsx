@@ -26,7 +26,7 @@ const images: GalleryImage[] = [
   { src: "/images/Training/shihan-technique.JPG", alt: "Shihan at black belt kata camp",     caption: "Shihan - Black Belt Kata Camp",        tall: false, category: "Shihan" },
   { src: "/images/Training/self-defence-demo.JPG", alt: "Self-defence demonstration",        caption: "Self-Defence - Real Application",      tall: false, category: "Shihan" },
   { src: "/images/Chishi2.jpg",             alt: "Chishi training",                          caption: "Hojo Undo - traditional conditioning", tall: false, category: "Shihan" },
-  { src: "/images/Shihan/Archive/shihan-young-flying-kick.jpg", alt: "Young Shihan flying kick",      caption: "Shihan - Archive",                     tall: false, category: "Shihan" },
+  { src: "/images/Shihan/Archive/shihan-flying-kick-90s.jpg", alt: "Young Shihan flying kick",      caption: "Shihan - Archive",                     tall: false, category: "Shihan" },
   { src: "/images/Shihan/Archive/shihan-young-headlock.jpg",    alt: "Young Shihan control technique", caption: "Shihan - Archive",                    tall: true,  category: "Shihan" },
   { src: "/images/Shihan/Archive/shihan-young-technique.jpg",   alt: "Young Shihan technique",        caption: "Shihan - Archive",                     tall: true,  category: "Shihan" },
 
@@ -79,6 +79,13 @@ const images: GalleryImage[] = [
   { src: "/images/Camp/camp-post-training-pair.jpg", alt: "Post training pair at camp",        caption: "After Training",                    tall: false, category: "Camps" },
   { src: "/images/Camp/camp-shihan-student-fists.jpg", alt: "Shihan with student at camp",    caption: "Shihan & Student",                  tall: false, category: "Camps" },
   { src: "/images/Camp/camp-board-break-intense.jpg", alt: "Board break at camp",              caption: "Board Break - Summer Camp",         tall: false, category: "Camps" },
+  { src: "/images/Camp/archive-summer-school-stick-work.jpg",    alt: "Stick work at an early DKK summer school",          caption: "Early Summer School - Stick Work",    tall: false, category: "Camps" },
+  { src: "/images/Camp/archive-summer-school-knife-defence.jpg", alt: "Knife defence drill at an early DKK summer school", caption: "Early Summer School - Knife Defence", tall: true,  category: "Camps" },
+  { src: "/images/Camp/nidan-lineup-woods.jpg",                   alt: "Grading line-up in the woods at Summer Camp",       caption: "Grading Line-Up",                     tall: false, category: "Camps" },
+  { src: "/images/Camp/camp-certificate-black-gi.jpg",            alt: "Grading certificate presented at Summer Camp",      caption: "Grading Certificate",                 tall: true,  category: "Camps" },
+  { src: "/images/Camp/camp-two-black-belts.jpg",                 alt: "Two black belts at Summer Camp",                    caption: "Black Belts at Camp",                 tall: true,  category: "Camps" },
+  { src: "/images/Camp/camp-group-under-trees.jpg",               alt: "Members gathered under the trees at Summer Camp",   caption: "Under the Trees",                     tall: true,  category: "Camps" },
+  { src: "/images/Camp/camp-women-black-belts.jpg",               alt: "Women black belts at Summer Camp",                  caption: "Women of DKK",                        tall: false, category: "Camps" },
 
   // ── 30 Man Kumite - goes under Grading ───────────────────
   { src: "/images/Camp/women-trees-lineup.JPG",     alt: "30 Man Kumite lineup - woman's",     caption: "30 Man Kumite - Fight Lineup (Woman's)", tall: false, category: "Grading" },
@@ -192,7 +199,7 @@ export default function GalleryPage() {
         image={{ src: "/images/Camp/outdoor-kata-dynamic.JPG" }}
       />
 
-      <section className="py-20 lg:py-28 bg-night">
+      <section className="py-16 sm:py-20 lg:py-28 bg-night">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-3">
             <SectionHeading eyebrow="Photos" title="In the Dojo" />

@@ -23,7 +23,7 @@ export default function ContactPage() {
         image={{ src: "/images/Club/dojo-full-class.JPG", alt: "A full class training in the main hall" }}
       />
 
-      <section className="section-reveal py-20 lg:py-28 bg-night">
+      <section className="section-reveal py-16 sm:py-20 lg:py-28 bg-night">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
             <div>
@@ -50,9 +50,9 @@ export default function ContactPage() {
                     href="https://wa.me/447976411901?text=Hi%2C%20I%27d%20like%20to%20come%20and%20try%20a%20class%20at%20DKK%20London."
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex gap-4 items-start p-5 bg-card border border-white/10 hover:border-[#25D366]/40 rounded-sm transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366]/50"
+                    className="flex gap-4 items-start p-5 bg-card border border-white/10 hover:border-whatsapp/40 rounded-sm transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-whatsapp/50"
                   >
-                    <MessageCircle className="text-[#25D366] flex-shrink-0 mt-0.5" size={20} aria-hidden="true" />
+                    <MessageCircle className="text-whatsapp flex-shrink-0 mt-0.5" size={20} aria-hidden="true" />
                     <div>
                       <p className="text-gray-500 text-xs uppercase tracking-widest mb-0.5">WhatsApp</p>
                       <p className="text-white font-medium text-lg leading-tight">Quick chat</p>
@@ -112,7 +112,7 @@ export default function ContactPage() {
 
       {/* ── GOOGLE MAP ───────────────────────────────────────── */}
       <section className="bg-card border-t border-white/5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-28">
           <div className="mb-8">
             <p className="inline-flex items-center gap-2 text-gold text-xs font-bold uppercase tracking-[0.35em] mb-3">
               <span className="w-6 h-px bg-gold" />

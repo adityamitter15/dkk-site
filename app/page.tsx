@@ -81,7 +81,7 @@ export default function Home() {
       </StatStrip>
 
       {/* ── YOUR FIRST CLASS - WARM LIGHT SECTION ────────────── */}
-      <section className="py-24 lg:py-32 bg-cream">
+      <section className="py-20 sm:py-24 lg:py-32 bg-cream">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal>
             <div className="text-center mb-16">
@@ -91,7 +91,7 @@ export default function Home() {
                 <span className="w-6 h-px bg-brand" />
               </p>
               <h2 className="font-display text-5xl sm:text-6xl lg:text-7xl text-ink tracking-wide leading-none mb-4">Your First Class</h2>
-              <p className="text-[#4a4a42] text-lg max-w-2xl mx-auto leading-relaxed">
+              <p className="text-ink-soft text-lg max-w-2xl mx-auto leading-relaxed">
                 No uniform needed. Just turn up, or get in touch first if you prefer. Here&apos;s what to expect.
               </p>
             </div>
@@ -103,10 +103,10 @@ export default function Home() {
                 { step: "03", title: "Train", desc: "Pad work, partner drills, kata, grappling. A full session. Beginners are paired with experienced students." },
                 { step: "04", title: "Decide", desc: "No pressure. Come back next session, or take time to think. When you're ready, we'll be here." },
               ].map((item) => (
-                <div key={item.step} className="relative p-7 bg-white border border-[#e8e3d9] rounded-sm group hover:shadow-lg transition-shadow duration-300">
+                <div key={item.step} className="relative p-7 bg-white border border-sand rounded-sm group hover:shadow-lg transition-shadow duration-300">
                   <span className="font-display text-3xl sm:text-5xl text-brand/15 absolute top-4 right-5 leading-none">{item.step}</span>
                   <h3 className="font-display text-2xl text-ink tracking-wide mb-2">{item.title}</h3>
-                  <p className="text-[#5a5a52] text-sm leading-relaxed">{item.desc}</p>
+                  <p className="text-ink-muted text-sm leading-relaxed">{item.desc}</p>
                 </div>
               ))}
             </div>
@@ -121,7 +121,7 @@ export default function Home() {
       </section>
 
       {/* ── ABOUT ────────────────────────────────────────────── */}
-      <section className="py-24 lg:py-32 bg-night">
+      <section className="py-20 sm:py-24 lg:py-32 bg-night">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal>
             <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
@@ -180,7 +180,7 @@ export default function Home() {
 
       {/* ── WHY TRAIN — numbered editorial list beside one strong image ── */}
       <div className="section-divider" />
-      <section className="py-24 lg:py-32 bg-card">
+      <section className="py-20 sm:py-24 lg:py-32 bg-card">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal>
             <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
@@ -203,10 +203,10 @@ export default function Home() {
                 </ol>
               </div>
               <div className="relative rounded-sm overflow-hidden hidden lg:block" style={{ aspectRatio: "4/5" }}>
-                <SafeImage src="/images/Grading/bunkai-demo.JPG" alt="Bunkai demonstration at a DKK grading" fill className="object-cover" />
+                <SafeImage src="/images/Training/class-kata-aerial.JPG" alt="A DKK class drilling pad work in the Regent Street main hall" fill className="object-cover" />
                 <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/80 to-black/0" />
                 <div className="absolute bottom-5 left-5">
-                  <p className="text-white/80 text-[11px] uppercase tracking-[0.25em]">Bunkai · Grading Day</p>
+                  <p className="text-white/80 text-[11px] uppercase tracking-[0.25em]">Pad Work · Regent Street</p>
                 </div>
               </div>
             </div>
@@ -219,7 +219,7 @@ export default function Home() {
 
       {/* ── TRAINING TIMES ───────────────────────────────────── */}
       <div className="section-divider" />
-      <section className="py-24 lg:py-32 bg-night">
+      <section className="py-20 sm:py-24 lg:py-32 bg-night">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal>
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -247,7 +247,7 @@ export default function Home() {
 
             {/* Image instead of plain card for visual variety */}
             <div className="relative rounded-sm overflow-hidden" style={{ aspectRatio: "4/3" }}>
-              <SafeImage src="/images/Club/modern-group-hall.jpg" alt="DKK London class group" fill className="object-cover" />
+              <SafeImage src="/images/Club/university-grading-group-2024.jpg" alt="DKK Karate Club members with their grading certificates at the University of Westminster" fill className="object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-8">
                 <p className="font-display text-3xl text-white tracking-wide mb-2">New Students Welcome</p>

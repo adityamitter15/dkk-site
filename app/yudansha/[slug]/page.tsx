@@ -11,7 +11,7 @@ const gradeDescriptor: Record<string, string> = {
   Godan: "Advanced Teachings",
   Yondan: "Weapons Grade",
   Sandan: "Teaching Grade",
-  Nidan: "30 Man Kumite",
+  Nidan: "Senior Grade",
   Shodan: "Black Belt",
 };
 
@@ -50,7 +50,6 @@ export default async function MemberPage({ params }: { params: Promise<{ slug: s
   const firstMilestone = member.milestones?.find((m) => m.year)?.year;
   const lastMilestone = member.milestones?.[member.milestones.length - 1];
   const yearsTraining = firstMilestone ? new Date().getFullYear() - parseInt(firstMilestone) : null;
-  const completed30Man = member.milestones?.some((m) => m.event.includes("30 Man Kumite"));
 
   return (
     <>
@@ -94,7 +93,7 @@ export default async function MemberPage({ params }: { params: Promise<{ slug: s
       </section>
 
       {/* Profile */}
-      <section className="py-20 lg:py-28 bg-night">
+      <section className="py-16 sm:py-20 lg:py-28 bg-night">
         {/* max-w-7xl shell so content edges align with the hero title above */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
@@ -139,9 +138,6 @@ export default async function MemberPage({ params }: { params: Promise<{ slug: s
               {member.instructor && (
                 <span className="px-2.5 py-1 bg-gold/15 border border-gold/30 text-gold text-[10px] font-bold uppercase tracking-wider rounded-sm">Instructor</span>
               )}
-              {completed30Man && (
-                <span className="px-2.5 py-1 bg-brand/10 border border-brand/30 text-brand text-[10px] font-bold uppercase tracking-wider rounded-sm">30 Man Kumite</span>
-              )}
             </div>
             <h2 className="font-display text-4xl sm:text-5xl text-white tracking-wide leading-none mb-6">{member.name}</h2>
 
@@ -182,7 +178,6 @@ export default async function MemberPage({ params }: { params: Promise<{ slug: s
                 <div className="absolute left-[-0.5px] top-[6px] bottom-[6px] w-[2px] bg-gradient-to-b from-white/90 via-white/35 to-white/0" />
                 {member.milestones.map((m, i) => {
                   const isLast = i === member.milestones!.length - 1;
-                  const is30Man = m.event.includes("30 Man Kumite");
                   return (
                     <div key={i} className="relative flex items-start gap-6 pb-10 last:pb-0">
                       {/* Dot - centred on the line */}
@@ -190,14 +185,10 @@ export default async function MemberPage({ params }: { params: Promise<{ slug: s
                         <span className={`block w-full h-full rounded-full ${
                           isLast
                             ? "bg-brand shadow-[0_0_8px_rgba(168,32,26,0.5)]"
-                            : is30Man
-                              ? "bg-gold shadow-[0_0_8px_rgba(176,141,87,0.4)]"
-                              : "bg-white/20"
+                            : "bg-white/20"
                         }`} />
-                        {(isLast || is30Man) && (
-                          <span className={`absolute inset-[-3px] rounded-full border ${
-                            isLast ? "border-brand/30" : "border-gold/30"
-                          }`} />
+                        {isLast && (
+                          <span className="absolute inset-[-3px] rounded-full border border-brand/30" />
                         )}
                       </div>
                       {/* Content */}
@@ -211,9 +202,6 @@ export default async function MemberPage({ params }: { params: Promise<{ slug: s
                           <p className={`text-sm leading-tight ${isLast ? "text-white font-medium" : "text-gray-400"}`}>
                             {m.event}
                           </p>
-                          {is30Man && (
-                            <p className="text-gold text-[11px] mt-1 italic">30 consecutive fights without rest</p>
-                          )}
                         </div>
                       </div>
                     </div>

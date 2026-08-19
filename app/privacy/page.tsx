@@ -25,7 +25,7 @@ export default function PrivacyPage() {
         <p className="text-gray-400 text-sm mt-4">Last updated · {lastUpdated}</p>
       </PageHero>
 
-      <section className="py-20 lg:py-28 bg-night">
+      <section className="py-16 sm:py-20 lg:py-28 bg-night">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-gray-300 leading-relaxed mb-10">
             This page explains what information we collect from you when you use this website,

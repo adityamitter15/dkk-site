@@ -97,7 +97,7 @@ export default function FightersPage() {
       </StatStrip>
 
       {/* Intro */}
-      <section className="section-reveal py-20 lg:py-28 bg-night">
+      <section className="section-reveal py-16 sm:py-20 lg:py-28 bg-night">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -129,7 +129,7 @@ export default function FightersPage() {
       </section>
 
       {/* Fighter Profiles */}
-      <section className="section-reveal py-20 lg:py-28 bg-card border-t border-white/5">
+      <section className="section-reveal py-16 sm:py-20 lg:py-28 bg-card border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading eyebrow="The Fighters" title="Individual Records" />
           <div className="space-y-6">
@@ -200,7 +200,7 @@ export default function FightersPage() {
       </section>
 
       {/* In the Cage - archive gallery */}
-      <section className="section-reveal py-20 lg:py-28 bg-black border-t border-white/5">
+      <section className="section-reveal py-16 sm:py-20 lg:py-28 bg-black border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
             <SectionHeading eyebrow="From the Archive" title="In the Cage" />

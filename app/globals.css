@@ -11,6 +11,12 @@
   --color-card: #141311;
   --color-cream: #f5f0e8;
   --color-ink: #1a1a18;
+  --color-ink-soft: #4a4a42;
+  --color-ink-muted: #5a5a52;
+  --color-sand: #e8e3d9;
+  --color-pitch: #080808;
+  --color-whatsapp: #25d366;
+  --color-ember: #1a0d0c;      /* red-leaning near-black, the Shodan callout panel */
 
   --font-display: var(--font-bebas), "Bebas Neue", sans-serif;
   --font-sans: var(--font-inter), "Inter", sans-serif;

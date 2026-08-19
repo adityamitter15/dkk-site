@@ -70,7 +70,7 @@ export default function LinksPage() {
         image={{ src: "/images/Club/group-cross-monument.JPG", alt: "DKK group photo at the monument" }}
       />
 
-      <section className="section-reveal py-20 lg:py-28 bg-night">
+      <section className="section-reveal py-16 sm:py-20 lg:py-28 bg-night">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading eyebrow="External Resources" title="Useful Links" />
           <div className="columns-1 lg:columns-2 gap-x-12 max-w-5xl">

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
 import SafeImage from "@/components/SafeImage";
+import ScrollRevealText from "@/components/ui/ScrollRevealText";
 
 export const metadata: Metadata = {
   title: "Goju Ryu",
@@ -27,7 +28,7 @@ export default function GojuRyuPage() {
         image={{ src: "/images/Grading/kata-open-hand.JPG", alt: "Open-hand kata at a DKK grading", position: "center 28%" }}
       />
 
-      <section className="section-reveal py-20 lg:py-28 bg-night">
+      <section className="section-reveal py-16 sm:py-20 lg:py-28 bg-night">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-3 gap-12">
             <div className="lg:col-span-2 space-y-10">
@@ -128,7 +129,7 @@ export default function GojuRyuPage() {
       </section>
 
       {/* Eight Poems of the Fist */}
-      <section className="section-reveal py-20 lg:py-28 bg-night border-t border-white/5">
+      <section className="section-reveal py-16 sm:py-20 lg:py-28 bg-night border-t border-white/5">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <p className="inline-flex items-center gap-2 text-gold text-xs font-bold uppercase tracking-[0.4em] mb-4">
@@ -136,7 +137,10 @@ export default function GojuRyuPage() {
               The Ancient Precepts
               <span className="w-6 h-px bg-gold" />
             </p>
-            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl tracking-wide text-white leading-none mb-4">Eight Poems of the Fist</h2>
+            <ScrollRevealText
+              className="font-display text-4xl sm:text-5xl lg:text-6xl tracking-wide leading-none mb-5 sm:mb-6"
+              text="Eight Poems of the Fist"
+            />
             <p className="text-gray-400 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
               Taken from the ancient <strong className="text-white">Bubishi</strong> text, Chojun Miyagi chose the name <em>Goju-Ryu</em> from the third precept shown below.
             </p>
@@ -172,7 +176,7 @@ export default function GojuRyuPage() {
       </section>
 
       {/* The Badge */}
-      <section className="section-reveal py-20 lg:py-28 bg-card border-t border-white/5">
+      <section className="section-reveal py-16 sm:py-20 lg:py-28 bg-card border-t border-white/5">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <p className="inline-flex items-center gap-2 text-gold text-xs font-bold uppercase tracking-[0.4em] mb-4">
@@ -208,7 +212,7 @@ export default function GojuRyuPage() {
                   <p className="text-gold text-[10px] font-bold uppercase tracking-[0.2em] mb-2">Black &amp; White</p>
                   <p className="text-white text-sm leading-relaxed">Represents <strong>hard / soft</strong>, <strong>yin / yang</strong>, and the dual nature of the martial arts.</p>
                 </div>
-                <div className="p-4 bg-[#1a0d0c] border border-brand/40 rounded-sm">
+                <div className="p-4 bg-ember border border-brand/40 rounded-sm">
                   <p className="text-brand text-[10px] font-bold uppercase tracking-[0.2em] mb-2">At Shodan</p>
                   <p className="text-white text-sm leading-relaxed">Black Belts attain the right to have the badge <strong>tattooed</strong> - permanent recognition of their dedication and inclusion in the brotherhood of DKK.</p>
                 </div>

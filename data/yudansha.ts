@@ -427,11 +427,15 @@ export const grades: GradeTier[] = [
         ],
       },
       {
-        name: "Albert",
-        slug: toSlug("Albert"),
+        name: "Albert Gmaj",
+        slug: toSlug("Albert Gmaj"),
         portrait: "/images/Yudansha/albert_portrait.jpg",
         action: "/images/Yudansha/albert_action.jpg",
+        bio: "Albert began Shotokan at the age of five under Sensei Stephen Cox in West Wiltshire. Moving to London for university he trained briefly with the JKA, then with Sensei Gabriel Van Rel, under whom he still trains and teaches. After a spell with Tokei Kyokushin (IKO1) under Sensei Sithembiso Majozi, he joined DKK in 2022, taking Shodan-Ho in 2024 and full Shodan in 2025 under Shihan Mulholland and Shihan Lewis.",
+        quote: "DKK lives up to its name, you would be hard pressed to find an organisation where the systematic study of karate is as rigorous and consistent, and where the products of training are as true to their guiding intentions. DKK is the hidden gem of British Karate.",
         milestones: [
+          { year: "2022", event: "Joined DKK" },
+          { year: "2024", event: "Shodan-Ho" },
           { year: "2025", event: "Shodan" },
         ],
       },
@@ -458,7 +462,7 @@ export const grades: GradeTier[] = [
       {
         name: "Alex Lowther",
         slug: toSlug("Alex Lowther"),
-        portrait: null,
+        portrait: "/images/Yudansha/alex_lowther.jpg",
         action: null,
         milestones: [
           { year: "", event: "Shodan" },

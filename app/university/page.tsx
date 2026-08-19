@@ -32,7 +32,7 @@ export default function UniversityPage() {
         kanjiTone="gold"
         title="University"
         lead="At Westminster since 1990. Daigaku Karate Kai has trained at the University of Westminster under the same instructor for thirty-six years."
-        image={{ src: "/images/Club/modern-group-hall.jpg", alt: "DKK members in the main hall at Regent Street" }}
+        image={{ src: "/images/Club/university-grading-group-2026.jpg", alt: "DKK Karate Club members with their grading certificates in the Regent Street main hall" }}
       />
 
       {/* Quick stats strip */}
@@ -44,7 +44,7 @@ export default function UniversityPage() {
       </StatStrip>
 
       {/* About the partnership */}
-      <section className="section-reveal py-20 lg:py-28 bg-night">
+      <section className="section-reveal py-16 sm:py-20 lg:py-28 bg-night">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-14 items-stretch">
             <div>
@@ -53,7 +53,7 @@ export default function UniversityPage() {
                 Daigaku Karate Kai was set up at the University of Westminster in 1990 and has been led by the same instructor - <strong className="text-white">Shihan Gavin Mulholland</strong> - from day one. It is the oldest sports club in the university and remains one of the most active.
               </p>
               <p className="text-gray-400 leading-relaxed mb-5">
-                Sessions run twice weekly in the main hall at 309 Regent Street, with members drawn from across the University as well as the wider public. Throughout the year, the club runs <strong className="text-white">Summer Camp</strong> in the woods near Bristol, <strong className="text-white">Winter Camp</strong> in Epping Forest, a kumite &amp; grappling tournament in April, and a kata tournament in November.
+                Sessions run twice weekly in the main hall at 309 Regent Street, with members drawn from across the University as well as the wider public. The club runs a number of events throughout the year including a <strong className="text-white">Summer Camp</strong> in Bristol, a <strong className="text-white">winter camp</strong> in London, as well as tournaments in April and November.
               </p>
               <p className="text-gray-400 leading-relaxed">
                 The teaching is authentic Okinawan Goju-Ryu - a combat-orientated reading focused on close-quarter self-defence, not sport karate.
@@ -73,7 +73,7 @@ export default function UniversityPage() {
       </section>
 
       {/* Club of the Year Award - centerpiece */}
-      <section className="relative py-24 lg:py-32 overflow-hidden bg-gradient-to-b from-black via-[#0a0908] to-night border-t border-gold/15">
+      <section className="relative py-16 sm:py-20 lg:py-28 overflow-hidden bg-gradient-to-b from-black via-coal to-night border-t border-gold/15">
         <div className="absolute inset-0 opacity-[0.08]" style={{ background: "radial-gradient(ellipse at center top, var(--color-gold) 0%, transparent 60%)" }} />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -139,7 +139,7 @@ export default function UniversityPage() {
       </section>
 
       {/* For Westminster Students */}
-      <section className="section-reveal py-20 lg:py-28 bg-night border-t border-white/5">
+      <section className="section-reveal py-16 sm:py-20 lg:py-28 bg-night border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-3 gap-10">
             <div className="lg:col-span-1">

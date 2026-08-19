@@ -28,7 +28,7 @@ export default function ShihanPage() {
         image={{ src: "/images/Shihan/shihan-bo-black.jpg", alt: "Shihan Gavin Mulholland with bo staff", position: "78% 15%" }}
       />
 
-      <section className="section-reveal py-20 lg:py-28 bg-night">
+      <section className="section-reveal py-16 sm:py-20 lg:py-28 bg-night">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
             <div className="lg:sticky lg:top-24 space-y-3">
@@ -116,7 +116,7 @@ export default function ShihanPage() {
       </section>
 
       {/* Fighters record */}
-      <section className="section-reveal py-20 lg:py-28 bg-card border-t border-white/5">
+      <section className="section-reveal py-16 sm:py-20 lg:py-28 bg-card border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-10 items-start">
             <div>
@@ -149,7 +149,7 @@ export default function ShihanPage() {
       </section>
 
       {/* Weapons & Technique - Shades of Black portrait series */}
-      <section className="section-reveal py-20 lg:py-28 bg-black border-t border-white/5">
+      <section className="section-reveal py-16 sm:py-20 lg:py-28 bg-black border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <p className="inline-flex items-center gap-2 text-gold text-xs font-bold uppercase tracking-[0.35em] mb-4">
@@ -158,7 +158,7 @@ export default function ShihanPage() {
               <span className="w-6 h-px bg-gold" />
             </p>
             <h2 className="font-display text-5xl sm:text-6xl text-white tracking-wide leading-none">Weapons &amp; Technique</h2>
-            <p className="text-gray-400 text-sm mt-3 max-w-xl mx-auto">From the professional studio shoot for <em>More Shades of Black</em> - traditional Okinawan weapons photographed in Shihan&apos;s hands.</p>
+            <p className="text-gray-400 text-sm mt-3 max-w-xl mx-auto">Shihan with traditional Okinawan weapons.</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 max-w-5xl mx-auto">
             {[
@@ -198,7 +198,7 @@ export default function ShihanPage() {
       </section>
 
       {/* B&W Photoshoot Video */}
-      <section className="section-reveal py-20 lg:py-28 bg-black border-t border-white/5">
+      <section className="section-reveal py-16 sm:py-20 lg:py-28 bg-black border-t border-white/5">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <p className="inline-flex items-center gap-2 text-gold text-xs font-bold uppercase tracking-[0.35em] mb-4">
@@ -211,7 +211,7 @@ export default function ShihanPage() {
           </div>
           <div className="relative rounded-sm overflow-hidden ring-1 ring-gold/20">
             <video
-              className="w-full aspect-video bg-[#080808]"
+              className="w-full aspect-video bg-pitch"
               src="/videos/dkk_bw_photoshoot.mp4"
               poster="/images/Shihan/shihan-portrait-black.jpg"
               controls
@@ -223,7 +223,7 @@ export default function ShihanPage() {
       </section>
 
       {/* Interviews & Media */}
-      <section className="section-reveal py-20 lg:py-28 bg-night border-t border-white/5">
+      <section className="section-reveal py-16 sm:py-20 lg:py-28 bg-night border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading eyebrow="Interviews" title="Podcasts & Media" />
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl">
@@ -287,7 +287,7 @@ export default function ShihanPage() {
       </section>
 
       {/* Alongside Shihan Dan Lewis */}
-      <section className="section-reveal py-20 lg:py-28 bg-night border-t border-white/5">
+      <section className="section-reveal py-16 sm:py-20 lg:py-28 bg-night border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-start">
             <div className="flex justify-center lg:justify-end">

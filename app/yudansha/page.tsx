@@ -19,7 +19,7 @@ const gradeDescriptor: Record<string, string> = {
   Godan: "Advanced Teachings",
   Yondan: "Weapons Grade",
   Sandan: "Teaching Grade",
-  Nidan: "30 Man Kumite",
+  Nidan: "Senior Grade",
   Shodan: "Black Belt",
 };
 
@@ -34,8 +34,11 @@ const gradeKanji: Record<string, string> = {
 
 /** One line of the register: year · name · marks. The portrait surfaces on hover. */
 function RegisterRow({ member, tier }: { member: Member; tier: { grade: string; dan: string } }) {
-  const gradeYear = member.milestones?.find((m) => m.event.includes(tier.grade))?.year || "";
-  const thirtyMan = member.milestones?.some((m) => /30 man/i.test(m.event)) ?? false;
+  const gradeYear =
+    member.milestones?.find((m) => m.event === tier.grade)?.year ||
+    member.milestones?.find((m) => m.event.includes(tier.grade) && !m.event.includes("-Ho"))?.year ||
+    member.milestones?.find((m) => m.event.includes(tier.grade))?.year ||
+    "";
   const img = member.portrait || member.action;
 
   return (
@@ -53,9 +56,6 @@ function RegisterRow({ member, tier }: { member: Member; tier: { grade: string; 
         <span className="hidden sm:flex items-center gap-2 ml-1">
           {member.instructor && (
             <span className="px-2 py-0.5 border border-gold/40 text-gold rounded-sm text-[9px] font-bold uppercase tracking-[0.15em]">Instructor</span>
-          )}
-          {thirtyMan && (
-            <span className="px-2 py-0.5 border border-brand/40 text-brand/90 rounded-sm text-[9px] font-bold uppercase tracking-[0.15em]">30 Man Kumite</span>
           )}
         </span>
         <span className="flex-1 border-b border-dotted border-white/10 group-hover:border-brand/20 transition-colors self-center mt-1" aria-hidden="true" />
@@ -89,7 +89,7 @@ export default function YudanshaPage() {
         image={{ src: "/images/Club/grading-group-red.JPG" }}
       />
 
-      <section className="section-reveal py-20 lg:py-28 bg-night print-ink print:py-4">
+      <section className="section-reveal py-16 sm:py-20 lg:py-28 bg-night print-ink print:py-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-16">
             <SectionHeading eyebrow="Dan Grades" title="The Black Belts of DKK London" />
@@ -135,7 +135,7 @@ export default function YudanshaPage() {
       </section>
 
       {/* The DKK Bell - rung by Dan grades at every Black Belt grading */}
-      <section className="section-reveal py-24 lg:py-32 bg-black border-t border-white/5 relative overflow-hidden print:hidden">
+      <section className="section-reveal py-16 sm:py-20 lg:py-28 bg-black border-t border-white/5 relative overflow-hidden print:hidden">
         <div className="absolute inset-0 opacity-[0.06]" style={{ background: "radial-gradient(ellipse at center top, var(--color-gold) 0%, transparent 70%)" }} />
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="inline-flex items-center gap-2 text-gold text-xs font-bold uppercase tracking-[0.4em] mb-4">

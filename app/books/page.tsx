@@ -115,7 +115,7 @@ export default function BooksPage() {
         image={{ src: "/images/Shihan/shihan-tanto-black.jpg", alt: "Shihan Mulholland - studio portrait with tanto", position: "top" }}
       />
 
-      <section className="section-reveal py-20 lg:py-28 bg-night">
+      <section className="section-reveal py-16 sm:py-20 lg:py-28 bg-night">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             eyebrow="Written by Shihan Mulholland"

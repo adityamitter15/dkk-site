@@ -1,5 +1,5 @@
 "use client";
-import { useRef, useState, useCallback } from "react";
+import { useRef, useState, useCallback, useEffect } from "react";
 import { Play } from "lucide-react";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
@@ -8,13 +8,52 @@ export default function VideoShowcase() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [started, setStarted] = useState(false);
 
+  /** Click promotes the silent preview into a real player: sound on, loop off,
+   *  restart from the top, native controls. */
   const handlePlay = useCallback(() => {
     const v = videoRef.current;
     if (!v) return;
+    v.muted = false;
+    v.loop = false;
+    v.currentTime = 0;
     v.play()
       .then(() => setStarted(true))
       .catch(() => {});
   }, []);
+
+  /* Ambient preview: once the section is halfway into view the clip loops
+   * silently, so the band is alive rather than a still with a play button.
+   *
+   * Deliberately scoped. Muted is non-negotiable — browsers block autoplay with
+   * sound and a surprise soundtrack is hostile anyway. Phones are excluded
+   * because this file is a 720p source and nobody asked to spend their data on
+   * a decoration. Reduced-motion sits it out entirely, and it pauses the moment
+   * it leaves the viewport rather than decoding off-screen.
+   *
+   * Once the visitor clicks play we stop managing playback — `started` guards
+   * every branch, so the observer never pauses or restarts a clip they chose
+   * to watch. */
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!v || started) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (!window.matchMedia("(min-width: 768px)").matches) return;
+
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          v.muted = true;
+          v.loop = true;
+          v.play().catch(() => {});
+        } else {
+          v.pause();
+        }
+      },
+      { threshold: 0.5 },
+    );
+    io.observe(v);
+    return () => io.disconnect();
+  }, [started]);
 
   return (
     <section className="relative py-28 bg-black overflow-hidden">
@@ -45,7 +84,7 @@ export default function VideoShowcase() {
               : "ring-1 ring-brand/20 shadow-[0_0_40px_rgba(168,32,26,0.08)] hover:ring-brand/50 hover:shadow-[0_0_80px_rgba(168,32,26,0.3)]"
           }`}
         >
-          <div className="aspect-video bg-[#080808]">
+          <div className="aspect-video bg-pitch">
             <video
               ref={videoRef}
               className="w-full h-full object-cover"
@@ -63,7 +102,7 @@ export default function VideoShowcase() {
               <button
                 onClick={handlePlay}
                 className="absolute inset-0 flex items-center justify-center w-full h-full cursor-pointer group/play"
-                aria-label="Play DKK London training video"
+                aria-label="Play the DKK London training video with sound"
               >
                 {/* Scrim */}
                 <div className="absolute inset-0 bg-black/45 group-hover/play:bg-black/25 transition-colors duration-300" />

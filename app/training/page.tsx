@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ChevronRight, Clock, MapPin, Users, BookOpen, Award, HelpCircle, TreePine, Video, ExternalLink } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
+import ScrollRevealText from "@/components/ui/ScrollRevealText";
 import SafeImage from "@/components/SafeImage";
 import DanGrade from "@/components/DanGrade";
 
@@ -29,7 +30,7 @@ export default function TrainingPage() {
       />
 
       {/* Main Dojo - Westminster */}
-      <section className="section-reveal py-20 lg:py-28 bg-night">
+      <section className="section-reveal py-16 sm:py-20 lg:py-28 bg-night">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-stretch">
             <div>
@@ -74,7 +75,7 @@ export default function TrainingPage() {
       </section>
 
       {/* Affiliated DKK Classes */}
-      <section className="section-reveal py-20 lg:py-28 bg-black border-t border-white/5">
+      <section className="section-reveal py-16 sm:py-20 lg:py-28 bg-black border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <p className="inline-flex items-center gap-2 text-gold text-xs font-bold uppercase tracking-[0.35em] mb-4">
@@ -181,7 +182,7 @@ export default function TrainingPage() {
             {/* Simon Kluth - Friday Zoom */}
             <div className="bg-card border border-white/10 rounded-sm overflow-hidden flex flex-col">
               <div className="p-6 border-b border-white/10 flex items-center gap-4">
-                <div className="w-14 h-14 rounded-sm overflow-hidden bg-gradient-to-br from-[#1a1a1a] to-night flex items-center justify-center flex-shrink-0">
+                <div className="w-14 h-14 rounded-sm overflow-hidden bg-gradient-to-br from-card to-night flex items-center justify-center flex-shrink-0">
                   <span className="font-display text-2xl text-gold/60 tracking-widest">SK</span>
                 </div>
                 <div>
@@ -211,7 +212,7 @@ export default function TrainingPage() {
       </section>
 
       {/* Syllabus - with chishi image */}
-      <section className="section-reveal py-20 lg:py-28 bg-card">
+      <section className="section-reveal py-16 sm:py-20 lg:py-28 bg-card">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-start">
             <div>
@@ -252,7 +253,7 @@ export default function TrainingPage() {
       </section>
 
       {/* Also available - with Shihan image */}
-      <section className="section-reveal py-20 lg:py-28 bg-night">
+      <section className="section-reveal py-16 sm:py-20 lg:py-28 bg-night">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-5 gap-14 items-start">
             <div className="lg:col-span-3">
@@ -292,7 +293,7 @@ export default function TrainingPage() {
       </section>
 
       {/* ── SUMMER CAMP ──────────────────────────────────────── */}
-      <section className="section-reveal py-20 lg:py-28 bg-card border-t border-white/5">
+      <section className="section-reveal py-16 sm:py-20 lg:py-28 bg-card border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-stretch">
             <div>
@@ -301,13 +302,13 @@ export default function TrainingPage() {
                 The cornerstone of the DKK calendar. Every June, members gather at Glenny Wood, a 23-acre woodland campsite in Portishead, for four days of intensive training, gradings and socialising.
               </p>
               <p className="text-gray-400 leading-relaxed mb-5">
-                Practitioners from London, Portishead, as well as our satellite clubs and the national and international DKK diaspora train together outdoors. All Black Belt gradings are held at Summer Camp - <strong className="text-white">Shodan</strong>, the legendary <strong className="text-white">30 Man Kumite</strong> for Nidan, and every grade beyond.
+                Practitioners from London, Portishead, as well as our satellite clubs and the national and international DKK diaspora train together outdoors. Black belt gradings for <strong className="text-white">Shodan</strong> and <strong className="text-white">Nidan</strong> are held here, including the <strong className="text-white">30 Man Kumite</strong>.
               </p>
               <div className="space-y-3 mb-8">
                 {[
                   { icon: TreePine, title: "Glenny Wood", body: "23-acre woodland campsite in Portishead, North Somerset. Four days of camping, training and community." },
                   { icon: Users, title: "The DKK Diaspora", body: "Practitioners travel in from across the UK and internationally to train together as one." },
-                  { icon: Award, title: "Black Belt Gradings", body: "All Black Belt gradings are held here - Shodan, the legendary 30 Man Kumite for Nidan, and every grade beyond." },
+                  { icon: Award, title: "Black Belt Gradings", body: "Black belt gradings for Shodan and Nidan are held here, including the 30 Man Kumite." },
                 ].map((item) => (
                   <div key={item.title} className="flex gap-4 items-start p-4 bg-card border border-white/5 rounded-sm">
                     <div className="w-9 h-9 rounded-sm bg-brand/10 border border-brand/20 flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -354,7 +355,7 @@ export default function TrainingPage() {
       </section>
 
       {/* ── 30 MAN KUMITE — coal band with the number itself as the monument ── */}
-      <section className="relative py-24 lg:py-36 bg-coal border-t border-white/5 overflow-hidden atmosphere-brand">
+      <section className="relative py-20 sm:py-24 lg:py-36 bg-coal border-t border-white/5 overflow-hidden atmosphere-brand">
         <span
           aria-hidden="true"
           className="absolute -right-6 sm:right-4 top-1/2 -translate-y-1/2 font-display leading-none text-transparent select-none pointer-events-none text-[clamp(14rem,42vh,26rem)]"
@@ -368,10 +369,13 @@ export default function TrainingPage() {
               <span className="w-6 h-px bg-brand" />
               The Ultimate Test
             </p>
-            <h2 className="font-display text-5xl sm:text-6xl lg:text-7xl text-white tracking-wide leading-none mb-6">The 30 Man Kumite</h2>
+            <ScrollRevealText
+              className="font-display text-5xl sm:text-6xl lg:text-7xl tracking-wide leading-none mb-6"
+              text="The 30 Man Kumite"
+            />
             <div className="h-px w-24 bg-brand/70 mb-6" aria-hidden="true" />
             <p className="text-gray-400 leading-relaxed">
-              DKK's legendary grading test for Nidan (<DanGrade text="2nd Dan" />). A rite of passage held at Summer Camp.
+              One of the routes to Nidan (<DanGrade text="2nd Dan" />), taken at Summer Camp.
             </p>
           </div>
         </div>
@@ -382,8 +386,8 @@ export default function TrainingPage() {
         <div className="grid grid-cols-2 sm:grid-cols-4 h-full">
           {[
             { src: "/images/Camp/camp-lineup-trees.jpg", alt: "Summer camp lineup" },
-            { src: "/images/Camp/pushups-outdoors.JPG", alt: "Outdoor conditioning" },
-            { src: "/images/Camp/grading-certificates.JPG", alt: "Summer camp grading" },
+            { src: "/images/Camp/nidan-lineup-woods.jpg", alt: "Grading line-up in the woods at Summer Camp" },
+            { src: "/images/Camp/camp-certificate-black-gi.jpg", alt: "Grading certificate presented at Summer Camp" },
             { src: "/images/Camp/black-belts-fists.JPG", alt: "Black belts at camp" },
           ].map((img) => (
             <div key={img.src} className="relative overflow-hidden">
@@ -395,7 +399,7 @@ export default function TrainingPage() {
       </section>
 
       {/* Winter Camp */}
-      <section className="section-reveal py-20 lg:py-28 bg-card border-t border-white/5">
+      <section className="section-reveal py-16 sm:py-20 lg:py-28 bg-card border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl">
             <SectionHeading eyebrow="October" title="Winter Camp" />
@@ -407,7 +411,7 @@ export default function TrainingPage() {
       </section>
 
       {/* Club Tournaments */}
-      <section className="section-reveal py-20 lg:py-28 bg-night border-t border-white/5">
+      <section className="section-reveal py-16 sm:py-20 lg:py-28 bg-night border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading eyebrow="Twice a Year" title="Club Tournaments" />
           <div className="grid sm:grid-cols-2 gap-5 max-w-3xl">

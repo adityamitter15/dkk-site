@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
 import SafeImage from "@/components/SafeImage";
+import ScrollRevealText from "@/components/ui/ScrollRevealText";
 
 export const metadata: Metadata = {
   title: "Goju Ryu History",
@@ -81,23 +82,24 @@ export default function HistoryPage() {
         kanjiTone="gold"
         title="Goju Ryu History"
         lead="From the dojos of Okinawa to 309 Regent Street - the Goju Ryu tradition lives on."
-        caption="Archive photograph · 1982"
-        image={{ src: "/images/Site/archive-1982-group-rising-sun.jpg" }}
+        caption="Archive photograph · P.C.L. Karate Club"
+        image={{ src: "/images/Site/archive-pcl-karate-club.jpg" }}
       />
 
       {/* Intro statement - centered, impactful */}
-      <section className="section-reveal py-20 lg:py-28 bg-night border-b border-white/5">
+      <section className="section-reveal py-16 sm:py-20 lg:py-28 bg-night border-b border-white/5">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="inline-flex items-center gap-2 text-gold text-xs font-bold uppercase tracking-[0.35em] mb-5">
             <span className="w-6 h-px bg-gold" />
             A Living Tradition
             <span className="w-6 h-px bg-gold" />
           </p>
-          <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl text-white tracking-wide leading-[1.05] mb-6">
-            Hard and soft. Forged in Okinawa.
-          </h2>
+          <ScrollRevealText
+            className="font-display text-4xl sm:text-5xl lg:text-6xl tracking-wide leading-[1.05] mb-6 sm:mb-8"
+            text="Hard and soft. Forged in Okinawa."
+          />
           <p className="text-gray-400 text-lg leading-relaxed max-w-2xl mx-auto">
-            The style we practise was hand-built by Chojun Miyagi on Okinawa in the early 20th century - a fusion of Chinese systems and the island's own fighting arts. Today the same Goju Ryu lives on at 309 Regent Street, every Monday and Wednesday.
+            The style we practise was hand-built by Chojun Miyagi on Okinawa in the early 20th century - a fusion of Chinese systems and the island&apos;s own fighting arts. Today the same Goju Ryu lives on at 309 Regent Street, every Monday and Wednesday.
           </p>
           <div className="grid grid-cols-3 gap-3 sm:gap-6 mt-12 max-w-2xl mx-auto">
             {[
@@ -115,7 +117,7 @@ export default function HistoryPage() {
       </section>
 
       {/* Timeline - chaptered */}
-      <section className="section-reveal py-20 lg:py-28 bg-night">
+      <section className="section-reveal py-16 sm:py-20 lg:py-28 bg-night">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <p className="text-brand text-xs font-bold uppercase tracking-[0.35em] mb-3">The Journey</p>
@@ -193,7 +195,7 @@ export default function HistoryPage() {
       <div className="section-divider-gold" />
 
       {/* From the Archive - vintage DKK photos */}
-      <section className="section-reveal py-20 lg:py-28 bg-black">
+      <section className="section-reveal py-16 sm:py-20 lg:py-28 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <p className="inline-flex items-center gap-2 text-gold text-xs font-bold uppercase tracking-[0.35em] mb-4">
@@ -206,19 +208,19 @@ export default function HistoryPage() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
             <div className="relative aspect-[4/3] rounded-sm overflow-hidden bg-card group lg:col-span-2 lg:row-span-2 lg:aspect-auto">
-              <SafeImage src="/images/Site/archive-1982-group-rising-sun.jpg" alt="1982 DKK group photo with Rising Sun flag" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+              <SafeImage src="/images/Site/archive-pcl-karate-club.jpg" alt="P.C.L. Karate Club group photograph from the club&apos;s earliest days" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent" />
               <div className="absolute bottom-4 left-4">
-                <p className="text-gold text-[10px] uppercase tracking-[0.2em]">1982</p>
-                <p className="text-white font-display text-2xl tracking-widest">Earliest Days</p>
-                <p className="text-gray-400 text-xs mt-1">Certificates under the Rising Sun</p>
+                <p className="text-gold text-[10px] uppercase tracking-[0.2em]">Earliest Days</p>
+                <p className="text-white font-display text-2xl tracking-widest">P.C.L. Karate Club</p>
+                <p className="text-gray-400 text-xs mt-1">Where it started, at the Polytechnic of Central London</p>
               </div>
             </div>
             {[
               { src: "/images/Site/archive-group-exit-sign.jpg",       label: "Old Hall",     sub: "Training days past" },
               { src: "/images/Site/archive-group-sepia.jpg",            label: "Club Photo",   sub: "The early members" },
               { src: "/images/Site/archive-shihan-neil-grading.jpg",    label: "Title Belts",  sub: "Neil Grove with Shihan & Dan Lewis" },
-              { src: "/images/Shihan/Archive/shihan-young-flying-kick.jpg", label: "Flying Kick",   sub: "A young Shihan" },
+              { src: "/images/Shihan/Archive/shihan-flying-kick-90s.jpg", label: "Flying Kick",   sub: "A young Shihan" },
               { src: "/images/Shihan/Archive/shihan-young-headlock.jpg",    label: "Control",       sub: "From the early archive" },
               { src: "/images/Shihan/Archive/shihan-young-technique.jpg",   label: "Technique",     sub: "Early DKK" },
             ].map((img) => (
