@@ -17,6 +17,20 @@
   --color-pitch: #080808;
   --color-whatsapp: #25d366;
   --color-ember: #1a0d0c;      /* red-leaning near-black, the Shodan callout panel */
+  --color-glow-core: #1a0000;   /* deep red core of the video-band radial glow */
+
+  /* Glows and lifts — the brand red and gold at various strengths */
+  --shadow-ember-sm: 0 0 8px rgba(168, 32, 26, 0.5);
+  --shadow-ember-card: 0 4px 24px -4px rgba(168, 32, 26, 0.12);
+  --shadow-ember-idle: 0 0 40px rgba(168, 32, 26, 0.08);
+  --shadow-ember: 0 0 60px rgba(168, 32, 26, 0.2);
+  --shadow-ember-lg: 0 0 80px rgba(168, 32, 26, 0.3);
+  --shadow-ember-pulse: 0 0 50px rgba(168, 32, 26, 0.55);
+  --shadow-ember-pulse-lg: 0 0 90px rgba(168, 32, 26, 0.9);
+  --shadow-glow-gold: 0 0 60px -10px rgba(201, 169, 110, 0.4);
+  --shadow-lift: 0 8px 24px -8px rgba(0, 0, 0, 0.5);
+  --shadow-plate: 0 12px 40px -12px rgba(0, 0, 0, 0.8);
+  --shadow-dock: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 30px -8px rgba(168, 32, 26, 0.5);
 
   --font-display: var(--font-bebas), "Bebas Neue", sans-serif;
   --font-sans: var(--font-inter), "Inter", sans-serif;
@@ -271,6 +285,16 @@ body::after {
   .section-reveal {
     animation: none !important;
     opacity: 1 !important;
+  }
+  /* Motion writes opacity/transform/colour inline, so print has to shout.
+     Without this the dan register prints blank if the reader never scrolled
+     it into view, and revealed headlines print in ember on white. */
+  [data-stagger-item] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  [data-reveal-word] {
+    color: #111 !important;
   }
   .print-ink,
   .print-ink * {

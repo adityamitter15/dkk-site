@@ -99,7 +99,7 @@ function Word({
 }) {
   const color = useTransform(progress, range, [EMBER, GOLD]);
   return (
-    <motion.span style={{ color }} className="inline-block mr-[0.25em]">
+    <motion.span data-reveal-word style={{ color }} className="inline-block mr-[0.25em]">
       {children}
     </motion.span>
   );

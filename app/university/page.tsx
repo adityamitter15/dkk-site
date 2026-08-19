@@ -6,6 +6,7 @@ import Link from "next/link";
 import { ChevronRight, Trophy, Award, MapPin, Calendar, Instagram } from "lucide-react";
 import SafeImage from "@/components/SafeImage";
 import SectionHeading from "@/components/SectionHeading";
+import ScrollRevealText from "@/components/ui/ScrollRevealText";
 
 export const metadata: Metadata = {
   title: "University of Westminster",
@@ -82,7 +83,10 @@ export default function UniversityPage() {
               UWSU Awards 25 / 26
               <span className="w-6 h-px bg-gold" />
             </p>
-            <h2 className="font-display text-5xl sm:text-6xl lg:text-7xl text-white tracking-wide leading-none mb-3">Club of the Year</h2>
+            <ScrollRevealText
+              className="font-display text-5xl sm:text-6xl lg:text-7xl tracking-wide leading-none mb-3"
+              text="Club of the Year"
+            />
             <p className="text-gold text-sm uppercase tracking-[0.3em]">University of Westminster Students&apos; Union</p>
           </div>
 
@@ -97,7 +101,7 @@ export default function UniversityPage() {
             </div>
 
             <div className="flex justify-center">
-              <div className="relative w-[220px] sm:w-[260px] aspect-[3/4] rounded-sm overflow-hidden ring-1 ring-gold/40 shadow-[0_0_60px_-10px_rgba(201,169,110,0.45)]">
+              <div className="relative w-[220px] sm:w-[260px] aspect-[3/4] rounded-sm overflow-hidden ring-1 ring-gold/40 shadow-glow-gold">
                 <SafeImage src="/images/Awards/uwsu-trophy-2526.jpg" alt="UWSU Club of the Year 25/26 trophy" fill className="object-cover" style={{ objectPosition: "center 25%" }} />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                 <div className="absolute bottom-3 left-3">

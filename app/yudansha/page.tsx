@@ -1,5 +1,8 @@
 import PageHero from "@/components/ui/PageHero";
 import CTABand from "@/components/ui/CTABand";
+import EngravedPoem from "@/components/ui/EngravedPoem";
+import { StaggerList, StaggerItem } from "@/components/ui/StaggerList";
+import ScrollRevealText from "@/components/ui/ScrollRevealText";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
@@ -42,7 +45,7 @@ function RegisterRow({ member, tier }: { member: Member; tier: { grade: string; 
   const img = member.portrait || member.action;
 
   return (
-    <li className="relative">
+    <StaggerItem className="relative">
       <Link
         href={`/yudansha/${member.slug}`}
         className="group flex items-center gap-4 sm:gap-6 py-4 px-3 sm:px-4 -mx-3 sm:-mx-4 border-b border-white/5 hover:bg-card hover:border-brand/20 transition-colors rounded-sm"
@@ -71,7 +74,7 @@ function RegisterRow({ member, tier }: { member: Member; tier: { grade: string; 
           </span>
         )}
       </Link>
-    </li>
+    </StaggerItem>
   );
 }
 
@@ -123,11 +126,11 @@ export default function YudanshaPage() {
                     {tier.members.length}
                   </span>
                 </div>
-                <ul>
+                <StaggerList>
                   {tier.members.map((member) => (
                     <RegisterRow key={member.slug} member={member} tier={tier} />
                   ))}
-                </ul>
+                </StaggerList>
               </div>
             ))}
           </div>
@@ -143,12 +146,15 @@ export default function YudanshaPage() {
             From the Student Handbook
             <span className="w-6 h-px bg-gold" />
           </p>
-          <h2 className="font-display text-5xl sm:text-6xl lg:text-7xl text-white tracking-wide leading-none mb-3">The DKK Bell</h2>
+          <ScrollRevealText
+            className="font-display text-5xl sm:text-6xl lg:text-7xl tracking-wide leading-none mb-3"
+            text="The DKK Bell"
+          />
           <p className="text-gold/60 text-xs uppercase tracking-[0.3em] mb-12">Rung by Dan Grades on Every Black Belt Grading</p>
 
           <div className="grid lg:grid-cols-[280px_1fr] gap-10 lg:gap-14 items-center text-left">
             <div className="flex justify-center">
-              <div className="relative w-[200px] sm:w-[260px] aspect-[5/8] bg-black rounded-sm overflow-hidden ring-1 ring-gold/20 shadow-[0_0_60px_-10px_rgba(201,169,110,0.4)]">
+              <div className="relative w-[200px] sm:w-[260px] aspect-[5/8] bg-black rounded-sm overflow-hidden ring-1 ring-gold/20 shadow-glow-gold">
                 <SafeImage src="/images/dkk-bell.jpg" alt="The DKK Bell - hand-made from a spent artillery shell" fill className="object-cover object-center" />
               </div>
             </div>
@@ -166,21 +172,17 @@ export default function YudanshaPage() {
           {/* The Flecker poem */}
           <div className="mt-16 pt-12 border-t border-gold/15">
             <p className="text-gold text-[10px] font-bold uppercase tracking-[0.4em] mb-7">Engraved on the Bell</p>
-            <blockquote className="space-y-3 max-w-2xl mx-auto">
-              {[
+            <EngravedPoem
+              lines={[
                 "We are the Pilgrims, master; we shall go,",
                 "Always a little further; it may be,",
                 "Beyond that last blue mountain barred with snow,",
                 "Across that angry or that glimmering sea.",
-              ].map((line) => (
-                <p key={line} className="font-display text-xl sm:text-2xl text-white/90 tracking-[0.08em] italic leading-snug">
-                  {line}
-                </p>
-              ))}
-            </blockquote>
-            <p className="mt-10 font-display text-3xl sm:text-4xl text-gold tracking-[0.25em] uppercase">
-              Always A Little Further
-            </p>
+              ]}
+              lineClassName="font-display text-xl sm:text-2xl tracking-[0.08em] italic leading-snug"
+              coda="Always A Little Further"
+              codaClassName="mt-10 font-display text-3xl sm:text-4xl text-gold uppercase"
+            />
           </div>
         </div>
       </section>

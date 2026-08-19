@@ -41,7 +41,7 @@ export default function StickyMobileCTA() {
     >
       <Link
         href="/contact"
-        className="inline-flex items-center gap-2 px-5 py-3 bg-brand text-white font-bold uppercase tracking-widest text-[13px] rounded-full shadow-[0_8px_24px_rgba(0,0,0,0.5),0_0_30px_-8px_rgba(168,32,26,0.5)] active:scale-[0.97] transition-transform"
+        className="inline-flex items-center gap-2 px-5 py-3 bg-brand text-white font-bold uppercase tracking-widest text-[13px] rounded-full shadow-dock active:scale-[0.97] transition-transform"
       >
         Come and Train
         <ChevronRight size={16} />

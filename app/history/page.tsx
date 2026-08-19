@@ -121,7 +121,10 @@ export default function HistoryPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <p className="text-brand text-xs font-bold uppercase tracking-[0.35em] mb-3">The Journey</p>
-            <h2 className="font-display text-5xl sm:text-6xl lg:text-7xl text-white tracking-wide leading-none">From Okinawa to London</h2>
+            <ScrollRevealText
+              className="font-display text-5xl sm:text-6xl lg:text-7xl tracking-wide leading-none"
+              text="From Okinawa to London"
+            />
           </div>
 
           <div className="max-w-3xl mx-auto space-y-20">
@@ -156,7 +159,7 @@ export default function HistoryPage() {
                             <div className="w-[15px] flex-shrink-0 relative">
                               <div className={`absolute left-0 top-5 w-3.5 h-3.5 rounded-full ring-4 ring-night z-10 transition-all duration-300 ${isFinal ? "bg-brand group-hover:ring-brand/20" : "bg-gold group-hover:ring-gold/20"}`} />
                             </div>
-                            <div className="relative overflow-hidden flex-1 p-5 bg-card border border-white/5 rounded-sm hover:border-brand/25 hover:-translate-y-0.5 hover:shadow-[0_4px_24px_-4px_rgba(168,32,26,0.12)] transition-all duration-300">
+                            <div className="relative overflow-hidden flex-1 p-5 bg-card border border-white/5 rounded-sm hover:border-brand/25 hover:-translate-y-0.5 hover:shadow-ember-card transition-all duration-300">
                               {/\d{4}/.test(item.period) && (
                                 <span aria-hidden="true" className="absolute top-3 right-3 font-display text-6xl sm:text-7xl leading-none text-white/[0.05] select-none pointer-events-none">
                                   {item.period.match(/\d{4}/)?.[0]}
@@ -203,7 +206,10 @@ export default function HistoryPage() {
               From the Archive
               <span className="w-6 h-px bg-gold" />
             </p>
-            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl text-white tracking-wide leading-none">Four Decades of DKK</h2>
+            <ScrollRevealText
+              className="font-display text-4xl sm:text-5xl lg:text-6xl tracking-wide leading-none"
+              text="Four Decades of DKK"
+            />
             <p className="text-gray-400 text-sm mt-3 max-w-xl mx-auto">Photographs from the club&apos;s earliest days - training halls, grading lines, and a young Shihan making his name on the mats.</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">

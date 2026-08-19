@@ -184,7 +184,7 @@ export default async function MemberPage({ params }: { params: Promise<{ slug: s
                       <div className="relative flex-shrink-0 w-[11px] h-[11px] -ml-[5px] mt-[3px]">
                         <span className={`block w-full h-full rounded-full ${
                           isLast
-                            ? "bg-brand shadow-[0_0_8px_rgba(168,32,26,0.5)]"
+                            ? "bg-brand shadow-ember-sm"
                             : "bg-white/20"
                         }`} />
                         {isLast && (

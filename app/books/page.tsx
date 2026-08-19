@@ -57,7 +57,7 @@ function BookCard({ book }: { book: Book }) {
             Latest
           </div>
         )}
-        <div className="relative bg-night rounded-sm overflow-hidden ring-1 ring-white/10 shadow-[0_12px_40px_-12px_rgba(0,0,0,0.8)]" style={{ aspectRatio: "3/4" }}>
+        <div className="relative bg-night rounded-sm overflow-hidden ring-1 ring-white/10 shadow-plate" style={{ aspectRatio: "3/4" }}>
           <SafeImage
             src={book.cover}
             alt={book.title}

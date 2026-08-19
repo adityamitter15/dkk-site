@@ -24,7 +24,7 @@ export default function CTABand({
         </div>
         <Link
           href={href}
-          className="px-8 py-4 bg-white text-brand font-bold uppercase tracking-wider text-sm hover:bg-gray-100 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_-8px_rgba(0,0,0,0.5)] transition-all duration-300 rounded-sm flex-shrink-0 inline-flex items-center gap-2"
+          className="px-8 py-4 bg-white text-brand font-bold uppercase tracking-wider text-sm hover:bg-gray-100 hover:-translate-y-0.5 hover:shadow-lift transition-all duration-300 rounded-sm flex-shrink-0 inline-flex items-center gap-2"
         >
           {buttonLabel} <ChevronRight size={16} />
         </Link>

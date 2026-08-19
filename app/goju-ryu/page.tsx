@@ -184,12 +184,15 @@ export default function GojuRyuPage() {
               Symbol of Daigaku Karate Kai
               <span className="w-6 h-px bg-gold" />
             </p>
-            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl tracking-wide text-white leading-none">The Badge</h2>
+            <ScrollRevealText
+              className="font-display text-4xl sm:text-5xl lg:text-6xl tracking-wide leading-none"
+              text="The Badge"
+            />
           </div>
 
           <div className="grid lg:grid-cols-[320px_1fr] gap-10 lg:gap-16 items-center">
             <div className="flex justify-center">
-              <div className="relative w-[240px] sm:w-[280px] aspect-square bg-night rounded-full ring-1 ring-gold/20 shadow-[0_0_60px_-10px_rgba(201,169,110,0.3)] overflow-hidden">
+              <div className="relative w-[240px] sm:w-[280px] aspect-square bg-night rounded-full ring-1 ring-gold/20 shadow-glow-gold overflow-hidden">
                 <SafeImage src="/images/DKKCircularLogo.jpg" alt="The DKK Badge" fill className="object-cover" />
               </div>
             </div>

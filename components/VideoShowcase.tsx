@@ -58,7 +58,7 @@ export default function VideoShowcase() {
   return (
     <section className="relative py-28 bg-black overflow-hidden">
       {/* Subtle radial glow behind video */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_60%,_#1a0000_0%,_transparent_70%)] opacity-70 pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_60%,_var(--color-glow-core)_0%,_transparent_70%)] opacity-70 pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header — sits on the site-wide gutter so edges line up section to section */}
@@ -80,8 +80,8 @@ export default function VideoShowcase() {
         <div
           className={`relative rounded-sm overflow-hidden transition-shadow duration-500 ${
             started
-              ? "ring-1 ring-brand/40 shadow-[0_0_60px_rgba(168,32,26,0.2)]"
-              : "ring-1 ring-brand/20 shadow-[0_0_40px_rgba(168,32,26,0.08)] hover:ring-brand/50 hover:shadow-[0_0_80px_rgba(168,32,26,0.3)]"
+              ? "ring-1 ring-brand/40 shadow-ember"
+              : "ring-1 ring-brand/20 shadow-ember-idle hover:ring-brand/50 hover:shadow-ember-lg"
           }`}
         >
           <div className="aspect-video bg-pitch">
@@ -109,7 +109,7 @@ export default function VideoShowcase() {
 
                 {/* Play button + label */}
                 <div className="relative flex flex-col items-center gap-5">
-                  <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-brand flex items-center justify-center shadow-[0_0_50px_rgba(168,32,26,0.55)] group-hover/play:scale-110 group-hover/play:shadow-[0_0_90px_rgba(168,32,26,0.9)] transition-all duration-300">
+                  <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-brand flex items-center justify-center shadow-ember-pulse group-hover/play:scale-110 group-hover/play:shadow-ember-pulse-lg transition-all duration-300">
                     <Play fill="white" className="text-white ml-1.5" size={36} />
                   </div>
                   <span className="text-white/75 text-[10px] sm:text-xs uppercase tracking-[0.35em] font-semibold">
