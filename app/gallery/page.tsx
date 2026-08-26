@@ -33,6 +33,8 @@ const images: GalleryImage[] = [
   // ── Training ─────────────────────────────────────────────
   { src: "/images/Training/padwork-overhead.jpg",   alt: "Mass drill class in session",        caption: "Mass Drill - Kihon",                tall: false, category: "Training" },
   { src: "/images/Club/dojo-full-class.JPG",        alt: "Full dojo class in session",         caption: "Full Class - University of Westminster", tall: false, category: "Training" },
+  { src: "/images/Site/archive-class-group-bo-rack.jpg", alt: "Archive photograph of a full DKK class in the dojo, bo staffs racked on the wall behind", caption: "Archive - The Full Class", tall: false, category: "Training" },
+  { src: "/images/Site/archive-pcl-karate-club.jpg", alt: "P.C.L. Karate Club group photograph from the club&apos;s earliest days at the Polytechnic of Central London", caption: "Archive - P.C.L. Karate Club", tall: false, category: "Training" },
   { src: "/images/Training/class-kata-aerial.JPG",  alt: "Class kata from above",              caption: "Kata Training - Aerial View",      tall: false, category: "Training" },
   { src: "/images/Training/course-kumite-dynamic.jpg", alt: "Dynamic kumite on course",         caption: "Kumite - High Kick",                tall: false, category: "Training" },
   { src: "/images/Training/course-kumite-orange-belts.jpg", alt: "Course kumite with orange belts", caption: "Course Kumite",                   tall: false, category: "Training" },
@@ -83,6 +85,7 @@ const images: GalleryImage[] = [
   { src: "/images/Camp/archive-summer-school-knife-defence.jpg", alt: "Knife defence drill at an early DKK summer school", caption: "Early Summer School - Knife Defence", tall: true,  category: "Camps" },
   { src: "/images/Camp/nidan-lineup-woods.jpg",                   alt: "Grading line-up in the woods at Summer Camp",       caption: "Grading Line-Up",                     tall: false, category: "Camps" },
   { src: "/images/Camp/camp-certificate-black-gi.jpg",            alt: "Grading certificate presented at Summer Camp",      caption: "Grading Certificate",                 tall: true,  category: "Camps" },
+  { src: "/images/Camp/camp-dan-certificate-pair.jpg",            alt: "Two members at Summer Camp, one holding a newly awarded DKK dan grade certificate", caption: "Certificate Day - Summer Camp",       tall: true,  category: "Camps" },
   { src: "/images/Camp/camp-two-black-belts.jpg",                 alt: "Two black belts at Summer Camp",                    caption: "Black Belts at Camp",                 tall: true,  category: "Camps" },
   { src: "/images/Camp/camp-group-under-trees.jpg",               alt: "Members gathered under the trees at Summer Camp",   caption: "Under the Trees",                     tall: true,  category: "Camps" },
   { src: "/images/Camp/camp-women-black-belts.jpg",               alt: "Women black belts at Summer Camp",                  caption: "Women of DKK",                        tall: false, category: "Camps" },

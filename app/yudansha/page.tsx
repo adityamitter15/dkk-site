@@ -97,7 +97,7 @@ export default function YudanshaPage() {
           <div className="max-w-2xl mb-16">
             <SectionHeading eyebrow="Dan Grades" title="The Black Belts of DKK London" />
             <p className="text-gray-400 leading-relaxed">
-              Yudansha (有段者) refers to those holding a dan grade. At DKK London, grades are earned on a combination of attendance and performance. Every name below represents years of demanding training under Shihan Mulholland&apos;s exacting standards.
+              Yudansha (有段者) refers to those holding a dan grade. At DKK London, grades are earned on a combination of attendance and performance, and all senior instructors are trained in safeguarding and first aid. Every name below represents years of demanding training under Shihan Mulholland&apos;s exacting standards.
             </p>
           </div>
 

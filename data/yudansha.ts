@@ -236,6 +236,14 @@ export const grades: GradeTier[] = [
         ],
       },
       {
+        // Surname still to come from the club - adding the surname will move this page's URL.
+        // No photo anywhere in the repo yet either.
+        name: "Ralph",
+        slug: toSlug("Ralph"),
+        portrait: null,
+        action: null,
+      },
+      {
         name: "Richard Gaillard",
         slug: toSlug("Richard Gaillard"),
         portrait: "/images/Yudansha/richgaypot.gif",
@@ -380,6 +388,13 @@ export const grades: GradeTier[] = [
           { year: "2026", event: "Nidan" },
         ],
       },
+      {
+        // Surname still to come from the club - adding the surname will move this page's URL.
+        name: "Scarlett",
+        slug: toSlug("Scarlett"),
+        portrait: "/images/Yudansha/scarlett.jpg",
+        action: null,
+      },
     ],
   },
   {
@@ -391,6 +406,9 @@ export const grades: GradeTier[] = [
         slug: toSlug("Alex Haslehurst"),
         portrait: "/images/Yudansha/alex_haslehurst.jpg",
         action: null,
+        milestones: [
+          { year: "2023", event: "Shodan" },
+        ],
       },
       {
         name: "Alexey Kryazhev",
@@ -465,7 +483,7 @@ export const grades: GradeTier[] = [
         portrait: "/images/Yudansha/alex_lowther.jpg",
         action: null,
         milestones: [
-          { year: "", event: "Shodan" },
+          { year: "2024", event: "Shodan" },
         ],
       },
       {

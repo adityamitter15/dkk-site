@@ -5,6 +5,9 @@ import { ChevronRight } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
 import SafeImage from "@/components/SafeImage";
 import ScrollRevealText from "@/components/ui/ScrollRevealText";
+import Reveal from "@/components/ui/Reveal";
+import KanjiWatermark from "@/components/ui/KanjiWatermark";
+import type { ReactNode } from "react";
 
 export const metadata: Metadata = {
   title: "Goju Ryu History",
@@ -36,17 +39,17 @@ const chapters: Chapter[] = [
       {
         period: "Early 20th Century",
         title: "Chojun Miyagi Creates Goju Ryu",
-        body: "Chojun Miyagi, the outstanding student of Kanryo Higaonna, combined his teacher's knowledge of Chinese systems with native Okinawan fighting arts to create Goju Ryu Karate. He named it after a line in the Bubishi: 'The way of inhaling and exhaling is hardness and softness.'",
+        body: "Miyagi named the system after a line in the Bubishi: 'The way of inhaling and exhaling is hardness and softness.' Go - hard. Ju - soft.",
       },
       {
         period: "1936",
         title: "The Name 'Karate' Agreed",
-        body: "A council of Okinawan masters agreed the term 'Karate' (empty hand) in 1936. It was never meant to be a single style - rather a global term representing all unarmed fighting arts that traced through Okinawa.",
+        body: "The masters of Naha-te, Shuri-te and Tomari-te agreed a single umbrella name for the Okinawan arts: 'Kara-Te' - empty hand.",
       },
       {
         period: "1953",
         title: "Miyagi's Death & the Jundokan",
-        body: "On Chojun Miyagi's death in 1953, Ei'ichi Miyazato took over as head of the Jundokan and the Okinawan Goju Ryu system, continuing to develop and preserve the style for the generations that would follow.",
+        body: "Ei'ichi Miyazato took over as head of the Okinawan Goju Ryu system and set up the Jundokan in Naha City.",
       },
     ],
   },
@@ -69,6 +72,33 @@ const chapters: Chapter[] = [
     ],
   },
 ];
+
+/**
+ * One paragraph of the supplied history, with a margin note naming its subject.
+ * The note is decorative scannability only — it is hidden below lg and from AT,
+ * and never carries information the prose does not already state.
+ */
+function Passage({ note, lead = false, children }: { note?: string; lead?: boolean; children: ReactNode }) {
+  return (
+    <Reveal className="grid lg:grid-cols-[7rem_1fr] gap-x-8">
+      <span
+        aria-hidden="true"
+        className="hidden lg:block text-right text-[10px] font-bold uppercase tracking-[0.2em] text-gold/45 leading-none pt-2.5 select-none"
+      >
+        {note ?? ""}
+      </span>
+      <p
+        className={
+          lead
+            ? "text-gray-300 text-lg leading-relaxed first-letter:float-left first-letter:font-display first-letter:text-[3.5rem] first-letter:leading-[0.78] first-letter:text-gold first-letter:mr-3 first-letter:mt-1"
+            : "text-gray-400 leading-relaxed"
+        }
+      >
+        {children}
+      </p>
+    </Reveal>
+  );
+}
 
 export default function HistoryPage() {
   return (
@@ -112,6 +142,67 @@ export default function HistoryPage() {
                 <p className="text-gold text-[10px] uppercase tracking-widest mt-2">{item.label}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* History of Goju Ryu - long-form account supplied by Shihan */}
+      <section className="section-reveal relative overflow-hidden py-16 sm:py-20 lg:py-28 bg-coal border-b border-white/5">
+        {/* Desktop only - at 390px this sits behind body copy and eats contrast */}
+        <KanjiWatermark glyphs="剛柔" tone="gold" className="hidden lg:block" />
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto">
+            <Reveal className="text-center mb-12 sm:mb-16">
+              <p className="inline-flex items-center gap-2 text-gold text-xs font-bold uppercase tracking-[0.35em] mb-4">
+                <span className="w-6 h-px bg-gold" aria-hidden="true" />
+                The Origins
+                <span className="w-6 h-px bg-gold" aria-hidden="true" />
+              </p>
+              <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl text-white tracking-wide leading-none">
+                History of Goju Ryu
+              </h2>
+            </Reveal>
+
+            <div className="space-y-6 sm:space-y-7">
+              <Passage note="Te &amp; Tode" lead>
+                While the art of Karate originated on the island of Okinawa off the southern coast of mainland Japan, a great many fighting systems had existed in Asia for thousands of years. The various Chinese-based martial arts that were practised on Okinawa were collectively known as <strong className="text-white">&lsquo;Tode&rsquo;</strong>, or &lsquo;Chinese Hand&rsquo;. However, Okinawa already had its own native combat systems, known simply as <strong className="text-white">&lsquo;Te&rsquo;</strong>.
+              </Passage>
+              <Passage note="1936">
+                The name &lsquo;Karate&rsquo; only came into being in 1936 when the masters of the various systems of Te (Naha-te, Shuri-te and Tomari-te) met to discuss how the Okinawan martial arts might best be moved forward into a new era. At that meeting it was agreed that the combat systems they were currently practising should come together under the umbrella name of &lsquo;Kara-Te&rsquo; - empty hand.
+              </Passage>
+              <Passage>
+                Karate was therefore never meant to be a &lsquo;style&rsquo; in its own right; rather a global term to represent all unarmed fighting arts. Therefore, although the name &lsquo;Karate&rsquo; is relatively new, the fighting art that we practise has a heritage of several thousand years.
+              </Passage>
+            </div>
+
+            {/* Section break - the essay turns from the name to the lineage */}
+            <div className="flex items-center justify-center gap-4 my-12 sm:my-16" aria-hidden="true">
+              <span className="h-px w-16 sm:w-24 bg-gradient-to-r from-gold/0 to-gold/40" />
+              <span className="w-1.5 h-1.5 rotate-45 bg-gold/60" />
+              <span className="h-px w-16 sm:w-24 bg-gradient-to-l from-gold/0 to-gold/40" />
+            </div>
+
+            <div className="space-y-6 sm:space-y-7">
+              <Passage note="Higaonna">
+                Oral tradition has it that late in the 19th Century an Okinawan Naha-te exponent called <strong className="text-white">Kanryo Higaonna</strong> travelled to Southern China where he trained under a White Crane master named Ryu Ryu Ko. On Higaonna&apos;s return to Okinawa he continued to teach where one of his students began to emerge as exceptional. This student&apos;s name was <strong className="text-white">Chojun Miyagi</strong>.
+              </Passage>
+              <Passage note="1915">
+                After Higaonna Sensei&apos;s death in 1915, Chojun Miyagi combined his knowledge of the Chinese systems with that of his own native Te. Miyagi Sensei went on to transform Naha-te into a system of Karate instruction, which he later named <strong className="text-white">Goju Ryu</strong> - the system of martial combat which we still practise today.
+              </Passage>
+              <Passage note="1953">
+                When Miyagi Sensei passed away in 1953, <strong className="text-white">Ei&apos;ichi Miyazato</strong> took over as head of the Okinawan Goju Ryu system, setting up the Jundokan in Naha City on Okinawa, to continue, and further, the teachings of his teacher, Miyagi Chojun Sensei.
+              </Passage>
+            </div>
+
+            {/* Shihan's closing definition - the thesis of the whole piece */}
+            <Reveal className="mt-12 sm:mt-16">
+              <blockquote className="relative border-l-2 border-gold pl-6 sm:pl-8 py-1">
+                <p className="text-gray-200 text-lg sm:text-xl leading-relaxed">
+                  Goju Ryu is a civilian close-quarters fighting system and differs from most other Karate in its proximity of fighting, where great emphasis is placed on the ability to fight and grapple at close-quarters, both standing and on the ground.
+                </p>
+              </blockquote>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -214,12 +305,12 @@ export default function HistoryPage() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
             <div className="relative aspect-[4/3] rounded-sm overflow-hidden bg-card group lg:col-span-2 lg:row-span-2 lg:aspect-auto">
-              <SafeImage src="/images/Site/archive-pcl-karate-club.jpg" alt="P.C.L. Karate Club group photograph from the club&apos;s earliest days" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+              <SafeImage src="/images/Site/archive-class-group-bo-rack.jpg" alt="Archive photograph of a full DKK class in the dojo, bo staffs racked on the wall behind" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent" />
               <div className="absolute bottom-4 left-4">
-                <p className="text-gold text-[10px] uppercase tracking-[0.2em]">Earliest Days</p>
-                <p className="text-white font-display text-2xl tracking-widest">P.C.L. Karate Club</p>
-                <p className="text-gray-400 text-xs mt-1">Where it started, at the Polytechnic of Central London</p>
+                <p className="text-gold text-[10px] uppercase tracking-[0.2em]">From the Archive</p>
+                <p className="text-white font-display text-2xl tracking-widest">The Full Class</p>
+                <p className="text-gray-400 text-xs mt-1">A full class in the dojo, bo staffs racked behind</p>
               </div>
             </div>
             {[

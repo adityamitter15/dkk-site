@@ -43,10 +43,10 @@ export default function GojuRyuPage() {
                 <p className="text-gold text-xs font-semibold uppercase tracking-[0.2em] mb-2">Heritage</p>
                 <h3 className="font-display text-3xl tracking-wide text-white mb-4">Origins</h3>
                 <p className="text-gray-400 leading-relaxed mb-4">
-                  Goju Ryu traced its roots to the late 19th century, when an Okinawan islander named Kanryo Higaonna travelled to Southern China and trained under a White Crane master named Ryu Ryu Ko. On his return, he taught his art and one of his students began to emerge as exceptional. His name was <strong className="text-white">Chojun Miyagi</strong>.
+                  Goju Ryu traces its roots to the late 19th century, when an Okinawan islander named Kanryo Higaonna travelled to Southern China and trained under a White Crane master named Ryu Ryu Ko. On his return, he taught his art and one of his students began to emerge as exceptional. His name was <strong className="text-white">Chojun Miyagi</strong>.
                 </p>
                 <p className="text-gray-400 leading-relaxed">
-                  After Higaonna&apos;s death in 1915, Miyagi combined his knowledge of Chinese systems with his own native Okinawan fighting arts (Tode) to create Goju Ryu Karate. On his death in 1953, Ei&apos;ichi Miyazato took over as the head of the Jundokan and the Okinawan Goju Ryu system.
+                  After Higaonna&apos;s death in 1915, Miyagi combined his knowledge of Chinese systems with his own native Okinawan fighting arts (Te) to create Goju Ryu Karate. On his death in 1953, Ei&apos;ichi Miyazato took over as the head of the Jundokan and the Okinawan Goju Ryu system.
                 </p>
               </div>
 
