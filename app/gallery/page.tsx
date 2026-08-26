@@ -164,7 +164,7 @@ const images: GalleryImage[] = [
   { src: "/images/Training/kumite_high_kick_dramatic.jpg",   alt: "Dramatic high kick in kumite",                 caption: "Kumite - Dramatic High Kick",      tall: false, category: "Training" },
   { src: "/images/Training/outdoor_padwork_women.jpg",       alt: "Outdoor pad work",                             caption: "Outdoor Pad Work",                 tall: true,  category: "Training" },
   { src: "/images/Training/primrose_squats_evening.jpg",     alt: "Primrose Hill conditioning - squats",          caption: "Primrose Hill - Conditioning",     tall: true,  category: "Training" },
-  { src: "/images/Training/mma_gloves_close_portrait.jpg",   alt: "Close portrait with MMA gloves",               caption: "Ready",                            tall: false, category: "Training" },
+  { src: "/images/Yudansha/richard_gaillard_mitts.jpg",   alt: "Richard Gaillard in guard with MMA mitts",               caption: "Ready",                            tall: false, category: "Training" },
   { src: "/images/Club/club_big_group_indoor_dans.jpg",      alt: "Big club group photo - mixed dans",            caption: "DKK London - Full House",          tall: false, category: "Training" },
 
   // Grading - recent

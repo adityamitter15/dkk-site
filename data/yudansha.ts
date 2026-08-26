@@ -246,7 +246,7 @@ export const grades: GradeTier[] = [
       {
         name: "Richard Gaillard",
         slug: toSlug("Richard Gaillard"),
-        portrait: "/images/Yudansha/richgaypot.gif",
+        portrait: "/images/Yudansha/richard_gaillard_mitts.jpg",
         action: "/images/Yudansha/rich.jpg",
         bio: "Richard began martial arts at age 15 under Hanshi Steve Arneil (Kyokushinkai), later training in Wado-Ryu and Shorinji Kempo before joining DKK under Shihan Dan Lewis, then Shihan Mulholland in London.",
         quote: "Through DKK, I have been given the opportunity to push myself beyond what I thought were my limits and achieve what I thought was beyond me.",
