@@ -124,7 +124,7 @@ export const grades: GradeTier[] = [
       {
         name: "Simon Kluth",
         slug: toSlug("Simon Kluth"),
-        portrait: "/images/Grading/bo-kata-performance.jpg",
+        portrait: "/images/Grading/eku-kata-simon-kluth.jpg",
         action: null,
         bio: "Simon began training in Wado Ryu Karate in 1985, earning his Brown Belt within three years. He later studied Goju Ryu with Chris Rowen, progressing to Sandan before joining DKK in 2000.",
         quote: "Two things inspire me at DKK: the vast knowledge base and holistic approach to combat, encompassing grappling, strikes, kicks and armed combat.",

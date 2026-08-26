@@ -63,7 +63,7 @@ const images: GalleryImage[] = [
   { src: "/images/Grading/throw-crowd-watching.jpg",             alt: "Throw with crowd watching",          caption: "Nage Waza - Centre Stage",          tall: false, category: "Grading" },
   { src: "/images/Grading/sanchin-kata-demo.jpg",                alt: "Sanchin kata demonstration",         caption: "Sanchin - Foundation Kata",         tall: true,  category: "Grading" },
   { src: "/images/Grading/ready-stance-kata.jpg",                alt: "Kata ready stance",                 caption: "Kata - Ready Stance",               tall: true,  category: "Grading" },
-  { src: "/images/Grading/bo-kata-performance.jpg",              alt: "Simon Kluth performing a weapons kata at the tournament", caption: "Kata Tournament - Simon Kluth",     tall: true,  category: "Tournament" },
+  { src: "/images/Grading/eku-kata-simon-kluth.jpg",             alt: "Simon Kluth performing an eku (Okinawan oar) kata at the tournament", caption: "Eku Kata - Simon Kluth",           tall: true,  category: "Tournament" },
   { src: "/images/Grading/grading-certificates-duo.jpg",         alt: "Two students with grading certificates", caption: "New Grades - Certificates",    tall: false, category: "Grading" },
 
   // ── Camps (Summer & Winter) ──────────────────────────────
