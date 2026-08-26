@@ -53,7 +53,7 @@ export const grades: GradeTier[] = [
           { year: "2007", event: "30 Man Kumite & Nidan" },
           { year: "2011", event: "Sandan" },
           { year: "2017", event: "Yondan" },
-          { year: "", event: "Godan" },
+          { year: "2024", event: "Godan" },
         ],
         classes: [
           { day: "Monday", time: "6:15pm - 7:15pm", venue: "Zoom · online session", format: "zoom" },
@@ -324,7 +324,7 @@ export const grades: GradeTier[] = [
         portrait: "/images/Yudansha/james_tolson_sparring.jpg",
         action: null,
         milestones: [
-          { year: "", event: "Nidan" },
+          { year: "2025", event: "Nidan" },
         ],
       },
       {
@@ -337,7 +337,7 @@ export const grades: GradeTier[] = [
         milestones: [
           { year: "1998", event: "Shodan-Ho" },
           { year: "2021", event: "Full Shodan" },
-          { year: "", event: "Nidan" },
+          { year: "2025", event: "Nidan" },
         ],
       },
       {
@@ -351,7 +351,7 @@ export const grades: GradeTier[] = [
           { year: "2005", event: "Joined DKK" },
           { year: "2020", event: "Shodan-Ho" },
           { year: "2022", event: "Full Shodan" },
-          { year: "", event: "Nidan" },
+          { year: "2025", event: "Nidan" },
         ],
       },
       {
