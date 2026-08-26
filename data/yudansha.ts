@@ -124,7 +124,7 @@ export const grades: GradeTier[] = [
       {
         name: "Simon Kluth",
         slug: toSlug("Simon Kluth"),
-        portrait: null,
+        portrait: "/images/Grading/bo-kata-performance.jpg",
         action: null,
         bio: "Simon began training in Wado Ryu Karate in 1985, earning his Brown Belt within three years. He later studied Goju Ryu with Chris Rowen, progressing to Sandan before joining DKK in 2000.",
         quote: "Two things inspire me at DKK: the vast knowledge base and holistic approach to combat, encompassing grappling, strikes, kicks and armed combat.",
@@ -236,12 +236,14 @@ export const grades: GradeTier[] = [
         ],
       },
       {
-        // Surname still to come from the club - adding the surname will move this page's URL.
-        // No photo anywhere in the repo yet either.
-        name: "Ralph",
-        slug: toSlug("Ralph"),
+        // Still no photo of Ralph anywhere in the repo.
+        name: "Ralph Mendes",
+        slug: toSlug("Ralph Mendes"),
         portrait: null,
         action: null,
+        milestones: [
+          { year: "2024", event: "Sandan" },
+        ],
       },
       {
         name: "Richard Gaillard",
@@ -389,11 +391,14 @@ export const grades: GradeTier[] = [
         ],
       },
       {
-        // Surname still to come from the club - adding the surname will move this page's URL.
-        name: "Scarlett",
-        slug: toSlug("Scarlett"),
+        name: "Scarlett Mac-Ginty",
+        slug: toSlug("Scarlett Mac-Ginty"),
         portrait: "/images/Yudansha/scarlett.jpg",
         action: null,
+        milestones: [
+          { year: "2022", event: "Shodan" },
+          { year: "2025", event: "Nidan" },
+        ],
       },
     ],
   },
