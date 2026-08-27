@@ -9,95 +9,325 @@
     "cleanUrls": true,
     "trailingSlash": false,
     "redirects": [
-      { "source": "/index.html", "destination": "/", "type": 301 },
-      { "source": "/alex_haslehurst.html", "destination": "/yudansha/alex-haslehurst", "type": 301 },
-      { "source": "/alexey_kryazhev.html", "destination": "/yudansha/alexey-kryazhev", "type": 301 },
-      { "source": "/catherine_sandwell.html", "destination": "/yudansha/catherine-sandwell", "type": 301 },
-      { "source": "/daniel_bard.html", "destination": "/yudansha/daniel-bard", "type": 301 },
-      { "source": "/daniel_bradley.html", "destination": "/yudansha", "type": 301 },
-      { "source": "/david_urquhart.html", "destination": "/yudansha/david-urquhart", "type": 301 },
-      { "source": "/glenn_malpass.html", "destination": "/yudansha/glenn-malpass", "type": 301 },
-      { "source": "/juha_makinen.html", "destination": "/yudansha/juha-makinen", "type": 301 },
-      { "source": "/karen_sheldon.html", "destination": "/yudansha/karen-sheldon", "type": 301 },
-      { "source": "/laila_al-minyawi.html", "destination": "/yudansha/laila-al-minyawi", "type": 301 },
-      { "source": "/luke_wilcox.html", "destination": "/yudansha/luke-wilcox", "type": 301 },
-      { "source": "/marianette_violeta.html", "destination": "/yudansha/marianette-violeta", "type": 301 },
-      { "source": "/mark_haslehurst.html", "destination": "/yudansha/mark-haslehurst", "type": 301 },
-      { "source": "/mark_salomone.html", "destination": "/yudansha/mark-salomone", "type": 301 },
-      { "source": "/mike_thornton.html", "destination": "/yudansha/mike-thornton", "type": 301 },
-      { "source": "/mizuki_murai.html", "destination": "/yudansha/mizuki-murai", "type": 301 },
-      { "source": "/ragi_marmar.html", "destination": "/yudansha/ragi-marmar", "type": 301 },
-      { "source": "/richard_gaillard.html", "destination": "/yudansha/richard-gaillard", "type": 301 },
-      { "source": "/seki_lynch.html", "destination": "/yudansha/seki-lynch", "type": 301 },
-      { "source": "/sidney_ushurhe.html", "destination": "/yudansha/sidney-ushurhe", "type": 301 },
-      { "source": "/simon_clinch.html", "destination": "/yudansha/simon-clinch", "type": 301 },
-      { "source": "/simon_kluth.html", "destination": "/yudansha/simon-kluth", "type": 301 },
-      { "source": "/tunde_oladimeji.html", "destination": "/yudansha/tunde-oladimeji", "type": 301 },
-      { "source": "/gallery_4shades.html", "destination": "/books", "type": 301 },
-      { "source": "/gallery_dkk_fighters.html", "destination": "/fighters", "type": 301 },
-      { "source": "/gallery_practical_karate.html", "destination": "/gallery", "type": 301 },
-      { "source": "/gallery_summer_school.html", "destination": "/gallery", "type": 301 },
-      { "source": "/gallery_winter_camp.html", "destination": "/gallery", "type": 301 },
-      { "source": "/index.php%3Fpage%3DBooks.html", "destination": "/books", "type": 301 },
-      { "source": "/index.php%3Fpage%3DClub-Shihan.html", "destination": "/shihan", "type": 301 },
-      { "source": "/index.php%3Fpage%3DContact.html", "destination": "/contact", "type": 301 },
-      { "source": "/index.php%3Fpage%3DDKK-Fighters.html", "destination": "/fighters", "type": 301 },
-      { "source": "/index.php%3Fpage%3DGallery.html", "destination": "/gallery", "type": 301 },
-      { "source": "/index.php%3Fpage%3DGoju-Ryu.html", "destination": "/goju-ryu", "type": 301 },
-      { "source": "/index.php%3Fpage%3DHistory.html", "destination": "/history", "type": 301 },
-      { "source": "/index.php%3Fpage%3DLinks.html", "destination": "/links", "type": 301 },
-      { "source": "/index.php%3Fpage%3DTraining.html", "destination": "/training", "type": 301 },
-      { "source": "/index.php%3Fpage%3DYudansha.html", "destination": "/yudansha", "type": 301 }
+      {
+        "source": "/index.html",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/alex_haslehurst.html",
+        "destination": "/yudansha/alex-haslehurst",
+        "type": 301
+      },
+      {
+        "source": "/alexey_kryazhev.html",
+        "destination": "/yudansha/alexey-kryazhev",
+        "type": 301
+      },
+      {
+        "source": "/catherine_sandwell.html",
+        "destination": "/yudansha/catherine-sandwell",
+        "type": 301
+      },
+      {
+        "source": "/daniel_bard.html",
+        "destination": "/yudansha/daniel-bard",
+        "type": 301
+      },
+      {
+        "source": "/daniel_bradley.html",
+        "destination": "/yudansha",
+        "type": 301
+      },
+      {
+        "source": "/david_urquhart.html",
+        "destination": "/yudansha/david-urquhart",
+        "type": 301
+      },
+      {
+        "source": "/glenn_malpass.html",
+        "destination": "/yudansha/glenn-malpass",
+        "type": 301
+      },
+      {
+        "source": "/juha_makinen.html",
+        "destination": "/yudansha/juha-makinen",
+        "type": 301
+      },
+      {
+        "source": "/karen_sheldon.html",
+        "destination": "/yudansha/karen-sheldon",
+        "type": 301
+      },
+      {
+        "source": "/laila_al-minyawi.html",
+        "destination": "/yudansha/laila-al-minyawi",
+        "type": 301
+      },
+      {
+        "source": "/luke_wilcox.html",
+        "destination": "/yudansha/luke-wilcox",
+        "type": 301
+      },
+      {
+        "source": "/marianette_violeta.html",
+        "destination": "/yudansha/marianette-violeta",
+        "type": 301
+      },
+      {
+        "source": "/mark_haslehurst.html",
+        "destination": "/yudansha/mark-haslehurst",
+        "type": 301
+      },
+      {
+        "source": "/mark_salomone.html",
+        "destination": "/yudansha/mark-salomone",
+        "type": 301
+      },
+      {
+        "source": "/mike_thornton.html",
+        "destination": "/yudansha/mike-thornton",
+        "type": 301
+      },
+      {
+        "source": "/mizuki_murai.html",
+        "destination": "/yudansha/mizuki-murai",
+        "type": 301
+      },
+      {
+        "source": "/ragi_marmar.html",
+        "destination": "/yudansha/ragi-marmar",
+        "type": 301
+      },
+      {
+        "source": "/richard_gaillard.html",
+        "destination": "/yudansha/richard-gaillard",
+        "type": 301
+      },
+      {
+        "source": "/seki_lynch.html",
+        "destination": "/yudansha/seki-lynch",
+        "type": 301
+      },
+      {
+        "source": "/sidney_ushurhe.html",
+        "destination": "/yudansha/sidney-ushurhe",
+        "type": 301
+      },
+      {
+        "source": "/simon_clinch.html",
+        "destination": "/yudansha/simon-clinch",
+        "type": 301
+      },
+      {
+        "source": "/simon_kluth.html",
+        "destination": "/yudansha/simon-kluth",
+        "type": 301
+      },
+      {
+        "source": "/tunde_oladimeji.html",
+        "destination": "/yudansha/tunde-oladimeji",
+        "type": 301
+      },
+      {
+        "source": "/gallery_4shades.html",
+        "destination": "/books",
+        "type": 301
+      },
+      {
+        "source": "/gallery_dkk_fighters.html",
+        "destination": "/fighters",
+        "type": 301
+      },
+      {
+        "source": "/gallery_practical_karate.html",
+        "destination": "/gallery",
+        "type": 301
+      },
+      {
+        "source": "/gallery_summer_school.html",
+        "destination": "/gallery",
+        "type": 301
+      },
+      {
+        "source": "/gallery_winter_camp.html",
+        "destination": "/gallery",
+        "type": 301
+      },
+      {
+        "source": "/index.php%3Fpage%3DBooks.html",
+        "destination": "/books",
+        "type": 301
+      },
+      {
+        "source": "/index.php%3Fpage%3DClub-Shihan.html",
+        "destination": "/shihan",
+        "type": 301
+      },
+      {
+        "source": "/index.php%3Fpage%3DContact.html",
+        "destination": "/contact",
+        "type": 301
+      },
+      {
+        "source": "/index.php%3Fpage%3DDKK-Fighters.html",
+        "destination": "/fighters",
+        "type": 301
+      },
+      {
+        "source": "/index.php%3Fpage%3DGallery.html",
+        "destination": "/gallery",
+        "type": 301
+      },
+      {
+        "source": "/index.php%3Fpage%3DGoju-Ryu.html",
+        "destination": "/goju-ryu",
+        "type": 301
+      },
+      {
+        "source": "/index.php%3Fpage%3DHistory.html",
+        "destination": "/history",
+        "type": 301
+      },
+      {
+        "source": "/index.php%3Fpage%3DLinks.html",
+        "destination": "/links",
+        "type": 301
+      },
+      {
+        "source": "/index.php%3Fpage%3DTraining.html",
+        "destination": "/training",
+        "type": 301
+      },
+      {
+        "source": "/index.php%3Fpage%3DYudansha.html",
+        "destination": "/yudansha",
+        "type": 301
+      },
+      {
+        "source": "/books_every_waking_moment.html",
+        "destination": "/books",
+        "type": 301
+      },
+      {
+        "source": "/books_more_shades.html",
+        "destination": "/books",
+        "type": 301
+      },
+      {
+        "source": "/index.php%3Fpage%3Dcourses.html",
+        "destination": "/training",
+        "type": 301
+      },
+      {
+        "source": "/index.php%3Fpage%3Dfaqs.html",
+        "destination": "/training",
+        "type": 301
+      },
+      {
+        "source": "/index.php%3Fpage%3DFour-Shades-of-Black.html",
+        "destination": "/books",
+        "type": 301
+      },
+      {
+        "source": "/index.php%3Fpage%3Dgradings.html",
+        "destination": "/training",
+        "type": 301
+      },
+      {
+        "source": "/index.php%3Fpage%3Dwaking-dragons-2.html",
+        "destination": "/books",
+        "type": 301
+      }
     ],
     "rewrites": [
-      { "source": "/index.php", "destination": "/legacy.html" }
+      {
+        "source": "/index.php",
+        "destination": "/legacy.html"
+      }
     ],
     "headers": [
       {
         "source": "**",
         "headers": [
-          { "key": "Strict-Transport-Security", "value": "max-age=63072000; includeSubDomains; preload" },
-          { "key": "X-Content-Type-Options", "value": "nosniff" },
-          { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
-          { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
-          { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=(), interest-cohort=()" },
-          { "key": "Content-Security-Policy", "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.google.com https://www.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https:; media-src 'self' blob:; connect-src 'self' https://formspree.io https://www.google-analytics.com; frame-src https://www.google.com https://www.google.com/maps/ https://www.youtube.com https://www.youtube-nocookie.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self' https://formspree.io; object-src 'none'; upgrade-insecure-requests" }
+          {
+            "key": "Strict-Transport-Security",
+            "value": "max-age=63072000; includeSubDomains; preload"
+          },
+          {
+            "key": "X-Content-Type-Options",
+            "value": "nosniff"
+          },
+          {
+            "key": "X-Frame-Options",
+            "value": "SAMEORIGIN"
+          },
+          {
+            "key": "Referrer-Policy",
+            "value": "strict-origin-when-cross-origin"
+          },
+          {
+            "key": "Permissions-Policy",
+            "value": "camera=(), microphone=(), geolocation=(), interest-cohort=()"
+          },
+          {
+            "key": "Content-Security-Policy",
+            "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.google.com https://www.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https:; media-src 'self' blob:; connect-src 'self' https://formspree.io https://www.google-analytics.com; frame-src https://www.google.com https://www.google.com/maps/ https://www.youtube.com https://www.youtube-nocookie.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self' https://formspree.io; object-src 'none'; upgrade-insecure-requests"
+          }
         ]
       },
       {
         "source": "**/*.@(jpg|jpeg|png|gif|webp|avif|svg|ico)",
         "headers": [
-          { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=31536000, immutable"
+          }
         ]
       },
       {
         "source": "**/*.@(mp4|webm|mov)",
         "headers": [
-          { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=31536000, immutable"
+          }
         ]
       },
       {
         "source": "**/*.@(js|css|woff|woff2|ttf|otf)",
         "headers": [
-          { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=31536000, immutable"
+          }
         ]
       },
       {
         "source": "**/*.html",
         "headers": [
-          { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=0, must-revalidate"
+          }
         ]
       },
       {
         "source": "/sitemap.xml",
         "headers": [
-          { "key": "Cache-Control", "value": "public, max-age=3600" }
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=3600"
+          }
         ]
       },
       {
         "source": "/robots.txt",
         "headers": [
-          { "key": "Cache-Control", "value": "public, max-age=86400" }
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=86400"
+          }
         ]
       }
     ]
