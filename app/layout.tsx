@@ -69,6 +69,24 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     images: ["/og/home.jpg"],
   },
+  // Icons are declared explicitly from /public rather than via the app/ file
+  // convention, because that convention appends a content hash as a query
+  // string (/favicon.ico?favicon.7d791c6d.ico). Google's favicon documentation
+  // asks for a STABLE url it does not have to re-fetch, and the hash changes on
+  // every redeploy. These urls never change.
+  //
+  // The 96px PNG is listed first because Google requires the icon it picks to
+  // be a square multiple of 48px; a 32x32 .ico is not one, so the .ico trails
+  // as the legacy browser fallback.
+  icons: {
+    icon: [
+      { url: "/icon.png", sizes: "96x96", type: "image/png" },
+      { url: "/icons/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/favicon.ico", sizes: "48x48 32x32 16x16", type: "image/x-icon" },
+    ],
+    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
+    shortcut: ["/favicon.ico"],
+  },
   manifest: "/manifest.webmanifest",
   appleWebApp: {
     title: "DKK London",

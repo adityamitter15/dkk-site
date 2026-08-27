@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import SectionHeading from "@/components/SectionHeading";
 import ContactForm from "@/components/ContactForm";
 import SafeImage from "@/components/SafeImage";
-import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, MessageCircle, Banknote } from "lucide-react";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
@@ -112,6 +112,41 @@ export default function ContactPage() {
                     <p className="text-white font-medium leading-tight">Monday &amp; Wednesday</p>
                     <p className="text-gray-400 text-sm mt-0.5">6:00pm – 8:00pm</p>
                     <p className="text-gray-500 text-xs mt-1">Classes continue during University breaks</p>
+                  </div>
+                </div>
+
+                {/* "karate london prices" is a real query with real volume and the
+                    club will not publish a figure. This answers the question
+                    honestly, carries the words people actually search for, and
+                    gives the query somewhere to land: /contact#fees. */}
+                <div id="fees" className="flex gap-4 items-start p-5 bg-card border border-white/10 rounded-sm scroll-mt-28">
+                  <Banknote className="text-brand flex-shrink-0 mt-0.5" size={20} aria-hidden="true" />
+                  <div>
+                    <h3 className="text-gray-500 text-xs uppercase tracking-widest mb-0.5">Class Fees</h3>
+                    <p className="text-white font-medium leading-tight">Your first class is free</p>
+                    <p className="text-gray-400 text-sm mt-1 leading-relaxed">
+                      We confirm current fees when you get in touch rather than publishing a figure
+                      that goes out of date. Ask by email or WhatsApp and we will come straight back
+                      to you. You do not need a University of Westminster student membership to train
+                      here.
+                    </p>
+                    <p className="text-gray-500 text-xs mt-2">
+                      <a
+                        href="https://wa.me/447976411901?text=Hi%2C%20could%20you%20tell%20me%20what%20the%20class%20fees%20are%20at%20DKK%20London%3F"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="link-underline text-gold"
+                      >
+                        Ask about fees on WhatsApp
+                      </a>
+                      {" · "}
+                      <a
+                        href="mailto:info@goju-karate.co.uk?subject=Class%20fees"
+                        className="link-underline text-gold"
+                      >
+                        or by email
+                      </a>
+                    </p>
                   </div>
                 </div>
               </div>

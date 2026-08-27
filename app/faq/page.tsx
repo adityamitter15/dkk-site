@@ -53,9 +53,12 @@ const faqs: { question: string; answer: string }[] = [
       "Monday and Wednesday evenings, 6pm to 8pm, throughout the year. Turn up a few minutes early on your first night so there is time to say hello before we start.",
   },
   {
-    question: "How much does it cost?",
+    // "karate london prices" and "daigaku karate kai london price" are both real
+    // queries. The club will not publish a figure, so this answers everything
+    // around it honestly and points at /contact#fees rather than saying nothing.
+    question: "How much do the classes cost?",
     answer:
-      "Your first class is free, so you can try a full session before deciding anything. Get in touch for current fees and we will tell you straight away.",
+      "Your first class is free, so you can try a full session before committing to anything. After that we confirm current fees when you get in touch, rather than publishing a figure that goes out of date. Ask by email or WhatsApp and you will get an answer straight back. You also do not need a University of Westminster student membership, which catches a lot of people out.",
   },
   {
     question: "Is this suitable for adults?",
@@ -147,6 +150,13 @@ export default function FAQPage() {
             </dl>
 
             <p className="text-gray-400 leading-relaxed mt-10">
+              Want the current fees?{" "}
+              <Link href="/contact#fees" className="link-underline text-gold">
+                Ask us and we will come straight back
+              </Link>
+              .
+            </p>
+            <p className="text-gray-400 leading-relaxed mt-4">
               Anything not covered here, just{" "}
               <Link href="/contact" className="link-underline text-gold">
                 ask us
