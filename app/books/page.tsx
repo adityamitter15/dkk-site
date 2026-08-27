@@ -4,10 +4,13 @@ import SectionHeading from "@/components/SectionHeading";
 import Link from "next/link";
 import { ChevronRight, ExternalLink } from "lucide-react";
 import SafeImage from "@/components/SafeImage";
+import Breadcrumbs from "@/components/seo/Breadcrumbs";
+import { site } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Books",
   description: "Books by Shihan Gavin Mulholland on Okinawan Goju Ryu karate. Four Shades of Black and More Shades of Black.",
+  alternates: { canonical: "/books" },
   openGraph: { images: ["/og/books.jpg"] },
   twitter: { images: ["/og/books.jpg"] },
 };
@@ -101,8 +104,30 @@ function BookCard({ book }: { book: Book }) {
 }
 
 export default function BooksPage() {
+  const booksJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    itemListElement: dkkBooks.map((book, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      item: {
+        "@type": "Book",
+        name: book.title,
+        author: { "@type": "Person", name: book.author },
+        description: book.description,
+        image: encodeURI(`${site.url}${book.cover}`),
+        url: book.ukUrl,
+      },
+    })),
+  };
+
   return (
     <>
+      <Breadcrumbs trail={[{ name: "Books", path: "/books" }]} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(booksJsonLd) }}
+      />
       <PageHero
         variant="full"
         eyebrow="Publications"

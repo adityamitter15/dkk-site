@@ -7,6 +7,8 @@ import SafeImage from "@/components/SafeImage";
 import DanGrade from "@/components/DanGrade";
 import LiveYears from "@/components/ui/LiveYears";
 import { getAllMembers, getMemberBySlug } from "@/data/yudansha";
+import Breadcrumbs from "@/components/seo/Breadcrumbs";
+import { site } from "@/data/site";
 
 const gradeDescriptor: Record<string, string> = {
   Godan: "Advanced Teachings",
@@ -28,6 +30,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: `${member.name} - ${member.dan} - DKK London Yudansha`,
     description: member.bio || `${member.name}, ${member.dan} at Daigaku Karate Kai London.`,
+    alternates: { canonical: `/yudansha/${member.slug}` },
     openGraph: { images: [ogImage] },
     twitter: { images: [ogImage] },
   };
@@ -52,8 +55,29 @@ export default async function MemberPage({ params }: { params: Promise<{ slug: s
   const lastMilestone = member.milestones?.[member.milestones.length - 1];
   const yearsTraining = firstMilestone ? new Date().getFullYear() - parseInt(firstMilestone) : null;
 
+  const personJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: member.name,
+    jobTitle: member.instructor ? `${member.dan} Black Belt, Instructor` : `${member.dan} Black Belt`,
+    memberOf: { "@type": "SportsClub", name: "Daigaku Karate Kai London", url: site.url },
+    url: `${site.url}/yudansha/${member.slug}`,
+    ...(member.portrait ? { image: `${site.url}${member.portrait}` } : {}),
+    ...(member.bio ? { description: member.bio } : {}),
+  };
+
   return (
     <>
+      <Breadcrumbs
+        trail={[
+          { name: "Yudansha", path: "/yudansha" },
+          { name: member.name, path: `/yudansha/${member.slug}` },
+        ]}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+      />
       {/* Hero */}
       <section className="relative pt-28 pb-16 sm:pt-40 sm:pb-28 overflow-hidden">
         <div className="absolute inset-0 bg-black" />

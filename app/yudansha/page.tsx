@@ -10,10 +10,12 @@ import SafeImage from "@/components/SafeImage";
 import SectionHeading from "@/components/SectionHeading";
 import { grades, type Member } from "@/data/yudansha";
 import DanGrade from "@/components/DanGrade";
+import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Yudansha - Black Belts",
   description: "The black belts of DKK London. Meet the yudansha who have earned their dan grades through years of demanding training.",
+  alternates: { canonical: "/yudansha" },
   openGraph: { images: ["/og/yudansha.jpg"] },
   twitter: { images: ["/og/yudansha.jpg"] },
 };
@@ -82,6 +84,7 @@ export default function YudanshaPage() {
 
   return (
     <>
+      <Breadcrumbs trail={[{ name: "Yudansha", path: "/yudansha" }]} />
       <PageHero
         variant="archive"
         eyebrow="Black Belts"

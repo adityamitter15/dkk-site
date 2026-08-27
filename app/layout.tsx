@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
 import BackToTop from "@/components/BackToTop";
 import ScrollProgress from "@/components/ScrollProgress";
+import Analytics from "@/components/Analytics";
 import { site } from "@/data/site";
 
 const bebas = Bebas_Neue({
@@ -45,6 +46,7 @@ export const metadata: Metadata = {
     template: "%s | DKK London",
   },
   description: "Okinawan Goju Ryu karate for adults in central London. Combat-orientated training under Shihan Gavin Mulholland, 7th Dan. Monday & Wednesday, 309 Regent Street.",
+  alternates: { canonical: "/" },
   keywords: ["karate", "goju ryu", "okinawan karate", "martial arts london", "DKK", "daigaku karate kai", "gavin mulholland", "combat karate", "self defence london"],
   openGraph: {
     type: "website",
@@ -124,6 +126,7 @@ export default function RootLayout({
         <Footer />
         <StickyMobileCTA />
         <BackToTop />
+        <Analytics />
       </body>
     </html>
   );

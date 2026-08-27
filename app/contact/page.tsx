@@ -4,15 +4,18 @@ import SectionHeading from "@/components/SectionHeading";
 import ContactForm from "@/components/ContactForm";
 import SafeImage from "@/components/SafeImage";
 import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
+import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Contact",
   description: "Get in touch with DKK London. Train Okinawan Goju Ryu at 309 Regent Street, London. Monday and Wednesday evenings, 6-8pm.",
+  alternates: { canonical: "/contact" },
 };
 
 export default function ContactPage() {
   return (
     <>
+      <Breadcrumbs trail={[{ name: "Contact", path: "/contact" }]} />
       <PageHero
         variant="full"
         eyebrow="Get Started"

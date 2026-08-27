@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
     "How Daigaku Karate Kai London handles your personal information. Plain-English privacy policy for the DKK contact form and website.",
+  alternates: { canonical: "/privacy" },
 };
 
 const lastUpdated = "16 June 2026";

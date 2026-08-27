@@ -5,10 +5,12 @@ import { ChevronRight } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
 import SafeImage from "@/components/SafeImage";
 import ScrollRevealText from "@/components/ui/ScrollRevealText";
+import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Goju Ryu",
-  description: "Goju Ryu - hard and soft style. An Okinawan karate system emphasising close-quarter combat, breathing, and practical self-defence. Learn about its origins and philosophy.",
+  description: "Okinawan Goju Ryu explained: hard and soft, the kata, and the close-quarter combat principles behind how DKK London trains.",
+  alternates: { canonical: "/goju-ryu" },
   openGraph: { images: ["/og/goju-ryu.jpg"] },
   twitter: { images: ["/og/goju-ryu.jpg"] },
 };
@@ -16,6 +18,7 @@ export const metadata: Metadata = {
 export default function GojuRyuPage() {
   return (
     <>
+      <Breadcrumbs trail={[{ name: "Goju Ryu", path: "/goju-ryu" }]} />
       <PageHero
         variant="full"
         eyebrow="The Style"

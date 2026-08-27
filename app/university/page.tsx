@@ -9,10 +9,12 @@ import SectionHeading from "@/components/SectionHeading";
 import ScrollRevealText from "@/components/ui/ScrollRevealText";
 import LiveYears from "@/components/ui/LiveYears";
 import { site } from "@/data/site";
+import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "University of Westminster",
   description: "Daigaku Karate Kai - the oldest sports club at the University of Westminster, training continuously since 1990. UWSU Club of the Year 25/26.",
+  alternates: { canonical: "/university" },
   openGraph: { images: ["/og/university.jpg"] },
   twitter: { images: ["/og/university.jpg"] },
 };
@@ -26,6 +28,7 @@ const AWARDS_PHOTOS = [
 export default function UniversityPage() {
   return (
     <>
+      <Breadcrumbs trail={[{ name: "University of Westminster", path: "/university" }]} />
       <PageHero
         variant="full"
         eyebrow="University of Westminster"

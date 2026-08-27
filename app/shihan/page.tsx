@@ -5,10 +5,12 @@ import Link from "next/link";
 import { ChevronRight, BookOpen, Award, Star, Shield, Mic, ExternalLink } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
 import SafeImage from "@/components/SafeImage";
+import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Shihan Gavin Mulholland",
   description: "Shihan Gavin Mulholland, 7th Dan. Founder and chief instructor of Daigaku Karate Kai London. Combat Hall of Fame inductee and published author.",
+  alternates: { canonical: "/shihan" },
   openGraph: { images: ["/og/shihan.jpg"] },
   twitter: { images: ["/og/shihan.jpg"] },
 };
@@ -16,6 +18,7 @@ export const metadata: Metadata = {
 export default function ShihanPage() {
   return (
     <>
+      <Breadcrumbs trail={[{ name: "Shihan Gavin Mulholland", path: "/shihan" }]} />
       <PageHero
         variant="full"
         eyebrow="Founder & Chief Instructor"

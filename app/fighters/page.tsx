@@ -7,10 +7,12 @@ import Link from "next/link";
 import { ChevronRight, ExternalLink } from "lucide-react";
 import SafeImage from "@/components/SafeImage";
 import CountUpStat from "@/components/CountUpStat";
+import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "DKK Fighters",
   description: "DKK Fighters - 16 wins from our first 20 professional cage fights, a British Heavyweight title, a World Title fight, and one member who reached the UFC.",
+  alternates: { canonical: "/fighters" },
   openGraph: { images: ["/og/fighters.jpg"] },
   twitter: { images: ["/og/fighters.jpg"] },
 };
@@ -73,6 +75,7 @@ const fighters = [
 export default function FightersPage() {
   return (
     <>
+      <Breadcrumbs trail={[{ name: "DKK Fighters", path: "/fighters" }]} />
       <PageHero
         variant="full"
         eyebrow="Competition & Combat"

@@ -7,10 +7,12 @@ import SectionHeading from "@/components/SectionHeading";
 import ScrollRevealText from "@/components/ui/ScrollRevealText";
 import SafeImage from "@/components/SafeImage";
 import DanGrade from "@/components/DanGrade";
+import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Training",
   description: "Okinawan Goju Ryu training every Monday and Wednesday, 6-8pm at the University of Westminster, 309 Regent Street, London. Adults of all levels welcome.",
+  alternates: { canonical: "/training" },
   openGraph: { images: ["/og/training.jpg"] },
   twitter: { images: ["/og/training.jpg"] },
 };
@@ -18,6 +20,7 @@ export const metadata: Metadata = {
 export default function TrainingPage() {
   return (
     <>
+      <Breadcrumbs trail={[{ name: "Training", path: "/training" }]} />
       {/* Hero - split layout with action photo */}
       <PageHero
         variant="full"

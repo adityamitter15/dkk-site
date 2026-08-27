@@ -8,10 +8,12 @@ import ScrollRevealText from "@/components/ui/ScrollRevealText";
 import Reveal from "@/components/ui/Reveal";
 import KanjiWatermark from "@/components/ui/KanjiWatermark";
 import type { ReactNode } from "react";
+import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Goju Ryu History",
-  description: "The history of Goju Ryu - from Chojun Miyagi's founding of the style on Okinawa to the founding of Daigaku Karate Kai by Shihan Gavin Mulholland (DKK London) and Shihan Dan Lewis (DKK Portishead).",
+  description: "From Chojun Miyagi's founding of Goju Ryu on Okinawa to Daigaku Karate Kai in London. The lineage behind the style we train at 309 Regent Street.",
+  alternates: { canonical: "/history" },
   openGraph: { images: ["/og/history.jpg"] },
   twitter: { images: ["/og/history.jpg"] },
 };
@@ -103,6 +105,7 @@ function Passage({ note, lead = false, children }: { note?: string; lead?: boole
 export default function HistoryPage() {
   return (
     <>
+      <Breadcrumbs trail={[{ name: "History", path: "/history" }]} />
       <PageHero
         variant="archive"
         eyebrow="Heritage"

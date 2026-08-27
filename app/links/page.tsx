@@ -2,10 +2,12 @@ import PageHero from "@/components/ui/PageHero";
 import type { Metadata } from "next";
 import SectionHeading from "@/components/SectionHeading";
 import { ExternalLink } from "lucide-react";
+import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Links",
   description: "Useful links and resources for DKK clubs, martial arts instructors, authors, and Goju Ryu resources.",
+  alternates: { canonical: "/links" },
 };
 
 const linkGroups = [
@@ -61,6 +63,7 @@ const linkGroups = [
 export default function LinksPage() {
   return (
     <>
+      <Breadcrumbs trail={[{ name: "Links", path: "/links" }]} />
       <PageHero
         variant="full"
         eyebrow="Resources"

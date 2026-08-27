@@ -3,10 +3,12 @@ import type { Metadata } from "next";
 import SectionHeading from "@/components/SectionHeading";
 import GalleryFilter from "@/components/GalleryFilter";
 import type { GalleryImage } from "@/components/GalleryLightbox";
+import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Gallery",
   description: "Photos from DKK London. Training, gradings, tournaments, summer camps and members of Daigaku Karate Kai.",
+  alternates: { canonical: "/gallery" },
   openGraph: { images: ["/og/gallery.jpg"] },
   twitter: { images: ["/og/gallery.jpg"] },
 };
@@ -190,6 +192,7 @@ const images: GalleryImage[] = [
 export default function GalleryPage() {
   return (
     <>
+      <Breadcrumbs trail={[{ name: "Gallery", path: "/gallery" }]} />
       <PageHero
         variant="full"
         eyebrow="Photos"
