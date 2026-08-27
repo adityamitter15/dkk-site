@@ -70,6 +70,11 @@ export const metadata: Metadata = {
     title: "DKK London",
     statusBarStyle: "black-translucent",
   },
+  verification: {
+    // Bing Webmaster Tools site ownership. Bing's own note: leave it in place
+    // even after verification succeeds, or the property un-verifies.
+    other: { "msvalidate.01": "0C0DD422BC190BE8AF769F8E9EE055F5" },
+  },
 };
 
 export default function RootLayout({

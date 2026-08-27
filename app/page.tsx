@@ -5,6 +5,7 @@ import SafeImage from "@/components/SafeImage";
 import TestimonialRotator from "@/components/TestimonialRotator";
 import Reveal from "@/components/ui/Reveal";
 import StatStrip, { StatCell } from "@/components/ui/StatStrip";
+import DanGrade from "@/components/DanGrade";
 import VideoHeroBackground from "@/components/VideoHeroBackground";
 import VideoShowcase from "@/components/VideoShowcase";
 import KineticHeadline from "@/components/KineticHeadline";
@@ -73,8 +74,8 @@ export default function Home() {
       <StatStrip>
         <StatCell value="Since 1990" label="Oldest Club at Westminster" />
         <StatCell
-          value={<>7<sup className="font-sans normal-case text-[0.45em] tracking-normal align-baseline relative -top-[0.6em] ml-[0.07em] mr-[0.08em] font-medium">th</sup> Dan</>}
-          label="Shihan Gavin Mulholland"
+          value="Gavin Mulholland"
+          label={<><DanGrade text="7th Dan" /> Shihan</>}
         />
         <StatCell value="Goju Ryu" label={<>Okinawan &middot; Combat-Orientated</>} />
         <StatCell value={<>Mon &amp; Wed</>} label="6 - 8pm, Central London" />

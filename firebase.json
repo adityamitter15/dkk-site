@@ -130,6 +130,11 @@
         "type": 301
       },
       {
+        "source": "/yudansha/ralph-mendes",
+        "destination": "/yudansha/ralph-mends",
+        "type": 301
+      },
+      {
         "source": "/gallery_4shades.html",
         "destination": "/books",
         "type": 301

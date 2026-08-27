@@ -3,8 +3,6 @@ import CTABand from "@/components/ui/CTABand";
 import StatStrip from "@/components/ui/StatStrip";
 import type { Metadata } from "next";
 import SectionHeading from "@/components/SectionHeading";
-import Link from "next/link";
-import { ChevronRight, ExternalLink } from "lucide-react";
 import SafeImage from "@/components/SafeImage";
 import CountUpStat from "@/components/CountUpStat";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";

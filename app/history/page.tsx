@@ -2,7 +2,6 @@ import PageHero from "@/components/ui/PageHero";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
-import SectionHeading from "@/components/SectionHeading";
 import SafeImage from "@/components/SafeImage";
 import ScrollRevealText from "@/components/ui/ScrollRevealText";
 import Reveal from "@/components/ui/Reveal";

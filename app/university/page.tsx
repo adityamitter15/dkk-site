@@ -1,8 +1,8 @@
 import PageHero from "@/components/ui/PageHero";
 import CTABand from "@/components/ui/CTABand";
 import StatStrip, { StatCell } from "@/components/ui/StatStrip";
+import DanGrade from "@/components/DanGrade";
 import type { Metadata } from "next";
-import Link from "next/link";
 import { ChevronRight, Trophy, Award, MapPin, Calendar, Instagram } from "lucide-react";
 import SafeImage from "@/components/SafeImage";
 import SectionHeading from "@/components/SectionHeading";
@@ -45,7 +45,7 @@ export default function UniversityPage() {
       <StatStrip>
         <StatCell value="1990" label="At Westminster Since" />
         <StatCell value="Oldest" label="Sports Club at Westminster" />
-        <StatCell value={<>7<sup className="font-sans normal-case text-[0.45em] tracking-normal align-baseline relative -top-[0.6em] ml-[0.07em] mr-[0.08em] font-medium">th</sup> Dan</>} label="Shihan Mulholland" />
+        <StatCell value="Gavin Mulholland" label={<><DanGrade text="7th Dan" /> Shihan</>} />
         <StatCell value="25 / 26" label="Club of the Year" />
       </StatStrip>
 

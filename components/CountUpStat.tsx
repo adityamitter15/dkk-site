@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { usePrefersReducedMotion } from "@/lib/useMediaQuery";
 
 type Props = {
   value: string;
@@ -21,18 +22,16 @@ function parse(value: string): { leading: number; suffix: string; grouped: boole
 
 export default function CountUpStat({ value, label }: Props) {
   const parsed = parse(value);
+  const target = parsed?.leading ?? null;
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
   const started = useRef(false);
+  const reduced = usePrefersReducedMotion();
 
   useEffect(() => {
-    if (!parsed) return;
-    const target = parsed.leading;
-
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setCount(target);
-      return;
-    }
+    // Reduced motion is handled by rendering the target directly rather than by
+    // setting state here, so this effect never writes state synchronously.
+    if (target === null || reduced) return;
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -57,10 +56,11 @@ export default function CountUpStat({ value, label }: Props) {
 
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
-  }, [parsed?.leading]);
+  }, [target, reduced]);
 
+  const shown = reduced && target !== null ? target : count;
   const display = parsed
-    ? `${parsed.grouped ? count.toLocaleString("en-GB") : count}${parsed.suffix}`
+    ? `${parsed.grouped ? shown.toLocaleString("en-GB") : shown}${parsed.suffix}`
     : value;
 
   return (

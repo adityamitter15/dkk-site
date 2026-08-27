@@ -13,9 +13,11 @@ export default function manifest(): MetadataRoute.Manifest {
     background_color: "#0f0e0c",
     theme_color: "#0f0e0c",
     icons: [
-      { src: "/icon.png", sizes: "48x48", type: "image/png" },
-      { src: "/apple-icon.png", sizes: "180x180", type: "image/png", purpose: "any" },
-      { src: "/apple-icon.png", sizes: "180x180", type: "image/png", purpose: "maskable" },
+      { src: "/icon.png", sizes: "96x96", type: "image/png" },
+      { src: "/icons/icon-192.png", sizes: "192x192", type: "image/png", purpose: "any" },
+      { src: "/icons/icon-512.png", sizes: "512x512", type: "image/png", purpose: "any" },
+      // Maskable carries ~20% padding so Android's circle crop cannot clip the crest's outer ring.
+      { src: "/icons/icon-maskable-512.png", sizes: "512x512", type: "image/png", purpose: "maskable" },
     ],
     categories: ["sports", "fitness", "education"],
   };

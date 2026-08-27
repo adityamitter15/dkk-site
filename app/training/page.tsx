@@ -2,7 +2,7 @@ import PageHero from "@/components/ui/PageHero";
 import CTABand from "@/components/ui/CTABand";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ChevronRight, Clock, MapPin, Users, BookOpen, Award, HelpCircle, TreePine, Video, ExternalLink } from "lucide-react";
+import { ChevronRight, Clock, MapPin, Users, Award, HelpCircle, TreePine, Video, ExternalLink } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
 import ScrollRevealText from "@/components/ui/ScrollRevealText";
 import SafeImage from "@/components/SafeImage";
@@ -410,6 +410,18 @@ export default function TrainingPage() {
             <SectionHeading eyebrow="October" title="Winter Camp" />
             <p className="text-gray-400 leading-relaxed">
               A more technical and relaxed weekend of training held every October in North East London. Focused on detailed study of technique, kata analysis, and socialising with the wider DKK community.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Black Belt Camp - added at the club's request 2026-08-27 */}
+      <section className="section-reveal py-16 sm:py-20 lg:py-28 bg-night border-t border-white/5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-2xl">
+            <SectionHeading eyebrow="January" title="Black Belt Camp" />
+            <p className="text-gray-400 leading-relaxed">
+              A camp for black belts only, held every January. Dan grades from across the club train together, and it takes a club of a certain size to fill one.
             </p>
           </div>
         </div>

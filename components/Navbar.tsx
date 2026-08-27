@@ -8,19 +8,21 @@ import Image from "next/image";
 import { navLinks as links, mobileNavLinks as mobileLinks } from "@/data/site";
 
 export default function Navbar() {
-  const [open, setOpen] = useState(false);
+  // The menu stores WHICH route it was opened on, not a plain boolean, so a
+  // route change closes it on its own. Closing it from an effect keyed to
+  // pathname would be a setState in an effect body: a second render every
+  // navigation, for something the render can simply derive.
+  const [openedOn, setOpenedOn] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+  const open = openedOn === pathname;
+  const setOpen = (next: boolean) => setOpenedOn(next ? pathname : null);
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handler);
     return () => window.removeEventListener("scroll", handler);
   }, []);
-
-  useEffect(() => {
-    setOpen(false);
-  }, [pathname]);
 
   // Lock body scroll while the full-screen menu is open
   useEffect(() => {

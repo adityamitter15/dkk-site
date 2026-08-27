@@ -1,8 +1,9 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
+import { useRef } from "react";
 import { motion, useScroll, useTransform, useReducedMotion } from "motion/react";
 import SafeImage from "@/components/SafeImage";
+import { useIsTouch } from "@/lib/useMediaQuery";
 
 type Props = {
   src: string;
@@ -29,11 +30,7 @@ export default function ParallaxImage({
 }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
   const reduced = useReducedMotion();
-  const [isTouch, setIsTouch] = useState(false);
-
-  useEffect(() => {
-    setIsTouch(window.matchMedia("(hover: none) and (pointer: coarse)").matches);
-  }, []);
+  const isTouch = useIsTouch();
 
   const { scrollYProgress } = useScroll({
     target: containerRef,

@@ -53,8 +53,13 @@ function Lightbox({
   const touchStartX = useRef<number | null>(null);
   const touchStartY = useRef<number | null>(null);
 
+  // Latest-value ref so the key handler below can stay mounted once while still
+  // closing on the image actually being viewed. Written in an effect, never
+  // during render - a render-phase ref write is not safe under concurrent React.
   const currentRef = useRef(current);
-  currentRef.current = current;
+  useEffect(() => {
+    currentRef.current = current;
+  }, [current]);
   const requestClose = useCallback(() => onClose(currentRef.current), [onClose]);
 
   const prev = useCallback(() => setCurrent((c) => (c - 1 + images.length) % images.length), [images.length]);

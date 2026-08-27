@@ -236,9 +236,9 @@ export const grades: GradeTier[] = [
         ],
       },
       {
-        name: "Ralph Mendes",
-        slug: toSlug("Ralph Mendes"),
-        portrait: "/images/Yudansha/ralph_mendes_portrait.jpg",
+        name: "Ralph Mends",
+        slug: toSlug("Ralph Mends"),
+        portrait: "/images/Yudansha/ralph_mends_portrait.jpg",
         action: null,
         milestones: [
           { year: "2024", event: "Sandan" },

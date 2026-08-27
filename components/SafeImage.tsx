@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image, { ImageProps } from "next/image";
 
-export default function SafeImage({ src, ...props }: ImageProps) {
+export default function SafeImage({ src, alt, ...props }: ImageProps) {
   const [failed, setFailed] = useState(false);
   // GIFs must be unoptimized to render correctly (Next.js strips animation otherwise)
   const isGif = typeof src === "string" && src.toLowerCase().endsWith(".gif");
@@ -13,13 +13,13 @@ export default function SafeImage({ src, ...props }: ImageProps) {
     return (
       <div
         role="img"
-        aria-label={typeof props.alt === "string" ? props.alt : undefined}
+        aria-label={typeof alt === "string" ? alt : undefined}
         className={`bg-card border border-white/5 flex items-center justify-center ${
           props.fill ? "absolute inset-0" : ""
         } ${props.className ?? ""}`}
       >
         <span className="text-white/20 text-xs uppercase tracking-widest px-4 text-center">
-          {typeof props.alt === "string" && props.alt ? props.alt : "Image unavailable"}
+          {typeof alt === "string" && alt ? alt : "Image unavailable"}
         </span>
       </div>
     );
@@ -28,6 +28,7 @@ export default function SafeImage({ src, ...props }: ImageProps) {
   return (
     <Image
       src={src}
+      alt={alt}
       {...props}
       unoptimized={isGif ? true : (props.unoptimized ?? false)}
       onError={() => {
