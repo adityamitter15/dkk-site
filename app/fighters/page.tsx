@@ -8,7 +8,7 @@ import CountUpStat from "@/components/CountUpStat";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "DKK Fighters",
+  title: "DKK Fighters - MMA and Cage Fight Record",
   description: "DKK Fighters - 16 wins from our first 20 professional cage fights, a British Heavyweight title, a World Title fight, and one member who reached the UFC.",
   alternates: { canonical: "/fighters" },
   openGraph: { images: ["/og/fighters.jpg"] },

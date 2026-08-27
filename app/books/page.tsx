@@ -8,7 +8,7 @@ import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import { site } from "@/data/site";
 
 export const metadata: Metadata = {
-  title: "Books",
+  title: "Books by Shihan Gavin Mulholland",
   description: "Books by Shihan Gavin Mulholland on Okinawan Goju Ryu karate. Four Shades of Black and More Shades of Black.",
   alternates: { canonical: "/books" },
   openGraph: { images: ["/og/books.jpg"] },

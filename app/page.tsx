@@ -26,7 +26,7 @@ export default function Home() {
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-12 sm:pt-24 sm:pb-16">
           <p className="inline-flex items-center gap-2 text-brand text-[11px] sm:text-xs font-bold uppercase tracking-[0.3em] sm:tracking-[0.35em] mb-5 sm:mb-6">
             <span className="w-6 h-px bg-brand" />
-            Combat Okinawan Goju Ryu · Since 1990
+            Combat Okinawan Goju Ryu · Central London · Since 1990
           </p>
 
           <KineticHeadline

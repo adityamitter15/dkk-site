@@ -13,7 +13,7 @@ import DanGrade from "@/components/DanGrade";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Yudansha - Black Belts",
+  title: "Our Black Belts (Yudansha)",
   description: "The black belts of DKK London. Meet the yudansha who have earned their dan grades through years of demanding training.",
   alternates: { canonical: "/yudansha" },
   openGraph: { images: ["/og/yudansha.jpg"] },

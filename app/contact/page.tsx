@@ -1,3 +1,4 @@
+import Link from "next/link";
 import PageHero from "@/components/ui/PageHero";
 import type { Metadata } from "next";
 import SectionHeading from "@/components/SectionHeading";
@@ -7,8 +8,8 @@ import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Contact",
-  description: "Get in touch with DKK London. Train Okinawan Goju Ryu at 309 Regent Street, London. Monday and Wednesday evenings, 6-8pm.",
+  title: "Find Us - Karate Near Oxford Circus",
+  description: "Train karate at 309 Regent Street, London W1B 2HW, a minute from Oxford Circus. Monday and Wednesday, 6-8pm. Your first class is free and no experience is needed.",
   alternates: { canonical: "/contact" },
 };
 
@@ -82,7 +83,25 @@ export default function ContactPage() {
                     <p className="text-gray-500 text-xs uppercase tracking-widest mb-0.5">Location</p>
                     <p className="text-white font-medium leading-tight">University of Westminster, Main Hall</p>
                     <p className="text-gray-400 text-sm mt-0.5">309 Regent Street, London W1B 2HW</p>
-                    <p className="text-gray-500 text-xs mt-1">No student membership required</p>
+                    <p className="text-gray-500 text-xs mt-1">
+                      No student membership required ·{" "}
+                      <Link href="/faq" className="link-underline text-gold">
+                        first-timers&apos; questions
+                      </Link>
+                    </p>
+                    {/* The club's Google listing carries 5.0 from 20 reviews but
+                        the newest is years old, and review recency is one of the
+                        things that decides who shows up in the local map pack. */}
+                    <p className="text-gray-500 text-xs mt-1">
+                      <a
+                        href="https://maps.google.com/?cid=13776758326457460286"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="link-underline text-gold"
+                      >
+                        Find us on Google Maps
+                      </a>
+                    </p>
                   </div>
                 </div>
 

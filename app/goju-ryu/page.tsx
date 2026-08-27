@@ -8,8 +8,8 @@ import ScrollRevealText from "@/components/ui/ScrollRevealText";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Goju Ryu",
-  description: "Okinawan Goju Ryu explained: hard and soft, the kata, and the close-quarter combat principles behind how DKK London trains.",
+  title: "What Is Okinawan Goju Ryu Karate?",
+  description: "Goju Ryu karate explained: hard and soft, the kata, and the close-quarter combat principles that separate authentic Okinawan Goju Ryu from sport karate.",
   alternates: { canonical: "/goju-ryu" },
   openGraph: { images: ["/og/goju-ryu.jpg"] },
   twitter: { images: ["/og/goju-ryu.jpg"] },

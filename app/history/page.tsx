@@ -10,7 +10,7 @@ import type { ReactNode } from "react";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Goju Ryu History",
+  title: "Goju Ryu History - Okinawa to London",
   description: "From Chojun Miyagi's founding of Goju Ryu on Okinawa to Daigaku Karate Kai in London. The lineage behind the style we train at 309 Regent Street.",
   alternates: { canonical: "/history" },
   openGraph: { images: ["/og/history.jpg"] },

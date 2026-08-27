@@ -8,7 +8,7 @@ import SafeImage from "@/components/SafeImage";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Shihan Gavin Mulholland",
+  title: "Shihan Gavin Mulholland, 7th Dan",
   description: "Shihan Gavin Mulholland, 7th Dan. Founder and chief instructor of Daigaku Karate Kai London. Combat Hall of Fame inductee and published author.",
   alternates: { canonical: "/shihan" },
   openGraph: { images: ["/og/shihan.jpg"] },

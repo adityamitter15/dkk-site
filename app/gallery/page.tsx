@@ -6,7 +6,7 @@ import type { GalleryImage } from "@/components/GalleryLightbox";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Gallery",
+  title: "Karate Photos - Training, Camps and Gradings",
   description: "Photos from DKK London. Training, gradings, tournaments, summer camps and members of Daigaku Karate Kai.",
   alternates: { canonical: "/gallery" },
   openGraph: { images: ["/og/gallery.jpg"] },

@@ -47,6 +47,7 @@ export const navLinks: NavLink[] = [
 // Full list including footer-only items — used for the mobile menu so nothing is hidden on phones.
 export const mobileNavLinks: NavLink[] = [
   ...navLinks,
+  { href: "/faq", label: "Questions" },
   { href: "/links", label: "Links" },
 ];
 
@@ -61,6 +62,7 @@ export const footerLinks: NavLink[] = [
   { href: "/university", label: "University" },
   { href: "/gallery", label: "Gallery" },
   { href: "/books", label: "Books" },
+  { href: "/faq", label: "Questions" },
   { href: "/links", label: "Links" },
   { href: "/contact", label: "Contact" },
 ];

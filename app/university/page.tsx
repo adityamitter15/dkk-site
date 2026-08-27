@@ -12,7 +12,7 @@ import { site } from "@/data/site";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "University of Westminster",
+  title: "University of Westminster Karate Club",
   description: "Daigaku Karate Kai - the oldest sports club at the University of Westminster, training continuously since 1990. UWSU Club of the Year 25/26.",
   alternates: { canonical: "/university" },
   openGraph: { images: ["/og/university.jpg"] },
