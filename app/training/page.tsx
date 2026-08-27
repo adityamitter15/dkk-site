@@ -11,7 +11,7 @@ import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Karate Classes in Central London",
-  description: "Adult karate classes in central London, Monday and Wednesday 6-8pm at 309 Regent Street, one minute from Oxford Circus. Okinawan Goju Ryu for all levels. First class free.",
+  description: "Adult karate classes in central London, Monday and Wednesday 6-8pm at 309 Regent Street, one minute from Oxford Circus. Okinawan Goju Ryu for all levels. Beginners welcome, no uniform needed to start.",
   alternates: { canonical: "/training" },
   openGraph: { images: ["/og/training.jpg"] },
   twitter: { images: ["/og/training.jpg"] },

@@ -212,9 +212,13 @@ export default function ShihanPage() {
             <h2 className="font-display text-4xl sm:text-5xl text-white tracking-wide leading-none">More Shades of Black</h2>
             <p className="text-gray-400 text-sm mt-3 max-w-lg mx-auto">Behind-the-scenes footage from the professional photoshoot for Shihan Mulholland&apos;s acclaimed book.</p>
           </div>
-          <div className="relative rounded-sm overflow-hidden ring-1 ring-gold/20">
+          {/* The source is 480x688, i.e. PORTRAIT. It was sitting in an
+              aspect-video box, so a 16:9 frame was being filled by a 9:13 clip
+              and the browser pillarboxed it with black bars down both sides.
+              The container now matches the footage. */}
+          <div className="relative rounded-sm overflow-hidden ring-1 ring-gold/20 mx-auto w-full max-w-sm sm:max-w-md">
             <video
-              className="w-full aspect-video bg-pitch"
+              className="w-full aspect-[480/688] bg-pitch"
               src="/videos/dkk_bw_photoshoot.mp4"
               poster="/images/Shihan/shihan-portrait-black.jpg"
               controls

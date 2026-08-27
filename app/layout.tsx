@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     default: "Karate in Central London | Daigaku Karate Kai",
     template: "%s | DKK Karate London",
   },
-  description: "Adult karate classes in central London since 1990. Authentic Okinawan Goju Ryu, combat-orientated, under Shihan Gavin Mulholland, 7th Dan. Monday and Wednesday, 6-8pm, one minute from Oxford Circus. First class free.",
+  description: "Adult karate classes in central London since 1990. Authentic Okinawan Goju Ryu, combat-orientated, under Shihan Gavin Mulholland, 7th Dan. Monday and Wednesday, 6-8pm, one minute from Oxford Circus. Beginners welcome, no uniform needed.",
   alternates: { canonical: "/" },
   // Google ignores the keywords meta entirely. Kept only because Bing and some
   // smaller engines still read it, and it costs nothing.

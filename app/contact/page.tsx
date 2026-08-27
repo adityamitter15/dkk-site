@@ -9,7 +9,7 @@ import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Find Us - Karate Near Oxford Circus",
-  description: "Train karate at 309 Regent Street, London W1B 2HW, a minute from Oxford Circus. Monday and Wednesday, 6-8pm. Your first class is free and no experience is needed.",
+  description: "Train karate at 309 Regent Street, London W1B 2HW, a minute from Oxford Circus. Monday and Wednesday, 6-8pm. No experience needed and no uniform for your first class.",
   alternates: { canonical: "/contact" },
 };
 
@@ -123,7 +123,7 @@ export default function ContactPage() {
                   <Banknote className="text-brand flex-shrink-0 mt-0.5" size={20} aria-hidden="true" />
                   <div>
                     <h3 className="text-gray-500 text-xs uppercase tracking-widest mb-0.5">Class Fees</h3>
-                    <p className="text-white font-medium leading-tight">Your first class is free</p>
+                    <p className="text-white font-medium leading-tight">Ask and we&apos;ll tell you straight</p>
                     <p className="text-gray-400 text-sm mt-1 leading-relaxed">
                       We confirm current fees when you get in touch rather than publishing a figure
                       that goes out of date. Ask by email or WhatsApp and we will come straight back

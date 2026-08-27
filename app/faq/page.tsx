@@ -58,7 +58,7 @@ const faqs: { question: string; answer: string }[] = [
     // around it honestly and points at /contact#fees rather than saying nothing.
     question: "How much do the classes cost?",
     answer:
-      "Your first class is free, so you can try a full session before committing to anything. After that we confirm current fees when you get in touch, rather than publishing a figure that goes out of date. Ask by email or WhatsApp and you will get an answer straight back. You also do not need a University of Westminster student membership, which catches a lot of people out.",
+      "We confirm current fees when you get in touch rather than publishing a figure that goes out of date, so ask by email or WhatsApp and you will get an answer straight back. Two things worth knowing before you do: you do not need a University of Westminster student membership to train here, which catches a lot of people out, and you do not need to buy a gi before your first class.",
   },
   {
     question: "Is this suitable for adults?",
@@ -180,7 +180,7 @@ export default function FAQPage() {
       </section>
 
       <CTABand
-        title="Your first class is free"
+        title="Come and train with us"
         sub="Monday & Wednesday · 6:00pm - 8:00pm · 309 Regent Street, London W1B 2HW"
       />
     </>
