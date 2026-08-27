@@ -155,56 +155,6 @@
         "type": 301
       },
       {
-        "source": "/index.php%3Fpage%3DBooks.html",
-        "destination": "/books",
-        "type": 301
-      },
-      {
-        "source": "/index.php%3Fpage%3DClub-Shihan.html",
-        "destination": "/shihan",
-        "type": 301
-      },
-      {
-        "source": "/index.php%3Fpage%3DContact.html",
-        "destination": "/contact",
-        "type": 301
-      },
-      {
-        "source": "/index.php%3Fpage%3DDKK-Fighters.html",
-        "destination": "/fighters",
-        "type": 301
-      },
-      {
-        "source": "/index.php%3Fpage%3DGallery.html",
-        "destination": "/gallery",
-        "type": 301
-      },
-      {
-        "source": "/index.php%3Fpage%3DGoju-Ryu.html",
-        "destination": "/goju-ryu",
-        "type": 301
-      },
-      {
-        "source": "/index.php%3Fpage%3DHistory.html",
-        "destination": "/history",
-        "type": 301
-      },
-      {
-        "source": "/index.php%3Fpage%3DLinks.html",
-        "destination": "/links",
-        "type": 301
-      },
-      {
-        "source": "/index.php%3Fpage%3DTraining.html",
-        "destination": "/training",
-        "type": 301
-      },
-      {
-        "source": "/index.php%3Fpage%3DYudansha.html",
-        "destination": "/yudansha",
-        "type": 301
-      },
-      {
         "source": "/books_every_waking_moment.html",
         "destination": "/books",
         "type": 301
@@ -215,34 +165,84 @@
         "type": 301
       },
       {
-        "source": "/index.php%3Fpage%3Dcourses.html",
-        "destination": "/training",
-        "type": 301
-      },
-      {
-        "source": "/index.php%3Fpage%3Dfaqs.html",
-        "destination": "/training",
-        "type": 301
-      },
-      {
-        "source": "/index.php%3Fpage%3DFour-Shades-of-Black.html",
+        "regex": "^\\/index\\.php(%3F|\\?)page(%3D|=)Books\\.html$",
         "destination": "/books",
         "type": 301
       },
       {
-        "source": "/index.php%3Fpage%3Dgradings.html",
+        "regex": "^\\/index\\.php(%3F|\\?)page(%3D|=)Club\\-Shihan\\.html$",
+        "destination": "/shihan",
+        "type": 301
+      },
+      {
+        "regex": "^\\/index\\.php(%3F|\\?)page(%3D|=)Contact\\.html$",
+        "destination": "/contact",
+        "type": 301
+      },
+      {
+        "regex": "^\\/index\\.php(%3F|\\?)page(%3D|=)DKK\\-Fighters\\.html$",
+        "destination": "/fighters",
+        "type": 301
+      },
+      {
+        "regex": "^\\/index\\.php(%3F|\\?)page(%3D|=)Four\\-Shades\\-of\\-Black\\.html$",
+        "destination": "/books",
+        "type": 301
+      },
+      {
+        "regex": "^\\/index\\.php(%3F|\\?)page(%3D|=)Gallery\\.html$",
+        "destination": "/gallery",
+        "type": 301
+      },
+      {
+        "regex": "^\\/index\\.php(%3F|\\?)page(%3D|=)Goju\\-Ryu\\.html$",
+        "destination": "/goju-ryu",
+        "type": 301
+      },
+      {
+        "regex": "^\\/index\\.php(%3F|\\?)page(%3D|=)History\\.html$",
+        "destination": "/history",
+        "type": 301
+      },
+      {
+        "regex": "^\\/index\\.php(%3F|\\?)page(%3D|=)Links\\.html$",
+        "destination": "/links",
+        "type": 301
+      },
+      {
+        "regex": "^\\/index\\.php(%3F|\\?)page(%3D|=)Training\\.html$",
         "destination": "/training",
         "type": 301
       },
       {
-        "source": "/index.php%3Fpage%3Dwaking-dragons-2.html",
+        "regex": "^\\/index\\.php(%3F|\\?)page(%3D|=)Yudansha\\.html$",
+        "destination": "/yudansha",
+        "type": 301
+      },
+      {
+        "regex": "^\\/index\\.php(%3F|\\?)page(%3D|=)courses\\.html$",
+        "destination": "/training",
+        "type": 301
+      },
+      {
+        "regex": "^\\/index\\.php(%3F|\\?)page(%3D|=)faqs\\.html$",
+        "destination": "/training",
+        "type": 301
+      },
+      {
+        "regex": "^\\/index\\.php(%3F|\\?)page(%3D|=)gradings\\.html$",
+        "destination": "/training",
+        "type": 301
+      },
+      {
+        "regex": "^\\/index\\.php(%3F|\\?)page(%3D|=)waking\\-dragons\\-2\\.html$",
         "destination": "/books",
         "type": 301
       }
     ],
     "rewrites": [
       {
-        "source": "/index.php",
+        "source": "/index.php**",
         "destination": "/legacy.html"
       }
     ],

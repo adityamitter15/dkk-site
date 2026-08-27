@@ -23,8 +23,14 @@
     "waking-dragons-2.html": "/books",
     "yudansha.html": "/yudansha"
   };
-  var m = /[?&]page=([^&]+)/.exec(window.location.search);
-  var key = m ? decodeURIComponent(m[1]).toLowerCase() : "";
+  // The legacy site links to these two ways round: a real query string
+  // (/index.php?page=X) and the "?" percent-encoded into the path
+  // (/index.php%3Fpage%3DX). Production decodes the second into a literal "?"
+  // inside the path, so read the whole decoded URL rather than just .search.
+  var raw = window.location.href;
+  try { raw = decodeURIComponent(raw); } catch (e) {}
+  var m = /[?&]page=([^&#]+)/.exec(raw);
+  var key = m ? m[1].toLowerCase() : "";
   window.location.replace(map[key] || "/");
 })();
 </script>
