@@ -223,7 +223,7 @@ export const grades: GradeTier[] = [
       {
         name: "Mike Thornton",
         slug: toSlug("Mike Thornton"),
-        portrait: "/images/Yudansha/mike_website1.jpg",
+        portrait: "/images/Yudansha/mike_thornton_portrait.jpg",
         action: "/images/Yudansha/mike_website2.jpg",
         bio: "Mike joined DKK in 2007 with a prior black belt in Taekwondo from New Zealand.",
         quote: "I was impressed with the student calibre and Sensei Mulholland's teaching. Goju Karate presents the ongoing challenge of mastering the hard/soft relationship in training.",
@@ -236,10 +236,9 @@ export const grades: GradeTier[] = [
         ],
       },
       {
-        // Still no photo of Ralph anywhere in the repo.
         name: "Ralph Mendes",
         slug: toSlug("Ralph Mendes"),
-        portrait: null,
+        portrait: "/images/Yudansha/ralph_mendes_portrait.jpg",
         action: null,
         milestones: [
           { year: "2024", event: "Sandan" },

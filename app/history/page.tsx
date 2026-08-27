@@ -60,9 +60,9 @@ const chapters: Chapter[] = [
     subtitle: "Shihan Mulholland and Shihan Lewis carry the Okinawan tradition into a new generation, building DKK into one of the UK's strongest karate clubs.",
     entries: [
       {
-        period: "1990 - 1992",
+        period: "1990",
         title: "DKK Founded",
-        body: "After meeting as Black Belts under Kyoshi Kim Roberts in 1990, Gavin Mulholland and Dan Lewis set up Daigaku Karate Kai in 1992. The name - 'university' or 'place of learning' - was chosen because both clubs were initially established inside universities. From the outset DKK held to a combat-orientated reading of Goju Ryu, drawing additionally on Shihan Dave Arnold, Master Steve Morris, and Sensei Nick Hughes.",
+        body: "After meeting as Black Belts under Kyoshi Kim Roberts, Gavin Mulholland and Dan Lewis set up Daigaku Karate Kai in 1990. The name - 'university' or 'place of learning' - was chosen because both clubs were initially established inside universities. DKK remains true to the combat-orientated nature of Goju Ryu, drawing additionally on Kyoshi Kim Roberts, Shihan Dave Arnold, Master Steve Morris, and Sensei Nick Hughes.",
       },
       {
         period: "Today",
@@ -129,7 +129,7 @@ export default function HistoryPage() {
             text="Hard and soft. Forged in Okinawa."
           />
           <p className="text-gray-400 text-lg leading-relaxed max-w-2xl mx-auto">
-            The style we practise was hand-built by Chojun Miyagi on Okinawa in the early 20th century - a fusion of Chinese systems and the island&apos;s own fighting arts. Today the same Goju Ryu lives on at 309 Regent Street, every Monday and Wednesday.
+            The style we practise was created by Chojun Miyagi on Okinawa in the early 20th century - a fusion of Chinese systems and the island&apos;s own fighting arts. Today the same Goju Ryu lives on at 309 Regent Street, every Monday and Wednesday.
           </p>
           <div className="grid grid-cols-3 gap-3 sm:gap-6 mt-12 max-w-2xl mx-auto">
             {[
@@ -261,9 +261,9 @@ export default function HistoryPage() {
                               <p className="text-gray-400 text-sm leading-relaxed">{item.body}</p>
                               {isFoundingEra && (
                                 <div className="mt-4 relative rounded-sm overflow-hidden" style={{ aspectRatio: "4/3" }}>
-                                  <SafeImage src="/images/Site/archive-grading-certificates.jpg" alt="DKK London founding-era grading, 1990s" fill className="object-cover object-center" />
+                                  <SafeImage src="/images/Site/archive-shinto-grading-1980s.jpg" alt="Grading line-up at the Shinto Karate School, early 1980s" fill className="object-cover object-center" />
                                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-                                  <p className="absolute bottom-2 left-3 text-white/80 text-[10px] uppercase tracking-widest">Founding-era grading &middot; Early 1990s</p>
+                                  <p className="absolute bottom-2 left-3 text-white/80 text-[10px] uppercase tracking-widest">Shinto Karate School &middot; Early 1980s</p>
                                 </div>
                               )}
                               {isToday && (
@@ -315,11 +315,12 @@ export default function HistoryPage() {
             </div>
             {[
               { src: "/images/Site/archive-group-exit-sign.jpg",       label: "Old Hall",     sub: "Training days past" },
-              { src: "/images/Site/archive-group-sepia.jpg",            label: "Club Photo",   sub: "The early members" },
+              { src: "/images/Site/archive-club-photo-early-members.jpg", label: "Club Photo",   sub: "The early members" },
               { src: "/images/Site/archive-shihan-neil-grading.jpg",    label: "Title Belts",  sub: "Neil Grove with Shihan & Dan Lewis" },
               { src: "/images/Shihan/Archive/shihan-flying-kick-90s.jpg", label: "Flying Kick",   sub: "A young Shihan" },
               { src: "/images/Shihan/Archive/shihan-young-headlock.jpg",    label: "Control",       sub: "From the early archive" },
               { src: "/images/Shihan/Archive/shihan-young-technique.jpg",   label: "Technique",     sub: "Early DKK" },
+              { src: "/images/Fighters/neil-grove-belts-crew.jpg",      label: "Black Belts",  sub: "From the early archive" },
             ].map((img) => (
               <div key={img.src} className="relative aspect-[4/3] rounded-sm overflow-hidden bg-card group">
                 <SafeImage src={img.src} alt={img.label} fill className="object-cover group-hover:scale-105 transition-transform duration-700" />

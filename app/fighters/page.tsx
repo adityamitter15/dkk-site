@@ -19,10 +19,10 @@ const fighters = [
   {
     name: "Neil \"Goliath\" Grove",
     record: "12-8-1",
-    highlight: "UCMMA British Heavyweight Champion \u00b7 Bellator World Title Fight \u00b7 UFC",
+    highlight: "UCMMA British Heavyweight Champion \u00b7 BAMMA World Title Fight \u00b7 UFC",
     image: "/images/Fighters/neil-grove-victory-cage.jpg",
     portrait: "/images/Fighters/neil-grove-title-portrait.jpg",
-    bio: "After a nightclub incident, Neil and a fellow bouncer were made to take Goju Ryu classes at DKK. He earned his Shodan in 2005 and went on to compete at the highest level. At Cage Rage 22, he knocked out James \"Colossus\" Thompson in 10 seconds on two days notice. He was crowned UCMMA British Heavyweight Champion, fought for the World Title in the Bellator Heavyweight Tournament Final, and competed in the UFC. All 12 of his wins came by KO or TKO.",
+    bio: "After a nightclub incident, Neil and a fellow bouncer were made to take Goju Ryu classes at DKK. He earned his Shodan in 2005 and went on to compete at the highest level. At Cage Rage 22, he knocked out James \"Colossus\" Thompson in 10 seconds on two days notice. He was crowned UCMMA British Heavyweight Champion, fought for the BAMMA World Heavyweight Title, and competed in the UFC. All 12 of his wins came by KO or TKO.",
     stats: [
       { label: "Wins", value: "12" },
       { label: "All by KO/TKO", value: "100%" },
@@ -106,22 +106,23 @@ export default function FightersPage() {
                 While the club&apos;s primary focus is on combat, not competition, there is genuine benefit to be had from testing yourself against an aggressive, non-cooperative opponent, and the MMA scene offers just that challenge.
               </p>
               <p className="text-gray-400 leading-relaxed mb-5">
-                There is never any pressure on students to compete. But several have chosen to test themselves in this extreme environment. For a karate club, the record is remarkable: the first 20 fights yielded <strong className="text-white">16 wins</strong>, one finalist in the reality TV show <em>Fighting Hurts</em>, the <strong className="text-white">UCMMA British Heavyweight title</strong>, and a fight for the <strong className="text-white">World Title</strong> in the Bellator Heavyweight Tournament. One member even made it as far as the <strong className="text-white">UFC</strong>.
+                There is never any pressure on students to compete. But several have chosen to test themselves in this extreme environment. Our record in the cage remains one of the best of any club in the UK: the first 20 fights yielded 16 wins, one finalist in the reality TV show <em>Fighting Hurts</em>, the <strong className="text-white">UCMMA British Heavyweight title</strong>, and a fight for the <strong className="text-white">BAMMA World Heavyweight Title</strong>. One member even made it as far as the <strong className="text-white">UFC</strong>.
               </p>
               <p className="text-gray-400 leading-relaxed mb-5">
-                Members of DKK Fighters have appeared regularly in the UK&apos;s premier MMA events including Cage Rage, Ultimate Challenge, Bellator and BAMMA.
+                Members of DKK Fighters appeared regularly in the UK&apos;s premier MMA events including Cage Rage, Ultimate Challenge, Bellator and BAMMA.
               </p>
               <p className="text-white font-display text-2xl tracking-[0.25em] uppercase mt-8 pt-6 border-t border-brand/30">
                 Tested. Passed. Done.
               </p>
             </div>
 
-            <div className="relative rounded-sm overflow-hidden aspect-[4/5] lg:aspect-[3/4] bg-card">
-              <SafeImage src="/images/Fighters/neil-grove-belts-crew.jpg" alt="DKK Fighters with championship belts" fill className="object-cover object-top" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+            <div className="relative rounded-sm overflow-hidden aspect-[4/5] lg:aspect-[3/4] bg-coal flex items-center justify-center p-6">
+              <div className="relative w-full max-w-[280px] aspect-[221/305] rounded-sm overflow-hidden shadow-lg">
+                <SafeImage src="/images/Fighters/dkk.jpg" alt="DKK Fighters on the Ultimate Arena bill at the Troxy, 2010" fill className="object-contain" />
+              </div>
               <div className="absolute bottom-4 left-4">
                 <p className="text-white font-display text-xl tracking-wide">DKK Fighters</p>
-                <p className="text-brand text-xs uppercase tracking-widest">Cage Rage · Bellator · BAMMA · UFC</p>
+                <p className="text-brand text-xs uppercase tracking-widest">Cage Rage &middot; Bellator &middot; BAMMA &middot; UFC</p>
               </div>
             </div>
           </div>

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import SafeImage from "@/components/SafeImage";
+import LiveYear from "@/components/ui/LiveYear";
 import { footerLinks } from "@/data/site";
 
 export default function Footer() {
@@ -19,7 +20,7 @@ export default function Footer() {
             剛柔流
           </span>
           <p className="mt-3 text-brand text-[10px] sm:text-xs font-bold uppercase tracking-[0.35em]">
-            Okinawan Goju Ryu · London · Est. 1992
+            Okinawan Goju Ryu · London · Est. 1990
           </p>
         </div>
 
@@ -115,7 +116,7 @@ export default function Footer() {
 
         <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-center sm:text-left">
           <p className="text-gray-600 text-xs">
-            &copy; {new Date().getFullYear()} Daigaku Karate Kai London. All rights reserved.
+            &copy; <LiveYear /> Daigaku Karate Kai London. All rights reserved.
           </p>
           <p className="text-gray-600 text-xs flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
             <span>Okinawan Goju Ryu</span>

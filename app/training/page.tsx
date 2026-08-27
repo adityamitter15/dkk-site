@@ -61,10 +61,12 @@ export default function TrainingPage() {
 
             <div className="relative aspect-[4/3] lg:aspect-auto lg:min-h-full">
               <div className="absolute inset-0 rounded-sm overflow-hidden bg-card">
-                <SafeImage src="/images/Training/dojo-sparring.JPG" alt="DKK training - sparring in the dojo" fill className="object-cover object-center" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                <SafeImage src="/images/Club/indoor-class-group.JPG" alt="A full DKK class in the main hall at 309 Regent Street" fill className="object-cover object-center" />
+                {/* This photo is pale where the caption sits, so the scrim carries more
+                    weight than elsewhere. Zero-alpha stops, not via/to-transparent. */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-black/0" />
                 <div className="absolute bottom-4 left-4">
-                  <p className="text-brand text-xs uppercase tracking-widest">Close-Quarter Combat</p>
+                  <p className="text-brand text-xs uppercase tracking-widest">The Main Hall</p>
                   <p className="text-white font-display text-lg tracking-wide">Every session. Every week.</p>
                 </div>
               </div>
@@ -299,14 +301,14 @@ export default function TrainingPage() {
             <div>
               <SectionHeading eyebrow="Annual Event" title="Summer Camp" />
               <p className="text-gray-400 leading-relaxed mb-5">
-                The cornerstone of the DKK calendar. Every June, members gather at Glenny Wood, a 23-acre woodland campsite in Portishead, for four days of intensive training, gradings and socialising.
+                The cornerstone of the DKK calendar. Every June, members gather in the woods near Portishead for four days of intensive training, gradings and socialising.
               </p>
               <p className="text-gray-400 leading-relaxed mb-5">
                 Practitioners from London, Portishead, as well as our satellite clubs and the national and international DKK diaspora train together outdoors. Black belt gradings for <strong className="text-white">Shodan</strong> and <strong className="text-white">Nidan</strong> are held here, including the <strong className="text-white">30 Man Kumite</strong>.
               </p>
               <div className="space-y-3 mb-8">
                 {[
-                  { icon: TreePine, title: "Glenny Wood", body: "23-acre woodland campsite in Portishead, North Somerset. Four days of camping, training and community." },
+                  { icon: TreePine, title: "The Woods", body: "Woodland campsite near Portishead, North Somerset. Four days of camping, training and community." },
                   { icon: Users, title: "The DKK Diaspora", body: "Practitioners travel in from across the UK and internationally to train together as one." },
                   { icon: Award, title: "Black Belt Gradings", body: "Black belt gradings for Shodan and Nidan are held here, including the 30 Man Kumite." },
                 ].map((item) => (

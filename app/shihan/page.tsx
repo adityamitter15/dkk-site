@@ -78,7 +78,7 @@ export default function ShihanPage() {
                 </p>
               </blockquote>
               <p className="text-gray-400 leading-relaxed mb-5">
-                A member of the Combat Hall of Fame, Gavin was awarded Godan in 2002, Rokudan in June 2009, and was promoted to Nanadan (<DanGrade text="7th Dan" />) in June 2019 by the Chairman of the OMAA, Shihan Roger Sheldon.
+                A member of the Combat Hall of Fame, Gavin was awarded Godan in 2002, alongside the title of Shihan, from Kyoshi Kim Roberts. He was awarded Rokudan in June 2009, and was promoted to Nanadan (<DanGrade text="7th Dan" />) in June 2019 by the Chairman of the OMAA, Shihan Roger Sheldon, and Shihan Dave Arnold.
               </p>
               <p className="text-gray-400 leading-relaxed mb-8">
                 He spent many years on the door as a regular instructor for Meido Ltd, specialising in door supervision, security and close protection. He has made TV and film appearances, published regular articles, and wrote the highly acclaimed <em>Four Shades of Black</em>. He is Chief Instructor of DKK alongside Shihan Dan Lewis of DKK Portishead.

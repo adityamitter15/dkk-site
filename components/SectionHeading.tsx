@@ -1,6 +1,8 @@
+import type { ReactNode } from "react";
+
 interface SectionHeadingProps {
   eyebrow?: string;
-  title: string;
+  title: ReactNode;
   subtitle?: string;
   centered?: boolean;
 }

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ChevronLeft, ChevronRight, Clock, MapPin, Video, ExternalLink } from "lucide-react";
 import SafeImage from "@/components/SafeImage";
 import DanGrade from "@/components/DanGrade";
+import LiveYears from "@/components/ui/LiveYears";
 import { getAllMembers, getMemberBySlug } from "@/data/yudansha";
 
 const gradeDescriptor: Record<string, string> = {
@@ -154,10 +155,10 @@ export default async function MemberPage({ params }: { params: Promise<{ slug: s
                     <p className="text-white font-display text-2xl tracking-wide">{firstMilestone}</p>
                   </div>
                 )}
-                {yearsTraining && yearsTraining > 0 && (
+                {firstMilestone && yearsTraining && yearsTraining > 0 && (
                   <div className="border-l-2 border-brand/40 pl-4">
                     <p className="text-gray-500 text-[10px] uppercase tracking-widest">Years training</p>
-                    <p className="text-white font-display text-2xl tracking-wide">{yearsTraining}+</p>
+                    <p className="text-white font-display text-2xl tracking-wide"><LiveYears since={parseInt(firstMilestone)} form="digits" />+</p>
                   </div>
                 )}
                 <div className="border-l-2 border-brand/40 pl-4">

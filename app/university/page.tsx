@@ -7,6 +7,8 @@ import { ChevronRight, Trophy, Award, MapPin, Calendar, Instagram } from "lucide
 import SafeImage from "@/components/SafeImage";
 import SectionHeading from "@/components/SectionHeading";
 import ScrollRevealText from "@/components/ui/ScrollRevealText";
+import LiveYears from "@/components/ui/LiveYears";
+import { site } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "University of Westminster",
@@ -32,7 +34,7 @@ export default function UniversityPage() {
         kanji="大学"
         kanjiTone="gold"
         title="University"
-        lead="At Westminster since 1990. Daigaku Karate Kai has trained at the University of Westminster under the same instructor for thirty-six years."
+        lead={<>At Westminster since 1990. Daigaku Karate Kai has trained at the University of Westminster under the same instructor for <LiveYears since={site.atWestminsterSince} lower /> years.</>}
         image={{ src: "/images/Club/university-grading-group-2026.jpg", alt: "DKK Karate Club members with their grading certificates in the Regent Street main hall" }}
       />
 
@@ -49,7 +51,7 @@ export default function UniversityPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-14 items-stretch">
             <div>
-              <SectionHeading eyebrow="The Partnership" title="Thirty-Six Years at Regent Street" />
+              <SectionHeading eyebrow="The Partnership" title={<><LiveYears since={site.atWestminsterSince} /> Years at Regent Street</>} />
               <p className="text-gray-400 leading-relaxed mb-5">
                 Daigaku Karate Kai was set up at the University of Westminster in 1990 and has been led by the same instructor - <strong className="text-white">Shihan Gavin Mulholland</strong> - from day one. It is the oldest sports club in the university and remains one of the most active.
               </p>
@@ -93,7 +95,7 @@ export default function UniversityPage() {
           <div className="grid lg:grid-cols-[1fr_320px] gap-10 lg:gap-16 items-center mb-16">
             <div>
               <p className="text-gray-300 leading-relaxed text-base sm:text-lg mb-5">
-                At the 2025/26 UWSU Awards, Daigaku Karate Kai was named <strong className="text-white">Club of the Year - Karate</strong>. The recognition reflects thirty-six years of consistent training, the strength of the current committee, and the work the club puts in year after year inside and outside the dojo.
+                At the 2025/26 UWSU Awards, Daigaku Karate Kai was named <strong className="text-white">Club of the Year - Karate</strong>. The recognition reflects <LiveYears since={site.atWestminsterSince} lower /> years of consistent training, the strength of the current committee, and the work the club puts in year after year inside and outside the dojo.
               </p>
               <p className="text-gray-400 leading-relaxed">
                 For a club whose primary focus is combat rather than competition, the trophy means something different to many of the other awards in the room: it is acknowledgement from the wider University community that the way we train still matters.

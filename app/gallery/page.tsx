@@ -157,8 +157,6 @@ const images: GalleryImage[] = [
   { src: "/images/Yudansha/tunde_black_gi_studio.jpg",       alt: "Tunde Oladimeji - black dogi studio portrait", caption: "Tunde Oladimeji - 5th Dan",        tall: true,  category: "Yudansha" },
   { src: "/images/Yudansha/mizuki_kata_studio.jpg",          alt: "Mizuki Murai - kata studio portrait",          caption: "Mizuki Murai - Kata",              tall: true,  category: "Yudansha" },
   { src: "/images/Yudansha/laila_bo.jpg",                    alt: "Laila Al-Minyawi with bo - studio portrait",   caption: "Laila Al-Minyawi - Bo Staff",      tall: true,  category: "Yudansha" },
-  { src: "/images/Yudansha/simon_clinch_headshot_bw.jpg",    alt: "Simon Clinch - black & white headshot",        caption: "Simon Clinch - Studio",            tall: true,  category: "Yudansha" },
-  { src: "/images/Yudansha/simon_clinch_portrait_color.jpg", alt: "Simon Clinch - portrait",                      caption: "Simon Clinch - Portrait",          tall: true,  category: "Yudansha" },
 
   // Training - recent
   { src: "/images/Training/kumite_high_kick_dramatic.jpg",   alt: "Dramatic high kick in kumite",                 caption: "Kumite - Dramatic High Kick",      tall: false, category: "Training" },

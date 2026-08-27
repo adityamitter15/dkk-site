@@ -82,7 +82,7 @@ export default function RootLayout({
     description: "Okinawan Goju Ryu karate for adults in central London. Combat-orientated training under Shihan Gavin Mulholland, 7th Dan.",
     url: "https://www.goju-karate.co.uk",
     logo: "https://www.goju-karate.co.uk/images/DKKCircularLogo.jpg",
-    foundingDate: "1992",
+    foundingDate: "1990",
     telephone: "+447976411901",
     email: "info@goju-karate.co.uk",
     address: {

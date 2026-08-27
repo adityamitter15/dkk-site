@@ -1,15 +1,15 @@
 /**
  * Single source of truth for club facts, contact details, and navigation.
- * Canon: founders met in 1990; DKK founded in 1992; training at the
- * University of Westminster since 1990.
+ * Canon: founders met as Black Belts under Kyoshi Kim Roberts; DKK founded
+ * in 1990; training at the University of Westminster since 1990.
  */
 export const site = {
   name: "Daigaku Karate Kai London",
   shortName: "DKK London",
   url: "https://www.goju-karate.co.uk",
-  foundedYear: 1992,
+  foundedYear: 1990,
   atWestminsterSince: 1990,
-  estLine: "Est. 1992 · At Westminster since 1990",
+  estLine: "Est. 1990 · At Westminster since 1990",
   phone: "+447976411901",
   email: "info@goju-karate.co.uk",
   address: {

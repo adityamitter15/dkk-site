@@ -120,7 +120,7 @@ export default function BooksPage() {
           <SectionHeading
             eyebrow="Written by Shihan Mulholland"
             title="DKK Books"
-            subtitle="Shihan Gavin Mulholland is a published author on Okinawan Goju Ryu. His books are considered essential reading for serious practitioners and draw on decades of training, teaching and research."
+            subtitle="Shihan Gavin Mulholland is a bestselling published author on Okinawan Goju Ryu. His books are considered essential reading for serious practitioners and draw on decades of training, teaching and research."
           />
           <div className="max-w-3xl">
             {dkkBooks.map((book) => (
