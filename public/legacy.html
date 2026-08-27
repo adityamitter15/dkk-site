@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Redirecting to Daigaku Karate Kai London</title>
+<script>
+(function () {
+  var map = {
+    "books.html": "/books",
+    "club-shihan.html": "/shihan",
+    "contact.html": "/contact",
+    "dkk-fighters.html": "/fighters",
+    "gallery.html": "/gallery",
+    "goju-ryu.html": "/goju-ryu",
+    "history.html": "/history",
+    "links.html": "/links",
+    "training.html": "/training",
+    "yudansha.html": "/yudansha"
+  };
+  var m = /[?&]page=([^&]+)/.exec(window.location.search);
+  var key = m ? decodeURIComponent(m[1]).toLowerCase() : "";
+  window.location.replace(map[key] || "/");
+})();
+</script>
+<style>
+  body { background:#0f0e0c; color:#e8e3d9; font-family:system-ui,-apple-system,sans-serif;
+         display:flex; align-items:center; justify-content:center; min-height:100vh; margin:0; padding:24px; }
+  .box { max-width:34rem; text-align:center; }
+  h1 { font-size:1.25rem; font-weight:600; margin:0 0 .75rem; }
+  p { color:#9a9287; line-height:1.6; margin:0 0 1.25rem; }
+  nav { display:flex; flex-wrap:wrap; gap:.5rem 1.25rem; justify-content:center; }
+  a { color:#c9a96e; }
+</style>
+</head>
+<body>
+<div class="box">
+  <h1>Daigaku Karate Kai London</h1>
+  <p>This page has moved. Taking you to the new site.</p>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/training">Training</a>
+    <a href="/shihan">Shihan</a>
+    <a href="/yudansha">Yudansha</a>
+    <a href="/gallery">Gallery</a>
+    <a href="/contact">Contact</a>
+  </nav>
+</div>
+</body>
+</html>

@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
 import BackToTop from "@/components/BackToTop";
 import ScrollProgress from "@/components/ScrollProgress";
+import { site } from "@/data/site";
 
 const bebas = Bebas_Neue({
   weight: "400",
@@ -38,7 +39,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.goju-karate.co.uk"),
+  metadataBase: new URL(site.url),
   title: {
     default: "Daigaku Karate Kai London - Okinawan Goju Ryu",
     template: "%s | DKK London",
@@ -80,8 +81,8 @@ export default function RootLayout({
     name: "Daigaku Karate Kai London",
     alternateName: "DKK London",
     description: "Okinawan Goju Ryu karate for adults in central London. Combat-orientated training under Shihan Gavin Mulholland, 7th Dan.",
-    url: "https://www.goju-karate.co.uk",
-    logo: "https://www.goju-karate.co.uk/images/DKKCircularLogo.jpg",
+    url: site.url,
+    logo: `${site.url}/images/DKKCircularLogo.jpg`,
     foundingDate: "1990",
     telephone: "+447976411901",
     email: "info@goju-karate.co.uk",
@@ -102,7 +103,7 @@ export default function RootLayout({
       { "@type": "OpeningHoursSpecification", dayOfWeek: "Wednesday", opens: "18:00", closes: "20:00" },
     ],
     sport: "Karate",
-    image: "https://www.goju-karate.co.uk/images/Club/dojo-full-class.JPG",
+    image: `${site.url}/images/Club/dojo-full-class.JPG`,
     sameAs: [
       "https://www.instagram.com/dkk_karate_london",
       "https://www.facebook.com/groups/24449490051/",

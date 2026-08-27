@@ -6,7 +6,9 @@
 export const site = {
   name: "Daigaku Karate Kai London",
   shortName: "DKK London",
-  url: "https://www.goju-karate.co.uk",
+  // Canonical host: apex, no "www". Every other file (layout, sitemap, robots)
+  // derives its host from this value, so never write the host separately again.
+  url: "https://goju-karate.co.uk",
   foundedYear: 1990,
   atWestminsterSince: 1990,
   estLine: "Est. 1990 · At Westminster since 1990",

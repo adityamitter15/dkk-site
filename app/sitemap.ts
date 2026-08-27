@@ -1,9 +1,10 @@
 import type { MetadataRoute } from "next";
 import { getAllMembers } from "@/data/yudansha";
+import { site } from "@/data/site";
 
 export const dynamic = "force-static";
 
-const BASE_URL = "https://www.goju-karate.co.uk";
+const BASE_URL = site.url;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
