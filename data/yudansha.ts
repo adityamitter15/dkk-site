@@ -12,6 +12,14 @@ export type ClassSchedule = {
   format: "in-person" | "zoom";
 };
 
+/** An extra photo on a member page, beyond the portrait and action shot. */
+export type MemberPhoto = {
+  src: string;
+  alt: string;
+  /** Shown on hover and in the lightbox. Keep it short. */
+  caption: string;
+};
+
 export type Member = {
   name: string;
   slug: string;
@@ -20,6 +28,8 @@ export type Member = {
   bio?: string;
   quote?: string;
   milestones?: Milestone[];
+  /** Optional extra photos, rendered as a strip under the timeline. Four reads best. */
+  photos?: MemberPhoto[];
   instructor?: boolean;
   classes?: ClassSchedule[];
 };
@@ -234,12 +244,34 @@ export const grades: GradeTier[] = [
           { year: "2015", event: "30 Man Kumite & Nidan" },
           { year: "2024", event: "Sandan" },
         ],
+        photos: [
+          {
+            src: "/images/Yudansha/mike_thornton_kumite.jpg",
+            alt: "Mike Thornton in a close-range exchange with a partner in a white gi",
+            caption: "Close range",
+          },
+          {
+            src: "/images/Yudansha/mike_thornton_grappling.jpg",
+            alt: "Mike Thornton controlling a partner's head in the clinch",
+            caption: "In the clinch",
+          },
+          {
+            src: "/images/Yudansha/mike_thornton_seminar.jpg",
+            alt: "Mike Thornton on the mat as a student kicks a shield beside him",
+            caption: "On the mat",
+          },
+          {
+            src: "/images/Yudansha/mike_thornton_crew.jpg",
+            alt: "Mike Thornton with three fellow black belts",
+            caption: "Black belts",
+          },
+        ],
       },
       {
         name: "Ralph Mends",
         slug: toSlug("Ralph Mends"),
         portrait: "/images/Yudansha/ralph_mends_portrait.jpg",
-        action: null,
+        action: "/images/Yudansha/ralph_mends_action.jpg",
         milestones: [
           { year: "2024", event: "Sandan" },
         ],
@@ -465,8 +497,12 @@ export const grades: GradeTier[] = [
         name: "Carlotta Roveri",
         slug: toSlug("Carlotta Roveri"),
         portrait: "/images/Yudansha/carlotta_roveri.jpg",
-        action: null,
+        action: "/images/Yudansha/carlotta_roveri_kata.jpg",
+        bio: "Carlotta began training in DKK in September 2018 after moving to London to study at the University of Westminster. Prior to joining DKK, she trained in Shotokan karate from a young age, achieving the rank of 1st Kyu. She successfully graded for her Shodan at the 2026 Summer Camp.",
+        quote: "I first joined because I was looking for something familiar. However, I stayed because it took me completely out of my comfort zone. What I've achieved, and continue to achieve, through my training makes me incredibly proud of myself. Looking back over the past eight years, I'm in awe of the person I've become thanks to DKK.",
         milestones: [
+          { year: "2018", event: "Joined DKK" },
+          { year: "2019", event: "First Tameshiwari & DKK Badge" },
           { year: "2025", event: "Shodan-Ho" },
           { year: "2026", event: "Shodan" },
         ],

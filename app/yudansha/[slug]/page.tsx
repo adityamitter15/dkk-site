@@ -6,6 +6,7 @@ import { ChevronLeft, ChevronRight, Clock, MapPin, Video, ExternalLink } from "l
 import SafeImage from "@/components/SafeImage";
 import DanGrade from "@/components/DanGrade";
 import LiveYears from "@/components/ui/LiveYears";
+import MemberPhotos from "@/components/ui/MemberPhotos";
 import { getAllMembers, getMemberBySlug } from "@/data/yudansha";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import { site } from "@/data/site";
@@ -234,6 +235,11 @@ export default async function MemberPage({ params }: { params: Promise<{ slug: s
                 })}
               </div>
             </div>
+          )}
+
+          {/* Extra photos (only the members who have sent more in) */}
+          {member.photos && member.photos.length > 0 && (
+            <MemberPhotos photos={member.photos} name={member.name} />
           )}
 
           {/* Classes They Run (instructors only) */}

@@ -18,7 +18,7 @@ export type GalleryImage = {
  * into the lightbox image (and back). Plain update when the API is missing or
  * the user prefers reduced motion.
  */
-function morphTransition(thumb: HTMLElement | null | undefined, update: () => void) {
+export function morphTransition(thumb: HTMLElement | null | undefined, update: () => void) {
   const doc = document as Document & {
     startViewTransition?: (cb: () => void) => { finished: Promise<void> };
   };
@@ -36,7 +36,7 @@ function morphTransition(thumb: HTMLElement | null | undefined, update: () => vo
   });
 }
 
-function Lightbox({
+export function Lightbox({
   images,
   index,
   onClose,
