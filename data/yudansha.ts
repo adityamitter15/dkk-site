@@ -233,7 +233,10 @@ export const grades: GradeTier[] = [
       {
         name: "Mike Thornton",
         slug: toSlug("Mike Thornton"),
-        portrait: "/images/Yudansha/mike_thornton_portrait.jpg",
+        // Mike asked for the posed portrait to come off and picked a frame
+        // from his own strip. Cropped 3:4 from the portrait-orientation
+        // original, not from the 4:3 tile, so nothing is stretched.
+        portrait: "/images/Yudansha/mike_thornton_seminar_portrait.jpg",
         action: "/images/Yudansha/mike_website2.jpg",
         bio: "Mike joined DKK in 2007 with a prior black belt in Taekwondo from New Zealand.",
         quote: "I was impressed with the student calibre and Sensei Mulholland's teaching. Goju Karate presents the ongoing challenge of mastering the hard/soft relationship in training.",
@@ -254,11 +257,6 @@ export const grades: GradeTier[] = [
             src: "/images/Yudansha/mike_thornton_grappling.jpg",
             alt: "Mike Thornton controlling a partner's head in the clinch",
             caption: "In the clinch",
-          },
-          {
-            src: "/images/Yudansha/mike_thornton_seminar.jpg",
-            alt: "Mike Thornton on the mat as a student kicks a shield beside him",
-            caption: "On the mat",
           },
           {
             src: "/images/Yudansha/mike_thornton_crew.jpg",
