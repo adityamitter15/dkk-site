@@ -506,6 +506,39 @@ export const grades: GradeTier[] = [
           { year: "2025", event: "Shodan-Ho" },
           { year: "2026", event: "Shodan" },
         ],
+        // Ordered to run with the timeline above them, oldest first, so the
+        // strip ends on the Shodan bell. That also puts the bell in the
+        // full-width slot the odd count creates at phone width.
+        photos: [
+          // Her own 2019 milestone. The source is a soft 960x720 phone frame and
+          // the breaker's face is hidden, so the alt describes the break itself
+          // rather than asserting who is holding and who is striking.
+          {
+            src: "/images/Yudansha/carlotta_roveri_tameshiwari.jpg",
+            alt: "A board snapping in two during Carlotta's first tameshiwari, held by two club mates",
+            caption: "First tameshiwari, 2019",
+          },
+          {
+            src: "/images/Yudansha/carlotta_roveri_kyu_kata.jpg",
+            alt: "Carlotta performing kata as a coloured belt in front of the club",
+            caption: "Kata as a kyu grade",
+          },
+          {
+            src: "/images/Yudansha/carlotta_roveri_team_kata.jpg",
+            alt: "Carlotta front and centre performing kata alongside four club mates",
+            caption: "Team kata",
+          },
+          {
+            src: "/images/Yudansha/carlotta_roveri_medal.jpg",
+            alt: "Carlotta wearing her medal after the kata tournament, the club applauding behind her",
+            caption: "Medal, kata tournament",
+          },
+          {
+            src: "/images/Yudansha/carlotta_roveri_bell.jpg",
+            alt: "Carlotta ringing the DKK bell after grading for Shodan at the 2026 Summer Camp",
+            caption: "Shodan, 2026",
+          },
+        ],
       },
       {
         name: "Zoe Mak",

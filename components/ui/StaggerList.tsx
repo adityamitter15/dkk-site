@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, type Variants } from "motion/react";
+import { motion, useReducedMotion, type Variants } from "motion/react";
 import type { ReactNode } from "react";
 
 /**
@@ -17,9 +17,10 @@ import type { ReactNode } from "react";
  * `once: true` means a row never re-animates on scroll-back. Re-triggering a
  * register the reader has already passed is noise, not feedback.
  *
- * Motion honours prefers-reduced-motion for these variants via MotionConfig at
- * the app level; the y offset is small enough (10px) to read as a settle rather
- * than a slide in any case.
+ * Reduced motion is handled here, in the component. An earlier note claimed a
+ * MotionConfig at the app level did it; there has never been one, so the
+ * variants ran regardless of the setting. `useReducedMotion` now short-circuits
+ * to plain elements, matching how Reveal behaves.
  */
 
 const list: Variants = {
@@ -45,6 +46,12 @@ export function StaggerList({
   className?: string;
   as?: "ul" | "ol" | "div";
 }) {
+  const reduced = useReducedMotion();
+  if (reduced) {
+    const Plain = Tag;
+    return <Plain className={className}>{children}</Plain>;
+  }
+
   const M = Tag === "ol" ? motion.ol : Tag === "div" ? motion.div : motion.ul;
   return (
     <M
@@ -68,6 +75,12 @@ export function StaggerItem({
   className?: string;
   as?: "li" | "div";
 }) {
+  const reduced = useReducedMotion();
+  if (reduced) {
+    const Plain = Tag;
+    return <Plain className={className}>{children}</Plain>;
+  }
+
   const M = Tag === "div" ? motion.div : motion.li;
   return (
     <M data-stagger-item variants={item} className={className}>

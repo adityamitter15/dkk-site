@@ -7,6 +7,9 @@ import SafeImage from "@/components/SafeImage";
 import DanGrade from "@/components/DanGrade";
 import LiveYears from "@/components/ui/LiveYears";
 import MemberPhotos from "@/components/ui/MemberPhotos";
+import Reveal from "@/components/ui/Reveal";
+import JourneySpine from "@/components/ui/JourneySpine";
+import { StaggerList, StaggerItem } from "@/components/ui/StaggerList";
 import { getAllMembers, getMemberBySlug } from "@/data/yudansha";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import { site } from "@/data/site";
@@ -125,22 +128,22 @@ export default async function MemberPage({ params }: { params: Promise<{ slug: s
 
           {/* Images */}
           {hasBothImages && (
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-14 max-w-5xl">
+            <Reveal className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-14 max-w-5xl">
               <div className="relative rounded-sm overflow-hidden bg-card" style={{ aspectRatio: "3/4" }}>
                 <SafeImage src={member.portrait!} alt={member.name} fill className="object-cover object-top" />
               </div>
               <div className="relative rounded-sm overflow-hidden bg-card" style={{ aspectRatio: "3/4" }}>
                 <SafeImage src={member.action!} alt={`${member.name} - training`} fill className="object-cover object-top" />
               </div>
-            </div>
+            </Reveal>
           )}
 
           {hasOneImage && primaryImg && (
-            <div className="max-w-sm mx-auto mb-14">
+            <Reveal className="max-w-sm mx-auto mb-14">
               <div className="relative rounded-sm overflow-hidden bg-card" style={{ aspectRatio: "3/4" }}>
                 <SafeImage src={primaryImg} alt={member.name} fill className="object-cover object-top" />
               </div>
-            </div>
+            </Reveal>
           )}
 
           {!primaryImg && (
@@ -155,7 +158,7 @@ export default async function MemberPage({ params }: { params: Promise<{ slug: s
           )}
 
           {/* Bio + Stats */}
-          <div className="max-w-4xl">
+          <Reveal className="max-w-4xl">
             <div className="flex items-center gap-3 mb-3 flex-wrap">
               <p className="text-brand text-xs font-bold uppercase tracking-[0.2em]">
                 {member.grade} &middot; <DanGrade text={member.dan} />
@@ -192,7 +195,7 @@ export default async function MemberPage({ params }: { params: Promise<{ slug: s
                 </div>
               </div>
             )}
-          </div>
+          </Reveal>
 
           {/* Journey Timeline */}
           {member.milestones && member.milestones.length > 0 && (
@@ -200,12 +203,18 @@ export default async function MemberPage({ params }: { params: Promise<{ slug: s
               <p className="text-brand text-xs font-bold uppercase tracking-[0.2em] mb-8">Journey</p>
               <div className="relative ml-[5px]">
                 {/* Belt spine — the rail begins white (white belt) and fades into
-                    the black of the page (black belt); the brand dot marks today */}
-                <div className="absolute left-[-0.5px] top-[6px] bottom-[6px] w-[2px] bg-gradient-to-b from-white/90 via-white/35 to-white/0" />
+                    the black of the page (black belt); the brand dot marks today.
+                    It draws itself downward as the block enters view. */}
+                <JourneySpine />
+                <StaggerList as="div">
                 {member.milestones.map((m, i) => {
                   const isLast = i === member.milestones!.length - 1;
                   return (
-                    <div key={i} className="relative flex items-start gap-6 pb-10 last:pb-0">
+                    // The pad lives on the stagger wrapper, not the row: wrapping
+                    // each row makes it an only-child, so `last:pb-0` on the row
+                    // itself would match every time and collapse the spacing.
+                    <StaggerItem as="div" key={i} className={isLast ? undefined : "pb-10"}>
+                    <div className="relative flex items-start gap-6">
                       {/* Dot - centred on the line */}
                       <div className="relative flex-shrink-0 w-[11px] h-[11px] -ml-[5px] mt-[3px]">
                         <span className={`block w-full h-full rounded-full ${
@@ -231,8 +240,10 @@ export default async function MemberPage({ params }: { params: Promise<{ slug: s
                         </div>
                       </div>
                     </div>
+                    </StaggerItem>
                   );
                 })}
+                </StaggerList>
               </div>
             </div>
           )}
@@ -302,7 +313,7 @@ export default async function MemberPage({ params }: { params: Promise<{ slug: s
               <SafeImage src={member.portrait} alt="" fill className="object-cover object-center opacity-10 blur-md scale-110" />
             </div>
           )}
-          <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <Reveal className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <span className="font-display text-brand/30 text-8xl sm:text-9xl leading-none select-none block mb-2">&ldquo;</span>
             <blockquote className="text-gray-200 text-xl sm:text-2xl italic leading-relaxed font-light -mt-12 sm:-mt-16">
               &ldquo;{member.quote}&rdquo;
@@ -312,7 +323,7 @@ export default async function MemberPage({ params }: { params: Promise<{ slug: s
               <span className="text-gray-500 text-sm uppercase tracking-widest">{member.name}</span>
               <span className="w-6 h-px bg-brand" />
             </footer>
-          </div>
+          </Reveal>
         </section>
       )}
 
