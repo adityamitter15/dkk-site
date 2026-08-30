@@ -227,7 +227,7 @@ export const grades: GradeTier[] = [
           { year: "1994", event: "Joined DKK" },
           { year: "1998", event: "Shodan" },
           { year: "2001", event: "Nidan" },
-          { year: "", event: "Sandan" },
+          { year: "2023", event: "Sandan" },
         ],
       },
       {
@@ -372,7 +372,8 @@ export const grades: GradeTier[] = [
       {
         name: "Sidney Ushurhe",
         slug: toSlug("Sidney Ushurhe"),
-        portrait: "/images/Yudansha/sidney1.jpg",
+        // Him with his Nidan certificate and Shihan, sent in by the club.
+        portrait: "/images/Yudansha/sidney_ushurhe_nidan.jpg",
         action: "/images/Camp/camp_weapons_lineup_2021.jpg",
         bio: "Sidney began training in Goju Ryu karate in 2005, joining DKK London that year. He describes his first class as transformative despite initial nerves about sparring with a much larger partner.",
         quote: "The fight-or-flee rush of my first class isn't one I'll easily ever forget. I found myself replaying every movement in my head over and over again like a movie.",
@@ -472,10 +473,25 @@ export const grades: GradeTier[] = [
       {
         name: "Sebastien Montemurro",
         slug: toSlug("Sebastien Montemurro"),
-        portrait: "/images/Yudansha/sebastien_montemurro.jpg",
-        action: "/images/Yudansha/sebastien_montemurro_action.jpg",
+        // Replaced at his request, all from summer camp. He was matched by the
+        // belt, which reads モンテムロ. The action frame is the same photograph
+        // used as the /gallery hero, cropped in on him.
+        portrait: "/images/Yudansha/sebastien_montemurro_grading.jpg",
+        action: "/images/Yudansha/sebastien_montemurro_field.jpg",
         milestones: [
           { year: "2025", event: "Shodan" },
+        ],
+        photos: [
+          {
+            src: "/images/Yudansha/sebastien_montemurro_kata_wide.jpg",
+            alt: "Sebastien front and centre in a low stance during kata at summer camp",
+            caption: "Kata at camp",
+          },
+          {
+            src: "/images/Yudansha/sebastien_montemurro_group.jpg",
+            alt: "Sebastien with the club after grading at summer camp, holding his certificate",
+            caption: "After the grading",
+          },
         ],
       },
       {

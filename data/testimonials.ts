@@ -33,7 +33,7 @@ export const testimonials: Testimonial[] = [
   {
     quote: "The fight-or-flee rush of my first class isn't one I'll easily ever forget. I found myself replaying every movement in my head over and over again like a movie.",
     name: "Sidney Ushurhe",
-    grade: "1st Dan",
+    grade: "2nd Dan",
   },
   {
     quote: "The breadth of Goju Ryu and the depth to which we study it fascinates me. DKK has been a fundamental part of my life ever since my first class.",

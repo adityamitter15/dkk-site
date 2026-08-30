@@ -113,8 +113,17 @@ export default function RootLayout({
     url: site.url,
     logo: `${site.url}/images/DKKCircularLogo.jpg`,
     foundingDate: "1990",
-    telephone: "+447976411901",
     email: "info@goju-karate.co.uk",
+    // Replaces the telephone property, which came out when the club stopped
+    // publishing a number. Keeps a machine-readable contact channel so the
+    // listing does not simply lose the signal.
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "customer service",
+      email: "info@goju-karate.co.uk",
+      areaServed: "GB",
+      availableLanguage: ["en"],
+    },
     address: {
       "@type": "PostalAddress",
       streetAddress: "309 Regent Street",

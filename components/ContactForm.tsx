@@ -112,15 +112,14 @@ export default function ContactForm() {
         <CheckCircle className="text-brand mb-4" size={40} aria-hidden="true" />
         <h3 className="font-display text-2xl tracking-wide text-white mb-2">Message Sent</h3>
         <p className="text-gray-400 text-sm max-w-sm">
-          Thanks for getting in touch. We aim to reply within 48 hours. If it&apos;s urgent,
-          WhatsApp Shihan on{" "}
+          Thanks for getting in touch. We aim to reply within 48 hours. If it&apos;s urgent,{" "}
           <a
             href="https://wa.me/447976411901"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gold hover:text-white transition-colors underline-offset-2 hover:underline"
           >
-            07976 411 901
+            message us on WhatsApp
           </a>
           .
         </p>
@@ -166,6 +165,26 @@ export default function ContactForm() {
             placeholder="your@email.com"
           />
         </div>
+      </div>
+
+      {/* The club does not publish a phone number, so the call goes the other
+          way: the visitor leaves theirs and gets rung back. Formspree passes
+          any extra field straight through, so this needs no config. */}
+      <div id="callback" className="scroll-mt-28">
+        <label className="block text-gray-400 text-xs uppercase tracking-widest mb-2" htmlFor="phone">
+          Phone
+          <span className="text-gray-600 ml-2 normal-case tracking-normal">optional, for a call back</span>
+        </label>
+        <input
+          id="phone"
+          name="phone"
+          type="tel"
+          inputMode="tel"
+          autoComplete="tel"
+          maxLength={32}
+          className="w-full bg-card border border-white/10 text-white px-4 py-3 text-base rounded-sm focus:outline-none focus-visible:border-brand focus-visible:ring-2 focus-visible:ring-brand/40 transition-colors placeholder:text-gray-600"
+          placeholder="Leave a number if you would rather talk"
+        />
       </div>
 
       <div>

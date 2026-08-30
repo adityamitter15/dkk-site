@@ -38,15 +38,18 @@ export default function ContactPage() {
 
               <div className="space-y-4 mb-10">
                 <div className="grid sm:grid-cols-2 gap-4">
+                  {/* The club does not publish a phone number. Rather than drop
+                      the call channel entirely, which is the easiest way for a
+                      beginner to make contact, the call goes the other way. */}
                   <a
-                    href="tel:07976411901"
+                    href="#callback"
                     className="flex gap-4 items-start p-5 bg-card border border-white/10 hover:border-brand/40 rounded-sm transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/50"
                   >
                     <Phone className="text-brand flex-shrink-0 mt-0.5" size={20} aria-hidden="true" />
                     <div>
-                      <p className="text-gray-500 text-xs uppercase tracking-widest mb-0.5">Call</p>
-                      <p className="text-white font-medium text-lg leading-tight">07976 411 901</p>
-                      <p className="text-gray-500 text-xs mt-0.5">Shihan Gavin</p>
+                      <p className="text-gray-500 text-xs uppercase tracking-widest mb-0.5">Rather talk?</p>
+                      <p className="text-white font-medium text-lg leading-tight">Ask for a call back</p>
+                      <p className="text-gray-500 text-xs mt-0.5">Leave your number, we&apos;ll ring you</p>
                     </div>
                   </a>
 
