@@ -11,12 +11,27 @@ const STORAGE_KEY = "dkk_contact_last_submit";
 const MAX_NAME = 80;
 const MAX_MESSAGE = 2000;
 
+/**
+ * The club does not publish a phone number, so a call has to be requested
+ * rather than dialled. That only works if it is offered as a real choice with
+ * a time attached, not as an optional box below the message: someone who wants
+ * to speak to a person needs to see that they can, and be told they will be.
+ */
+const REPLY_OPTIONS = [
+  { value: "email", label: "Email" },
+  { value: "phone", label: "Phone call" },
+  { value: "whatsapp", label: "WhatsApp" },
+] as const;
+
+type ReplyBy = (typeof REPLY_OPTIONS)[number]["value"];
+
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [cooldownLeft, setCooldownLeft] = useState(0);
   const [messageLen, setMessageLen] = useState(0);
+  const [replyBy, setReplyBy] = useState<ReplyBy>("email");
   const renderedAt = useRef<number>(Date.now());
 
   useEffect(() => {
@@ -72,6 +87,15 @@ export default function ContactForm() {
       return;
     }
 
+    if (replyBy !== "email" && !String(data.get("phone") ?? "").trim()) {
+      setError(
+        replyBy === "phone"
+          ? "Please add a number so we can call you, or switch back to email."
+          : "Please add a number so we can message you, or switch back to email.",
+      );
+      return;
+    }
+
     setLoading(true);
 
     try {
@@ -112,7 +136,12 @@ export default function ContactForm() {
         <CheckCircle className="text-brand mb-4" size={40} aria-hidden="true" />
         <h3 className="font-display text-2xl tracking-wide text-white mb-2">Message Sent</h3>
         <p className="text-gray-400 text-sm max-w-sm">
-          Thanks for getting in touch. We aim to reply within 48 hours. If it&apos;s urgent,{" "}
+          {replyBy === "phone"
+            ? "Thanks. We have your number and someone will call you back at the time you picked. "
+            : replyBy === "whatsapp"
+              ? "Thanks. We have your number and we will message you on WhatsApp. "
+              : "Thanks for getting in touch. We aim to reply within 48 hours. "}
+          If it&apos;s urgent,{" "}
           <a
             href="https://wa.me/447976411901"
             target="_blank"
@@ -167,25 +196,78 @@ export default function ContactForm() {
         </div>
       </div>
 
-      {/* The club does not publish a phone number, so the call goes the other
-          way: the visitor leaves theirs and gets rung back. Formspree passes
-          any extra field straight through, so this needs no config. */}
-      <div id="callback" className="scroll-mt-28">
-        <label className="block text-gray-400 text-xs uppercase tracking-widest mb-2" htmlFor="phone">
-          Phone
-          <span className="text-gray-600 ml-2 normal-case tracking-normal">optional, for a call back</span>
-        </label>
-        <input
-          id="phone"
-          name="phone"
-          type="tel"
-          inputMode="tel"
-          autoComplete="tel"
-          maxLength={32}
-          className="w-full bg-card border border-white/10 text-white px-4 py-3 text-base rounded-sm focus:outline-none focus-visible:border-brand focus-visible:ring-2 focus-visible:ring-brand/40 transition-colors placeholder:text-gray-600"
-          placeholder="Leave a number if you would rather talk"
-        />
-      </div>
+      <fieldset id="callback" className="scroll-mt-28 border border-white/10 rounded-sm bg-card/40 px-5 pt-4 pb-5">
+        <legend className="px-2 text-gray-400 text-xs uppercase tracking-widest">
+          How should we get back to you?
+        </legend>
+
+        <div className="grid grid-cols-3 gap-2">
+          {REPLY_OPTIONS.map((opt) => (
+            <label
+              key={opt.value}
+              className="relative cursor-pointer text-center rounded-sm border border-white/10 bg-card px-2 py-2.5 text-sm text-gray-400 transition-colors hover:border-white/25 has-[:checked]:border-brand has-[:checked]:bg-brand/10 has-[:checked]:text-white has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-brand/50"
+            >
+              <input
+                type="radio"
+                name="replyBy"
+                value={opt.value}
+                checked={replyBy === opt.value}
+                onChange={() => setReplyBy(opt.value)}
+                className="sr-only"
+              />
+              {opt.label}
+            </label>
+          ))}
+        </div>
+
+        {replyBy !== "email" && (
+          <div className="grid sm:grid-cols-2 gap-5 mt-5">
+            <div>
+              <label className="block text-gray-400 text-xs uppercase tracking-widest mb-2" htmlFor="phone">
+                Your number <span className="text-brand" aria-hidden="true">*</span>
+                <span className="sr-only">(required)</span>
+              </label>
+              <input
+                id="phone"
+                name="phone"
+                type="tel"
+                inputMode="tel"
+                autoComplete="tel"
+                maxLength={32}
+                className="w-full bg-card border border-white/10 text-white px-4 py-3 text-base rounded-sm focus:outline-none focus-visible:border-brand focus-visible:ring-2 focus-visible:ring-brand/40 transition-colors placeholder:text-gray-600"
+                placeholder="07700 900123"
+              />
+            </div>
+
+            {replyBy === "phone" && (
+              <div>
+                <label className="block text-gray-400 text-xs uppercase tracking-widest mb-2" htmlFor="callTime">
+                  Best time to call
+                </label>
+                <select
+                  id="callTime"
+                  name="callTime"
+                  defaultValue="Any time"
+                  className="w-full bg-card border border-white/10 text-white px-4 py-3 text-base rounded-sm focus:outline-none focus-visible:border-brand focus-visible:ring-2 focus-visible:ring-brand/40 transition-colors placeholder:text-gray-600"
+                >
+                  <option>Any time</option>
+                  <option>Daytime, 9am to 5pm</option>
+                  <option>Evenings, after 6pm</option>
+                  <option>Weekends</option>
+                </select>
+              </div>
+            )}
+          </div>
+        )}
+
+        <p className="text-gray-500 text-xs mt-4 leading-relaxed">
+          {replyBy === "phone"
+            ? "We will ring you at the time you pick. Your number is only used to return this enquiry."
+            : replyBy === "whatsapp"
+              ? "We will message you on WhatsApp. Your number is only used to return this enquiry."
+              : "We reply to most enquiries within 48 hours. Pick a phone call if you would rather speak to someone."}
+        </p>
+      </fieldset>
 
       <div>
         <label className="block text-gray-400 text-xs uppercase tracking-widest mb-2" htmlFor="experience">

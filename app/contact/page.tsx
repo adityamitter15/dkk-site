@@ -47,9 +47,9 @@ export default function ContactPage() {
                   >
                     <Phone className="text-brand flex-shrink-0 mt-0.5" size={20} aria-hidden="true" />
                     <div>
-                      <p className="text-gray-500 text-xs uppercase tracking-widest mb-0.5">Rather talk?</p>
-                      <p className="text-white font-medium text-lg leading-tight">Ask for a call back</p>
-                      <p className="text-gray-500 text-xs mt-0.5">Leave your number, we&apos;ll ring you</p>
+                      <p className="text-gray-500 text-xs uppercase tracking-widest mb-0.5">Phone</p>
+                      <p className="text-white font-medium text-lg leading-tight">We&apos;ll call you</p>
+                      <p className="text-gray-500 text-xs mt-0.5">Pick a time that suits</p>
                     </div>
                   </a>
 
