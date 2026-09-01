@@ -54,6 +54,28 @@ export default function ContactForm() {
     return () => window.clearInterval(id);
   }, [cooldownLeft]);
 
+  /**
+   * Records the send and rewrites the URL to /contact/sent.
+   *
+   * Cloudflare's beacon patches history.pushState and counts a route change as
+   * a page view, so views of that one path are the club's form-submission
+   * count. There is no custom-event API in Web Analytics; this is the way.
+   *
+   * The panel below stays put, so nothing about the flow changes for the
+   * person who just wrote to us. /contact/sent is a real route, so a refresh
+   * or a shared link still lands on something.
+   */
+  function markSent() {
+    setSubmitted(true);
+    try {
+      if (window.location.pathname !== "/contact/sent") {
+        window.history.pushState({}, "", "/contact/sent");
+      }
+    } catch {
+      /* history blocked - the message still sent, which is what matters */
+    }
+  }
+
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setError("");
@@ -111,7 +133,7 @@ export default function ContactForm() {
         } catch {
           /* ignore */
         }
-        setSubmitted(true);
+        markSent();
       } else {
         const json = await res.json().catch(() => ({}));
         setError(

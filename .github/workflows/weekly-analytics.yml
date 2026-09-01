@@ -1,0 +1,39 @@
+name: Weekly analytics report
+
+# Monday 08:12 UTC. Off the hour deliberately: every scheduled workflow asking
+# for 08:00 lands on GitHub's runners at the same instant and gets queued.
+on:
+  schedule:
+    - cron: "12 8 * * 1"
+  workflow_dispatch: # so it can be run by hand from the Actions tab
+
+permissions:
+  contents: read
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      # Installed here rather than added to the site's package.json: the report
+      # is CI-only and has no business in the bundle the site builds from.
+      - name: Install mailer
+        run: npm install --no-save nodemailer@6.9.14
+
+      - name: Build and send the report
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          # Not secrets: an account id and a site tag identify, they do not authorise.
+          CF_ACCOUNT_ID: 86da3c812d2c1cc6b9b823baa4b52e8f
+          CF_SITE_TAG: 29a978291e704d29b4549de7682fe559
+          MAIL_TO: ${{ vars.MAIL_TO }}
+          MAIL_FROM: ${{ vars.MAIL_FROM }}
+        run: node scripts/analytics-report.mjs
