@@ -14,7 +14,10 @@ export default function GalleryFilter({ images }: { images: GalleryImage[] }) {
   return (
     <>
       {/* Filter tags */}
-      <div className="flex flex-wrap gap-2 mb-10">
+      {/* Reserved height for the wrapped rows. Without it a font swap
+         rewraps the tags, the row loses a line, and the entire masonry
+         grid below jumps. */}
+      <div className="flex flex-wrap gap-2 mb-10 min-h-[104px] sm:min-h-[80px] lg:min-h-[40px] content-start">
         {categories.map((cat) => (
           <button
             key={cat}

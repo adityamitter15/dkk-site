@@ -17,10 +17,18 @@ const bebas = Bebas_Neue({
   display: "swap",
 });
 
+// `optional`, not `swap`. Chrome gives the file ~100ms and, if it misses,
+// keeps the metric-adjusted fallback for that pageview instead of swapping
+// later. The swap was the site's entire CLS problem: the hero lead is
+// `text-lg leading-relaxed`, so one rewrapped line moved every section beneath
+// it by 29px. `size-adjust` matches an average advance width, not a specific
+// string, so it cannot stop a line flipping at the wrap boundary. Body text in
+// size-adjusted Arial is near-indistinguishable; a headline would not be,
+// which is why Bebas above keeps `swap`.
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
-  display: "swap",
+  display: "optional",
 });
 
 // 16-glyph Noto Serif JP subset (6.5KB) — used only for the heritage kanji watermarks
