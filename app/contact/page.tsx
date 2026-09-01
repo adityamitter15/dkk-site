@@ -6,6 +6,7 @@ import ContactForm from "@/components/ContactForm";
 import SafeImage from "@/components/SafeImage";
 import { Phone, Mail, MapPin, Clock, MessageCircle, Banknote } from "lucide-react";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
+import { site } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Find Us - Karate Near Oxford Circus",
@@ -13,9 +14,53 @@ export const metadata: Metadata = {
   alternates: { canonical: "/contact" },
 };
 
+/**
+ * ContactPage schema. The club publishes no phone number, so the contact
+ * points it declares are email and the call-back request on this page; the
+ * `@id` ties them back to the organisation declared in the root layout so the
+ * two are read as the same entity rather than two clubs.
+ */
+const contactJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "@id": `${site.url}/contact#page`,
+  url: `${site.url}/contact`,
+  name: "Contact Daigaku Karate Kai London",
+  description:
+    "Get in touch with DKK London by email or WhatsApp, or ask for a call back. Training is at 309 Regent Street, London W1B 2HW, Monday and Wednesday 6-8pm.",
+  isPartOf: { "@id": `${site.url}/#organization` },
+  about: { "@id": `${site.url}/#organization` },
+  mainEntity: {
+    "@type": "Organization",
+    "@id": `${site.url}/#organization`,
+    name: "Daigaku Karate Kai London",
+    email: site.email,
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        contactType: "customer service",
+        email: site.email,
+        areaServed: "GB",
+        availableLanguage: ["en"],
+      },
+    ],
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: site.address.street,
+      addressLocality: site.address.locality,
+      postalCode: site.address.postcode,
+      addressCountry: site.address.country,
+    },
+  },
+};
+
 export default function ContactPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactJsonLd) }}
+      />
       <Breadcrumbs trail={[{ name: "Contact", path: "/contact" }]} />
       <PageHero
         variant="full"
