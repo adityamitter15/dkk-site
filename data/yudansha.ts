@@ -189,8 +189,8 @@ export const grades: GradeTier[] = [
       {
         name: "Karen Sheldon",
         slug: toSlug("Karen Sheldon"),
-        portrait: "/images/Alumni/karen.jpg",
-        action: "/images/Alumni/karenact.jpg",
+        portrait: "/images/Alumni/karen_sheldon_portrait.jpg",
+        action: "/images/Alumni/karen_sheldon_escrima.jpg",
         bio: "Karen began her karate training in October 1993 under Sensei Gavin Mulholland, maintaining continuous training from that day.",
         quote: "Karate means different things to different martial artists. But for me, it has always been about my own personal struggle, mentally to beat the demons from within, and physically to improve my natural abilities.",
         milestones: [
@@ -481,15 +481,24 @@ export const grades: GradeTier[] = [
         milestones: [
           { year: "2025", event: "Shodan" },
         ],
-        // The second strip photo ("After the grading") had a child in it and
-        // was removed. A single remaining tile breaks MemberPhotos' 2-column
-        // grid (half-width orphan, empty gap beside it on >=640px), so the
-        // strip is dropped entirely rather than left at one photo.
+        // The original second strip photo ("After the grading") had a child
+        // in it and was removed at the club's request. Two more from the
+        // same camp added in its place.
         photos: [
           {
             src: "/images/Yudansha/sebastien_montemurro_kata_wide.jpg",
             alt: "Sebastien front and centre in a low stance during kata at summer camp",
             caption: "Kata at camp",
+          },
+          {
+            src: "/images/Yudansha/sebastien_montemurro_lineup.jpg",
+            alt: "Sebastien standing to attention with two other members outdoors at summer camp",
+            caption: "In formation",
+          },
+          {
+            src: "/images/Yudansha/sebastien_montemurro_shihan.jpg",
+            alt: "Sebastien with Shihan Gavin Mulholland and a clubmate, holding his Shodan certificate",
+            caption: "With Shihan, certificate in hand",
           },
         ],
       },

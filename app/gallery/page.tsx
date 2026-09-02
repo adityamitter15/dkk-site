@@ -154,7 +154,7 @@ const images: GalleryImage[] = [
   { src: "/images/Yudansha/rich.jpg",               alt: "Richard Gaillard",                   caption: "Richard Gaillard - 3rd Dan",       tall: true,  category: "Yudansha" },
   { src: "/images/Yudansha/ak_kata.jpeg",           alt: "Alexey Kryazhev - kata",             caption: "Kata Training",                    tall: false, category: "Yudansha" },
   { src: "/images/Yudansha/ak_kata2.jpeg",          alt: "Alexey Kryazhev - kata 2",           caption: "Kata Training",                    tall: false, category: "Yudansha" },
-  { src: "/images/Alumni/karen.jpg",                alt: "Karen Sheldon",                      caption: "Karen Sheldon - 3rd Dan",          tall: true,  category: "Yudansha" },
+  { src: "/images/Alumni/karen_sheldon_portrait.jpg", alt: "Karen Sheldon",                    caption: "Karen Sheldon - 3rd Dan",          tall: true,  category: "Yudansha" },
   { src: "/images/Alumni/mark.gif",                 alt: "Mark Salomone",                      caption: "Mark Salomone - 3rd Dan (DKK Torbay)", tall: true, category: "Yudansha" },
 
   // ── New studio portraits & recent shoots ─────────────────
