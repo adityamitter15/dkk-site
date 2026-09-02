@@ -350,8 +350,8 @@ export const grades: GradeTier[] = [
       {
         name: "James Tolson",
         slug: toSlug("James Tolson"),
-        portrait: "/images/Yudansha/james_tolson_sparring.jpg",
-        action: null,
+        portrait: "/images/Yudansha/james_tolson_portrait.jpg",
+        action: "/images/Yudansha/james_tolson_sparring.jpg",
         milestones: [
           { year: "2025", event: "Nidan" },
         ],
@@ -481,16 +481,15 @@ export const grades: GradeTier[] = [
         milestones: [
           { year: "2025", event: "Shodan" },
         ],
+        // The second strip photo ("After the grading") had a child in it and
+        // was removed. A single remaining tile breaks MemberPhotos' 2-column
+        // grid (half-width orphan, empty gap beside it on >=640px), so the
+        // strip is dropped entirely rather than left at one photo.
         photos: [
           {
             src: "/images/Yudansha/sebastien_montemurro_kata_wide.jpg",
             alt: "Sebastien front and centre in a low stance during kata at summer camp",
             caption: "Kata at camp",
-          },
-          {
-            src: "/images/Yudansha/sebastien_montemurro_group.jpg",
-            alt: "Sebastien with the club after grading at summer camp, holding his certificate",
-            caption: "After the grading",
           },
         ],
       },

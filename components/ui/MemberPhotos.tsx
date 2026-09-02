@@ -49,12 +49,16 @@ export default function MemberPhotos({ photos, name }: { photos: MemberPhoto[]; 
 
       <StaggerList as="div" className={`grid grid-cols-2 ${columns} gap-2.5 sm:gap-3`}>
         {images.map((img, i) => {
-          const isOrphan = oddCount && i === images.length - 1;
+          // A single photo has no row to share, so it always spans full
+          // width. Otherwise the usual rule: the last tile of an odd set
+          // spans both mobile columns and reads as a deliberate closing frame.
+          const isOrphan = images.length === 1 || (oddCount && i === images.length - 1);
+          const fullWidthOnly = images.length === 1;
           return (
             <StaggerItem
               as="div"
               key={img.src}
-              className={isOrphan ? "col-span-2 sm:col-span-1" : undefined}
+              className={isOrphan ? (fullWidthOnly ? "col-span-2" : "col-span-2 sm:col-span-1") : undefined}
             >
               <button
                 type="button"
@@ -72,7 +76,13 @@ export default function MemberPhotos({ photos, name }: { photos: MemberPhoto[]; 
                     src={img.src}
                     alt={img.alt}
                     fill
-                    sizes={isOrphan ? "(min-width: 640px) 20vw, 92vw" : "(min-width: 640px) 20vw, 46vw"}
+                    sizes={
+                      fullWidthOnly
+                        ? "(min-width: 896px) 896px, 92vw"
+                        : isOrphan
+                          ? "(min-width: 640px) 20vw, 92vw"
+                          : "(min-width: 640px) 20vw, 46vw"
+                    }
                     className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                   />
                   {/* Zero-alpha stop, never `to-transparent`: Tailwind v4 interpolates
