@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ChevronRight, ExternalLink } from "lucide-react";
 import SafeImage from "@/components/SafeImage";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
+import CTABand from "@/components/ui/CTABand";
 import { site } from "@/data/site";
 
 export const metadata: Metadata = {
@@ -23,6 +24,8 @@ type Book = {
   endorsement?: string;
   ukUrl: string;
   usUrl: string;
+  goodreadsUrl?: string;
+  isbn?: string;
   featured: boolean;
 };
 
@@ -33,8 +36,10 @@ const dkkBooks: Book[] = [
     cover: "/images/Book Covers/4SOB.jpg",
     description: "The highly acclaimed debut by Shihan Gavin Mulholland. A deep, uncompromising exploration of Okinawan Goju Ryu covering technique, philosophy, and the real martial arts journey. Rated 4.4/5 on Goodreads.",
     endorsement: "\"One of, if not the best practical book I've read on karate. About time someone wrote the real deal about kata instead of the gibberish usually seen.\"",
-    ukUrl: "https://www.amazon.co.uk/s?k=Four+Shades+of+Black+Gavin+Mulholland",
-    usUrl: "https://www.amazon.com/s?k=Four+Shades+of+Black+Gavin+Mulholland",
+    ukUrl: "https://www.amazon.co.uk/Four-Shades-Black-Traditional-Building/dp/1840246502",
+    usUrl: "https://www.amazon.com/Four-Shades-Black-Traditional-Building/dp/1840246502",
+    goodreadsUrl: "https://www.goodreads.com/book/show/6275200-four-shades-of-black",
+    isbn: "9781840246506",
     featured: false,
   },
   {
@@ -45,6 +50,7 @@ const dkkBooks: Book[] = [
     endorsement: "\"This book is not repeating the tropes of others, but comes from original experience and extensive research. That's what makes it a valuable read for any martial artist.\" - Steve Rowe, 9th Dan",
     ukUrl: "https://amzn.eu/d/hFRzV0w",
     usUrl: "https://a.co/d/iYlghf0",
+    isbn: "9798884611900",
     featured: true,
   },
 ];
@@ -97,6 +103,16 @@ function BookCard({ book }: { book: Book }) {
           >
             US Store <ExternalLink size={11} />
           </a>
+          {book.goodreadsUrl && (
+            <a
+              href={book.goodreadsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-1.5 px-6 py-2.5 text-gray-500 text-xs font-bold uppercase tracking-wider hover:text-gold transition-colors rounded-sm"
+            >
+              Goodreads <ExternalLink size={11} />
+            </a>
+          )}
         </div>
       </div>
     </div>
@@ -117,6 +133,8 @@ export default function BooksPage() {
         description: book.description,
         image: encodeURI(`${site.url}${book.cover}`),
         url: book.ukUrl,
+        ...(book.isbn && { isbn: book.isbn }),
+        ...(book.goodreadsUrl && { sameAs: [book.goodreadsUrl] }),
       },
     })),
   };
@@ -202,6 +220,11 @@ export default function BooksPage() {
           </div>
         </div>
       </section>
+
+      <CTABand
+        title="Prefer to just come and train?"
+        sub="No uniform needed. Just turn up."
+      />
     </>
   );
 }

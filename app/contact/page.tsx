@@ -150,6 +150,15 @@ export default function ContactPage() {
                         Find us on Google Maps
                       </a>
                     </p>
+                    <p className="text-gray-500 text-xs mt-1">
+                      Coming from{" "}
+                      <Link href="/karate-oxford-circus" className="link-underline text-gold">Oxford Circus</Link>,{" "}
+                      <Link href="/karate-soho" className="link-underline text-gold">Soho</Link>,{" "}
+                      <Link href="/karate-mayfair" className="link-underline text-gold">Mayfair</Link>,{" "}
+                      <Link href="/karate-fitzrovia" className="link-underline text-gold">Fitzrovia</Link>,{" "}
+                      <Link href="/karate-marylebone" className="link-underline text-gold">Marylebone</Link> or{" "}
+                      <Link href="/karate-bloomsbury" className="link-underline text-gold">Bloomsbury</Link>?
+                    </p>
                   </div>
                 </div>
 

@@ -114,6 +114,22 @@ export default function Footer() {
           </div>
         </div>
 
+        <div className="border-t border-white/10 pt-6 pb-4 flex flex-wrap items-center justify-center sm:justify-start gap-x-3 gap-y-1 text-center sm:text-left">
+          <span className="text-gray-700 text-[11px] uppercase tracking-widest">Also near</span>
+          {[
+            { href: "/karate-oxford-circus", label: "Oxford Circus" },
+            { href: "/karate-soho", label: "Soho" },
+            { href: "/karate-mayfair", label: "Mayfair" },
+            { href: "/karate-fitzrovia", label: "Fitzrovia" },
+            { href: "/karate-marylebone", label: "Marylebone" },
+            { href: "/karate-bloomsbury", label: "Bloomsbury" },
+          ].map((area) => (
+            <Link key={area.href} href={area.href} className="text-gray-600 hover:text-brand text-xs transition-colors">
+              {area.label}
+            </Link>
+          ))}
+        </div>
+
         <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-center sm:text-left">
           <p className="text-gray-600 text-xs">
             &copy; <LiveYear /> Daigaku Karate Kai London. All rights reserved.

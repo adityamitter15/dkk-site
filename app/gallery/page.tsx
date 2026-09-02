@@ -4,6 +4,8 @@ import SectionHeading from "@/components/SectionHeading";
 import GalleryFilter from "@/components/GalleryFilter";
 import type { GalleryImage } from "@/components/GalleryLightbox";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
+import CTABand from "@/components/ui/CTABand";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Karate Photos - Training, Camps and Gradings",
@@ -81,7 +83,7 @@ const images: GalleryImage[] = [
   { src: "/images/Camp/camp-padwork-outdoor.jpg",   alt: "Outdoor padwork",                    caption: "Padwork - Open Air",                tall: false, category: "Camps" },
   { src: "/images/Camp/camp-lineup-trees.jpg",      alt: "Camp lineup under trees",            caption: "Summer Camp - Under the Trees",    tall: false, category: "Camps" },
   { src: "/images/Camp/camp-post-training-pair.jpg", alt: "Post training pair at camp",        caption: "After Training",                    tall: false, category: "Camps" },
-  { src: "/images/Camp/camp-shihan-student-fists.jpg", alt: "Shihan with student at camp",    caption: "Shihan & Student",                  tall: false, category: "Camps" },
+  { src: "/images/Camp/shihan-stick-training-unidentified.jpg", alt: "Shihan Gavin Mulholland with a stick, mid-technique at camp", caption: "Shihan - Stick Training", tall: true, category: "Camps" },
   { src: "/images/Camp/camp-board-break-intense.jpg", alt: "Board break at camp",              caption: "Board Break - Summer Camp",         tall: false, category: "Camps" },
   { src: "/images/Camp/archive-summer-school-stick-work.jpg",    alt: "Stick work at an early DKK summer school",          caption: "Early Summer School - Stick Work",    tall: false, category: "Camps" },
   { src: "/images/Camp/archive-summer-school-knife-defence.jpg", alt: "Knife defence drill at an early DKK summer school", caption: "Early Summer School - Knife Defence", tall: true,  category: "Camps" },
@@ -168,7 +170,7 @@ const images: GalleryImage[] = [
   { src: "/images/Club/club_big_group_indoor_dans.jpg",      alt: "Big club group photo - mixed dans",            caption: "DKK London - Full House",          tall: false, category: "Training" },
 
   // Grading - recent
-  { src: "/images/Grading/glenn_sidney_nidan_certificates.jpg", alt: "Glenn Malpass & Sidney Ushurhe with Nidan certificates", caption: "Nidan - Glenn & Sidney",  tall: false, category: "Grading" },
+  { src: "/images/Yudansha/glenn_sidney_nidan.jpg", alt: "Glenn Malpass & Sidney Ushurhe with Nidan certificates", caption: "Nidan - Glenn & Sidney",  tall: true, category: "Grading" },
 
   // Camps - recent
   { src: "/images/Camp/camp_partner_drill_shirtless.jpg",    alt: "Summer Camp - partner drill",                  caption: "Summer Camp - Partner Drill",      tall: false, category: "Camps" },
@@ -186,7 +188,7 @@ const images: GalleryImage[] = [
   { src: "/images/Yudansha/lina_action.jpeg",                alt: "Lina Amir action",                             caption: "Lina Amir - Training",              tall: false, category: "Yudansha" },
   { src: "/images/Yudansha/dieter_liepsch.jpg",              alt: "Dieter Liepsch",                               caption: "Dieter Liepsch - 2nd Dan",          tall: true,  category: "Yudansha" },
   { src: "/images/Yudansha/carlotta_roveri.jpg",             alt: "Carlotta Roveri",                              caption: "Carlotta Roveri - 1st Dan",         tall: true,  category: "Yudansha" },
-  { src: "/images/Yudansha/scarlett.jpg",                    alt: "Scarlett",                                     caption: "Scarlett",                          tall: true,  category: "Yudansha" },
+  { src: "/images/Yudansha/scarlett.jpg",                    alt: "Shihan with Scarlett at summer camp",          caption: "Shihan & Scarlett",                 tall: true,  category: "Yudansha" },
 ];
 
 export default function GalleryPage() {
@@ -211,10 +213,19 @@ export default function GalleryPage() {
           <p className="text-gray-500 text-sm -mt-8 mb-8">Click any photo to view full size. Use the filters to browse by category.</p>
           <GalleryFilter images={images} />
           <p className="text-gray-600 text-sm text-center mt-10">
-            If you have photos from DKK sessions to contribute, please get in touch.
+            If you have photos from DKK sessions to contribute, please{" "}
+            <Link href="/contact" className="text-gold hover:text-white underline-offset-2 hover:underline transition-colors">
+              get in touch
+            </Link>
+            .
           </p>
         </div>
       </section>
+
+      <CTABand
+        title="Want to be in the next set of photos?"
+        sub="Come and train with us. Monday & Wednesday, 6:00pm to 8:00pm."
+      />
     </>
   );
 }

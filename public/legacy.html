@@ -31,7 +31,20 @@
   try { raw = decodeURIComponent(raw); } catch (e) {}
   var m = /[?&]page=([^&#]+)/.exec(raw);
   var key = m ? m[1].toLowerCase() : "";
-  window.location.replace(map[key] || "/");
+  var dest = map[key] || "/";
+
+  // Every /index.php?page=X variant serves this same static file, so without
+  // a canonical Google sees a dozen-plus byte-identical pages and cannot tell
+  // which one is authoritative ("Duplicate without user-selected canonical"
+  // in Search Console). Set it per-destination before the redirect fires so a
+  // crawl that renders JS but does not follow the redirect still gets a clear
+  // signal for THIS specific legacy URL.
+  var link = document.createElement("link");
+  link.rel = "canonical";
+  link.href = "https://goju-karate.co.uk" + dest;
+  document.head.appendChild(link);
+
+  window.location.replace(dest);
 })();
 </script>
 <style>

@@ -6,6 +6,7 @@ import { ChevronRight, BookOpen, Award, Star, Shield, Mic, ExternalLink } from "
 import SectionHeading from "@/components/SectionHeading";
 import SafeImage from "@/components/SafeImage";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
+import CTABand from "@/components/ui/CTABand";
 
 export const metadata: Metadata = {
   title: "Shihan Gavin Mulholland, 7th Dan",
@@ -74,7 +75,7 @@ export default function ShihanPage() {
               <p className="text-gray-400 leading-relaxed mb-5">
                 Gavin has travelled extensively throughout Asia experiencing a wide diversity of martial arts. However, as a holistic fighting art, Goju already incorporates elements from virtually every other fighting system and Gavin has remained within the Goju framework.
               </p>
-              {/* Magazine pull-quote — lifted from the paragraph above */}
+              {/* Magazine pull-quote, lifted from the paragraph above */}
               <blockquote className="my-8 pl-6 border-l-2 border-gold" aria-hidden="true">
                 <p className="font-display text-2xl sm:text-3xl text-gold/90 tracking-wide leading-snug">
                   &ldquo;As a holistic fighting art, Goju already incorporates elements from virtually every other fighting system.&rdquo;
@@ -233,7 +234,7 @@ export default function ShihanPage() {
       <section className="section-reveal py-16 sm:py-20 lg:py-28 bg-night border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading eyebrow="Interviews" title="Podcasts & Media" />
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl">
             {[
               {
                 title: "\"Karate Doesn't Exist\"",
@@ -252,6 +253,12 @@ export default function ShihanPage() {
                 source: "MartialFocus Podcast",
                 description: "Training philosophy, the DKK approach, and what makes Goju Ryu different.",
                 href: "https://martialfocus.podbean.com/e/episode-sixty-gavin-mulholland/",
+              },
+              {
+                title: "Gavin Mulholland Interview",
+                source: "Anxious Black Belt Podcast",
+                description: "On leading DKK and DKK Fighters, and coaching a student through to the UFC.",
+                href: "https://podcasters.spotify.com/pod/show/lesbubka/episodes/Gavin-Mulholland-Interview-e1tfsk3",
               },
             ].map((item) => (
               <a
@@ -344,6 +351,12 @@ export default function ShihanPage() {
           </div>
         </div>
       </section>
+
+      <CTABand
+        title="Train under Shihan Mulholland"
+        sub="Monday & Wednesday · 6:00pm - 8:00pm · 309 Regent Street"
+        buttonLabel="Join Now"
+      />
     </>
   );
 }

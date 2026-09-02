@@ -10,12 +10,13 @@ import VideoHeroBackground from "@/components/VideoHeroBackground";
 import VideoShowcase from "@/components/VideoShowcase";
 import KineticHeadline from "@/components/KineticHeadline";
 import MagneticButton from "@/components/MagneticButton";
+import CTABand from "@/components/ui/CTABand";
 
 export default function Home() {
   return (
     <>
       {/* ── HERO ─────────────────────────────────────────────── */}
-      {/* svh: stable height on mobile — vh jumps when the iOS/Android URL bar collapses */}
+      {/* svh: stable height on mobile, vh jumps when the iOS/Android URL bar collapses */}
       <section className="relative min-h-[100svh] flex items-center overflow-hidden">
         {/* Layered background */}
         <div className="absolute inset-0 bg-black" />
@@ -179,7 +180,7 @@ export default function Home() {
       {/* ── VIDEO SHOWCASE ───────────────────────────────────── */}
       <VideoShowcase />
 
-      {/* ── WHY TRAIN — numbered editorial list beside one strong image ── */}
+      {/* ── WHY TRAIN: numbered editorial list beside one strong image ── */}
       <div className="section-divider" />
       <section className="py-20 sm:py-24 lg:py-32 bg-card">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -295,6 +296,11 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <CTABand
+        title="Come and train with us"
+        sub="No uniform needed. Just turn up."
+      />
     </>
   );
 }

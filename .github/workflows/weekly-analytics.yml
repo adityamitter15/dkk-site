@@ -31,9 +31,11 @@ jobs:
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          GSC_SERVICE_ACCOUNT_KEY: ${{ secrets.GSC_SERVICE_ACCOUNT_KEY }}
           # Not secrets: an account id and a site tag identify, they do not authorise.
           CF_ACCOUNT_ID: 86da3c812d2c1cc6b9b823baa4b52e8f
           CF_SITE_TAG: 29a978291e704d29b4549de7682fe559
+          GSC_SITE_URL: sc-domain:goju-karate.co.uk
           MAIL_TO: ${{ vars.MAIL_TO }}
           MAIL_FROM: ${{ vars.MAIL_FROM }}
         run: node scripts/analytics-report.mjs

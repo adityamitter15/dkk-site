@@ -6,6 +6,7 @@ import SectionHeading from "@/components/SectionHeading";
 import SafeImage from "@/components/SafeImage";
 import ScrollRevealText from "@/components/ui/ScrollRevealText";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
+import CTABand from "@/components/ui/CTABand";
 
 export const metadata: Metadata = {
   title: "What Is Okinawan Goju Ryu Karate?",
@@ -246,6 +247,11 @@ export default function GojuRyuPage() {
           </Link>
         </div>
       </section>
+
+      <CTABand
+        title="Experience Goju Ryu for yourself"
+        sub="Monday & Wednesday · 6:00pm - 8:00pm · 309 Regent Street"
+      />
     </>
   );
 }

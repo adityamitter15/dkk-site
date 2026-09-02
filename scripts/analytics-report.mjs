@@ -4,24 +4,39 @@
  *
  * Pulls Cloudflare Web Analytics (the JS-beacon RUM dataset, not the proxy
  * dataset - the site is served by Firebase and is not proxied through
- * Cloudflare, so every `httpRequests` metric is permanently zero) and emails a
+ * Cloudflare, so every `httpRequests` metric is permanently zero) and Google
+ * Search Console (clicks, impressions, position, top queries), then emails a
  * report with inline SVG charts.
  *
- * Reads everything from the environment. The API token is never written to
- * disk and never logged; only its presence is asserted.
+ * Cloudflare answers "how many people are on the site". Search Console
+ * answers the question that actually matters: are those people NEW, or is it
+ * the same members re-reading the register. A brand query ("dkk karate",
+ * "gavin mulholland") is someone who already knows the club; a non-brand
+ * query ("karate london", "goju ryu near me") is a genuine prospect. The
+ * brand/non-brand split below is the headline number in this report.
  *
- *   CLOUDFLARE_API_TOKEN  secret, Account Analytics: Read
- *   CF_ACCOUNT_ID         not secret
- *   CF_SITE_TAG           not secret, identifies the Web Analytics site
- *   MAIL_TO / MAIL_FROM   destination and sender
- *   GMAIL_APP_PASSWORD    secret, SMTP auth for MAIL_FROM
+ * Reads everything from the environment. Credentials are never written to
+ * disk and never logged; only their presence is asserted.
+ *
+ *   CLOUDFLARE_API_TOKEN     secret, Account Analytics: Read
+ *   CF_ACCOUNT_ID            not secret
+ *   CF_SITE_TAG              not secret, identifies the Web Analytics site
+ *   GSC_SERVICE_ACCOUNT_KEY  secret, full JSON key for a service account
+ *                            granted read access on the Search Console
+ *                            property (Settings > Users and permissions)
+ *   GSC_SITE_URL             not secret, e.g. "sc-domain:goju-karate.co.uk"
+ *   MAIL_TO / MAIL_FROM      destination and sender
+ *   GMAIL_APP_PASSWORD       secret, SMTP auth for MAIL_FROM
  */
 
+import crypto from "node:crypto";
 import nodemailer from "nodemailer";
 
 const TOKEN = process.env.CLOUDFLARE_API_TOKEN;
 const ACCOUNT = process.env.CF_ACCOUNT_ID;
 const SITE_TAG = process.env.CF_SITE_TAG;
+const GSC_KEY = process.env.GSC_SERVICE_ACCOUNT_KEY;
+const GSC_SITE_URL = process.env.GSC_SITE_URL;
 const MAIL_TO = process.env.MAIL_TO;
 const MAIL_FROM = process.env.MAIL_FROM;
 const MAIL_PASS = process.env.GMAIL_APP_PASSWORD;
@@ -30,6 +45,8 @@ for (const [name, value] of Object.entries({
   CLOUDFLARE_API_TOKEN: TOKEN,
   CF_ACCOUNT_ID: ACCOUNT,
   CF_SITE_TAG: SITE_TAG,
+  GSC_SERVICE_ACCOUNT_KEY: GSC_KEY,
+  GSC_SITE_URL,
   MAIL_TO,
   MAIL_FROM,
   GMAIL_APP_PASSWORD: MAIL_PASS,
@@ -127,6 +144,106 @@ async function breakdown(w, dimension, limit = 12) {
   }));
 }
 
+// ------------------------------------------------------- Search Console
+
+let gscTokenCache = null;
+
+/**
+ * Exchanges the service account key for an access token via the standard
+ * JWT-bearer grant. No googleapis dependency needed - Node's built-in
+ * `crypto` signs RS256 directly, and it's one fetch to the token endpoint.
+ */
+async function gscAccessToken() {
+  if (gscTokenCache && gscTokenCache.expires > Date.now()) return gscTokenCache.token;
+
+  const key = JSON.parse(GSC_KEY);
+  const now = Math.floor(Date.now() / 1000);
+  const b64url = (obj) => Buffer.from(JSON.stringify(obj)).toString("base64url");
+  const unsigned = `${b64url({ alg: "RS256", typ: "JWT" })}.${b64url({
+    iss: key.client_email,
+    scope: "https://www.googleapis.com/auth/webmasters.readonly",
+    aud: "https://oauth2.googleapis.com/token",
+    iat: now,
+    exp: now + 3600,
+  })}`;
+  const signature = crypto.sign("RSA-SHA256", Buffer.from(unsigned), key.private_key).toString("base64url");
+
+  const res = await fetch("https://oauth2.googleapis.com/token", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams({
+      grant_type: "urn:ietf:params:oauth:grant-type:jwt-bearer",
+      assertion: `${unsigned}.${signature}`,
+    }),
+  });
+  if (!res.ok) throw new Error(`Google OAuth HTTP ${res.status}: ${await res.text()}`);
+  const json = await res.json();
+  gscTokenCache = { token: json.access_token, expires: Date.now() + (json.expires_in - 60) * 1000 };
+  return json.access_token;
+}
+
+async function gscQuery(body) {
+  const token = await gscAccessToken();
+  const res = await fetch(
+    `https://www.googleapis.com/webmasters/v3/sites/${encodeURIComponent(GSC_SITE_URL)}/searchAnalytics/query`,
+    {
+      method: "POST",
+      headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+    },
+  );
+  if (!res.ok) throw new Error(`Search Console API HTTP ${res.status}: ${await res.text()}`);
+  const json = await res.json();
+  return json.rows ?? [];
+}
+
+/** Search Console dates are calendar days, not the RFC3339 windows above. */
+function gscDates(daysAgo, span) {
+  const end = new Date();
+  end.setUTCHours(0, 0, 0, 0);
+  end.setUTCDate(end.getUTCDate() - daysAgo);
+  const start = new Date(end);
+  start.setUTCDate(start.getUTCDate() - span);
+  const fmt = (d) => d.toISOString().slice(0, 10);
+  // endDate is inclusive in the GSC API, so step back one day from the
+  // exclusive boundary the Cloudflare windows use.
+  const inclusiveEnd = new Date(end);
+  inclusiveEnd.setUTCDate(inclusiveEnd.getUTCDate() - 1);
+  return { startDate: fmt(start), endDate: fmt(inclusiveEnd) };
+}
+
+async function gscTotals(daysAgo, span) {
+  const rows = await gscQuery({ ...gscDates(daysAgo, span), dimensions: [] });
+  const r = rows[0];
+  return { clicks: r?.clicks ?? 0, impressions: r?.impressions ?? 0, position: r?.position ?? 0 };
+}
+
+/**
+ * A query is "brand" if it names the club or Shihan by name - someone
+ * searching that already knows DKK exists. Everything else ("karate london",
+ * "goju ryu near me") is a stranger finding the club for the first time,
+ * which is the number this whole report exists to surface.
+ */
+const BRAND_TERMS = ["dkk", "daigaku", "gavin mulholland", "mulholland"];
+const isBrandQuery = (q) => BRAND_TERMS.some((t) => q.toLowerCase().includes(t));
+
+async function gscQueries(daysAgo, span, limit = 12) {
+  const rows = await gscQuery({ ...gscDates(daysAgo, span), dimensions: ["query"], rowLimit: 250 });
+  const queries = rows.map((r) => ({
+    label: r.keys[0],
+    views: Math.round(r.clicks),
+    impressions: r.impressions,
+    brand: isBrandQuery(r.keys[0]),
+  }));
+  const brandClicks = queries.filter((q) => q.brand).reduce((s, q) => s + q.views, 0);
+  const nonBrandClicks = queries.filter((q) => !q.brand).reduce((s, q) => s + q.views, 0);
+  return {
+    top: queries.slice(0, limit).sort((a, b) => b.views - a.views).slice(0, limit),
+    brandClicks,
+    nonBrandClicks,
+  };
+}
+
 // ---------------------------------------------------------------- rendering
 
 const esc = (s) =>
@@ -139,6 +256,17 @@ function delta(now, before) {
   return {
     text: `${pct > 0 ? "+" : ""}${pct}%`,
     colour: pct > 0 ? "#4a5a42" : "#a8201a",
+  };
+}
+
+/** Search position: LOWER is better, the opposite sense to every other metric here. */
+function positionDelta(now, before) {
+  if (!before) return { text: "new", colour: "#7d7568" };
+  const change = Math.round((before - now) * 10) / 10;
+  if (change === 0) return { text: "level", colour: "#7d7568" };
+  return {
+    text: `${change > 0 ? "+" : ""}${change}`,
+    colour: change > 0 ? "#4a5a42" : "#a8201a",
   };
 }
 
@@ -185,13 +313,16 @@ function section(title, body) {
 }
 
 async function main() {
-  const [now, before, pages, countries, browsers, devices] = await Promise.all([
+  const [now, before, pages, countries, browsers, devices, gscNow, gscBefore, gscQ] = await Promise.all([
     totals(THIS_WEEK),
     totals(LAST_WEEK),
     breakdown(THIS_WEEK, "requestPath", 12),
     breakdown(THIS_WEEK, "countryName", 8),
     breakdown(THIS_WEEK, "userAgentBrowser", 6),
     breakdown(THIS_WEEK, "deviceType", 4),
+    gscTotals(0, 7),
+    gscTotals(7, 7),
+    gscQueries(0, 7, 12),
   ]);
 
   // Form completions. The contact form rewrites the URL to /contact/sent on a
@@ -202,6 +333,9 @@ async function main() {
     contact && contact.visits
       ? `${Math.round(((sent?.visits ?? 0) / contact.visits) * 100)}%`
       : "n/a";
+
+  const brandTotal = gscQ.brandClicks + gscQ.nonBrandClicks;
+  const newVisitorShare = brandTotal ? `${Math.round((gscQ.nonBrandClicks / brandTotal) * 100)}%` : "n/a";
 
   const from = THIS_WEEK.start.slice(0, 10);
   const to = new Date(Date.parse(THIS_WEEK.end) - 86400000).toISOString().slice(0, 10);
@@ -227,6 +361,26 @@ async function main() {
     </tr>
   </table>
 
+  ${section(
+    "Google Search: new people finding the site",
+    `<table cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse">
+      <tr>
+        ${statCell("Search clicks", Math.round(gscNow.clicks), delta(gscNow.clicks, gscBefore.clicks))}
+        ${statCell("Impressions", Math.round(gscNow.impressions), delta(gscNow.impressions, gscBefore.impressions))}
+      </tr>
+      <tr>
+        ${statCell("Avg. position", gscNow.position ? gscNow.position.toFixed(1) : "n/a", positionDelta(gscNow.position, gscBefore.position))}
+        ${statCell("Non-brand share of clicks", newVisitorShare, { text: "the number that matters", colour: "#a8201a" })}
+      </tr>
+    </table>
+    <p style="font:400 12px Helvetica,Arial,sans-serif;color:#8a8172;line-height:1.6;margin:10px 0 0">
+      A <strong>brand</strong> search names the club or Shihan by name (someone who already knows DKK exists).
+      <strong>Non-brand</strong> is everything else, like "karate london" or "goju ryu near me": a stranger finding
+      the club for the first time. That non-brand share, not total traffic, is the real answer to whether new
+      people are arriving. Search Console data usually lags 2-3 days, so the most recent days may be undercounted.
+    </p>`,
+  )}
+  ${section("Top search queries this week", barChart(gscQ.top))}
   ${section("Pages, by views", barChart(pages))}
   ${section("Countries", barChart(countries))}
   ${section("Browsers", barChart(browsers))}
@@ -238,6 +392,8 @@ async function main() {
     a successful send. Full dashboard:
     <a href="https://dash.cloudflare.com/${esc(ACCOUNT)}/web-analytics" style="color:#a8201a">Web Analytics</a>.
     Every message itself is in <a href="https://formspree.io/forms" style="color:#a8201a">Formspree</a>.
+    Search data from
+    <a href="https://search.google.com/search-console/performance/search-analytics?resource_id=${esc(encodeURIComponent(GSC_SITE_URL))}" style="color:#a8201a">Google Search Console</a>.
   </p>
 
 </div></body></html>`;

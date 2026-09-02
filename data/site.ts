@@ -44,14 +44,15 @@ export const navLinks: NavLink[] = [
   { href: "/gallery", label: "Gallery" },
 ];
 
-// Full list including footer-only items — used for the mobile menu so nothing is hidden on phones.
+// Full list including footer-only items, used for the mobile menu so nothing is hidden on phones.
 export const mobileNavLinks: NavLink[] = [
   ...navLinks,
   { href: "/faq", label: "Questions" },
   { href: "/links", label: "Links" },
+  { href: "/contact", label: "Contact" },
 ];
 
-// Footer "Quick Links" — no Home, adds Contact, and Fighters carries the full club-team name.
+// Footer "Quick Links": no Home, adds Contact, and Fighters carries the full club-team name.
 export const footerLinks: NavLink[] = [
   { href: "/training", label: "Training" },
   { href: "/shihan", label: "Shihan" },

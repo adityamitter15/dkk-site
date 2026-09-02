@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import SectionHeading from "@/components/SectionHeading";
 import { ExternalLink } from "lucide-react";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
+import CTABand from "@/components/ui/CTABand";
 
 export const metadata: Metadata = {
   title: "Links",
@@ -48,6 +49,7 @@ const linkGroups = [
       { title: "\"Karate Doesn't Exist\" - WOMA", description: "Shihan Mulholland on Goju Ryu history and the meaning of karate.", href: "https://www.worldofmartialarts.tv/karate-doesnt-exist-gavin-mulholland-goju-ryu-interview/" },
       { title: "Kung-fu Kingdom Interview", description: "Comprehensive biographical interview with Shihan Mulholland.", href: "https://kungfukingdom.com/interview-with-gavin-mulholland/" },
       { title: "MartialFocus Podcast Ep. 60", description: "Training philosophy and the DKK approach.", href: "https://martialfocus.podbean.com/e/episode-sixty-gavin-mulholland/" },
+      { title: "Anxious Black Belt Podcast", description: "Shihan Mulholland on leading DKK and coaching a student through to the UFC.", href: "https://podcasters.spotify.com/pod/show/lesbubka/episodes/Gavin-Mulholland-Interview-e1tfsk3" },
     ],
   },
   {
@@ -110,6 +112,11 @@ export default function LinksPage() {
           </p>
         </div>
       </section>
+
+      <CTABand
+        title="Ready to see it for yourself?"
+        sub="No uniform needed. Just turn up."
+      />
     </>
   );
 }
