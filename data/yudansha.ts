@@ -482,23 +482,14 @@ export const grades: GradeTier[] = [
           { year: "2025", event: "Shodan" },
         ],
         // The original second strip photo ("After the grading") had a child
-        // in it and was removed at the club's request. Two more from the
-        // same camp added in its place.
+        // in it and was removed at the club's request. The other camp photos
+        // considered as replacements duplicated what portrait/action already
+        // show, so the strip stays at one.
         photos: [
           {
             src: "/images/Yudansha/sebastien_montemurro_kata_wide.jpg",
             alt: "Sebastien front and centre in a low stance during kata at summer camp",
             caption: "Kata at camp",
-          },
-          {
-            src: "/images/Yudansha/sebastien_montemurro_lineup.jpg",
-            alt: "Sebastien standing to attention with two other members outdoors at summer camp",
-            caption: "In formation",
-          },
-          {
-            src: "/images/Yudansha/sebastien_montemurro_shihan.jpg",
-            alt: "Sebastien with Shihan Gavin Mulholland and a clubmate, holding his Shodan certificate",
-            caption: "With Shihan, certificate in hand",
           },
         ],
       },
