@@ -33,15 +33,21 @@ export default function MemberPhotos({ photos, name }: { photos: MemberPhoto[]; 
   const closeFrom = (i: number) => morphTransition(thumbRefs.current[i], () => setLightboxIndex(null));
 
   // One column per photo above phone width. Tailwind needs whole class names,
-  // so these are written out rather than interpolated.
+  // so these are written out rather than interpolated. A single photo is
+  // sized as if it were sitting in a 3-up row rather than stretched to fill
+  // the whole width, so the strip doesn't visually balloon whenever a member
+  // only has one extra photo.
   const columns =
     images.length >= 6 ? "sm:grid-cols-3 lg:grid-cols-6"
     : images.length === 5 ? "sm:grid-cols-5"
     : images.length === 4 ? "sm:grid-cols-4"
-    : images.length === 3 ? "sm:grid-cols-3"
+    : images.length === 3 || images.length === 1 ? "sm:grid-cols-3"
     : "sm:grid-cols-2";
 
-  const oddCount = images.length % 2 === 1;
+  // The last tile of an odd set (3+ photos) spans both mobile columns and
+  // reads as a deliberate closing frame. A lone photo isn't "odd" in that
+  // sense, it's just the only tile, so it gets no special treatment at all.
+  const oddCount = images.length % 2 === 1 && images.length > 1;
 
   return (
     <div className="max-w-4xl mt-14 pt-10 border-t border-white/5">
@@ -49,16 +55,12 @@ export default function MemberPhotos({ photos, name }: { photos: MemberPhoto[]; 
 
       <StaggerList as="div" className={`grid grid-cols-2 ${columns} gap-2.5 sm:gap-3`}>
         {images.map((img, i) => {
-          // A single photo has no row to share, so it always spans full
-          // width. Otherwise the usual rule: the last tile of an odd set
-          // spans both mobile columns and reads as a deliberate closing frame.
-          const isOrphan = images.length === 1 || (oddCount && i === images.length - 1);
-          const fullWidthOnly = images.length === 1;
+          const isOrphan = oddCount && i === images.length - 1;
           return (
             <StaggerItem
               as="div"
               key={img.src}
-              className={isOrphan ? (fullWidthOnly ? "col-span-2" : "col-span-2 sm:col-span-1") : undefined}
+              className={isOrphan ? "col-span-2 sm:col-span-1" : undefined}
             >
               <button
                 type="button"
@@ -76,13 +78,7 @@ export default function MemberPhotos({ photos, name }: { photos: MemberPhoto[]; 
                     src={img.src}
                     alt={img.alt}
                     fill
-                    sizes={
-                      fullWidthOnly
-                        ? "(min-width: 896px) 896px, 92vw"
-                        : isOrphan
-                          ? "(min-width: 640px) 20vw, 92vw"
-                          : "(min-width: 640px) 20vw, 46vw"
-                    }
+                    sizes={isOrphan ? "(min-width: 640px) 20vw, 92vw" : "(min-width: 640px) 20vw, 46vw"}
                     className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                   />
                   {/* Zero-alpha stop, never `to-transparent`: Tailwind v4 interpolates
