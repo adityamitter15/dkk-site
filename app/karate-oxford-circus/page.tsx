@@ -111,6 +111,11 @@ export default function KarateOxfordCircusPage() {
             <Link href="/training" className="link-underline text-gold">
               training page
             </Link>
+            . DKK also runs a branch further out in Buckinghamshire, taught by Sensei Simon Clinch -
+            see{" "}
+            <Link href="/karate-oxfordshire" className="link-underline text-gold">
+              DKK Oxfordshire
+            </Link>
             .
           </p>
         </div>

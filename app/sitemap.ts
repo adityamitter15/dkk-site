@@ -25,6 +25,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/links`,    lastModified: now, changeFrequency: "yearly",  priority: 0.4 },
     { url: `${BASE_URL}/privacy`,  lastModified: now, changeFrequency: "yearly",  priority: 0.3 },
     { url: `${BASE_URL}/karate-oxford-circus`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE_URL}/karate-oxfordshire`,   lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE_URL}/karate-soho`,          lastModified: now, changeFrequency: "monthly", priority: 0.6 },
     { url: `${BASE_URL}/karate-mayfair`,       lastModified: now, changeFrequency: "monthly", priority: 0.6 },
     { url: `${BASE_URL}/karate-fitzrovia`,     lastModified: now, changeFrequency: "monthly", priority: 0.6 },

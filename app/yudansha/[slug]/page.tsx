@@ -9,8 +9,10 @@ import LiveYears from "@/components/ui/LiveYears";
 import MemberPhotos from "@/components/ui/MemberPhotos";
 import Reveal from "@/components/ui/Reveal";
 import JourneySpine from "@/components/ui/JourneySpine";
+import ReelShowcase from "@/components/ui/ReelShowcase";
 import { StaggerList, StaggerItem } from "@/components/ui/StaggerList";
 import { getAllMembers, getMemberBySlug } from "@/data/yudansha";
+import { getReelsForMember, isoDuration } from "@/data/reels";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import { site } from "@/data/site";
 
@@ -59,6 +61,19 @@ export default async function MemberPage({ params }: { params: Promise<{ slug: s
   const lastMilestone = member.milestones?.[member.milestones.length - 1];
   const yearsTraining = firstMilestone ? new Date().getFullYear() - parseInt(firstMilestone) : null;
 
+  // Technique-breakdown reels (Simon Clinch only, for now - see getReelsForMember).
+  const reels = getReelsForMember(member.slug);
+  const videoJsonLds = reels.map((reel) => ({
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    name: reel.title,
+    description: reel.description,
+    thumbnailUrl: `${site.url}${reel.basePath}.jpg`,
+    uploadDate: reel.uploadDate,
+    duration: isoDuration(reel.duration),
+    contentUrl: `${site.url}${reel.basePath}.mp4`,
+  }));
+
   const personJsonLd = {
     "@context": "https://schema.org",
     "@type": "Person",
@@ -82,6 +97,13 @@ export default async function MemberPage({ params }: { params: Promise<{ slug: s
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
       />
+      {videoJsonLds.map((ld, i) => (
+        <script
+          key={reels[i].slug}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }}
+        />
+      ))}
       {/* Hero */}
       <section className="relative pt-28 pb-16 sm:pt-40 sm:pb-28 overflow-hidden">
         <div className="absolute inset-0 bg-black" />
@@ -202,7 +224,7 @@ export default async function MemberPage({ params }: { params: Promise<{ slug: s
             <div className="max-w-4xl mt-2">
               <p className="text-brand text-xs font-bold uppercase tracking-[0.2em] mb-8">Journey</p>
               <div className="relative ml-[5px]">
-                {/* Belt spine — the rail begins white (white belt) and fades into
+                {/* Belt spine: the rail begins white (white belt) and fades into
                     the black of the page (black belt); the brand dot marks today.
                     It draws itself downward as the block enters view. */}
                 <JourneySpine />
@@ -289,6 +311,17 @@ export default async function MemberPage({ params }: { params: Promise<{ slug: s
               <Link href="/training" className="inline-flex items-center gap-2 mt-5 text-brand font-semibold text-xs uppercase tracking-wider hover:gap-3 transition-all">
                 Full training schedule <ChevronRight size={14} />
               </Link>
+            </div>
+          )}
+
+          {/* Technique Breakdowns (Instagram reels, currently Simon Clinch only) */}
+          {reels.length > 0 && (
+            <div className="max-w-4xl mt-14 pt-10 border-t border-white/5">
+              <ReelShowcase
+                reels={reels}
+                heading="Technique Breakdowns"
+                intro={`Filmed at ${member.name}'s Oxfordshire dojo.`}
+              />
             </div>
           )}
 

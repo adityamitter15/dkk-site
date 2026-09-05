@@ -137,6 +137,11 @@ export default function TrainingPage() {
                   </div>
                 </div>
               </div>
+              <div className="px-6 pb-5">
+                <Link href="/karate-oxfordshire" className="link-underline text-gold text-xs inline-flex items-center gap-1">
+                  Full DKK Oxfordshire branch details <ChevronRight size={12} />
+                </Link>
+              </div>
             </div>
 
             {/* Ragi Marmar - North London */}
@@ -367,7 +372,7 @@ export default function TrainingPage() {
         </div>
       </section>
 
-      {/* ── 30 MAN KUMITE — coal band with the number itself as the monument ── */}
+      {/* ── 30 MAN KUMITE: coal band with the number itself as the monument ── */}
       <section className="relative py-20 sm:py-24 lg:py-36 bg-coal border-t border-white/5 overflow-hidden atmosphere-brand">
         <span
           aria-hidden="true"
