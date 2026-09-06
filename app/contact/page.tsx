@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import SectionHeading from "@/components/SectionHeading";
 import ContactForm from "@/components/ContactForm";
 import SafeImage from "@/components/SafeImage";
+import TrackedOutbound from "@/components/TrackedOutbound";
 import { Phone, Mail, MapPin, Clock, MessageCircle, Banknote } from "lucide-react";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import { site } from "@/data/site";
@@ -98,10 +99,9 @@ export default function ContactPage() {
                     </div>
                   </a>
 
-                  <a
+                  <TrackedOutbound
                     href="https://wa.me/447976411901?text=Hi%2C%20I%27d%20like%20to%20come%20and%20try%20a%20class%20at%20DKK%20London."
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    track="/go/whatsapp"
                     className="flex gap-4 items-start p-5 bg-card border border-white/10 hover:border-whatsapp/40 rounded-sm transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-whatsapp/50"
                   >
                     <MessageCircle className="text-whatsapp flex-shrink-0 mt-0.5" size={20} aria-hidden="true" />
@@ -110,11 +110,12 @@ export default function ContactPage() {
                       <p className="text-white font-medium text-lg leading-tight">Quick chat</p>
                       <p className="text-gray-500 text-xs mt-0.5">Usually replies same day</p>
                     </div>
-                  </a>
+                  </TrackedOutbound>
                 </div>
 
-                <a
+                <TrackedOutbound
                   href="mailto:info@goju-karate.co.uk"
+                  track="/go/email"
                   className="flex gap-4 items-start p-5 bg-card border border-white/10 hover:border-brand/40 rounded-sm transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/50"
                 >
                   <Mail className="text-brand flex-shrink-0 mt-0.5" size={20} aria-hidden="true" />
@@ -123,7 +124,7 @@ export default function ContactPage() {
                     <p className="text-white font-medium leading-tight">info@goju-karate.co.uk</p>
                     <p className="text-gray-500 text-xs mt-0.5">Replies within 48 hours</p>
                   </div>
-                </a>
+                </TrackedOutbound>
 
                 <div className="flex gap-4 items-start p-5 bg-card border border-white/10 rounded-sm">
                   <MapPin className="text-brand flex-shrink-0 mt-0.5" size={20} aria-hidden="true" />
@@ -188,21 +189,21 @@ export default function ContactPage() {
                       here.
                     </p>
                     <p className="text-gray-500 text-xs mt-2">
-                      <a
+                      <TrackedOutbound
                         href="https://wa.me/447976411901?text=Hi%2C%20could%20you%20tell%20me%20what%20the%20class%20fees%20are%20at%20DKK%20London%3F"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                        track="/go/whatsapp"
                         className="link-underline text-gold"
                       >
                         Ask about fees on WhatsApp
-                      </a>
+                      </TrackedOutbound>
                       {" · "}
-                      <a
+                      <TrackedOutbound
                         href="mailto:info@goju-karate.co.uk?subject=Class%20fees"
+                        track="/go/email"
                         className="link-underline text-gold"
                       >
                         or by email
-                      </a>
+                      </TrackedOutbound>
                     </p>
                   </div>
                 </div>

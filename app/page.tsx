@@ -11,6 +11,7 @@ import VideoShowcase from "@/components/VideoShowcase";
 import KineticHeadline from "@/components/KineticHeadline";
 import MagneticButton from "@/components/MagneticButton";
 import CTABand from "@/components/ui/CTABand";
+import TrackedOutbound from "@/components/TrackedOutbound";
 
 export default function Home() {
   return (
@@ -44,13 +45,22 @@ export default function Home() {
             One of the strongest karate clubs in the UK. Combat-orientated training for adults of all levels, every Monday and Wednesday in central London.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 mb-10 sm:mb-16">
-            <MagneticButton href="/contact" className="px-8 py-4 bg-brand text-white font-bold uppercase tracking-widest text-sm hover:bg-brand-hover transition-colors duration-200 inline-flex items-center justify-center gap-2 rounded-sm">
-              Start Training <ChevronRight size={18} />
-            </MagneticButton>
-            <MagneticButton href="/training" className="px-8 py-4 border border-white/20 text-white font-semibold uppercase tracking-widest text-sm hover:border-brand hover:bg-brand/10 transition-colors duration-200 inline-flex items-center justify-center gap-2 rounded-sm">
-              Class Times <Clock size={16} />
-            </MagneticButton>
+          <div className="mb-10 sm:mb-16">
+            <div className="flex flex-col sm:flex-row gap-4">
+              <MagneticButton href="/contact" className="px-8 py-4 bg-brand text-white font-bold uppercase tracking-widest text-sm hover:bg-brand-hover transition-colors duration-200 inline-flex items-center justify-center gap-2 rounded-sm">
+                Start Training <ChevronRight size={18} />
+              </MagneticButton>
+              <MagneticButton href="/training" className="px-8 py-4 border border-white/20 text-white font-semibold uppercase tracking-widest text-sm hover:border-brand hover:bg-brand/10 transition-colors duration-200 inline-flex items-center justify-center gap-2 rounded-sm">
+                Class Times <Clock size={16} />
+              </MagneticButton>
+            </div>
+            <TrackedOutbound
+              href="https://wa.me/447976411901?text=Hi%2C%20I%27d%20like%20to%20come%20and%20try%20a%20class%20at%20DKK%20London."
+              track="/go/whatsapp"
+              className="mt-4 inline-block text-gray-400 text-sm hover:text-whatsapp transition-colors"
+            >
+              or message us on WhatsApp
+            </TrackedOutbound>
           </div>
 
           {/* Quick info strip */}

@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { Send, CheckCircle, Loader2 } from "lucide-react";
+import TrackedOutbound from "@/components/TrackedOutbound";
 
 const FORMSPREE_ID = "xeedpgvk";
 const COOLDOWN_MS = 60_000;
@@ -164,14 +165,13 @@ export default function ContactForm() {
               ? "Thanks. We have your number and we will message you on WhatsApp. "
               : "Thanks for getting in touch. We aim to reply within 48 hours. "}
           If it&apos;s urgent,{" "}
-          <a
+          <TrackedOutbound
             href="https://wa.me/447976411901"
-            target="_blank"
-            rel="noopener noreferrer"
+            track="/go/whatsapp"
             className="text-gold hover:text-white transition-colors underline-offset-2 hover:underline"
           >
             message us on WhatsApp
-          </a>
+          </TrackedOutbound>
           .
         </p>
       </div>

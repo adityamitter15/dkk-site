@@ -28,6 +28,11 @@ export const site = {
   facebook: "https://www.facebook.com/groups/24449490051/",
 } as const;
 
+// Set to the real date of the next beginners' intake / term restart to show the
+// notice bar, then clear it back to null once it has passed. Format: ISO date.
+// The club has to supply the real date - do not invent one.
+export const termNotice: { date: string; label: string; href: string } | null = null;
+
 export type NavLink = { href: string; label: string };
 
 // Primary nav. "Links" lives in the footer; "Books" is in the bar.

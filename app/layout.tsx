@@ -3,6 +3,7 @@ import { Bebas_Neue, Inter } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import TermNotice from "@/components/ui/TermNotice";
 import Footer from "@/components/Footer";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
 import BackToTop from "@/components/BackToTop";
@@ -207,6 +208,7 @@ export default function RootLayout({
         <a href="#main-content" className="skip-link">Skip to content</a>
         <ScrollProgress />
         <Navbar />
+        <TermNotice />
         <main id="main-content">{children}</main>
         <Footer />
         <StickyMobileCTA />

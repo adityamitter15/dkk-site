@@ -47,6 +47,12 @@ export default function VideoHeroBackground() {
     };
   }, []);
 
+  // preload stays "auto". Setting it to "none" to defer the 4.4MB mobile file
+  // is a no-op at best: the autoplay flag starts loading regardless, so the
+  // preload hint is ignored when autoplay is set. In any browser that did
+  // honour it the hero would sit on the poster until a gesture, and the
+  // autoplay attribute cannot be dropped either, per the Safari/iOS note
+  // above. Tried 2026-09-06, reverted. Do not "optimise" this again.
   return (
     <video
       ref={videoRef}

@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, MessageCircle } from "lucide-react";
+import TrackedOutbound from "@/components/TrackedOutbound";
 
 export default function StickyMobileCTA() {
   const pathname = usePathname();
@@ -39,13 +40,24 @@ export default function StickyMobileCTA() {
         bottom: "calc(env(safe-area-inset-bottom, 0px) + 1.25rem)",
       }}
     >
-      <Link
-        href="/contact"
-        className="inline-flex items-center gap-2 px-5 py-3 bg-brand text-white font-bold uppercase tracking-widest text-[13px] rounded-full shadow-dock active:scale-[0.97] transition-transform"
-      >
-        Come and Train
-        <ChevronRight size={16} />
-      </Link>
+      <div className="flex items-center gap-2">
+        <TrackedOutbound
+          href="https://wa.me/447976411901?text=Hi%2C%20I%27d%20like%20to%20come%20and%20try%20a%20class%20at%20DKK%20London."
+          track="/go/whatsapp"
+          aria-label="WhatsApp Shihan Gavin"
+          className="inline-flex items-center gap-2 px-4 py-3 bg-whatsapp text-night font-bold uppercase tracking-widest text-[13px] rounded-full shadow-dock active:scale-[0.97] transition-transform"
+        >
+          <MessageCircle size={16} />
+          WhatsApp
+        </TrackedOutbound>
+        <Link
+          href="/contact"
+          className="inline-flex items-center gap-2 px-4 py-3 bg-brand text-white font-bold uppercase tracking-widest text-[13px] rounded-full shadow-dock active:scale-[0.97] transition-transform"
+        >
+          Come and Train
+          <ChevronRight size={16} />
+        </Link>
+      </div>
     </div>
   );
 }
