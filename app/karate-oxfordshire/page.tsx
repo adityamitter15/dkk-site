@@ -48,11 +48,14 @@ const venues = [
   },
 ] as const;
 
+/* Distance leads each card so the section reads as a distance table at a
+ * glance, the way StatStrip does elsewhere on the site, rather than as four
+ * paragraphs in boxes. Mileages are approximate and the copy says so. */
 const towns = [
-  { name: "Thame", body: "Around six miles south, on the Oxfordshire side of the border. The closest of the four to both halls." },
-  { name: "Bicester", body: "Roughly eight miles west along the back roads, well under twenty minutes by car." },
-  { name: "Aylesbury", body: "About nine miles north-east on the A41, the nearer of Buckinghamshire's two county towns." },
-  { name: "Oxford", body: "Around twelve miles south-west, inside half an hour outside rush hour." },
+  { name: "Thame", miles: "6", dir: "South", body: "On the Oxfordshire side of the border, and the closest of the four to both halls." },
+  { name: "Bicester", miles: "8", dir: "West", body: "Along the back roads, well under twenty minutes by car." },
+  { name: "Aylesbury", miles: "9", dir: "North-East", body: "Straight up the A41, the nearer of Buckinghamshire's two county towns." },
+  { name: "Oxford", miles: "12", dir: "South-West", body: "Inside half an hour outside rush hour." },
 ] as const;
 
 export default function KarateOxfordshirePage() {
@@ -137,6 +140,11 @@ export default function KarateOxfordshirePage() {
         image={{
           src: "/images/Yudansha/simon_clinch_studio.jpg",
           alt: "Sensei Simon Clinch, 4th Dan, founder of DKK Oxfordshire, in a Goju Ryu ready stance",
+          /* The source is a 626x1200 portrait with his head in the top ~15%.
+           * object-cover in this near-square container crops from the centre by
+           * default, which cut his head off entirely and left only the belt.
+           * Anchoring to the top keeps the face and the raised hand in frame. */
+          position: "50% 0%",
         }}
         kanji="道場"
       />
@@ -157,27 +165,44 @@ export default function KarateOxfordshirePage() {
             miles apart on the edge of the Oxfordshire border. Run by Sensei Simon Clinch under the same
             Okinawan Goju Ryu syllabus and lineage as DKK London, founded in 1990.
           </p>
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl">
+          {/* Full grid width, not capped to max-w-4xl. Capping a two-up grid
+              inside a max-w-7xl shell read as truncated rather than as a
+              deliberate narrow column. The prose above stays narrow, which is
+              the gutter rule working as intended. Cards are bg-coal so they
+              separate from the bg-night band. */}
+          <div className="grid md:grid-cols-2 gap-5 sm:gap-6">
             {venues.map((v) => (
-              <div key={v.id} className="p-6 bg-card border border-white/10 rounded-sm">
-                <div className="flex items-center gap-4 mb-4">
-                  <Clock className="text-brand flex-shrink-0" size={22} aria-hidden="true" />
+              <div
+                key={v.id}
+                className="group relative p-7 sm:p-9 bg-coal border border-white/10 rounded-sm hover:border-brand/40 transition-colors"
+              >
+                <div className="flex items-start justify-between gap-4">
                   <div>
-                    <p className="font-display text-3xl text-white tracking-wide leading-none">{v.day}</p>
-                    <p className="text-gray-400 text-sm mt-0.5">{v.time}</p>
+                    <p className="font-display text-4xl sm:text-5xl text-white tracking-wide leading-none">
+                      {v.day}
+                    </p>
+                    <p className="text-brand text-sm font-semibold uppercase tracking-[0.2em] mt-3">
+                      {v.time}
+                    </p>
                   </div>
+                  <Clock className="text-white/15 flex-shrink-0" size={30} aria-hidden="true" />
                 </div>
+
+                <div className="h-px w-full bg-white/10 my-6" aria-hidden="true" />
+
                 <div className="flex gap-3 items-start">
-                  <MapPin className="text-brand flex-shrink-0 mt-0.5" size={18} aria-hidden="true" />
+                  <MapPin className="text-brand flex-shrink-0 mt-1" size={18} aria-hidden="true" />
                   <div>
-                    <p className="text-white font-display text-xl tracking-wide leading-none">{v.venue}</p>
+                    <p className="text-white font-display text-xl sm:text-2xl tracking-wide leading-none">
+                      {v.venue}
+                    </p>
                     <a
                       href={v.mapUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-brand text-sm hover:underline inline-flex items-center gap-1 mt-1"
+                      className="text-gray-400 hover:text-brand text-sm inline-flex items-center gap-1.5 mt-2 transition-colors"
                     >
-                      {v.addressLine} <ExternalLink size={12} />
+                      {v.addressLine} <ExternalLink size={12} aria-hidden="true" />
                     </a>
                   </div>
                 </div>
@@ -191,11 +216,33 @@ export default function KarateOxfordshirePage() {
       <section className="section-reveal py-16 sm:py-20 lg:py-28 bg-card border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading eyebrow="Getting Here" title="Karate Near Thame, Bicester, Aylesbury & Oxford" />
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-5xl">
+          <p className="text-gray-400 leading-relaxed max-w-2xl mb-10">
+            Both halls sit in open Buckinghamshire countryside on the Oxfordshire border, so most people
+            drive in. Approximate distances from the towns nearest the dojo:
+          </p>
+
+          {/* These previously used bg-card ON a bg-card section with a white/5
+              border, so they read as flat. The separation now comes mostly from
+              the stronger white/10 border; bg-night over bg-card is only about a
+              1.04:1 luminance step, so it recesses the card slightly but is not
+              what makes the edge visible. */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {towns.map((t) => (
-              <div key={t.name} className="p-5 bg-card border border-white/5 rounded-sm">
-                <p className="font-display text-2xl text-white tracking-wide leading-none mb-1.5">{t.name}</p>
-                <p className="text-gray-500 text-sm leading-relaxed">{t.body}</p>
+              <div
+                key={t.name}
+                className="p-6 bg-night border border-white/10 rounded-sm hover:border-brand/40 transition-colors"
+              >
+                <div className="flex items-baseline gap-2">
+                  <span className="font-display text-5xl text-brand tracking-wide leading-none tabular-nums">
+                    {t.miles}
+                  </span>
+                  <span className="text-brand/70 text-sm font-semibold uppercase tracking-[0.15em]">mi</span>
+                </div>
+                <p className="font-display text-2xl text-white tracking-wide leading-none mt-4">{t.name}</p>
+                <p className="text-gray-400 text-[11px] font-semibold uppercase tracking-[0.2em] mt-1.5">
+                  {t.dir}
+                </p>
+                <p className="text-gray-500 text-sm leading-relaxed mt-3">{t.body}</p>
               </div>
             ))}
           </div>
@@ -239,7 +286,7 @@ export default function KarateOxfordshirePage() {
                   </p>
                   <p className="text-white font-display text-xl tracking-wide">gojukarateoxford.com</p>
                 </div>
-                <Globe className="text-gray-600 group-hover:text-gold transition-colors flex-shrink-0" size={20} aria-hidden="true" />
+                <Globe className="text-gray-400 group-hover:text-gold transition-colors flex-shrink-0" size={20} aria-hidden="true" />
               </a>
               <a
                 href="https://www.instagram.com/dkkoxfordshire"
@@ -253,7 +300,7 @@ export default function KarateOxfordshirePage() {
                   </p>
                   <p className="text-white font-display text-xl tracking-wide">@dkkoxfordshire</p>
                 </div>
-                <Instagram className="text-gray-600 group-hover:text-gold transition-colors flex-shrink-0" size={20} aria-hidden="true" />
+                <Instagram className="text-gray-400 group-hover:text-gold transition-colors flex-shrink-0" size={20} aria-hidden="true" />
               </a>
             </div>
           </div>

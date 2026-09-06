@@ -212,7 +212,7 @@ export default function GalleryPage() {
           </div>
           <p className="text-gray-500 text-sm -mt-8 mb-8">Click any photo to view full size. Use the filters to browse by category.</p>
           <GalleryFilter images={images} />
-          <p className="text-gray-600 text-sm text-center mt-10">
+          <p className="text-gray-400 text-sm text-center mt-10">
             If you have photos from DKK sessions to contribute, please{" "}
             <Link href="/contact" className="text-gold hover:text-white underline-offset-2 hover:underline transition-colors">
               get in touch

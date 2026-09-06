@@ -9,7 +9,7 @@ export default function SafeImage({ src, alt, ...props }: ImageProps) {
   const isGif = typeof src === "string" && src.toLowerCase().endsWith(".gif");
 
   if (failed) {
-    // Quiet placeholder instead of a collapsed gap — keeps layout intact
+    // Quiet placeholder instead of a collapsed gap - keeps layout intact
     return (
       <div
         role="img"

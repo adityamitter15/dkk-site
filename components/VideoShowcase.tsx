@@ -24,13 +24,13 @@ export default function VideoShowcase() {
   /* Ambient preview: once the section is halfway into view the clip loops
    * silently, so the band is alive rather than a still with a play button.
    *
-   * Deliberately scoped. Muted is non-negotiable — browsers block autoplay with
+   * Deliberately scoped. Muted is non-negotiable - browsers block autoplay with
    * sound and a surprise soundtrack is hostile anyway. Phones are excluded
    * because this file is a 720p source and nobody asked to spend their data on
    * a decoration. Reduced-motion sits it out entirely, and it pauses the moment
    * it leaves the viewport rather than decoding off-screen.
    *
-   * Once the visitor clicks play we stop managing playback — `started` guards
+   * Once the visitor clicks play we stop managing playback - `started` guards
    * every branch, so the observer never pauses or restarts a clip they chose
    * to watch. */
   useEffect(() => {
@@ -61,7 +61,7 @@ export default function VideoShowcase() {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_60%,_var(--color-glow-core)_0%,_transparent_70%)] opacity-70 pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header — sits on the site-wide gutter so edges line up section to section */}
+        {/* Header - sits on the site-wide gutter so edges line up section to section */}
         <div className="mb-10">
           <p className="inline-flex items-center gap-3 text-brand text-xs font-bold uppercase tracking-[0.35em] mb-5">
             <span className="w-6 h-px bg-brand" />
@@ -123,7 +123,7 @@ export default function VideoShowcase() {
 
         {/* Below video strip */}
         <div className="flex flex-col sm:flex-row items-center justify-between mt-8 pt-8 border-t border-white/10 gap-5">
-          <p className="text-gray-600 text-[10px] sm:text-xs uppercase tracking-[0.25em]">
+          <p className="text-gray-400 text-[10px] sm:text-xs uppercase tracking-[0.25em]">
             DKK London · Okinawan Goju Ryu
           </p>
           <Link

@@ -4,7 +4,7 @@ import { useRef, useSyncExternalStore, type ElementType } from "react";
 import { motion, useScroll, useTransform, type MotionValue } from "motion/react";
 
 /**
- * ScrollRevealText — a statement headline whose words warm from ember to gold
+ * ScrollRevealText - a statement headline whose words warm from ember to gold
  * as the block passes up through the viewport.
  *
  * Built for short display copy, not body text: splitting a long paragraph into
@@ -16,7 +16,7 @@ import { motion, useScroll, useTransform, type MotionValue } from "motion/react"
  * ends of this ramp clear 3:1 on bg-night, which is the bar for large text.
  */
 
-/** Burnt amber — the unlit end. 3.7:1 on #0f0e0c. */
+/** Burnt amber - the unlit end. 3.7:1 on #0f0e0c. */
 const EMBER = "#9a5f2c";
 /** --color-gold. 8.6:1 on #0f0e0c. */
 const GOLD = "#c9a96e";
@@ -57,7 +57,7 @@ export default function ScrollRevealText({
     offset,
   });
 
-  // Reduced motion: the statement simply sits lit. No ramp, no fade-in — the
+  // Reduced motion: the statement simply sits lit. No ramp, no fade-in - the
   // point of the effect is the warming, and there is no honest static version.
   if (reduce) {
     return (

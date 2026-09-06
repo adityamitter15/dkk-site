@@ -97,7 +97,7 @@ export default function LinksPage() {
                       <div>
                         <p className="text-white text-sm font-medium flex items-center gap-2">
                           {link.title}
-                          <ExternalLink size={11} className="text-gray-600 group-hover:text-brand transition-colors" />
+                          <ExternalLink size={11} className="text-gray-400 group-hover:text-brand transition-colors" />
                         </p>
                         <p className="text-gray-500 text-xs mt-0.5 leading-relaxed">{link.description}</p>
                       </div>
@@ -107,7 +107,7 @@ export default function LinksPage() {
               </div>
             ))}
           </div>
-          <p className="text-gray-600 text-xs mt-10 max-w-xl">
+          <p className="text-gray-400 text-xs mt-10 max-w-xl">
             DKK London is not responsible for the content of external sites.
           </p>
         </div>

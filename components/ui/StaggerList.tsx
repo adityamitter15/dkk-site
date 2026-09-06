@@ -4,13 +4,13 @@ import { motion, useReducedMotion, type Variants } from "motion/react";
 import type { ReactNode } from "react";
 
 /**
- * StaggerList / StaggerItem — a list whose rows arrive in sequence as the block
+ * StaggerList / StaggerItem - a list whose rows arrive in sequence as the block
  * enters view, rather than the whole block appearing at once.
  *
  * Used on the dan register, where it suits the nafuda name-board it is modelled
  * on: names going up one at a time.
  *
- * Timing follows the standard list-stagger guidance — 0.04s per row, which
+ * Timing follows the standard list-stagger guidance - 0.04s per row, which
  * stays lively for a two-name tier and does not turn a ten-name tier into a
  * queue. Anything past ~0.1s per row reads as sluggish.
  *

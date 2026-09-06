@@ -4,24 +4,24 @@ import { useRef, useSyncExternalStore } from "react";
 import { motion, useScroll, useTransform, type MotionValue } from "motion/react";
 
 /**
- * EngravedPoem — a stanza that lights up as if a lamp were passing across
+ * EngravedPoem - a stanza that lights up as if a lamp were passing across
  * engraved metal: each word warms from dim bronze to a pale, almost-white
  * gold, and each line lifts a few pixels as its turn comes.
  *
  * Built for the Flecker lines on the DKK bell, which is a spent artillery
- * shell — hence bronze rather than the ember used for headline statements.
+ * shell - hence bronze rather than the ember used for headline statements.
  *
  * The whole stanza shares ONE scroll range so the light sweeps down it. Giving
  * each line its own range would light all four at once, since they sit within
  * a couple of hundred pixels of each other.
  *
  * Both ends of the ramp clear 4.5:1 on black, so the words are readable at any
- * point in the sweep — a visitor who stops mid-scroll is not left squinting.
+ * point in the sweep - a visitor who stops mid-scroll is not left squinting.
  */
 
-/** Dim bronze — unlit. 4.9:1 on #000. */
+/** Dim bronze - unlit. 4.9:1 on #000. */
 const BRONZE = "#96754a";
-/** Lit — warm near-white, the lamp directly on the engraving. */
+/** Lit - warm near-white, the lamp directly on the engraving. */
 const LIT = "#f0e6d2";
 
 const REDUCED_MOTION_QUERY = "(prefers-reduced-motion: reduce)";
@@ -77,7 +77,7 @@ export default function EngravedPoem({
     );
   }
 
-  // Prefix sums, computed without mutating across the render — a running
+  // Prefix sums, computed without mutating across the render - a running
   // counter here trips react-hooks' reassign-after-render rule and would go
   // wrong under concurrent re-renders.
   const offsets = wordCounts.reduce<number[]>(

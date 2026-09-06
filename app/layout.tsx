@@ -31,7 +31,7 @@ const inter = Inter({
   display: "optional",
 });
 
-// 16-glyph Noto Serif JP subset (6.5KB) — used only for the heritage kanji watermarks
+// 16-glyph Noto Serif JP subset (6.5KB) - used only for the heritage kanji watermarks
 const kanji = localFont({
   src: "./fonts/kanji-subset.woff2",
   variable: "--font-kanji-src",

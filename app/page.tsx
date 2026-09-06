@@ -239,7 +239,7 @@ export default function Home() {
                 <div className="p-5 bg-card border-l-2 border-gold/40 rounded-sm">
                   <p className="font-display text-xl text-white tracking-wide flex items-center gap-2"><MapPin size={16} className="text-gold" />University of Westminster</p>
                   <p className="text-gray-400 text-sm mt-1">Main Hall · 309 Regent Street · London W1B 2HW</p>
-                  <p className="text-gray-600 text-xs mt-1">No student card required. Classes run during all University breaks.</p>
+                  <p className="text-gray-400 text-xs mt-1">No student card required. Classes run during all University breaks.</p>
                 </div>
               </div>
               <Link href="/training" className="inline-flex items-center gap-2 mt-6 text-brand font-semibold text-sm uppercase tracking-wider hover:gap-3 transition-all">

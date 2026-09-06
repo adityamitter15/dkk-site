@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-/** Standard cell for StatStrip — Bebas value over a tracked uppercase label. */
+/** Standard cell for StatStrip - Bebas value over a tracked uppercase label. */
 export function StatCell({ value, label }: { value: ReactNode; label: ReactNode }) {
   return (
     <div className="py-5 px-3 sm:py-6 sm:px-6 text-center">

@@ -12,7 +12,7 @@ type Props = {
 };
 
 /**
- * Quiet single-fade entrance on scroll. One per section — the restraint is
+ * Quiet single-fade entrance on scroll. One per section - the restraint is
  * the point. Respects prefers-reduced-motion.
  */
 export default function Reveal({ children, className = "", delay = 0 }: Props) {

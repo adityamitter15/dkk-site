@@ -14,7 +14,7 @@ const TONES = {
 
 /**
  * Large vertical kanji watermark anchored to the right edge of a hero/section.
- * Decorative only — hidden from assistive tech. Parent needs relative + overflow-hidden.
+ * Decorative only - hidden from assistive tech. Parent needs relative + overflow-hidden.
  */
 export default function KanjiWatermark({ glyphs, tone = "white", className = "" }: Props) {
   return (

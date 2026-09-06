@@ -28,7 +28,7 @@ const gradeDescriptor: Record<string, string> = {
   Shodan: "Black Belt",
 };
 
-// Nafuda-style register numerals — the traditional dojo name-board reads by grade
+// Nafuda-style register numerals - the traditional dojo name-board reads by grade
 const gradeKanji: Record<string, string> = {
   Godan: "五段",
   Yondan: "四段",
@@ -52,7 +52,7 @@ function RegisterRow({ member, tier }: { member: Member; tier: { grade: string; 
         href={`/yudansha/${member.slug}`}
         className="group flex items-center gap-4 sm:gap-6 py-4 px-3 sm:px-4 -mx-3 sm:-mx-4 border-b border-white/5 hover:bg-card hover:border-brand/20 transition-colors rounded-sm"
       >
-        <span className="w-12 flex-shrink-0 text-gray-600 group-hover:text-gold/70 text-xs tabular-nums tracking-[0.2em] transition-colors" aria-hidden="true">
+        <span className="w-12 flex-shrink-0 text-gray-400 group-hover:text-gold/70 text-xs tabular-nums tracking-[0.2em] transition-colors" aria-hidden="true">
           {gradeYear}
         </span>
         <span className="font-display text-2xl sm:text-3xl text-white tracking-wide leading-none group-hover:text-brand transition-colors">
@@ -66,7 +66,7 @@ function RegisterRow({ member, tier }: { member: Member; tier: { grade: string; 
         <span className="flex-1 border-b border-dotted border-white/10 group-hover:border-brand/20 transition-colors self-center mt-1" aria-hidden="true" />
         <ChevronRight size={16} className="flex-shrink-0 text-gray-700 group-hover:text-brand group-hover:translate-x-0.5 transition-all" aria-hidden="true" />
 
-        {/* Portrait reveal — desktop hover only, floats over the register */}
+        {/* Portrait reveal - desktop hover only, floats over the register */}
         {img && (
           <span
             aria-hidden="true"
@@ -104,7 +104,7 @@ export default function YudanshaPage() {
             </p>
           </div>
 
-          {/* The Dan Register — nafuda-kake name-board, grouped by grade */}
+          {/* The Dan Register - nafuda-kake name-board, grouped by grade */}
           <div className="max-w-4xl">
             {grades.map((tier) => (
               <div key={tier.grade} className="mb-16 last:mb-0">
@@ -125,7 +125,7 @@ export default function YudanshaPage() {
                       )}
                     </h2>
                   </div>
-                  <span className="ml-auto text-gray-600 text-[11px] uppercase tracking-[0.25em] tabular-nums pb-1">
+                  <span className="ml-auto text-gray-400 text-[11px] uppercase tracking-[0.25em] tabular-nums pb-1">
                     {tier.members.length}
                   </span>
                 </div>

@@ -68,13 +68,13 @@ export default function KarateBloomsburyPage() {
             <span className="px-3 py-1.5 rounded-sm bg-[#003688] text-white text-xs font-bold uppercase tracking-wider">
               Piccadilly
             </span>
-            <ArrowRight className="text-gray-600" size={16} aria-hidden="true" />
+            <ArrowRight className="text-gray-400" size={16} aria-hidden="true" />
             <span className="text-white text-sm font-medium">Holborn</span>
-            <ArrowRight className="text-gray-600" size={16} aria-hidden="true" />
+            <ArrowRight className="text-gray-400" size={16} aria-hidden="true" />
             <span className="px-3 py-1.5 rounded-sm bg-[#E32017] text-white text-xs font-bold uppercase tracking-wider">
               Central
             </span>
-            <ArrowRight className="text-gray-600" size={16} aria-hidden="true" />
+            <ArrowRight className="text-gray-400" size={16} aria-hidden="true" />
             <span className="text-white text-sm font-medium">Oxford Circus</span>
           </div>
           <p className="text-gray-500 text-sm mb-10">

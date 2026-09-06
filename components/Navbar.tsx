@@ -33,7 +33,7 @@ export default function Navbar() {
   }, [open]);
 
   return (
-    // NOTE: keep backdrop-filter/transform OFF this element — they would become
+    // NOTE: keep backdrop-filter/transform OFF this element - they would become
     // the containing block for the fixed full-screen mobile overlay below.
     <nav className="fixed top-0 left-0 right-0 z-50">
       {/* Bar background (blur lives here, on its own layer) */}
@@ -104,7 +104,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile menu — full-screen overlay, staggered entrance, inert while closed */}
+      {/* Mobile menu - full-screen overlay, staggered entrance, inert while closed */}
       <div
         id="mobile-nav"
         inert={!open}

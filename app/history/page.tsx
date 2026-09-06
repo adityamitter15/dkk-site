@@ -76,7 +76,7 @@ const chapters: Chapter[] = [
 
 /**
  * One paragraph of the supplied history, with a margin note naming its subject.
- * The note is decorative scannability only — it is hidden below lg and from AT,
+ * The note is decorative scannability only - it is hidden below lg and from AT,
  * and never carries information the prose does not already state.
  */
 function Passage({ note, lead = false, children }: { note?: string; lead?: boolean; children: ReactNode }) {

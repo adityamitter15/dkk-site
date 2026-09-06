@@ -10,11 +10,11 @@ export default function VideoHeroBackground() {
 
     // Safari/iOS only honours the `autoplay` HTML attribute reliably for muted background videos.
     // The promise from .play() can also be silently rejected on first paint before the video buffers
-    // enough data — so we retry once data arrives, when the tab becomes visible, and on first user gesture.
+    // enough data - so we retry once data arrives, when the tab becomes visible, and on first user gesture.
     const tryPlay = () => {
       if (video.paused) {
         video.play().catch(() => {
-          // Still blocked — wait for the next trigger.
+          // Still blocked - wait for the next trigger.
         });
       }
     };

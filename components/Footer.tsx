@@ -124,17 +124,17 @@ export default function Footer() {
             { href: "/karate-marylebone", label: "Marylebone" },
             { href: "/karate-bloomsbury", label: "Bloomsbury" },
           ].map((area) => (
-            <Link key={area.href} href={area.href} className="text-gray-600 hover:text-brand text-xs transition-colors">
+            <Link key={area.href} href={area.href} className="text-gray-400 hover:text-brand text-xs transition-colors">
               {area.label}
             </Link>
           ))}
         </div>
 
         <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-center sm:text-left">
-          <p className="text-gray-600 text-xs">
+          <p className="text-gray-400 text-xs">
             &copy; <LiveYear /> Daigaku Karate Kai London. All rights reserved.
           </p>
-          <p className="text-gray-600 text-xs flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
+          <p className="text-gray-400 text-xs flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
             <span>Okinawan Goju Ryu</span>
             <span aria-hidden="true">·</span>
             <Link href="/goju-ryu" className="hover:text-brand transition-colors">Learn more</Link>

@@ -32,7 +32,7 @@ export default function MagneticButton(props: Props) {
 
   const onMouseMove = (e: React.MouseEvent) => {
     if (reduced) return;
-    // Bail on touch devices — no cursor to attract, just dead JS
+    // Bail on touch devices - no cursor to attract, just dead JS
     if (typeof window !== "undefined" && window.matchMedia("(hover: none)").matches) return;
     const el = ref.current;
     if (!el) return;

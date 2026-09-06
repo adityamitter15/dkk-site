@@ -122,7 +122,7 @@ function ReelCard({ reel, isActive }: { reel: Reel; isActive: boolean }) {
         <h3 className="font-display text-xl tracking-wide text-white leading-none">{reel.title}</h3>
         <p className="text-gray-400 text-sm mt-2 leading-relaxed">{reel.blurb}</p>
         <div className="flex items-center justify-between mt-3 pt-3 border-t border-white/5">
-          <span className="text-gray-600 text-xs uppercase tracking-widest">{formatViews(reel.views)}</span>
+          <span className="text-gray-400 text-xs uppercase tracking-widest">{formatViews(reel.views)}</span>
           <a
             href={reelPermalink(reel)}
             target="_blank"

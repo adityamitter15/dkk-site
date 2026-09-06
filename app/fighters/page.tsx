@@ -155,7 +155,7 @@ export default function FightersPage() {
                         <h3 className="font-display text-3xl sm:text-4xl tracking-wide text-white leading-none">{fighter.name}</h3>
                         <p className="text-brand text-xs font-bold uppercase tracking-[0.2em] mt-1">{fighter.highlight}</p>
                       </div>
-                      {/* Tale of the tape — W/L/D columns when the record parses */}
+                      {/* Tale of the tape - W/L/D columns when the record parses */}
                       {/^\d+-\d+-\d+$/.test(fighter.record) ? (
                         <div className="flex flex-shrink-0 divide-x divide-white/10 bg-brand/10 border border-brand/20 rounded-sm">
                           {fighter.record.split("-").map((n, j) => (
@@ -195,7 +195,7 @@ export default function FightersPage() {
             ))}
           </div>
 
-          <p className="text-gray-600 text-xs mt-8">
+          <p className="text-gray-400 text-xs mt-8">
             Fighter records sourced from Sherdog. DKK Fighters competed between 2006 and 2016 across multiple UK and international promotions.
           </p>
         </div>

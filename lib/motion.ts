@@ -1,5 +1,5 @@
 // Canonical motion language for the whole site.
-// One ease, three durations — nothing else.
+// One ease, three durations - nothing else.
 export const EASE = [0.22, 1, 0.36, 1] as const;
 
 export const DUR = {

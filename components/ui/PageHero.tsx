@@ -12,7 +12,7 @@ type Props = {
   eyebrowTone?: "brand" | "gold";
   title: ReactNode;
   lead?: ReactNode;
-  /** Chapter marker, e.g. "02 / Training" — makes pages read like one publication */
+  /** Chapter marker, e.g. "02 / Training" - makes pages read like one publication */
   folio?: string;
   image?: { src: string; alt?: string; position?: string };
   /** Heritage watermark glyphs, e.g. "稽古" */
@@ -28,7 +28,7 @@ type Props = {
  * The site-wide hero system. Four variants so page tops stop looking identical:
  * - full:    full-bleed image, headline low-left, parallax
  * - split:   asymmetric editorial grid, image bleeds to the right edge, no heavy overlay
- * - archive: sepia-graded photograph, dated caption — for history-facing pages
+ * - archive: sepia-graded photograph, dated caption - for history-facing pages
  * - quiet:   no image; whitespace, kanji and a gold rule carry it
  */
 export default function PageHero({
@@ -97,7 +97,7 @@ export default function PageHero({
                     className="object-cover"
                     style={image.position ? { objectPosition: image.position } : undefined}
                   />
-                  {/* Edge blends only — zero-alpha stops, never the `transparent` keyword
+                  {/* Edge blends only - zero-alpha stops, never the `transparent` keyword
                       (oklab interpolation turns it into a heavy black veil) */}
                   <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-night to-night/0 lg:hidden" />
                   <div className="hidden lg:block absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-night to-night/0" />
@@ -128,7 +128,7 @@ export default function PageHero({
         </div>
       )}
       {/* Bottom-anchored scrim carries the headline; the upper image (where faces sit)
-          stays bright. Zero-alpha stops only — the `transparent` keyword blackens in oklab */}
+          stays bright. Zero-alpha stops only - the `transparent` keyword blackens in oklab */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-black/0" />
       <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-black/10 to-black/0" />
       <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-black/40 to-black/0" />

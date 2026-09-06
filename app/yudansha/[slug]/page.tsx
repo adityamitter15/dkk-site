@@ -173,7 +173,7 @@ export default async function MemberPage({ params }: { params: Promise<{ slug: s
               <div className="relative rounded-sm overflow-hidden bg-card flex items-center justify-center" style={{ aspectRatio: "3/4" }}>
                 <div className="flex flex-col items-center gap-3">
                   <span className="font-display text-7xl text-brand/20 tracking-widest">{initials}</span>
-                  <p className="text-gray-600 text-xs uppercase tracking-widest"><DanGrade text={member.dan} /></p>
+                  <p className="text-gray-400 text-xs uppercase tracking-widest"><DanGrade text={member.dan} /></p>
                 </div>
               </div>
             </div>
@@ -373,23 +373,23 @@ export default async function MemberPage({ params }: { params: Promise<{ slug: s
           <div className="flex items-center justify-between py-6 gap-4">
             {prev ? (
               <Link href={`/yudansha/${prev.slug}`} className="group flex items-center gap-3 min-w-0">
-                <ChevronLeft size={16} className="text-gray-600 group-hover:text-brand transition-colors flex-shrink-0" />
+                <ChevronLeft size={16} className="text-gray-400 group-hover:text-brand transition-colors flex-shrink-0" />
                 <div className="min-w-0">
-                  <p className="text-gray-600 text-[10px] uppercase tracking-widest">Previous</p>
+                  <p className="text-gray-400 text-[10px] uppercase tracking-widest">Previous</p>
                   <p className="text-gray-400 text-sm font-medium group-hover:text-white transition-colors truncate">{prev.name}</p>
                 </div>
               </Link>
             ) : <span />}
-            <Link href="/yudansha" className="hidden sm:inline-flex items-center gap-2 text-gray-600 hover:text-brand text-[10px] uppercase tracking-widest font-bold transition-colors flex-shrink-0">
+            <Link href="/yudansha" className="hidden sm:inline-flex items-center gap-2 text-gray-400 hover:text-brand text-[10px] uppercase tracking-widest font-bold transition-colors flex-shrink-0">
               All Black Belts
             </Link>
             {next ? (
               <Link href={`/yudansha/${next.slug}`} className="group flex items-center gap-3 min-w-0 text-right">
                 <div className="min-w-0">
-                  <p className="text-gray-600 text-[10px] uppercase tracking-widest">Next</p>
+                  <p className="text-gray-400 text-[10px] uppercase tracking-widest">Next</p>
                   <p className="text-gray-400 text-sm font-medium group-hover:text-white transition-colors truncate">{next.name}</p>
                 </div>
-                <ChevronRight size={16} className="text-gray-600 group-hover:text-brand transition-colors flex-shrink-0" />
+                <ChevronRight size={16} className="text-gray-400 group-hover:text-brand transition-colors flex-shrink-0" />
               </Link>
             ) : <span />}
           </div>

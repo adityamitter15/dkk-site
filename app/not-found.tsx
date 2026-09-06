@@ -39,7 +39,7 @@ export default function NotFound() {
               Us, watching you look for that page
             </p>
           </div>
-          <figcaption className="text-gray-600 text-xs mt-2 tracking-wide">
+          <figcaption className="text-gray-400 text-xs mt-2 tracking-wide">
             Summer camp, obstacle course. No pages were harmed.
           </figcaption>
         </figure>

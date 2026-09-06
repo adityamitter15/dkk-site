@@ -15,7 +15,7 @@ const lastUpdated = "16 June 2026";
 export default function PrivacyPage() {
   return (
     <>
-      {/* Hero — shared PageHero so the anatomy matches every other page */}
+      {/* Hero - shared PageHero so the anatomy matches every other page */}
       <PageHero
         variant="quiet"
         eyebrow="Legal"

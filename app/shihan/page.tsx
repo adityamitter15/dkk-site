@@ -274,7 +274,7 @@ export default function ShihanPage() {
                 <div className="flex-1">
                   <p className="text-white text-sm font-medium flex items-center gap-2">
                     {item.title}
-                    <ExternalLink size={11} className="text-gray-600 group-hover:text-brand transition-colors" />
+                    <ExternalLink size={11} className="text-gray-400 group-hover:text-brand transition-colors" />
                   </p>
                   <p className="text-brand text-[10px] font-bold uppercase tracking-[0.15em] mt-0.5">{item.source}</p>
                   <p className="text-gray-500 text-xs mt-2 leading-relaxed">{item.description}</p>

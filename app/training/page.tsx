@@ -57,7 +57,7 @@ export default function TrainingPage() {
                 <div>
                   <p className="text-white font-display text-xl tracking-wide">University of Westminster</p>
                   <p className="text-gray-400 text-sm">Main Hall · 309 Regent Street · London W1B 2HW</p>
-                  <p className="text-gray-600 text-xs mt-1.5">
+                  <p className="text-gray-400 text-xs mt-1.5">
                     No student card required. Classes run during all University breaks. Nearest tube is Oxford Circus, one minute away.
                   </p>
                   <p className="text-gray-500 text-xs mt-1.5">
@@ -223,7 +223,7 @@ export default function TrainingPage() {
             </div>
           </div>
 
-          <p className="text-gray-600 text-xs text-center mt-8">
+          <p className="text-gray-400 text-xs text-center mt-8">
             All DKK members are welcome at any affiliated session. <Link href="/contact" className="text-brand hover:underline">Contact us</Link> for Zoom access or to confirm attendance.
           </p>
         </div>

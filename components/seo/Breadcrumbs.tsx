@@ -8,7 +8,7 @@ type Props = {
 
 /**
  * Emits BreadcrumbList structured data so Google can show a breadcrumb trail
- * in search results. Renders no visible output — server component, JSON-LD
+ * in search results. Renders no visible output - server component, JSON-LD
  * only.
  */
 export default function Breadcrumbs({ trail }: Props) {

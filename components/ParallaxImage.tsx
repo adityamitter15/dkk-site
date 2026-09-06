@@ -37,7 +37,7 @@ export default function ParallaxImage({
     offset: ["start end", "end start"],
   });
 
-  // Disable parallax on touch devices — scroll-tied transforms cause jank on touch scroll
+  // Disable parallax on touch devices - scroll-tied transforms cause jank on touch scroll
   const effectiveIntensity = reduced || isTouch ? 0 : intensity;
   const y = useTransform(scrollYProgress, [0, 1], [-effectiveIntensity, effectiveIntensity]);
 

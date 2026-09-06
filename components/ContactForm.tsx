@@ -86,7 +86,7 @@ export default function ContactForm() {
     }
 
     if (Date.now() - renderedAt.current < MIN_RENDER_MS) {
-      setError("That was too quick — please try again.");
+      setError("That was too quick. Please try again.");
       return;
     }
 
@@ -195,7 +195,7 @@ export default function ContactForm() {
             autoComplete="name"
             required
             maxLength={MAX_NAME}
-            className="w-full bg-card border border-white/10 text-white px-4 py-3 text-base rounded-sm focus:outline-none focus-visible:border-brand focus-visible:ring-2 focus-visible:ring-brand/40 transition-colors placeholder:text-gray-600"
+            className="w-full bg-card border border-white/10 text-white px-4 py-3 text-base rounded-sm focus:outline-none focus-visible:border-brand focus-visible:ring-2 focus-visible:ring-brand/40 transition-colors placeholder:text-gray-400"
             placeholder="Your full name"
           />
         </div>
@@ -212,7 +212,7 @@ export default function ContactForm() {
             autoComplete="email"
             required
             maxLength={120}
-            className="w-full bg-card border border-white/10 text-white px-4 py-3 text-base rounded-sm focus:outline-none focus-visible:border-brand focus-visible:ring-2 focus-visible:ring-brand/40 transition-colors placeholder:text-gray-600"
+            className="w-full bg-card border border-white/10 text-white px-4 py-3 text-base rounded-sm focus:outline-none focus-visible:border-brand focus-visible:ring-2 focus-visible:ring-brand/40 transition-colors placeholder:text-gray-400"
             placeholder="your@email.com"
           />
         </div>
@@ -256,7 +256,7 @@ export default function ContactForm() {
                 inputMode="tel"
                 autoComplete="tel"
                 maxLength={32}
-                className="w-full bg-card border border-white/10 text-white px-4 py-3 text-base rounded-sm focus:outline-none focus-visible:border-brand focus-visible:ring-2 focus-visible:ring-brand/40 transition-colors placeholder:text-gray-600"
+                className="w-full bg-card border border-white/10 text-white px-4 py-3 text-base rounded-sm focus:outline-none focus-visible:border-brand focus-visible:ring-2 focus-visible:ring-brand/40 transition-colors placeholder:text-gray-400"
                 placeholder="07700 900123"
               />
             </div>
@@ -270,7 +270,7 @@ export default function ContactForm() {
                   id="callTime"
                   name="callTime"
                   defaultValue="Any time"
-                  className="w-full bg-card border border-white/10 text-white px-4 py-3 text-base rounded-sm focus:outline-none focus-visible:border-brand focus-visible:ring-2 focus-visible:ring-brand/40 transition-colors placeholder:text-gray-600"
+                  className="w-full bg-card border border-white/10 text-white px-4 py-3 text-base rounded-sm focus:outline-none focus-visible:border-brand focus-visible:ring-2 focus-visible:ring-brand/40 transition-colors placeholder:text-gray-400"
                 >
                   <option>Any time</option>
                   <option>Daytime, 9am to 5pm</option>
@@ -317,7 +317,7 @@ export default function ContactForm() {
           </label>
           <span
             className={`text-[10px] tabular-nums ${
-              messageLen > MAX_MESSAGE * 0.9 ? "text-brand" : "text-gray-600"
+              messageLen > MAX_MESSAGE * 0.9 ? "text-brand" : "text-gray-400"
             }`}
             aria-live="polite"
           >
@@ -331,12 +331,12 @@ export default function ContactForm() {
           rows={5}
           maxLength={MAX_MESSAGE}
           onChange={(e) => setMessageLen(e.target.value.length)}
-          className="w-full bg-card border border-white/10 text-white px-4 py-3 text-base rounded-sm focus:outline-none focus-visible:border-brand focus-visible:ring-2 focus-visible:ring-brand/40 transition-colors placeholder:text-gray-600 resize-none"
+          className="w-full bg-card border border-white/10 text-white px-4 py-3 text-base rounded-sm focus:outline-none focus-visible:border-brand focus-visible:ring-2 focus-visible:ring-brand/40 transition-colors placeholder:text-gray-400 resize-none"
           placeholder="Tell us a bit about yourself and what you're looking for..."
         />
       </div>
 
-      {/* Honeypot fields — bots fill these, humans don't see them */}
+      {/* Honeypot fields - bots fill these, humans don't see them */}
       <div aria-hidden="true" className="absolute -left-[9999px] w-px h-px overflow-hidden">
         <label>
           Leave this empty
@@ -373,8 +373,8 @@ export default function ContactForm() {
         )}
       </button>
 
-      <p className="text-gray-600 text-xs leading-relaxed">
-        We aim to respond within 48 hours. Your details are never shared with third parties — see our{" "}
+      <p className="text-gray-400 text-xs leading-relaxed">
+        We aim to respond within 48 hours. Your details are never shared with third parties. See our{" "}
         <Link
           href="/privacy"
           className="text-gray-400 underline-offset-2 hover:text-gold hover:underline transition-colors"

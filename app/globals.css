@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* Design tokens — exposed to Tailwind utilities (text-brand, bg-card, font-display, etc.)
+/* Design tokens - exposed to Tailwind utilities (text-brand, bg-card, font-display, etc.)
    Adding a token here makes it available as a Tailwind class automatically. */
 @theme {
   --color-brand: #a8201a;
@@ -19,7 +19,7 @@
   --color-ember: #1a0d0c;      /* red-leaning near-black, the Shodan callout panel */
   --color-glow-core: #1a0000;   /* deep red core of the video-band radial glow */
 
-  /* Glows and lifts — the brand red and gold at various strengths */
+  /* Glows and lifts - the brand red and gold at various strengths */
   --shadow-ember-sm: 0 0 8px rgba(168, 32, 26, 0.5);
   --shadow-ember-card: 0 4px 24px -4px rgba(168, 32, 26, 0.12);
   --shadow-ember-idle: 0 0 40px rgba(168, 32, 26, 0.08);
@@ -62,7 +62,7 @@ button, a {
   color: #fff;
 }
 
-/* Animated underline for inline links — draws left to right on hover */
+/* Animated underline for inline links - draws left to right on hover */
 .link-underline {
   position: relative;
 }
@@ -88,7 +88,7 @@ button, a {
   }
 }
 
-/* Visible keyboard focus everywhere — pointer users keep clean styles */
+/* Visible keyboard focus everywhere - pointer users keep clean styles */
 :focus-visible {
   outline: 2px solid var(--color-gold);
   outline-offset: 2px;
@@ -141,7 +141,7 @@ h1, h2, h3, .heading {
   background-repeat: repeat;
 }
 
-/* Site-wide film grain — instant depth on flat dark surfaces. Fixed, non-interactive. */
+/* Site-wide film grain - instant depth on flat dark surfaces. Fixed, non-interactive. */
 body::after {
   content: "";
   position: fixed;
@@ -154,7 +154,7 @@ body::after {
   background-size: 160px 160px;
 }
 
-/* Warm gold atmosphere for feature sections — use sparingly (2–3 moments per page) */
+/* Warm gold atmosphere for feature sections - use sparingly (2–3 moments per page) */
 .atmosphere-gold {
   background-image: radial-gradient(ellipse at 30% 0%, rgba(201, 169, 110, 0.05), transparent 60%);
 }
@@ -207,7 +207,7 @@ body::after {
   }
 }
 
-/* Sections fade in as they enter the viewport — CSS scroll-driven, zero JS.
+/* Sections fade in as they enter the viewport - CSS scroll-driven, zero JS.
    Opacity only (no transform) so sticky children keep working. Progressive
    enhancement: browsers without view-timeline render static. */
 @supports (animation-timeline: view()) {
@@ -228,7 +228,7 @@ body::after {
   }
 }
 
-/* Archive photo grading — sepia heritage treatment for history/yudansha heroes */
+/* Archive photo grading - sepia heritage treatment for history/yudansha heroes */
 .img-archive {
   filter: sepia(0.35) contrast(1.05) brightness(0.9);
 }
@@ -250,7 +250,7 @@ body::after {
   color: var(--color-ink);
 }
 
-/* Gallery lightbox morph — the clicked thumbnail and the lightbox image share
+/* Gallery lightbox morph - the clicked thumbnail and the lightbox image share
    a view-transition-name; the browser morphs one into the other. */
 ::view-transition-old(gallery-morph),
 ::view-transition-new(gallery-morph) {
@@ -264,7 +264,7 @@ body::after {
   animation-duration: 0.3s;
 }
 
-/* Print — the dan register reads like a nafuda board on paper.
+/* Print - the dan register reads like a nafuda board on paper.
    Chrome (nav, heroes, CTAs, footer, video, decorative layers) is stripped;
    ink goes dark-on-white. */
 @media print {
