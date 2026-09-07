@@ -3,8 +3,9 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { ChevronRight, MessageCircle } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import TrackedOutbound from "@/components/TrackedOutbound";
+import WhatsAppIcon from "@/components/ui/WhatsAppIcon";
 
 export default function StickyMobileCTA() {
   const pathname = usePathname();
@@ -45,14 +46,13 @@ export default function StickyMobileCTA() {
           href="https://wa.me/447976411901?text=Hi%2C%20I%27d%20like%20to%20come%20and%20try%20a%20class%20at%20DKK%20London."
           track="/go/whatsapp"
           aria-label="WhatsApp Shihan Gavin"
-          className="inline-flex items-center gap-2 px-4 py-3 bg-whatsapp text-night font-bold uppercase tracking-widest text-[13px] rounded-full shadow-dock active:scale-[0.97] transition-transform"
+          className="inline-flex items-center justify-center w-11 h-11 rounded-full bg-whatsapp text-night shadow-dock active:scale-[0.97] transition-transform"
         >
-          <MessageCircle size={16} />
-          WhatsApp
+          <WhatsAppIcon size={22} />
         </TrackedOutbound>
         <Link
           href="/contact"
-          className="inline-flex items-center gap-2 px-4 py-3 bg-brand text-white font-bold uppercase tracking-widest text-[13px] rounded-full shadow-dock active:scale-[0.97] transition-transform"
+          className="inline-flex items-center gap-2 px-4 py-3 bg-brand text-white font-bold uppercase tracking-widest text-[13px] rounded-full shadow-dock active:scale-[0.97] transition-transform whitespace-nowrap"
         >
           Come and Train
           <ChevronRight size={16} />
