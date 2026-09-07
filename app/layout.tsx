@@ -102,6 +102,13 @@ export const metadata: Metadata = {
     statusBarStyle: "black-translucent",
   },
   verification: {
+    // Google Search Console ownership for the URL-prefix property
+    // https://goju-karate.co.uk/. A `sc-domain:` property can only be verified
+    // by DNS TXT, and the GoDaddy login that would need is not ours, so the
+    // URL-prefix property is what this account actually owns and what the
+    // weekly analytics report reads. Same rule as Bing below: leave it in
+    // place after verification or the property un-verifies.
+    google: "GZfH893ooZ1FBFOM1EyaIcpA0ZgJN3yuGpcnfrQLl8E",
     // Bing Webmaster Tools site ownership. Bing's own note: leave it in place
     // even after verification succeeds, or the property un-verifies.
     other: { "msvalidate.01": "0C0DD422BC190BE8AF769F8E9EE055F5" },
