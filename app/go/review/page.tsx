@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { site } from "@/data/site";
 import { Star } from "lucide-react";
 
 /**
@@ -30,7 +31,7 @@ export default function GoReviewPage() {
         </p>
         <div className="flex flex-wrap gap-3 justify-center">
           <a
-            href="https://maps.google.com/?cid=13776758326457460286"
+            href={site.googleReview}
             target="_blank"
             rel="noopener noreferrer"
             className="px-6 py-3 bg-brand text-white text-sm font-semibold uppercase tracking-wide hover:bg-brand-hover transition-colors rounded-sm"

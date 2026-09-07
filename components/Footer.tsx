@@ -2,7 +2,7 @@ import Link from "next/link";
 import SafeImage from "@/components/SafeImage";
 import LiveYear from "@/components/ui/LiveYear";
 import TrackedOutbound from "@/components/TrackedOutbound";
-import { footerLinks } from "@/data/site";
+import { footerLinks, site } from "@/data/site";
 
 export default function Footer() {
   return (
@@ -111,7 +111,7 @@ export default function Footer() {
                 Facebook
               </a>
               <TrackedOutbound
-                href="https://maps.google.com/?cid=13776758326457460286"
+                href={site.googleReview}
                 track="/go/review"
                 className="text-gray-500 text-xs uppercase tracking-widest hover:text-white transition-colors"
               >

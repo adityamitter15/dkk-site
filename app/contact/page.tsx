@@ -143,7 +143,7 @@ export default function ContactPage() {
                         things that decides who shows up in the local map pack. */}
                     <p className="text-gray-500 text-xs mt-1">
                       <a
-                        href="https://maps.google.com/?cid=13776758326457460286"
+                        href={site.googleListing}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="link-underline text-gold"

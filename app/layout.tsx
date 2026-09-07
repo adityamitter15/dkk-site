@@ -170,7 +170,7 @@ export default function RootLayout({
     // The club's actual Google Maps entity, not a search link. Pointing hasMap
     // and sameAs at the real place ties this site to that listing, which is the
     // thing that ranks in the local pack.
-    hasMap: "https://maps.google.com/?cid=13776758326457460286",
+    hasMap: site.googleListing,
     publicAccess: true,
     isAccessibleForFree: false,
     currenciesAccepted: "GBP",
@@ -192,7 +192,7 @@ export default function RootLayout({
     },
     slogan: "Real karate. No compromises.",
     sameAs: [
-      "https://maps.google.com/?cid=13776758326457460286",
+      site.googleListing,
       "https://www.instagram.com/dkk_karate_london",
       "https://www.facebook.com/groups/24449490051/",
     ],

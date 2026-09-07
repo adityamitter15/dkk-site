@@ -26,6 +26,13 @@ export const site = {
   ],
   instagram: "https://www.instagram.com/dkk_karate_london",
   facebook: "https://www.facebook.com/groups/24449490051/",
+  // The listing itself, for schema hasMap/sameAs and the "find us" link.
+  googleListing: "https://maps.google.com/?cid=13776758326457460286",
+  // Straight into the review box. NOT the same as googleListing: the CID
+  // maps URL only opens the listing and leaves the visitor to hunt for the
+  // button, which is the difference between an ask that lands and one that
+  // does not. The place id decodes to the same CID as googleListing.
+  googleReview: "https://search.google.com/local/writereview?placeid=ChIJJWQhsSMbdkgRPubmnLTgML8",
 } as const;
 
 // Set to the real date of the next beginners' intake / term restart to show the
