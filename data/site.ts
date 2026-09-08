@@ -36,9 +36,18 @@ export const site = {
 } as const;
 
 // Set to the real date of the next beginners' intake / term restart to show the
-// notice bar, then clear it back to null once it has passed. Format: ISO date.
-// The club has to supply the real date - do not invent one.
-export const termNotice: { date: string; label: string; href: string } | null = null;
+// notice bar, then clear it back to null once it has passed. `date` is the
+// moment the bar stands DOWN, so for a multi-day event use the day after the
+// last session. The club has to supply the real dates - do not invent them.
+//
+// Currently: Give It A Go, 21 and 23 September 2026. Sessions live in
+// data/giag.ts; this is only the bar. Clear back to null once the page comes
+// down.
+export const termNotice: { date: string; label: string; href: string } | null = {
+  date: "2026-09-24T00:00:00+01:00",
+  label: "Give It A Go · Try a karate class, 21 & 23 September",
+  href: "/give-it-a-go",
+};
 
 export type NavLink = { href: string; label: string };
 

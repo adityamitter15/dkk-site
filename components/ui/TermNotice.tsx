@@ -1,27 +1,35 @@
+"use client";
+
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { termNotice } from "@/data/site";
-
-// Kept outside the component so the impure clock read isn't inlined into a
-// component body (components must render the same output given the same
-// props/state). This is a build-time check for a static export, same as the
-// rest of the "annual items updated by hand" copy - not a live countdown.
-function hasNoticePassed(isoDate: string): boolean {
-  const noticeDate = new Date(isoDate);
-  return Number.isNaN(noticeDate.getTime()) || noticeDate.getTime() < Date.now();
-}
+import { useIsPast } from "@/lib/useIsPast";
 
 /**
- * Slim notice bar for a real, time-bound event (a new term or intake
- * starting). Server component, no client state: it just checks the date at
- * build/request time and renders nothing once `termNotice` is null or the
- * date has passed, so there is nothing to remember to take down.
+ * Slim notice bar for a real, time-bound event (a taster week, a new term or
+ * intake starting). Renders nothing once `termNotice` is null or its date has
+ * passed, so there is nothing to remember to take down.
+ *
+ * The date check is NOT a build-time read. This is a static export, so a
+ * server-rendered `Date.now()` freezes at build time and the bar would keep
+ * advertising a finished event until somebody redeployed. `useIsPast` seeds
+ * from the build instant (matching SSR, so no hydration mismatch and crawlers
+ * still see the live notice) and then corrects from the visitor's own clock.
+ * See lib/eventDates.ts.
  */
 export default function TermNotice() {
-  if (!termNotice || hasNoticePassed(termNotice.date)) return null;
+  // Hooks cannot be called conditionally, so the null case goes through the
+  // hook first. An empty string is unparseable, which `hasPassed` treats as
+  // passed.
+  const passed = useIsPast(termNotice?.date ?? "");
+
+  if (!termNotice || passed) return null;
 
   return (
-    <div className="bg-brand text-white">
+    // `relative` is load-bearing: this renders inside Navbar's fixed header,
+    // above an absolutely positioned background layer that would otherwise
+    // paint over it once the bar goes solid on scroll.
+    <div className="relative bg-brand text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Link
           href={termNotice.href}

@@ -8,6 +8,7 @@ import SafeImage from "@/components/SafeImage";
 import SectionHeading from "@/components/SectionHeading";
 import ScrollRevealText from "@/components/ui/ScrollRevealText";
 import LiveYears from "@/components/ui/LiveYears";
+import GiagBand from "@/components/ui/GiagBand";
 import { site } from "@/data/site";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
@@ -146,6 +147,9 @@ export default function UniversityPage() {
           </div>
         </div>
       </section>
+
+      {/* Give It A Go - takes itself down after the last session */}
+      <GiagBand />
 
       {/* For Westminster Students */}
       <section className="section-reveal py-16 sm:py-20 lg:py-28 bg-night border-t border-white/5">

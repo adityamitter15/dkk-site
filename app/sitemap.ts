@@ -14,6 +14,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/training`,   lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { url: `${BASE_URL}/university`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { url: `${BASE_URL}/contact`,    lastModified: now, changeFrequency: "monthly", priority: 0.9 },
+    // Time-bound: weekly so it is recrawled while the September dates are live.
+    // Drop this line when the Give It A Go page comes down.
+    { url: `${BASE_URL}/give-it-a-go`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
     { url: `${BASE_URL}/faq`,        lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE_URL}/shihan`,   lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE_URL}/yudansha`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },

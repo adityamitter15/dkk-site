@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { Menu, X, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import { navLinks as links, mobileNavLinks as mobileLinks } from "@/data/site";
+import TermNotice from "@/components/ui/TermNotice";
 
 export default function Navbar() {
   // The menu stores WHICH route it was opened on, not a plain boolean, so a
@@ -35,7 +36,10 @@ export default function Navbar() {
   return (
     // NOTE: keep backdrop-filter/transform OFF this element - they would become
     // the containing block for the fixed full-screen mobile overlay below.
-    <nav className="fixed top-0 left-0 right-0 z-50">
+    <nav
+      className="fixed top-0 left-0 right-0 z-50"
+      style={{ paddingTop: "env(safe-area-inset-top, 0px)" }}
+    >
       {/* Bar background (blur lives here, on its own layer) */}
       <div
         aria-hidden="true"
@@ -43,10 +47,11 @@ export default function Navbar() {
           scrolled || open ? "bg-black/95 backdrop-blur-sm shadow-lg shadow-black/50" : "bg-transparent"
         }`}
       />
-      <div
-        className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
-        style={{ paddingTop: "env(safe-area-inset-top, 0px)" }}
-      >
+      {/* Notice bar rides inside the fixed header rather than in page flow:
+          this nav is a transparent overlay pinned to top-0, so anything above
+          it in the document renders underneath the logo. */}
+      <TermNotice />
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center h-16 lg:h-20 gap-4">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 flex-shrink-0">
