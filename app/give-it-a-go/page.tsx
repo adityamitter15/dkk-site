@@ -7,13 +7,13 @@ import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import DanGrade from "@/components/DanGrade";
 import TrackedOutbound from "@/components/TrackedOutbound";
 import { Calendar, Clock, MapPin, Shirt, ExternalLink } from "lucide-react";
-import { site } from "@/data/site";
+import { site, joining } from "@/data/site";
 import { giag } from "@/data/giag";
 
 export const metadata: Metadata = {
   title: "Give It A Go: Try Karate",
   description:
-    "Try a karate class in central London, Monday 21 and Wednesday 23 September, 6-8pm at 309 Regent Street. Open to everyone, not just students. No uniform needed, just turn up.",
+    "Try a karate class in central London, Monday 21 and Wednesday 23 September, 6-8pm at 309 Regent Street. Open to adults, not just students. No uniform needed, just turn up.",
   alternates: { canonical: "/give-it-a-go" },
   keywords: [
     "give it a go karate",
@@ -139,15 +139,14 @@ export default function GiveItAGoPage() {
                 </div>
                 <p className="mt-5 pt-5 border-t border-white/10 text-gray-500 text-xs leading-relaxed">
                   Westminster student?{" "}
-                  <a
+                  <TrackedOutbound
                     href={session.uwsuUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    track="/go/uwsu"
                     className="link-underline text-gold inline-flex items-center gap-1"
                   >
                     Book this one through UWSU
                     <ExternalLink size={11} aria-hidden="true" />
-                  </a>
+                  </TrackedOutbound>
                   . Everyone else, just turn up.
                 </p>
               </div>
@@ -171,8 +170,7 @@ export default function GiveItAGoPage() {
               </p>
               <p className="text-gray-400 leading-relaxed mb-5">
                 If you are not a student, there is nothing to book and nothing to sign up for. Come to 309
-                Regent Street for 6pm on either date, say you are there for Give It A Go, and you will be
-                trained alongside everyone else.
+                Regent Street for 6pm on either date. {joining.door}
               </p>
               <p className="text-gray-400 leading-relaxed">
                 Adults of any level are welcome, including complete beginners. Read what a class actually
@@ -186,6 +184,7 @@ export default function GiveItAGoPage() {
                 </Link>{" "}
                 if you would rather know everything before you walk in.
               </p>
+              <p className="text-gray-400 text-xs mt-3">{joining.age}</p>
             </div>
 
             <div className="space-y-4">
@@ -238,7 +237,7 @@ export default function GiveItAGoPage() {
               {
                 step: "01",
                 title: "Turn Up",
-                desc: "Get to 309 Regent Street for 6pm. Say it is your first time and someone will point you where you need to be.",
+                desc: `Get to 309 Regent Street for 6pm. ${joining.door}`,
               },
               {
                 step: "02",

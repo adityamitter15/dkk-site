@@ -50,7 +50,7 @@ export default function PageHero({
 
   if (variant === "quiet") {
     return (
-      <section className="relative pt-32 pb-14 sm:pt-44 sm:pb-20 overflow-hidden bg-night print:hidden">
+      <section className="relative pt-[calc(8rem_+_var(--notice-h,0px))] pb-14 sm:pt-[calc(11rem_+_var(--notice-h,0px))] sm:pb-20 overflow-hidden bg-night print:hidden">
         {kanji && <KanjiWatermark glyphs={kanji} tone={kanjiTone} />}
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 hero-stagger">
           <div className="flex items-center justify-between mb-4">
@@ -70,7 +70,7 @@ export default function PageHero({
 
   if (variant === "split") {
     return (
-      <section className="relative pt-24 sm:pt-32 overflow-hidden bg-night print:hidden">
+      <section className="relative pt-[calc(6rem_+_var(--notice-h,0px))] sm:pt-[calc(8rem_+_var(--notice-h,0px))] overflow-hidden bg-night print:hidden">
         {kanji && <KanjiWatermark glyphs={kanji} tone={kanjiTone} className="lg:right-[44%]" />}
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-0 items-end">
@@ -113,7 +113,7 @@ export default function PageHero({
   // full + archive share the bleed structure; archive adds the sepia grade and caption styling
   const archive = variant === "archive";
   return (
-    <section className="relative pt-28 pb-16 sm:pt-44 sm:pb-24 overflow-hidden print:hidden">
+    <section className="relative pt-[calc(7rem_+_var(--notice-h,0px))] pb-16 sm:pt-[calc(11rem_+_var(--notice-h,0px))] sm:pb-24 overflow-hidden print:hidden">
       <div className="absolute inset-0 bg-black" />
       {image && (
         <div className={`absolute inset-0 ${archive ? "opacity-75" : "opacity-90"}`}>

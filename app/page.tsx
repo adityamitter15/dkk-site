@@ -12,6 +12,7 @@ import KineticHeadline from "@/components/KineticHeadline";
 import MagneticButton from "@/components/MagneticButton";
 import CTABand from "@/components/ui/CTABand";
 import TrackedOutbound from "@/components/TrackedOutbound";
+import GiagBand from "@/components/ui/GiagBand";
 
 export default function Home() {
   return (
@@ -54,13 +55,25 @@ export default function Home() {
                 Class Times <Clock size={16} />
               </MagneticButton>
             </div>
-            <TrackedOutbound
-              href="https://wa.me/447976411901?text=Hi%2C%20I%27d%20like%20to%20come%20and%20try%20a%20class%20at%20DKK%20London."
-              track="/go/whatsapp"
-              className="mt-4 inline-block text-gray-400 text-sm hover:text-whatsapp transition-colors"
-            >
-              or message us on WhatsApp
-            </TrackedOutbound>
+            <p className="mt-4 text-gray-400 text-sm">
+              <TrackedOutbound
+                href="https://wa.me/447976411901?text=Hi%2C%20I%27d%20like%20to%20come%20and%20try%20a%20class%20at%20DKK%20London."
+                track="/go/whatsapp"
+                className="hover:text-whatsapp transition-colors"
+              >
+                or message us on WhatsApp
+              </TrackedOutbound>
+              <span className="hidden lg:inline">
+                {" "}or{" "}
+                <TrackedOutbound
+                  href="mailto:info@goju-karate.co.uk"
+                  track="/go/email"
+                  className="hover:text-white transition-colors"
+                >
+                  email us
+                </TrackedOutbound>
+              </span>
+            </p>
           </div>
 
           {/* Quick info strip */}
@@ -91,6 +104,8 @@ export default function Home() {
         <StatCell value="Goju Ryu" label={<>Okinawan &middot; Combat-Orientated</>} />
         <StatCell value={<>Mon &amp; Wed</>} label="6 - 8pm, Central London" />
       </StatStrip>
+
+      <GiagBand audience="public" />
 
       {/* ── YOUR FIRST CLASS - WARM LIGHT SECTION ────────────── */}
       <section className="py-20 sm:py-24 lg:py-32 bg-cream">

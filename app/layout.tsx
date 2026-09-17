@@ -189,9 +189,9 @@ export default function RootLayout({
       "Okinawan kobudo",
       "Self defence",
     ],
-    // audienceType only. The site says "open to all adults" but never states a
-    // minimum age, and inventing one in structured data would be a claim the
-    // club has not made. Ask them, then add suggestedMinAge.
+    // audienceType only. The club's rule is 18 and over, with 16 and 17 year
+    // olds by arrangement, and a single suggestedMinAge cannot say that
+    // without overstating it, so it is deliberately left out.
     audience: {
       "@type": "Audience",
       audienceType: "Adults",

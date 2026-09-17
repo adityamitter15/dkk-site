@@ -29,7 +29,7 @@ export default function TermNotice() {
     // `relative` is load-bearing: this renders inside Navbar's fixed header,
     // above an absolutely positioned background layer that would otherwise
     // paint over it once the bar goes solid on scroll.
-    <div className="relative bg-brand text-white">
+    <div className="relative bg-brand text-white" data-term-notice="">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Link
           href={termNotice.href}

@@ -1,9 +1,12 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { flushSync } from "react-dom";
 import Link from "next/link";
 import { Send, CheckCircle, Loader2 } from "lucide-react";
 import TrackedOutbound from "@/components/TrackedOutbound";
+import { trackOutbound } from "@/lib/track";
+import { site } from "@/data/site";
 
 const FORMSPREE_ID = "xeedpgvk";
 const COOLDOWN_MS = 60_000;
@@ -26,6 +29,51 @@ const REPLY_OPTIONS = [
 
 type ReplyBy = (typeof REPLY_OPTIONS)[number]["value"];
 
+/**
+ * Sends a copy of the enquiry to a private club Google Sheet, independent of
+ * Formspree. Formspree's free plan deletes submissions after 30 days, and its
+ * spam filter can drop a message with no email sent at all, which has already
+ * lost a real enquiry once. This is fire-and-forget: it must never throw,
+ * never delay the UI, and never change what the visitor sees.
+ */
+function saveEnquiryCopy(fields: FormData, formspreeResult: string) {
+  try {
+    const payload = {
+      name: String(fields.get("name") ?? ""),
+      email: String(fields.get("email") ?? ""),
+      phone: String(fields.get("phone") ?? ""),
+      replyBy: String(fields.get("replyBy") ?? ""),
+      callTime: String(fields.get("callTime") ?? ""),
+      experience: String(fields.get("experience") ?? ""),
+      message: String(fields.get("message") ?? ""),
+      page: window.location.pathname,
+      formspree: formspreeResult,
+    };
+    const url = site.enquirySheetEndpoint;
+    const body = JSON.stringify(payload);
+    let sent = false;
+    try {
+      sent =
+        typeof navigator !== "undefined" && typeof navigator.sendBeacon === "function"
+          ? navigator.sendBeacon(url, new Blob([body], { type: "text/plain;charset=UTF-8" }))
+          : false;
+    } catch {
+      sent = false;
+    }
+    if (!sent) {
+      fetch(url, {
+        method: "POST",
+        mode: "no-cors",
+        keepalive: true,
+        headers: { "Content-Type": "text/plain;charset=UTF-8" },
+        body,
+      }).catch(() => {});
+    }
+  } catch {
+    /* the backup copy must never affect the visitor's experience */
+  }
+}
+
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -33,6 +81,8 @@ export default function ContactForm() {
   const [cooldownLeft, setCooldownLeft] = useState(0);
   const [messageLen, setMessageLen] = useState(0);
   const [replyBy, setReplyBy] = useState<ReplyBy>("email");
+  const [fieldErrors, setFieldErrors] = useState<{ name?: string; email?: string; phone?: string }>({});
+  const [lockedHeight, setLockedHeight] = useState<number | undefined>(undefined);
   const renderedAt = useRef<number>(Date.now());
 
   useEffect(() => {
@@ -56,25 +106,18 @@ export default function ContactForm() {
   }, [cooldownLeft]);
 
   /**
-   * Records the send and rewrites the URL to /contact/sent.
+   * Records the send as a virtual /contact/sent view via trackOutbound.
    *
-   * Cloudflare's beacon patches history.pushState and counts a route change as
-   * a page view, so views of that one path are the club's form-submission
-   * count. There is no custom-event API in Web Analytics; this is the way.
-   *
-   * The panel below stays put, so nothing about the flow changes for the
-   * person who just wrote to us. /contact/sent is a real route, so a refresh
+   * Cloudflare's beacon has no custom-event API, so a brief virtual navigation
+   * to /contact/sent is what makes a form-submission count show up in Web
+   * Analytics. trackOutbound restores the real URL a moment later, so the
+   * panel below stays put and nothing about the flow changes for the person
+   * who just wrote to us. /contact/sent is still a real route, so a refresh
    * or a shared link still lands on something.
    */
   function markSent() {
     setSubmitted(true);
-    try {
-      if (window.location.pathname !== "/contact/sent") {
-        window.history.pushState({}, "", "/contact/sent");
-      }
-    } catch {
-      /* history blocked - the message still sent, which is what matters */
-    }
+    trackOutbound("/contact/sent");
   }
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -95,6 +138,7 @@ export default function ContactForm() {
     const data = new FormData(form);
 
     if ((data.get("_gotcha") as string)?.length || (data.get("website") as string)?.length) {
+      setLockedHeight(form.getBoundingClientRect().height);
       setSubmitted(true);
       return;
     }
@@ -110,14 +154,33 @@ export default function ContactForm() {
       return;
     }
 
-    if (replyBy !== "email" && !String(data.get("phone") ?? "").trim()) {
-      setError(
+    const email = String(data.get("email") ?? "").trim();
+    const phone = String(data.get("phone") ?? "").trim();
+    const invalid: { name?: string; email?: string; phone?: string } = {};
+    if (!name) {
+      invalid.name = "Please add your name.";
+    }
+    if (replyBy === "email" && !email) {
+      invalid.email = "Please add your email, or pick Phone call or WhatsApp.";
+    } else if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      invalid.email = "Please check your email address.";
+    }
+    if (replyBy !== "email" && phone.replace(/\D/g, "").length < 7) {
+      invalid.phone =
         replyBy === "phone"
           ? "Please add a number so we can call you, or switch back to email."
-          : "Please add a number so we can message you, or switch back to email.",
-      );
+          : "Please add a number so we can message you, or switch back to email.";
+    }
+    if (Object.keys(invalid).length > 0) {
+      flushSync(() => setFieldErrors(invalid));
+      const firstInvalid = invalid.name ? "name" : invalid.email ? "email" : "phone";
+      document.getElementById(firstInvalid)?.focus();
       return;
     }
+    setFieldErrors({});
+
+    if (!email) data.delete("email");
+    if (!message) data.set("message", "(No message left)");
 
     setLoading(true);
 
@@ -134,15 +197,27 @@ export default function ContactForm() {
         } catch {
           /* ignore */
         }
+        saveEnquiryCopy(data, "ok");
+        setLockedHeight(form.getBoundingClientRect().height);
         markSent();
       } else {
+        saveEnquiryCopy(data, `error ${res.status}`);
         const json = await res.json().catch(() => ({}));
-        setError(
-          json?.errors?.[0]?.message ??
-            "Something went wrong. Please try again or email us directly.",
-        );
+        const field = json?.errors?.[0]?.field as string | undefined;
+        if (field === "name" || field === "email" || field === "phone") {
+          const fieldCopy: Record<"name" | "email" | "phone", string> = {
+            name: "Please add your name.",
+            email: "Please check your email address.",
+            phone: "Please check your number.",
+          };
+          flushSync(() => setFieldErrors((prev) => ({ ...prev, [field]: fieldCopy[field] })));
+          document.getElementById(field)?.focus();
+        } else {
+          setError("That did not send. Please try again, or message us on WhatsApp.");
+        }
       }
     } catch {
+      saveEnquiryCopy(data, "network error");
       setError("Unable to send message. Please email info@goju-karate.co.uk directly.");
     } finally {
       setLoading(false);
@@ -154,6 +229,7 @@ export default function ContactForm() {
       <div
         role="status"
         aria-live="polite"
+        style={lockedHeight ? { minHeight: lockedHeight } : undefined}
         className="flex flex-col items-center justify-center p-10 bg-card border border-brand/30 rounded-sm text-center h-full min-h-[400px]"
       >
         <CheckCircle className="text-brand mb-4" size={40} aria-hidden="true" />
@@ -195,14 +271,29 @@ export default function ContactForm() {
             autoComplete="name"
             required
             maxLength={MAX_NAME}
-            className="w-full bg-card border border-white/10 text-white px-4 py-3 text-base rounded-sm focus:outline-none focus-visible:border-brand focus-visible:ring-2 focus-visible:ring-brand/40 transition-colors placeholder:text-gray-400"
+            aria-invalid={fieldErrors.name ? true : undefined}
+            aria-describedby={fieldErrors.name ? "name-error" : undefined}
+            onChange={() => fieldErrors.name && setFieldErrors((prev) => ({ ...prev, name: undefined }))}
+            className="w-full bg-card border border-white/10 text-white px-4 py-3 text-base rounded-sm focus:outline-none focus-visible:border-brand focus-visible:ring-2 focus-visible:ring-brand/40 transition-colors placeholder:text-gray-400 aria-invalid:border-red-400"
             placeholder="Your full name"
           />
+          {fieldErrors.name && (
+            <p id="name-error" className="mt-1.5 text-xs text-red-400">
+              {fieldErrors.name}
+            </p>
+          )}
         </div>
         <div>
           <label className="block text-gray-400 text-xs uppercase tracking-widest mb-2" htmlFor="email">
-            Email <span className="text-brand" aria-hidden="true">*</span>
-            <span className="sr-only">(required)</span>
+            Email{" "}
+            {replyBy === "email" ? (
+              <>
+                <span className="text-brand" aria-hidden="true">*</span>
+                <span className="sr-only">(required)</span>
+              </>
+            ) : (
+              <span className="text-gray-500">(optional)</span>
+            )}
           </label>
           <input
             id="email"
@@ -210,15 +301,23 @@ export default function ContactForm() {
             type="email"
             inputMode="email"
             autoComplete="email"
-            required
+            required={replyBy === "email"}
             maxLength={120}
-            className="w-full bg-card border border-white/10 text-white px-4 py-3 text-base rounded-sm focus:outline-none focus-visible:border-brand focus-visible:ring-2 focus-visible:ring-brand/40 transition-colors placeholder:text-gray-400"
+            aria-invalid={fieldErrors.email ? true : undefined}
+            aria-describedby={fieldErrors.email ? "email-error" : undefined}
+            onChange={() => fieldErrors.email && setFieldErrors((prev) => ({ ...prev, email: undefined }))}
+            className="w-full bg-card border border-white/10 text-white px-4 py-3 text-base rounded-sm focus:outline-none focus-visible:border-brand focus-visible:ring-2 focus-visible:ring-brand/40 transition-colors placeholder:text-gray-400 aria-invalid:border-red-400"
             placeholder="your@email.com"
           />
+          {fieldErrors.email && (
+            <p id="email-error" className="mt-1.5 text-xs text-red-400">
+              {fieldErrors.email}
+            </p>
+          )}
         </div>
       </div>
 
-      <fieldset id="callback" className="scroll-mt-28 border border-white/10 rounded-sm bg-card/40 px-5 pt-4 pb-5">
+      <fieldset id="callback" className="scroll-mt-[calc(7rem_+_var(--notice-h,0px))] border border-white/10 rounded-sm bg-card/40 px-5 pt-4 pb-5">
         <legend className="px-2 text-gray-400 text-xs uppercase tracking-widest">
           How should we get back to you?
         </legend>
@@ -256,9 +355,17 @@ export default function ContactForm() {
                 inputMode="tel"
                 autoComplete="tel"
                 maxLength={32}
-                className="w-full bg-card border border-white/10 text-white px-4 py-3 text-base rounded-sm focus:outline-none focus-visible:border-brand focus-visible:ring-2 focus-visible:ring-brand/40 transition-colors placeholder:text-gray-400"
+                aria-invalid={fieldErrors.phone ? true : undefined}
+                aria-describedby={fieldErrors.phone ? "phone-error" : undefined}
+                onChange={() => fieldErrors.phone && setFieldErrors((prev) => ({ ...prev, phone: undefined }))}
+                className="w-full bg-card border border-white/10 text-white px-4 py-3 text-base rounded-sm focus:outline-none focus-visible:border-brand focus-visible:ring-2 focus-visible:ring-brand/40 transition-colors placeholder:text-gray-400 aria-invalid:border-red-400"
                 placeholder="07700 900123"
               />
+              {fieldErrors.phone && (
+                <p id="phone-error" className="mt-1.5 text-xs text-red-400">
+                  {fieldErrors.phone}
+                </p>
+              )}
             </div>
 
             {replyBy === "phone" && (
@@ -312,8 +419,7 @@ export default function ContactForm() {
       <div>
         <div className="flex items-baseline justify-between mb-2">
           <label className="block text-gray-400 text-xs uppercase tracking-widest" htmlFor="message">
-            Message <span className="text-brand" aria-hidden="true">*</span>
-            <span className="sr-only">(required)</span>
+            Message <span className="text-gray-500">(optional)</span>
           </label>
           <span
             className={`text-[10px] tabular-nums ${
@@ -327,7 +433,6 @@ export default function ContactForm() {
         <textarea
           id="message"
           name="message"
-          required
           rows={5}
           maxLength={MAX_MESSAGE}
           onChange={(e) => setMessageLen(e.target.value.length)}

@@ -6,7 +6,7 @@ import CTABand from "@/components/ui/CTABand";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import Reveal from "@/components/ui/Reveal";
 import DanGrade from "@/components/DanGrade";
-import { site } from "@/data/site";
+import { site, joining } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Karate in London - Common Questions",
@@ -40,7 +40,7 @@ const faqs: { question: string; answer: string }[] = [
   {
     question: "Where exactly is the dojo?",
     answer:
-      "309 Regent Street, London W1B 2HW, in the University of Westminster building. It is about a minute's walk from Oxford Circus underground station, which puts it on the Central, Victoria and Bakerloo lines.",
+      `309 Regent Street, London W1B 2HW, in the University of Westminster building. It is about a minute's walk from Oxford Circus underground station, which puts it on the Central, Victoria and Bakerloo lines. ${joining.door}`,
   },
   {
     question: "Do I have to be a University of Westminster student?",
@@ -64,6 +64,10 @@ const faqs: { question: string; answer: string }[] = [
     question: "Is this suitable for adults?",
     answer:
       "Yes, this is an adults' club. Everyone trains together rather than being split by grade, and the club has a good mix of men and women training regularly.",
+  },
+  {
+    question: "Is there a minimum age?",
+    answer: joining.age,
   },
   {
     question: "What actually happens in a class?",

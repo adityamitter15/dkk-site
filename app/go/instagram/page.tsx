@@ -1,46 +1,42 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { CheckCircle } from "lucide-react";
+import { Instagram } from "lucide-react";
 
 /**
- * The confirmation the contact form switches to after a successful send.
- *
- * The form does not navigate here: it calls `trackOutbound("/contact/sent")`,
- * which briefly rewrites the URL and keeps its own success panel, and
- * Cloudflare's beacon counts that as a route change. This route exists so
- * that a refresh, a bookmark or a shared link lands on something real rather
- * than a 404, since the site is a static export and an invented path would
- * have nothing behind it.
+ * A real route behind the Instagram link, so the virtual page view
+ * `trackOutbound` fires on the way out (see lib/track.ts) lands on something
+ * real if a visitor ever hits it directly, refreshes, or shares the link.
  *
  * noindex because it is a dead end for a search visitor and would otherwise
  * compete with /contact for the queries that matter.
  */
 export const metadata: Metadata = {
-  title: "Message Sent",
-  description: "Your message to Daigaku Karate Kai London has been sent.",
+  title: "Opening Instagram",
+  description: "Taking you to Daigaku Karate Kai London on Instagram.",
   robots: { index: false, follow: true },
   alternates: { canonical: "/contact" },
 };
 
-export default function MessageSentPage() {
+export default function GoInstagramPage() {
   return (
     <section className="min-h-[70svh] flex items-center justify-center bg-night px-4 py-28">
       <div className="max-w-lg text-center">
-        <CheckCircle className="text-brand mx-auto mb-6" size={48} aria-hidden="true" />
+        <Instagram className="text-brand mx-auto mb-6" size={48} aria-hidden="true" />
         <h1 className="font-display text-4xl sm:text-5xl tracking-wide text-white mb-4">
-          Message Sent
+          Opening Instagram
         </h1>
         <p className="text-gray-400 leading-relaxed mb-8">
-          Thanks for getting in touch. We aim to reply within 48 hours. If you asked
-          for a call back, we will ring you at the time you picked.
+          Instagram should have opened in a new tab. If nothing happened, carry on below.
         </p>
         <div className="flex flex-wrap gap-3 justify-center">
-          <Link
-            href="/training"
+          <a
+            href="https://www.instagram.com/dkk_karate_london"
+            target="_blank"
+            rel="noopener noreferrer"
             className="px-6 py-3 bg-brand text-white text-sm font-semibold uppercase tracking-wide hover:bg-brand-hover transition-colors rounded-sm"
           >
-            Class times
-          </Link>
+            Continue to Instagram
+          </a>
           <Link
             href="/contact"
             className="px-6 py-3 border border-white/15 text-white text-sm font-semibold uppercase tracking-wide hover:border-white/40 transition-colors rounded-sm"

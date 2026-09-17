@@ -57,9 +57,10 @@ export default function Navbar() {
           <Link href="/" className="flex items-center gap-3 flex-shrink-0">
             <div className="relative h-10 w-10 rounded-full overflow-hidden">
               <Image
-                src="/images/DKKCircularLogo.jpg"
+                src="/images/dkk-logo-144.jpg"
                 alt="Daigaku Karate Kai"
                 fill
+                sizes="40px"
                 className="object-cover"
               />
             </div>

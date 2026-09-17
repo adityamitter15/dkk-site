@@ -47,6 +47,18 @@ body {
   padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 
+/* When TermNotice is rendered, the fixed nav grows by the notice bar's own
+   height. PageHero reads --notice-h to add matching top padding so the hero
+   is never covered by the taller header. */
+body:has([data-term-notice]) {
+  --notice-h: 2rem;
+}
+@media (min-width: 40rem) {
+  body:has([data-term-notice]) {
+    --notice-h: 2.25rem;
+  }
+}
+
 /* Disable text size adjustment on iOS landscape */
 html {
   -webkit-text-size-adjust: 100%;
@@ -206,6 +218,21 @@ body::after {
   to {
     opacity: 1;
     transform: none;
+  }
+}
+
+/* KineticHeadline entrance: CSS-only, no client JS. Reduced motion gets the
+   lit state with no ramp because the animation only exists inside this query. */
+@media (prefers-reduced-motion: no-preference) {
+  .kinetic-line {
+    animation: kinetic-rise 0.95s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+}
+@keyframes kinetic-rise {
+  from {
+    opacity: 0;
+    transform: translateY(55%);
+    filter: blur(10px);
   }
 }
 

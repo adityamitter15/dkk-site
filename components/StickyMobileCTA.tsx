@@ -18,7 +18,11 @@ export default function StickyMobileCTA() {
       const viewport = window.innerHeight;
       // Hide when near footer to avoid competing with footer CTA
       const nearFooter = scrolled + viewport > docHeight - 360;
-      setShow(scrolled > 240 && !nearFooter);
+      // On yudansha member pages, also hide once the prev/next nav marker
+      // scrolls into view, so the sticky bar doesn't sit on top of it.
+      const marker = document.querySelector("[data-sticky-hide]");
+      const markerInView = !!marker && marker.getBoundingClientRect().top < viewport;
+      setShow(scrolled > 240 && !nearFooter && !markerInView);
     };
     handler();
     window.addEventListener("scroll", handler, { passive: true });
@@ -29,8 +33,8 @@ export default function StickyMobileCTA() {
     };
   }, []);
 
-  // Don't show on contact (redundant) or yudansha individual pages (would compete with their nav)
-  if (pathname === "/contact" || /^\/yudansha\/.+/.test(pathname)) return null;
+  // Don't show on contact (redundant) or /go/* virtual-tracking routes
+  if (pathname === "/contact" || pathname.startsWith("/contact/") || pathname.startsWith("/go/")) return null;
 
   return (
     <div

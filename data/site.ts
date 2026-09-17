@@ -33,6 +33,13 @@ export const site = {
   // button, which is the difference between an ask that lands and one that
   // does not. The place id decodes to the same CID as googleListing.
   googleReview: "https://search.google.com/local/writereview?placeid=ChIJJWQhsSMbdkgRPubmnLTgML8",
+  // Apps Script web app that appends a copy of every contact form enquiry to a
+  // private club Google Sheet (backup for Formspree's 30-day retention and its
+  // spam filter, which can silently drop a real enquiry). This URL is public
+  // by design - a static site cannot hold a secret - so the script itself
+  // validates and rate-limits every request it receives.
+  enquirySheetEndpoint:
+    "https://script.google.com/macros/s/AKfycbzdCu-SVRvx0q9vmse8MNJbobXYVrAZcVz0LMQhU3CcR43x3Vz5kfCXcmdQifMsGrOb4g/exec",
 } as const;
 
 // Set to the real date of the next beginners' intake / term restart to show the
@@ -48,6 +55,13 @@ export const termNotice: { date: string; label: string; href: string } | null = 
   label: "Give It A Go · Try a karate class, 21 & 23 September",
   href: "/give-it-a-go",
 };
+
+// Shared joining copy (age policy, door instructions) reused across contact,
+// training, give-it-a-go and the FAQ so the wording never drifts between pages.
+export const joining = {
+  age: "Classes are for adults, 18 and over. If you are 16 or 17, message us first to check.",
+  door: "Not a student? Sign in at reception, say you're here for karate, and they'll show you to the hall.",
+} as const;
 
 export type NavLink = { href: string; label: string };
 

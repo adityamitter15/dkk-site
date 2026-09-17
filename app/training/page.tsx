@@ -2,12 +2,16 @@ import PageHero from "@/components/ui/PageHero";
 import CTABand from "@/components/ui/CTABand";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ChevronRight, Clock, MapPin, Users, Award, HelpCircle, TreePine, Video, ExternalLink } from "lucide-react";
+import { ChevronRight, Clock, MapPin, Users, Award, HelpCircle, TreePine, Video, ExternalLink, Mail, Star } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
 import ScrollRevealText from "@/components/ui/ScrollRevealText";
 import SafeImage from "@/components/SafeImage";
 import DanGrade from "@/components/DanGrade";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
+import GiagBand from "@/components/ui/GiagBand";
+import TrackedOutbound from "@/components/TrackedOutbound";
+import WhatsAppIcon from "@/components/ui/WhatsAppIcon";
+import { site, joining } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Karate Classes in Central London",
@@ -31,6 +35,8 @@ export default function TrainingPage() {
         lead="Okinawan Goju Ryu. Every Monday and Wednesday evening at 309 Regent Street, London."
         image={{ src: "/images/Training/kumite-high-kick.jpg", position: "center 30%" }}
       />
+
+      <GiagBand audience="public" />
 
       {/* Main Dojo - Westminster */}
       <section className="section-reveal py-16 sm:py-20 lg:py-28 bg-night">
@@ -67,6 +73,43 @@ export default function TrainingPage() {
                     </Link>
                   </p>
                 </div>
+              </div>
+
+              <div className="mt-6">
+                <div className="flex flex-col sm:flex-row flex-wrap gap-3">
+                  <TrackedOutbound
+                    href="https://wa.me/447976411901?text=Hi%2C%20I%27d%20like%20to%20come%20and%20try%20a%20class%20at%20DKK%20London."
+                    track="/go/whatsapp"
+                    className="inline-flex items-center justify-center gap-2 bg-whatsapp text-night px-6 py-3.5 lg:px-5 text-sm font-semibold uppercase tracking-wide rounded-sm"
+                  >
+                    <WhatsAppIcon size={16} />
+                    <span><span className="lg:hidden">Message us on </span>WhatsApp</span>
+                  </TrackedOutbound>
+                  <TrackedOutbound
+                    href="mailto:info@goju-karate.co.uk"
+                    track="/go/email"
+                    className="hidden lg:inline-flex items-center justify-center gap-2 border border-white/15 text-white px-6 py-3.5 lg:px-5 text-sm font-semibold uppercase tracking-wide rounded-sm hover:border-white/40 transition-colors"
+                  >
+                    <Mail size={16} aria-hidden="true" />
+                    Email
+                  </TrackedOutbound>
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center justify-center gap-2 bg-brand text-white px-6 py-3.5 lg:px-5 text-sm font-semibold uppercase tracking-wide rounded-sm hover:bg-brand-hover transition-colors"
+                  >
+                    Get in touch
+                  </Link>
+                </div>
+                <p className="text-white text-sm mt-4">No uniform needed. Just turn up.</p>
+                <p className="text-gray-400 text-xs mt-2 leading-relaxed">{joining.age} {joining.door}</p>
+                <TrackedOutbound
+                  href={site.googleListing}
+                  track="/go/google-reviews"
+                  className="inline-flex items-center gap-2 text-gray-400 text-sm hover:text-white transition-colors mt-3"
+                >
+                  <Star size={14} className="text-gold fill-gold" aria-hidden="true" />
+                  Read our reviews on Google
+                </TrackedOutbound>
               </div>
             </div>
 

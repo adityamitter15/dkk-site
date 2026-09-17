@@ -5,9 +5,9 @@ import SectionHeading from "@/components/SectionHeading";
 import ContactForm from "@/components/ContactForm";
 import SafeImage from "@/components/SafeImage";
 import TrackedOutbound from "@/components/TrackedOutbound";
-import { Phone, Mail, MapPin, Clock, MessageCircle, Banknote } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, MessageCircle, Banknote, Star } from "lucide-react";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
-import { site } from "@/data/site";
+import { site, joining } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Find Us - Karate Near Oxford Circus",
@@ -75,137 +75,150 @@ export default function ContactPage() {
 
       <section className="section-reveal py-16 sm:py-20 lg:py-28 bg-night">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
-            <div>
+          <div className="grid gap-y-10 lg:grid-cols-2 lg:gap-x-20 lg:gap-y-4">
+            <div className="lg:col-start-1">
               <SectionHeading eyebrow="Join the Club" title="Get In Touch" />
-              <p className="text-gray-400 leading-relaxed mb-10">
+              <p className="text-gray-400 leading-relaxed mb-0">
                 Whether you&apos;re a complete beginner or an experienced martial artist, come and visit a class. No commitment required.
               </p>
+              <p className="text-gray-400 text-xs mt-3">{joining.age}</p>
+              {/* No rating number shown here on purpose - a star score or review
+                  count goes stale fast on a static page, and an old figure reads
+                  worse than none. The link itself is the honest version. */}
+              <TrackedOutbound
+                href={site.googleListing}
+                track="/go/google-reviews"
+                className="inline-flex items-center gap-2 text-gray-400 text-sm hover:text-white transition-colors mt-2"
+              >
+                <Star size={14} className="text-gold fill-gold" aria-hidden="true" />
+                Read our reviews on Google
+              </TrackedOutbound>
 
-              <div className="space-y-4 mb-10">
-                <div className="grid sm:grid-cols-2 gap-4">
-                  {/* The club does not publish a phone number. Rather than drop
-                      the call channel entirely, which is the easiest way for a
-                      beginner to make contact, the call goes the other way. */}
-                  <a
-                    href="#callback"
-                    className="flex gap-4 items-start p-5 bg-card border border-white/10 hover:border-brand/40 rounded-sm transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/50"
-                  >
-                    <Phone className="text-brand flex-shrink-0 mt-0.5" size={20} aria-hidden="true" />
-                    <div>
-                      <p className="text-gray-500 text-xs uppercase tracking-widest mb-0.5">Phone</p>
-                      <p className="text-white font-medium text-lg leading-tight">We&apos;ll call you</p>
-                      <p className="text-gray-500 text-xs mt-0.5">Pick a time that suits</p>
-                    </div>
-                  </a>
-
-                  <TrackedOutbound
-                    href="https://wa.me/447976411901?text=Hi%2C%20I%27d%20like%20to%20come%20and%20try%20a%20class%20at%20DKK%20London."
-                    track="/go/whatsapp"
-                    className="flex gap-4 items-start p-5 bg-card border border-white/10 hover:border-whatsapp/40 rounded-sm transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-whatsapp/50"
-                  >
-                    <MessageCircle className="text-whatsapp flex-shrink-0 mt-0.5" size={20} aria-hidden="true" />
-                    <div>
-                      <p className="text-gray-500 text-xs uppercase tracking-widest mb-0.5">WhatsApp</p>
-                      <p className="text-white font-medium text-lg leading-tight">Quick chat</p>
-                      <p className="text-gray-500 text-xs mt-0.5">Usually replies same day</p>
-                    </div>
-                  </TrackedOutbound>
-                </div>
-
-                <TrackedOutbound
-                  href="mailto:info@goju-karate.co.uk"
-                  track="/go/email"
+              <div className="grid sm:grid-cols-2 gap-4 mt-8">
+                {/* The club does not publish a phone number. Rather than drop
+                    the call channel entirely, which is the easiest way for a
+                    beginner to make contact, the call goes the other way. */}
+                <a
+                  href="#callback"
                   className="flex gap-4 items-start p-5 bg-card border border-white/10 hover:border-brand/40 rounded-sm transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/50"
                 >
-                  <Mail className="text-brand flex-shrink-0 mt-0.5" size={20} aria-hidden="true" />
+                  <Phone className="text-brand flex-shrink-0 mt-0.5" size={20} aria-hidden="true" />
                   <div>
-                    <p className="text-gray-500 text-xs uppercase tracking-widest mb-0.5">Email</p>
-                    <p className="text-white font-medium leading-tight">info@goju-karate.co.uk</p>
-                    <p className="text-gray-500 text-xs mt-0.5">Replies within 48 hours</p>
+                    <p className="text-gray-500 text-xs uppercase tracking-widest mb-0.5">Phone</p>
+                    <p className="text-white font-medium text-lg leading-tight">We&apos;ll call you</p>
+                    <p className="text-gray-500 text-xs mt-0.5">Pick a time that suits</p>
+                  </div>
+                </a>
+
+                <TrackedOutbound
+                  href="https://wa.me/447976411901?text=Hi%2C%20I%27d%20like%20to%20come%20and%20try%20a%20class%20at%20DKK%20London."
+                  track="/go/whatsapp"
+                  className="flex gap-4 items-start p-5 bg-card border border-white/10 hover:border-whatsapp/40 rounded-sm transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-whatsapp/50"
+                >
+                  <MessageCircle className="text-whatsapp flex-shrink-0 mt-0.5" size={20} aria-hidden="true" />
+                  <div>
+                    <p className="text-gray-500 text-xs uppercase tracking-widest mb-0.5">WhatsApp</p>
+                    <p className="text-white font-medium text-lg leading-tight">Quick chat</p>
+                    <p className="text-gray-500 text-xs mt-0.5">Usually replies same day</p>
                   </div>
                 </TrackedOutbound>
+              </div>
+            </div>
 
-                <div className="flex gap-4 items-start p-5 bg-card border border-white/10 rounded-sm">
-                  <MapPin className="text-brand flex-shrink-0 mt-0.5" size={20} aria-hidden="true" />
-                  <div>
-                    <p className="text-gray-500 text-xs uppercase tracking-widest mb-0.5">Location</p>
-                    <p className="text-white font-medium leading-tight">University of Westminster, Main Hall</p>
-                    <p className="text-gray-400 text-sm mt-0.5">309 Regent Street, London W1B 2HW</p>
-                    <p className="text-gray-500 text-xs mt-1">
-                      No student membership required ·{" "}
-                      <Link href="/faq" className="link-underline text-gold">
-                        first-timers&apos; questions
-                      </Link>
-                    </p>
-                    {/* The club's Google listing carries 5.0 from 20 reviews but
-                        the newest is years old, and review recency is one of the
-                        things that decides who shows up in the local map pack. */}
-                    <p className="text-gray-500 text-xs mt-1">
-                      <a
-                        href={site.googleListing}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="link-underline text-gold"
-                      >
-                        Find us on Google Maps
-                      </a>
-                    </p>
-                    <p className="text-gray-500 text-xs mt-1">
-                      Coming from{" "}
-                      <Link href="/karate-oxford-circus" className="link-underline text-gold">Oxford Circus</Link>,{" "}
-                      <Link href="/karate-soho" className="link-underline text-gold">Soho</Link>,{" "}
-                      <Link href="/karate-mayfair" className="link-underline text-gold">Mayfair</Link>,{" "}
-                      <Link href="/karate-fitzrovia" className="link-underline text-gold">Fitzrovia</Link>,{" "}
-                      <Link href="/karate-marylebone" className="link-underline text-gold">Marylebone</Link> or{" "}
-                      <Link href="/karate-bloomsbury" className="link-underline text-gold">Bloomsbury</Link>?
-                    </p>
-                  </div>
+            <div className="lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:self-start">
+              <ContactForm />
+            </div>
+
+            <div className="lg:col-start-1 space-y-4">
+              <TrackedOutbound
+                href="mailto:info@goju-karate.co.uk"
+                track="/go/email"
+                className="flex gap-4 items-start p-5 bg-card border border-white/10 hover:border-brand/40 rounded-sm transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/50"
+              >
+                <Mail className="text-brand flex-shrink-0 mt-0.5" size={20} aria-hidden="true" />
+                <div>
+                  <p className="text-gray-500 text-xs uppercase tracking-widest mb-0.5">Email</p>
+                  <p className="text-white font-medium leading-tight">info@goju-karate.co.uk</p>
+                  <p className="text-gray-500 text-xs mt-0.5">Replies within 48 hours</p>
                 </div>
+              </TrackedOutbound>
 
-                <div className="flex gap-4 items-start p-5 bg-card border border-white/10 rounded-sm">
-                  <Clock className="text-brand flex-shrink-0 mt-0.5" size={20} aria-hidden="true" />
-                  <div>
-                    <p className="text-gray-500 text-xs uppercase tracking-widest mb-0.5">Class Times</p>
-                    <p className="text-white font-medium leading-tight">Monday &amp; Wednesday</p>
-                    <p className="text-gray-400 text-sm mt-0.5">6:00pm – 8:00pm</p>
-                    <p className="text-gray-500 text-xs mt-1">Classes continue during University breaks</p>
-                  </div>
+              <div className="flex gap-4 items-start p-5 bg-card border border-white/10 rounded-sm">
+                <MapPin className="text-brand flex-shrink-0 mt-0.5" size={20} aria-hidden="true" />
+                <div>
+                  <p className="text-gray-500 text-xs uppercase tracking-widest mb-0.5">Location</p>
+                  <p className="text-white font-medium leading-tight">University of Westminster, Main Hall</p>
+                  <p className="text-gray-400 text-sm mt-0.5">309 Regent Street, London W1B 2HW</p>
+                  <p className="text-gray-500 text-xs mt-1">
+                    No student membership required ·{" "}
+                    <Link href="/faq" className="link-underline text-gold">
+                      first-timers&apos; questions
+                    </Link>
+                  </p>
+                  <p className="text-gray-400 text-xs mt-1">{joining.door}</p>
+                  <p className="text-gray-500 text-xs mt-1">
+                    <TrackedOutbound
+                      href={site.googleListing}
+                      track="/go/maps"
+                      className="link-underline text-gold"
+                    >
+                      Find us on Google Maps
+                    </TrackedOutbound>
+                  </p>
+                  <p className="text-gray-500 text-xs mt-1">
+                    Coming from{" "}
+                    <Link href="/karate-oxford-circus" className="link-underline text-gold">Oxford Circus</Link>,{" "}
+                    <Link href="/karate-soho" className="link-underline text-gold">Soho</Link>,{" "}
+                    <Link href="/karate-mayfair" className="link-underline text-gold">Mayfair</Link>,{" "}
+                    <Link href="/karate-fitzrovia" className="link-underline text-gold">Fitzrovia</Link>,{" "}
+                    <Link href="/karate-marylebone" className="link-underline text-gold">Marylebone</Link> or{" "}
+                    <Link href="/karate-bloomsbury" className="link-underline text-gold">Bloomsbury</Link>?
+                  </p>
                 </div>
+              </div>
 
-                {/* "karate london prices" is a real query with real volume and the
-                    club will not publish a figure. This answers the question
-                    honestly, carries the words people actually search for, and
-                    gives the query somewhere to land: /contact#fees. */}
-                <div id="fees" className="flex gap-4 items-start p-5 bg-card border border-white/10 rounded-sm scroll-mt-28">
-                  <Banknote className="text-brand flex-shrink-0 mt-0.5" size={20} aria-hidden="true" />
-                  <div>
-                    <h3 className="text-gray-500 text-xs uppercase tracking-widest mb-0.5">Class Fees</h3>
-                    <p className="text-white font-medium leading-tight">Ask and we&apos;ll tell you straight</p>
-                    <p className="text-gray-400 text-sm mt-1 leading-relaxed">
-                      We confirm current fees when you get in touch rather than publishing a figure
-                      that goes out of date. Ask by email or WhatsApp and we will come straight back
-                      to you. You do not need a University of Westminster student membership to train
-                      here.
-                    </p>
-                    <p className="text-gray-500 text-xs mt-2">
-                      <TrackedOutbound
-                        href="https://wa.me/447976411901?text=Hi%2C%20could%20you%20tell%20me%20what%20the%20class%20fees%20are%20at%20DKK%20London%3F"
-                        track="/go/whatsapp"
-                        className="link-underline text-gold"
-                      >
-                        Ask about fees on WhatsApp
-                      </TrackedOutbound>
-                      {" · "}
-                      <TrackedOutbound
-                        href="mailto:info@goju-karate.co.uk?subject=Class%20fees"
-                        track="/go/email"
-                        className="link-underline text-gold"
-                      >
-                        or by email
-                      </TrackedOutbound>
-                    </p>
-                  </div>
+              <div className="flex gap-4 items-start p-5 bg-card border border-white/10 rounded-sm">
+                <Clock className="text-brand flex-shrink-0 mt-0.5" size={20} aria-hidden="true" />
+                <div>
+                  <p className="text-gray-500 text-xs uppercase tracking-widest mb-0.5">Class Times</p>
+                  <p className="text-white font-medium leading-tight">Monday &amp; Wednesday</p>
+                  <p className="text-gray-400 text-sm mt-0.5">6:00pm – 8:00pm</p>
+                  <p className="text-gray-500 text-xs mt-1">Classes continue during University breaks</p>
+                </div>
+              </div>
+
+              {/* "karate london prices" is a real query with real volume and the
+                  club will not publish a figure. This answers the question
+                  honestly, carries the words people actually search for, and
+                  gives the query somewhere to land: /contact#fees. */}
+              <div id="fees" className="flex gap-4 items-start p-5 bg-card border border-white/10 rounded-sm scroll-mt-[calc(7rem_+_var(--notice-h,0px))]">
+                <Banknote className="text-brand flex-shrink-0 mt-0.5" size={20} aria-hidden="true" />
+                <div>
+                  <h3 className="text-gray-500 text-xs uppercase tracking-widest mb-0.5">Class Fees</h3>
+                  <p className="text-white font-medium leading-tight">Ask and we&apos;ll tell you straight</p>
+                  <p className="text-gray-400 text-sm mt-1 leading-relaxed">
+                    We confirm current fees when you get in touch rather than publishing a figure
+                    that goes out of date. Ask by email or WhatsApp and we will come straight back
+                    to you. You do not need a University of Westminster student membership to train
+                    here.
+                  </p>
+                  <p className="text-gray-500 text-xs mt-2">
+                    <TrackedOutbound
+                      href="https://wa.me/447976411901?text=Hi%2C%20could%20you%20tell%20me%20what%20the%20class%20fees%20are%20at%20DKK%20London%3F"
+                      track="/go/whatsapp"
+                      className="link-underline text-gold"
+                    >
+                      Ask about fees on WhatsApp
+                    </TrackedOutbound>
+                    {" · "}
+                    <TrackedOutbound
+                      href="mailto:info@goju-karate.co.uk?subject=Class%20fees"
+                      track="/go/email"
+                      className="link-underline text-gold"
+                    >
+                      or by email
+                    </TrackedOutbound>
+                  </p>
                 </div>
               </div>
 
@@ -219,8 +232,6 @@ export default function ContactPage() {
                 />
               </div>
             </div>
-
-            <ContactForm />
           </div>
         </div>
       </section>
@@ -249,14 +260,13 @@ export default function ContactPage() {
             />
           </div>
           <p className="mt-3 text-right">
-            <a
+            <TrackedOutbound
               href="https://www.google.com/maps/place/309+Regent+St,+London+W1B+2HW"
-              target="_blank"
-              rel="noopener noreferrer"
+              track="/go/maps"
               className="text-gold text-xs uppercase tracking-widest hover:text-white transition-colors"
             >
               Open in Google Maps &rarr;
-            </a>
+            </TrackedOutbound>
           </p>
         </div>
       </section>

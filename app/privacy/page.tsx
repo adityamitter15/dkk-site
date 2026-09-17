@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/privacy" },
 };
 
-const lastUpdated = "16 June 2026";
+const lastUpdated = "17 September 2026";
 
 export default function PrivacyPage() {
   return (
@@ -37,7 +37,7 @@ export default function PrivacyPage() {
           {/* Summary cards */}
           <div className="grid sm:grid-cols-2 gap-4 mb-12">
             {[
-              { icon: Shield, title: "No tracking", body: "No cookies, analytics, or third-party trackers on this site." },
+              { icon: Shield, title: "No tracking", body: "No cookies and no advertising trackers. Just cookieless analytics to count visits." },
               { icon: Database, title: "Minimal data", body: "We only collect what you choose to send via the contact form." },
               { icon: Eye, title: "Never sold", body: "Your details are never shared, sold, or used for marketing." },
               { icon: UserCheck, title: "Your control", body: "Email us anytime to access or delete your information." },
@@ -76,10 +76,12 @@ export default function PrivacyPage() {
               <ul className="list-disc list-outside pl-5 text-gray-300 space-y-2 leading-relaxed">
                 <li>Your name, email address, experience level and message when you fill in the contact form.</li>
                 <li>Your name, email address and message if you email or WhatsApp us directly.</li>
+                <li>Your phone number and preferred call time, if you ask us to call or WhatsApp you.</li>
               </ul>
               <p className="text-gray-300 leading-relaxed mt-3">
-                We do <strong className="text-white">not</strong> use cookies, analytics, fingerprinting, or
-                advertising tools on this website.
+                We do <strong className="text-white">not</strong> use cookies, fingerprinting, or
+                advertising tools on this website. We use cookieless Cloudflare Web Analytics to
+                count visits, which sets no cookies and carries no advertising trackers.
               </p>
             </section>
 
@@ -112,8 +114,14 @@ export default function PrivacyPage() {
                 and applies basic spam filtering. Their own privacy policy governs how they handle
                 the data in transit.
               </p>
+              <p className="text-gray-300 leading-relaxed mb-3">
+                A copy of each message is also saved to a private Google Sheet that only the club
+                can see, so an enquiry is not lost if an email goes astray.
+              </p>
               <p className="text-gray-300 leading-relaxed">
-                The site itself is hosted as static files and stores nothing about you.
+                The site itself is hosted as static files. The only thing running alongside it is
+                Cloudflare Web Analytics, which counts visits without cookies and without
+                identifying you.
               </p>
             </section>
 
@@ -122,8 +130,8 @@ export default function PrivacyPage() {
                 How long we keep it
               </h2>
               <p className="text-gray-300 leading-relaxed">
-                Enquiry emails are kept only as long as they are useful for following up.
-                We&apos;ll delete them on request, or as part of routine inbox housekeeping.
+                Enquiry emails are kept only as long as they are useful for following up. The
+                saved copy of each enquiry is deleted automatically 12 months after it arrives.
               </p>
             </section>
 
@@ -153,8 +161,9 @@ export default function PrivacyPage() {
                 Children
               </h2>
               <p className="text-gray-300 leading-relaxed">
-                DKK London trains adults only. The website is not directed at children and we do
-                not knowingly collect information from anyone under 16.
+                DKK London trains adults, 18 and over, and 16 and 17 year olds in some cases by
+                arrangement. The website is not directed at children and we do not knowingly
+                collect information from anyone under 16.
               </p>
             </section>
 

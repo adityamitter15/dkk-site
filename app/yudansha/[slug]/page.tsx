@@ -368,7 +368,7 @@ export default async function MemberPage({ params }: { params: Promise<{ slug: s
       />
 
       {/* Prev / Next */}
-      <section className="bg-card border-t border-white/5">
+      <section data-sticky-hide className="bg-card border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between py-6 gap-4">
             {prev ? (
