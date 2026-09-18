@@ -10,6 +10,7 @@ import { MapPin, Clock, ExternalLink, ChevronRight, Instagram, Globe } from "luc
 import ReelShowcase from "@/components/ui/ReelShowcase";
 import { simonClinchReels, isoDuration } from "@/data/reels";
 import { site } from "@/data/site";
+import TrackedOutbound from "@/components/TrackedOutbound";
 
 export const metadata: Metadata = {
   title: "Karate in Oxfordshire",
@@ -288,10 +289,9 @@ export default function KarateOxfordshirePage() {
                 </div>
                 <Globe className="text-gray-400 group-hover:text-gold transition-colors flex-shrink-0" size={20} aria-hidden="true" />
               </a>
-              <a
+              <TrackedOutbound
                 href="https://www.instagram.com/dkkoxfordshire"
-                target="_blank"
-                rel="noopener noreferrer"
+                track="/go/instagram"
                 className="flex items-center justify-between gap-3 p-5 bg-card border border-white/10 rounded-sm hover:border-gold/40 transition-colors group"
               >
                 <div>
@@ -301,7 +301,7 @@ export default function KarateOxfordshirePage() {
                   <p className="text-white font-display text-xl tracking-wide">@dkkoxfordshire</p>
                 </div>
                 <Instagram className="text-gray-400 group-hover:text-gold transition-colors flex-shrink-0" size={20} aria-hidden="true" />
-              </a>
+              </TrackedOutbound>
             </div>
           </div>
         </div>

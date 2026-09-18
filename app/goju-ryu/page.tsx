@@ -9,8 +9,8 @@ import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import CTABand from "@/components/ui/CTABand";
 
 export const metadata: Metadata = {
-  title: "What Is Okinawan Goju Ryu Karate?",
-  description: "Goju Ryu karate explained: hard and soft, the kata, and the close-quarter combat principles that separate authentic Okinawan Goju Ryu from sport karate.",
+  title: "What Is Goju Ryu Karate? Meaning and Kata",
+  description: "Goju means hard and soft. What Goju Ryu karate is, where it came from, its kata and close-quarter grappling, and where to train it in central London.",
   alternates: { canonical: "/goju-ryu" },
   openGraph: { images: ["/og/goju-ryu.jpg"] },
   twitter: { images: ["/og/goju-ryu.jpg"] },

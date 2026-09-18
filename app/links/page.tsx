@@ -4,6 +4,7 @@ import SectionHeading from "@/components/SectionHeading";
 import { ExternalLink } from "lucide-react";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import CTABand from "@/components/ui/CTABand";
+import TrackedOutbound from "@/components/TrackedOutbound";
 
 export const metadata: Metadata = {
   title: "Links",
@@ -11,13 +12,15 @@ export const metadata: Metadata = {
   alternates: { canonical: "/links" },
 };
 
-const linkGroups = [
+type LinkEntry = { title: string; description: string; href: string; track?: string };
+
+const linkGroups: { category: string; links: LinkEntry[] }[] = [
   {
     category: "DKK Clubs",
     links: [
-      { title: "DKK London - Facebook", description: "Join the DKK London Facebook group for news, discussion and updates.", href: "https://www.facebook.com/groups/24449490051/" },
-      { title: "DKK London - Instagram", description: "Follow DKK London on Instagram for training news, photos and updates.", href: "https://www.instagram.com/dkk_karate_london" },
-      { title: "DKK Portishead", description: "Our sister club run by Shihan Dan Lewis. Junior and senior classes in Portishead, North Somerset.", href: "https://www.instagram.com/dkk_karate_portishead/" },
+      { title: "DKK London - Facebook", description: "Join the DKK London Facebook group for news, discussion and updates.", href: "https://www.facebook.com/groups/24449490051/", track: "/go/facebook" },
+      { title: "DKK London - Instagram", description: "Follow DKK London on Instagram for training news, photos and updates.", href: "https://www.instagram.com/dkk_karate_london", track: "/go/instagram" },
+      { title: "DKK Portishead", description: "Our sister club run by Shihan Dan Lewis. Junior and senior classes in Portishead, North Somerset.", href: "https://www.instagram.com/dkk_karate_portishead/", track: "/go/instagram" },
       { title: "DKK Bristol", description: "Bristol Combat Goju Ryu - our long-standing affiliate in the West Country.", href: "http://www.gojukaratebristol.co.uk/" },
       { title: "DKK Oxfordshire", description: "Run by Sensei Simon Clinch. Goju Ryu karate in Oxfordshire.", href: "https://www.gojukarateoxford.com/" },
     ],
@@ -86,14 +89,9 @@ export default function LinksPage() {
                   {group.category}
                 </h3>
                 <div className="space-y-2">
-                  {group.links.map((link) => (
-                    <a
-                      key={link.title}
-                      href={link.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-start justify-between gap-4 p-4 bg-card border border-white/5 rounded-sm transition-all duration-200 group hover:border-brand/40"
-                    >
+                  {group.links.map((link) => {
+                    const linkClassName = "flex items-start justify-between gap-4 p-4 bg-card border border-white/5 rounded-sm transition-all duration-200 group hover:border-brand/40";
+                    const linkContent = (
                       <div>
                         <p className="text-white text-sm font-medium flex items-center gap-2">
                           {link.title}
@@ -101,8 +99,33 @@ export default function LinksPage() {
                         </p>
                         <p className="text-gray-500 text-xs mt-0.5 leading-relaxed">{link.description}</p>
                       </div>
-                    </a>
-                  ))}
+                    );
+
+                    if (link.track) {
+                      return (
+                        <TrackedOutbound
+                          key={link.title}
+                          href={link.href}
+                          track={link.track}
+                          className={linkClassName}
+                        >
+                          {linkContent}
+                        </TrackedOutbound>
+                      );
+                    }
+
+                    return (
+                      <a
+                        key={link.title}
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={linkClassName}
+                      >
+                        {linkContent}
+                      </a>
+                    );
+                  })}
                 </div>
               </div>
             ))}

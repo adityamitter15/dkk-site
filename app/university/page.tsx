@@ -11,6 +11,7 @@ import LiveYears from "@/components/ui/LiveYears";
 import GiagBand from "@/components/ui/GiagBand";
 import { site } from "@/data/site";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
+import TrackedOutbound from "@/components/TrackedOutbound";
 
 export const metadata: Metadata = {
   title: "University of Westminster Karate Club",
@@ -178,10 +179,9 @@ export default function UniversityPage() {
                 <p className="text-brand text-xs uppercase tracking-widest mt-3 group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">uwsu.com/sports/view/karate <ChevronRight size={12} /></p>
               </a>
 
-              <a
+              <TrackedOutbound
                 href="https://instagram.com/uwsukarate"
-                target="_blank"
-                rel="noopener noreferrer"
+                track="/go/instagram"
                 className="p-5 bg-card border border-white/10 hover:border-brand/40 transition-all rounded-sm group"
               >
                 <div className="flex items-center gap-3 mb-3">
@@ -191,7 +191,7 @@ export default function UniversityPage() {
                 <p className="text-white font-display text-xl tracking-wide mb-1">@uwsukarate</p>
                 <p className="text-gray-400 text-sm">Follow the student-side committee for term-time updates.</p>
                 <p className="text-brand text-xs uppercase tracking-widest mt-3 group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">instagram.com/uwsukarate <ChevronRight size={12} /></p>
-              </a>
+              </TrackedOutbound>
 
               <div className="p-5 bg-card border border-white/10 rounded-sm">
                 <div className="flex items-center gap-3 mb-3">
