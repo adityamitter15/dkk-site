@@ -76,7 +76,8 @@ export default function PrivacyPage() {
               <ul className="list-disc list-outside pl-5 text-gray-300 space-y-2 leading-relaxed">
                 <li>Your name, email address, experience level and message when you fill in the contact form.</li>
                 <li>Your name, email address and message if you email or WhatsApp us directly.</li>
-                <li>Your phone number and preferred call time, if you ask us to call or WhatsApp you.</li>
+                <li>Your WhatsApp number, if you choose WhatsApp on the contact form. The form opens WhatsApp with your message written, and you send it yourself.</li>
+                <li>Your phone number and preferred call time, if you ask us to call you.</li>
               </ul>
               <p className="text-gray-300 leading-relaxed mt-3">
                 We do <strong className="text-white">not</strong> use cookies, fingerprinting, or
@@ -112,11 +113,14 @@ export default function PrivacyPage() {
                 </a>
                 , a third-party form-handling service. Formspree forwards messages to our inbox
                 and applies basic spam filtering. Their own privacy policy governs how they handle
-                the data in transit.
+                the data in transit. If you pick WhatsApp on the form, your message goes through
+                WhatsApp instead and never passes through Formspree.
               </p>
               <p className="text-gray-300 leading-relaxed mb-3">
                 A copy of each message is also saved to a private Google Sheet that only the club
-                can see, so an enquiry is not lost if an email goes astray.
+                can see, so an enquiry is not lost if an email goes astray. If you pick WhatsApp
+                on the form, what you typed is saved there when you press the button, even if you
+                then decide not to send it.
               </p>
               <p className="text-gray-300 leading-relaxed">
                 The site itself is hosted as static files. The only thing running alongside it is
