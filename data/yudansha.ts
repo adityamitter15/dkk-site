@@ -78,8 +78,14 @@ export const grades: GradeTier[] = [
       {
         name: "David Urquhart",
         slug: toSlug("David Urquhart"),
-        portrait: "/images/Yudansha/davepot.gif",
-        action: "/images/Yudansha/daveact.gif",
+        // Both originals are legacy single-frame GIFs from the old site and both are
+        // landscape (200x150, 250x157), which the 3/4 slot cropped to a ~112px-wide
+        // strip and blew up 6x. Lanczos-upscaled to 720 wide; the portrait is then
+        // letterboxed to 3/4 on the card colour, so it fills the slot uncropped and
+        // the padding is invisible against `bg-card`. The groundwork shot is landscape
+        // by nature, so it sits in `photos` at its own shape.
+        portrait: "/images/Yudansha/david_urquhart_portrait.jpg",
+        action: null,
         bio: "David began his karate journey in 1998 under Sensei Mulholland at the old Meidokan dojo in West Hampstead.",
         quote: "Training to me is a totally positive and life-affirming experience, learning skills and attitudes applicable and beneficial to all aspects of life.",
         milestones: [
@@ -88,6 +94,13 @@ export const grades: GradeTier[] = [
           { year: "2007", event: "30 Man Kumite & Nidan" },
           { year: "2013", event: "Sandan" },
           { year: "2017", event: "Yondan" },
+        ],
+        photos: [
+          {
+            src: "/images/Yudansha/david_urquhart_groundwork.jpg",
+            alt: "A throw in progress on the red mat, one karateka on their back sending a partner over the top, watched by a hall of students",
+            caption: "Nage waza",
+          },
         ],
       },
       {
@@ -287,12 +300,6 @@ export const grades: GradeTier[] = [
           { year: "2024", event: "Sandan" },
         ],
       },
-    ],
-  },
-  {
-    grade: "Nidan",
-    dan: "2nd Dan",
-    members: [
       {
         name: "Catherine Sandwell",
         slug: toSlug("Catherine Sandwell"),
@@ -305,21 +312,14 @@ export const grades: GradeTier[] = [
           { year: "2015", event: "Shodan-Ho" },
           { year: "2016", event: "Shodan" },
           { year: "2019", event: "30 Man Kumite & Nidan" },
+          { year: "2026", event: "Sandan" },
         ],
-      },
-      {
-        name: "Luke Wilcox",
-        slug: toSlug("Luke Wilcox"),
-        portrait: "/images/Yudansha/luke.jpg",
-        action: null,
-        bio: "Luke began martial arts at age 10 with judo and shokokai karate, later becoming an instructor in wing chun. After a hiatus he discovered Okinawan Goju through DKK in 2016.",
-        quote: "In DKK and Shihan Mulholland, I found exactly what I was looking for in a martial arts association. The people who make up DKK are just a joy to spend time with.",
-        milestones: [
-          { year: "2016", event: "Joined DKK" },
-          { year: "2017", event: "DKK Badge" },
-          { year: "2021", event: "Shodan-Ho" },
-          { year: "2022", event: "Shodan" },
-          { year: "2025", event: "30 Man Kumite & Nidan" },
+        photos: [
+          {
+            src: "/images/Yudansha/sandan_certificates_2026.jpg",
+            alt: "Marianette Violeta, Catherine Sandwell and Mizuki Murai holding their Sandan certificates outdoors, flanked by two senior grades",
+            caption: "Sandan, 2026",
+          },
         ],
       },
       {
@@ -333,6 +333,66 @@ export const grades: GradeTier[] = [
           { year: "2015", event: "Shodan-Ho" },
           { year: "2016", event: "Shodan" },
           { year: "2019", event: "30 Man Kumite & Nidan" },
+          { year: "2026", event: "Sandan" },
+        ],
+        photos: [
+          {
+            src: "/images/Yudansha/sandan_certificates_2026.jpg",
+            alt: "Marianette Violeta, Catherine Sandwell and Mizuki Murai holding their Sandan certificates outdoors, flanked by two senior grades",
+            caption: "Sandan, 2026",
+          },
+        ],
+      },
+      {
+        name: "Mizuki Murai",
+        slug: toSlug("Mizuki Murai"),
+        portrait: "/images/Yudansha/mizuki_kata_studio.jpg",
+        // No action shot: the kicking photo is a 320x246 landscape original and the
+        // action slot is a full-width 3/4 portrait box, which cropped it to a blurry
+        // centre strip with her out of frame. It sits in `photos` instead, where the
+        // 4/3 tile matches its real shape and renders it at native resolution.
+        action: null,
+        bio: "Mizuki began training in 2006 under Sensei Lewis at DKK Bristol while at the University of Bristol, relocating to London and joining DKK London.",
+        quote: "Having come from a background in ballet, I wanted to try something completely different. DKK has been a fundamental part of my life ever since. The breadth of Goju Ryu and the depth to which we study it fascinates me.",
+        milestones: [
+          { year: "2006", event: "Began Training (Bristol)" },
+          { year: "2010", event: "Shodan-Ho" },
+          { year: "2014", event: "Shodan" },
+          { year: "2021", event: "Nidan" },
+          { year: "2026", event: "Sandan" },
+        ],
+        photos: [
+          {
+            src: "/images/Yudansha/miki2.jpg",
+            alt: "Mizuki Murai throwing a kick to her partner's midsection in the dojo, both in white gi and black belts",
+            caption: "Kicking drill",
+          },
+          {
+            src: "/images/Yudansha/sandan_certificates_2026.jpg",
+            alt: "Marianette Violeta, Catherine Sandwell and Mizuki Murai holding their Sandan certificates outdoors, flanked by two senior grades",
+            caption: "Sandan, 2026",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    grade: "Nidan",
+    dan: "2nd Dan",
+    members: [
+      {
+        name: "Luke Wilcox",
+        slug: toSlug("Luke Wilcox"),
+        portrait: "/images/Yudansha/luke.jpg",
+        action: null,
+        bio: "Luke began martial arts at age 10 with judo and shokokai karate, later becoming an instructor in wing chun. After a hiatus he discovered Okinawan Goju through DKK in 2016.",
+        quote: "In DKK and Shihan Mulholland, I found exactly what I was looking for in a martial arts association. The people who make up DKK are just a joy to spend time with.",
+        milestones: [
+          { year: "2016", event: "Joined DKK" },
+          { year: "2017", event: "DKK Badge" },
+          { year: "2021", event: "Shodan-Ho" },
+          { year: "2022", event: "Shodan" },
+          { year: "2025", event: "30 Man Kumite & Nidan" },
         ],
       },
       {
@@ -382,20 +442,6 @@ export const grades: GradeTier[] = [
           { year: "2020", event: "Shodan-Ho" },
           { year: "2022", event: "Full Shodan" },
           { year: "2025", event: "Nidan" },
-        ],
-      },
-      {
-        name: "Mizuki Murai",
-        slug: toSlug("Mizuki Murai"),
-        portrait: "/images/Yudansha/mizuki_kata_studio.jpg",
-        action: "/images/Yudansha/miki2.jpg",
-        bio: "Mizuki began training in 2006 under Sensei Lewis at DKK Bristol while at the University of Bristol, relocating to London and joining DKK London.",
-        quote: "Having come from a background in ballet, I wanted to try something completely different. DKK has been a fundamental part of my life ever since. The breadth of Goju Ryu and the depth to which we study it fascinates me.",
-        milestones: [
-          { year: "2006", event: "Began Training (Bristol)" },
-          { year: "2010", event: "Shodan-Ho" },
-          { year: "2014", event: "Shodan" },
-          { year: "2021", event: "Nidan" },
         ],
       },
       {

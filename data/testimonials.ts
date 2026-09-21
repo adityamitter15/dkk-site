@@ -13,7 +13,7 @@ export const testimonials: Testimonial[] = [
   {
     quote: "Of all the places I've trained, nowhere else have I been surrounded by so many people who work so hard to push each other past what they thought were their limits.",
     name: "Catherine Sandwell",
-    grade: "2nd Dan",
+    grade: "3rd Dan",
   },
   {
     quote: "I wanted to train where my fitness was challenged while learning self-protection. DKK provided that and taught me control, inner strength, resilience, and how to surpass my own limits.",
@@ -38,7 +38,7 @@ export const testimonials: Testimonial[] = [
   {
     quote: "The breadth of Goju Ryu and the depth to which we study it fascinates me. DKK has been a fundamental part of my life ever since my first class.",
     name: "Mizuki Murai",
-    grade: "2nd Dan",
+    grade: "3rd Dan",
   },
   {
     quote: "I consider it a privilege to train with the calibre of people in the club.",

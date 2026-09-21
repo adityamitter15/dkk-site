@@ -130,8 +130,8 @@ const images: GalleryImage[] = [
   // ── Yudansha ─────────────────────────────────────────────
   { src: "/images/Yudansha/Tundepot.gif",           alt: "Tunde Oladimeji portrait",           caption: "Tunde Oladimeji · 5th Dan",        tall: true,  category: "Yudansha" },
   { src: "/images/Yudansha/tundeact.gif",           alt: "Tunde Oladimeji",                    caption: "Tunde Oladimeji - 5th Dan",        tall: false, category: "Yudansha" },
-  { src: "/images/Yudansha/davepot.gif",            alt: "David Urquhart portrait",            caption: "David Urquhart · 4th Dan",         tall: true,  category: "Yudansha" },
-  { src: "/images/Yudansha/daveact.gif",            alt: "David Urquhart",                     caption: "David Urquhart - 4th Dan",         tall: false, category: "Yudansha" },
+  { src: "/images/Yudansha/david_urquhart_portrait.jpg",    alt: "David Urquhart portrait",            caption: "David Urquhart · 4th Dan",         tall: true,  category: "Yudansha" },
+  { src: "/images/Yudansha/david_urquhart_groundwork.jpg",  alt: "A throw in progress on the red mat, one karateka sending a partner over the top", caption: "Nage Waza - Throw",       tall: false, category: "Yudansha" },
   { src: "/images/Yudansha/simon_clinch_studio.jpg", alt: "Simon Clinch studio portrait",      caption: "Simon Clinch - 4th Dan",           tall: true,  category: "Yudansha" },
   { src: "/images/Yudansha/simon_clinch_weapons.jpg", alt: "Simon Clinch teaching weapons",     caption: "Simon Clinch - Weapons Instruction", tall: false, category: "Yudansha" },
   { src: "/images/Yudansha/simon_clinch_kick.jpg",   alt: "Simon Clinch high kick",             caption: "Simon Clinch - Kick",              tall: false, category: "Yudansha" },
@@ -146,9 +146,9 @@ const images: GalleryImage[] = [
   { src: "/images/Yudansha/sidney1.jpg",            alt: "Sidney Ushurhe",                     caption: "Sidney Ushurhe - 2nd Dan",         tall: false, category: "Yudansha" },
   { src: "/images/Yudansha/sidney2.jpg",            alt: "Sidney Ushurhe action",              caption: "Sidney Ushurhe - kumite",          tall: false, category: "Yudansha" },
   { src: "/images/Yudansha/luke.jpg",               alt: "Luke Wilcox",                        caption: "Luke Wilcox - 2nd Dan",            tall: true,  category: "Yudansha" },
-  { src: "/images/Yudansha/catherine1.jpg",         alt: "Catherine Sandwell",                 caption: "Catherine Sandwell - 2nd Dan",     tall: true,  category: "Yudansha" },
+  { src: "/images/Yudansha/catherine1.jpg",         alt: "Catherine Sandwell",                 caption: "Catherine Sandwell - 3rd Dan",     tall: true,  category: "Yudansha" },
   { src: "/images/Yudansha/catherine2.jpg",         alt: "Catherine Sandwell action",          caption: "Catherine Sandwell - kumite",      tall: false, category: "Yudansha" },
-  { src: "/images/Yudansha/miki1.jpg",              alt: "Mizuki Murai",                       caption: "Mizuki Murai - 2nd Dan",           tall: true,  category: "Yudansha" },
+  { src: "/images/Yudansha/miki1.jpg",              alt: "Mizuki Murai",                       caption: "Mizuki Murai - 3rd Dan",           tall: true,  category: "Yudansha" },
   { src: "/images/Yudansha/miki2.jpg",              alt: "Mizuki Murai action",                caption: "Mizuki Murai - training",          tall: false, category: "Yudansha" },
   { src: "/images/Yudansha/danny2.jpg",             alt: "Daniel Bard",                        caption: "Daniel Bard - 3rd Dan",            tall: false, category: "Yudansha" },
   { src: "/images/Yudansha/rich.jpg",               alt: "Richard Gaillard",                   caption: "Richard Gaillard - 3rd Dan",       tall: true,  category: "Yudansha" },
@@ -171,6 +171,7 @@ const images: GalleryImage[] = [
 
   // Grading - recent
   { src: "/images/Yudansha/glenn_sidney_nidan.jpg", alt: "Glenn Malpass & Sidney Ushurhe with Nidan certificates", caption: "Nidan - Glenn & Sidney",  tall: true, category: "Grading" },
+  { src: "/images/Yudansha/sandan_certificates_2026.jpg", alt: "Marianette Violeta, Catherine Sandwell and Mizuki Murai with their Sandan certificates", caption: "Sandan - Marianette, Catherine & Mizuki", tall: true, category: "Grading" },
 
   // Camps - recent
   { src: "/images/Camp/camp_partner_drill_shirtless.jpg",    alt: "Summer Camp - partner drill",                  caption: "Summer Camp - Partner Drill",      tall: false, category: "Camps" },
