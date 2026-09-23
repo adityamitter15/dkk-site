@@ -2,7 +2,7 @@ import PageHero from "@/components/ui/PageHero";
 import DanGrade from "@/components/DanGrade";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ChevronRight, BookOpen, Award, Star, Shield, Mic, ExternalLink } from "lucide-react";
+import { ChevronRight, BookOpen, Award, Star, Shield, Mic, ExternalLink, ScrollText } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
 import SafeImage from "@/components/SafeImage";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
@@ -63,7 +63,7 @@ export default function ShihanPage() {
                 <span className="px-3 py-1 bg-gold/10 border border-gold/30 text-gold text-xs font-semibold uppercase tracking-wider rounded-sm">
                   <DanGrade text="7th Dan" />
                 </span>
-                {["Shihan", "Founder", "Author", "Combat Hall of Fame"].map((badge) => (
+                {["Shihan", "Founder", "Author", "Combat Hall of Fame", "Tai Chi Coach"].map((badge) => (
                   <span key={badge} className="px-3 py-1 bg-gold/10 border border-gold/30 text-gold text-xs font-semibold uppercase tracking-wider rounded-sm">
                     {badge}
                   </span>
@@ -83,6 +83,9 @@ export default function ShihanPage() {
               </blockquote>
               <p className="text-gray-400 leading-relaxed mb-5">
                 A member of the Combat Hall of Fame, Gavin was awarded Godan in 2002, alongside the title of Shihan, from Kyoshi Kim Roberts. He was awarded Rokudan in June 2009, and was promoted to Nanadan (<DanGrade text="7th Dan" />) in June 2019 by the Chairman of the OMAA, Shihan Roger Sheldon, and Shihan Dave Arnold.
+              </p>
+              <p className="text-gray-400 leading-relaxed mb-5">
+                In September 2026 he was awarded a Tai Chi Coaching Certificate by Shi Kon Martial Arts, signed by Steve Rowe, 9th Dan. Ju means soft, and the internal work sits on the same side of Goju as its open-hand, circular deflections.
               </p>
               <p className="text-gray-400 leading-relaxed mb-8">
                 He spent many years on the door as a regular instructor for Meido Ltd, specialising in door supervision, security and close protection. He has made TV and film appearances, published regular articles, and wrote the highly acclaimed <em>Four Shades of Black</em>. He is Chief Instructor of DKK alongside Shihan Dan Lewis of DKK Portishead.
@@ -287,14 +290,26 @@ export default function ShihanPage() {
 
       <section className="py-14 bg-card border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex gap-5 items-start max-w-2xl">
-            <Shield className="text-brand flex-shrink-0 mt-1" size={28} />
-            <div>
-              <p className="text-brand text-xs font-semibold uppercase tracking-widest mb-1">Recognition</p>
-              <h3 className="font-display text-2xl tracking-wide text-white mb-2">Combat Hall of Fame</h3>
-              <p className="text-gray-400 text-sm leading-relaxed">
-                Shihan Mulholland is a member of the Combat Hall of Fame, in recognition of his outstanding contribution to martial arts as an instructor, competitor, and author.
-              </p>
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-start">
+            <div className="flex gap-5 items-start max-w-2xl">
+              <Shield className="text-brand flex-shrink-0 mt-1" size={28} />
+              <div>
+                <p className="text-brand text-xs font-semibold uppercase tracking-widest mb-1">Recognition</p>
+                <h3 className="font-display text-2xl tracking-wide text-white mb-2">Combat Hall of Fame</h3>
+                <p className="text-gray-400 text-sm leading-relaxed">
+                  Shihan Mulholland is a member of the Combat Hall of Fame, in recognition of his outstanding contribution to martial arts as an instructor, competitor, and author.
+                </p>
+              </div>
+            </div>
+            <div className="flex gap-5 items-start max-w-2xl">
+              <ScrollText className="text-gold flex-shrink-0 mt-1" size={28} />
+              <div>
+                <p className="text-gold text-xs font-semibold uppercase tracking-widest mb-1">Certified</p>
+                <h3 className="font-display text-2xl tracking-wide text-white mb-2">Tai Chi Coach</h3>
+                <p className="text-gray-400 text-sm leading-relaxed">
+                  Awarded a Tai Chi Coaching Certificate at club coach level by Shi Kon Martial Arts in September 2026, signed by Steve Rowe, 9th Dan.
+                </p>
+              </div>
             </div>
           </div>
         </div>
