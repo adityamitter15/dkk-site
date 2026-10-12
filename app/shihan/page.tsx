@@ -2,11 +2,13 @@ import PageHero from "@/components/ui/PageHero";
 import DanGrade from "@/components/DanGrade";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ChevronRight, BookOpen, Award, Star, Shield, Mic, ExternalLink, ScrollText } from "lucide-react";
+import { ChevronRight, BookOpen, Award, Star, Shield, Mic, ExternalLink, ScrollText, Mail } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
 import SafeImage from "@/components/SafeImage";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import CTABand from "@/components/ui/CTABand";
+import TrackedOutbound from "@/components/TrackedOutbound";
+import WhatsAppIcon from "@/components/ui/WhatsAppIcon";
 import { shihans } from "@/data/site";
 
 export const metadata: Metadata = {
@@ -117,6 +119,37 @@ export default function ShihanPage() {
                 <Link href="/fighters" className="inline-flex items-center gap-2 text-gray-400 font-semibold text-sm uppercase tracking-wider hover:text-white hover:gap-3 transition-all">
                   DKK Fighters <ChevronRight size={16} />
                 </Link>
+              </div>
+              {/* Contact row: the only other CTA is the closing band at the foot of the page */}
+              <div className="mt-10 pt-8 border-t border-white/10">
+                <p className="text-brand text-xs font-semibold uppercase tracking-widest mb-2">Train under him</p>
+                <p className="text-white font-display text-2xl tracking-wide">Monday &amp; Wednesday · 6:00pm - 8:00pm</p>
+                <p className="text-gray-400 text-sm mt-1">309 Regent Street · at Oxford Circus</p>
+                <div className="flex flex-col sm:flex-row flex-wrap gap-3 mt-5">
+                  <TrackedOutbound
+                    href="https://wa.me/447976411901?text=Hi%2C%20I%27d%20like%20to%20come%20and%20try%20a%20class%20at%20DKK%20London."
+                    track="/go/whatsapp"
+                    className="inline-flex items-center justify-center gap-2 bg-whatsapp text-night px-6 py-3.5 lg:px-5 text-sm font-semibold uppercase tracking-wide rounded-sm"
+                  >
+                    <WhatsAppIcon size={16} />
+                    <span><span className="lg:hidden">Message us on </span>WhatsApp</span>
+                  </TrackedOutbound>
+                  <TrackedOutbound
+                    href="mailto:info@goju-karate.co.uk"
+                    track="/go/email"
+                    className="hidden lg:inline-flex items-center justify-center gap-2 border border-white/15 text-white px-6 py-3.5 lg:px-5 text-sm font-semibold uppercase tracking-wide rounded-sm hover:border-white/40 transition-colors"
+                  >
+                    <Mail size={16} aria-hidden="true" />
+                    Email
+                  </TrackedOutbound>
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center justify-center gap-2 bg-brand text-white px-6 py-3.5 lg:px-5 text-sm font-semibold uppercase tracking-wide rounded-sm hover:bg-brand-hover transition-colors"
+                  >
+                    Get in touch
+                  </Link>
+                </div>
+                <p className="text-white text-sm mt-4">No uniform needed. Just turn up.</p>
               </div>
             </div>
           </div>
