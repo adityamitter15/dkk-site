@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { shihans } from "@/data/site";
 
 export const dynamic = "force-static";
 
@@ -6,7 +7,7 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: "Daigaku Karate Kai London",
     short_name: "DKK London",
-    description: "Okinawan Goju Ryu karate in central London. Combat-orientated training under Shihan Gavin Mulholland, 7th Dan.",
+    description: `Okinawan Goju Ryu karate in central London. Combat-orientated training under Shihan ${shihans.mulholland.name}, ${shihans.mulholland.dan}.`,
     start_url: "/",
     display: "standalone",
     orientation: "portrait",

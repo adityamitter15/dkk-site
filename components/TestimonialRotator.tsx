@@ -4,21 +4,19 @@ import { useState, useEffect, useCallback } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { ChevronLeft, ChevronRight, Pause, Play } from "lucide-react";
 import DanGrade from "@/components/DanGrade";
-import { testimonials } from "@/data/testimonials";
+import type { ResolvedTestimonial } from "@/lib/members";
 import { EASE, DUR } from "@/lib/motion";
 
-export default function TestimonialRotator() {
+export default function TestimonialRotator({ items }: { items: ResolvedTestimonial[] }) {
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
   const [hovered, setHovered] = useState(false);
   const reduced = useReducedMotion();
 
-  const goTo = useCallback((index: number) => {
-    setActive((index + testimonials.length) % testimonials.length);
-  }, []);
+  const goTo = useCallback((index: number) => { setActive((index + items.length) % items.length); }, [items.length]);
 
   const prev = () => goTo(active - 1);
-  const next = useCallback(() => setActive((a) => (a + 1) % testimonials.length), []);
+  const next = useCallback(() => setActive((a) => (a + 1) % items.length), [items.length]);
 
   // Auto-rotate only when not paused, not hovered/focused, and motion is allowed (WCAG 2.2.2)
   useEffect(() => {
@@ -27,7 +25,7 @@ export default function TestimonialRotator() {
     return () => clearInterval(id);
   }, [next, reduced, paused, hovered]);
 
-  const t = testimonials[active];
+  const t = items[active];
 
   return (
     <section className="py-16 sm:py-20 lg:py-28 bg-card">
@@ -78,7 +76,7 @@ export default function TestimonialRotator() {
           </button>
 
           <div className="flex gap-2">
-            {testimonials.map((_, i) => (
+            {items.map((_, i) => (
               <button
                 key={i}
                 onClick={() => goTo(i)}

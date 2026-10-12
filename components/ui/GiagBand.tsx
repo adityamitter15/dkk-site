@@ -5,6 +5,7 @@ import { Calendar, ChevronRight, ExternalLink } from "lucide-react";
 import Eyebrow from "@/components/ui/Eyebrow";
 import TrackedOutbound from "@/components/TrackedOutbound";
 import { giag } from "@/data/giag";
+import { giagCountPhrase, giagSessionList, giagWhatsAppHref } from "@/lib/giag";
 import { useIsPast } from "@/lib/useIsPast";
 
 /**
@@ -14,7 +15,9 @@ import { useIsPast } from "@/lib/useIsPast";
  * with "turn up" instead, since the booking links are students only.
  *
  * Retires itself after the last session without needing a redeploy - see
- * lib/eventDates.ts for why that is not a build-time check.
+ * lib/eventDates.ts for why that is not a build-time check. `data-expires`
+ * also lets the pre-paint script (lib/prePaint.ts) hide it before first paint
+ * on a stale build, so this hook's removal after hydration moves nothing.
  */
 export default function GiagBand({
   audience = "students",
@@ -24,26 +27,23 @@ export default function GiagBand({
   const passed = useIsPast(giag.endsAt);
   if (passed) return null;
 
-  const [s0, s1] = giag.sessions;
-
   return (
-    <section className="py-14 sm:py-16 bg-ember border-y border-brand/30">
+    <section data-expires="giag" className="py-14 sm:py-16 bg-ember border-y border-brand/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-[1fr_auto] gap-8 lg:gap-14 items-center">
           <div>
             <Eyebrow tone="gold" className="mb-4">Give It A Go · {giag.shortDates}</Eyebrow>
             <h2 className="font-display text-4xl sm:text-5xl text-white tracking-wide leading-none mb-3">
-              Try a Class This September
+              Try a Class This {giag.month}
             </h2>
             {audience === "public" ? (
               <p className="text-gray-300 leading-relaxed max-w-2xl">
-                Two open sessions, {s0.day} {s0.date} and {s1.day} {s1.date}, {giag.time} at 309
+                {giagCountPhrase}, {giagSessionList()}, {giag.time} at 309
                 Regent Street. Open to adults, not just students. No uniform needed. Just turn up.
               </p>
             ) : (
               <p className="text-gray-300 leading-relaxed max-w-2xl">
-                Two open sessions, {s0.day} {s0.date} and{" "}
-                {s1.day} {s1.date}, {giag.time} in the main hall. Book through
+                {giagCountPhrase}, {giagSessionList()}, {giag.time} in the main hall. Book through
                 UWSU below if you are a Westminster student. If you are not, there is nothing to book:
                 see the{" "}
                 <Link href="/give-it-a-go" className="link-underline text-gold">
@@ -63,7 +63,7 @@ export default function GiagBand({
                 Give It A Go details <ChevronRight size={16} aria-hidden="true" />
               </Link>
               <TrackedOutbound
-                href="https://wa.me/447976411901?text=Hi%2C%20I%27d%20like%20to%20come%20to%20Give%20It%20A%20Go%20in%20September."
+                href={giagWhatsAppHref}
                 track="/go/whatsapp"
                 className="text-center text-white/80 hover:text-white text-xs font-bold uppercase tracking-[0.2em] py-2"
               >

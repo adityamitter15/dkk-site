@@ -6,7 +6,7 @@ import CTABand from "@/components/ui/CTABand";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import DanGrade from "@/components/DanGrade";
 import { CheckCircle } from "lucide-react";
-import { site } from "@/data/site";
+import { site, shihans } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Karate Near Mayfair",
@@ -20,7 +20,7 @@ const reasons = [
   "A fixed Monday and Wednesday slot, not a rolling class timetable you have to chase",
   "No membership tie-in and no joining fee to commit to before you've trained once",
   "Everyone trains on the same floor regardless of grade, so there's no beginner track to sit through first",
-  "Real technique, taught by a 7th Dan who has trained the same two nights a week for over three decades",
+  `Real technique, taught by a ${shihans.mulholland.dan} who has trained the same two nights a week since ${site.atWestminsterSince}`,
 ];
 
 export default function KarateMayfairPage() {
@@ -61,7 +61,7 @@ export default function KarateMayfairPage() {
             expedition to the other side of London.
           </p>
           <p className="text-gray-400 leading-relaxed">
-            DKK is Okinawan Goju Ryu, taught by <DanGrade text="7th Dan" /> instructor Shihan Gavin
+            DKK is Okinawan Goju Ryu, taught by <DanGrade text={shihans.mulholland.dan} /> instructor Shihan Gavin
             Mulholland at the University of Westminster building on Regent Street, the club&apos;s home since
             1990. It&apos;s open to the public, not just students, and a large part of the membership works
             locally rather than studies here.

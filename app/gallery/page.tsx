@@ -6,6 +6,8 @@ import type { GalleryImage } from "@/components/GalleryLightbox";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import CTABand from "@/components/ui/CTABand";
 import Link from "next/link";
+import { memberCaption } from "@/lib/members";
+import { shihans } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Karate Photos - Training, Camps and Gradings",
@@ -17,14 +19,14 @@ export const metadata: Metadata = {
 
 const images: GalleryImage[] = [
   // ── Shihan ──────────────────────────────────────────────
-  { src: "/images/Shihan/shihan-portrait-black.jpg", alt: "Shihan Gavin Mulholland - studio portrait", caption: "Shihan Gavin Mulholland · 7th Dan",   tall: true,  category: "Shihan" },
+  { src: "/images/Shihan/shihan-portrait-black.jpg", alt: "Shihan Gavin Mulholland - studio portrait", caption: `Shihan Gavin Mulholland · ${shihans.mulholland.dan}`,   tall: true,  category: "Shihan" },
   { src: "/images/Shihan/shihan-kuwa-black.jpg",     alt: "Shihan with shillelagh",                   caption: "Shillelagh - Irish fighting stick",           tall: true,  category: "Shihan" },
   { src: "/images/Shihan/shihan-bo-black.jpg",       alt: "Shihan with bo staff",                     caption: "Bo - six-foot staff",                  tall: true,  category: "Shihan" },
   { src: "/images/Shihan/shihan-tanto-black.jpg",    alt: "Shihan with tanto",                        caption: "Tanto - short blade",                  tall: false, category: "Shihan" },
   { src: "/images/Shihan/shihan-forest-kick.jpg",    alt: "Shihan high kick outdoors",                caption: "Shihan - High Kick",                   tall: true,  category: "Shihan" },
   { src: "/images/Shihan/shihan-outdoor-instruction-bw.jpg", alt: "Shihan instructing outdoors",      caption: "Open-Air Instruction",                 tall: false, category: "Shihan" },
   { src: "/images/Shihan/shihan-bo-instruction-bw.jpg", alt: "Shihan teaching bo",                    caption: "Bo Instruction",                       tall: false, category: "Shihan" },
-  { src: "/images/GavPortrait.jpg",         alt: "Shihan Gavin Mulholland - portrait",      caption: "Shihan Gavin Mulholland · 7th Dan",   tall: true,  category: "Shihan" },
+  { src: "/images/GavPortrait.jpg",         alt: "Shihan Gavin Mulholland - portrait",      caption: `Shihan Gavin Mulholland · ${shihans.mulholland.dan}`,   tall: true,  category: "Shihan" },
   { src: "/images/GavPunch.jpg",            alt: "Shihan Gavin Mulholland",                  caption: "Shihan Mulholland - technique",        tall: false, category: "Shihan" },
   { src: "/images/GavThrowDom.jpg",         alt: "Shihan Mulholland - throwing",             caption: "Nage Waza - throwing technique",       tall: false, category: "Shihan" },
   { src: "/images/Training/shihan-technique.JPG", alt: "Shihan at black belt kata camp",     caption: "Shihan - Black Belt Kata Camp",        tall: false, category: "Shihan" },
@@ -128,37 +130,37 @@ const images: GalleryImage[] = [
   { src: "/images/Awards/uwsu-award-290.jpg", alt: "On-stage at UWSU Awards",              caption: "UWSU Awards - On Stage",          tall: false, category: "Awards" },
 
   // ── Yudansha ─────────────────────────────────────────────
-  { src: "/images/Yudansha/Tundepot.gif",           alt: "Tunde Oladimeji portrait",           caption: "Tunde Oladimeji · 5th Dan",        tall: true,  category: "Yudansha" },
-  { src: "/images/Yudansha/tundeact.gif",           alt: "Tunde Oladimeji",                    caption: "Tunde Oladimeji - 5th Dan",        tall: false, category: "Yudansha" },
-  { src: "/images/Yudansha/david_urquhart_portrait.jpg",    alt: "David Urquhart portrait",            caption: "David Urquhart · 4th Dan",         tall: true,  category: "Yudansha" },
+  { src: "/images/Yudansha/Tundepot.gif",           alt: "Tunde Oladimeji portrait",           caption: memberCaption("tunde-oladimeji", " · "),        tall: true,  category: "Yudansha" },
+  { src: "/images/Yudansha/tundeact.gif",           alt: "Tunde Oladimeji",                    caption: memberCaption("tunde-oladimeji"),        tall: false, category: "Yudansha" },
+  { src: "/images/Yudansha/david_urquhart_portrait.jpg",    alt: "David Urquhart portrait",            caption: memberCaption("david-urquhart", " · "),         tall: true,  category: "Yudansha" },
   { src: "/images/Yudansha/david_urquhart_groundwork.jpg",  alt: "A throw in progress on the red mat, one karateka sending a partner over the top", caption: "Nage Waza - Throw",       tall: false, category: "Yudansha" },
-  { src: "/images/Yudansha/simon_clinch_studio.jpg", alt: "Simon Clinch studio portrait",      caption: "Simon Clinch - 4th Dan",           tall: true,  category: "Yudansha" },
+  { src: "/images/Yudansha/simon_clinch_studio.jpg", alt: "Simon Clinch studio portrait",      caption: memberCaption("simon-clinch"),           tall: true,  category: "Yudansha" },
   { src: "/images/Yudansha/simon_clinch_weapons.jpg", alt: "Simon Clinch teaching weapons",     caption: "Simon Clinch - Weapons Instruction", tall: false, category: "Yudansha" },
   { src: "/images/Yudansha/simon_clinch_kick.jpg",   alt: "Simon Clinch high kick",             caption: "Simon Clinch - Kick",              tall: false, category: "Yudansha" },
   { src: "/images/Yudansha/tunde_sai.jpg",          alt: "Tunde Oladimeji with sai",            caption: "Tunde Oladimeji - Sai Kata",       tall: true,  category: "Yudansha" },
-  { src: "/images/Yudansha/juha1.jpg",              alt: "Juha Makinen",                       caption: "Juha Makinen - 3rd Dan",           tall: true,  category: "Yudansha" },
+  { src: "/images/Yudansha/juha1.jpg",              alt: "Juha Makinen",                       caption: memberCaption("juha-makinen"),           tall: true,  category: "Yudansha" },
   { src: "/images/Yudansha/juha2.jpg",              alt: "Juha Makinen action",                caption: "Juha Makinen - training",          tall: false, category: "Yudansha" },
-  { src: "/images/Yudansha/laila.jpeg",             alt: "Laila Al-Minyawi",                   caption: "Laila Al-Minyawi - 3rd Dan",       tall: true,  category: "Yudansha" },
-  { src: "/images/Yudansha/ragi1.jpeg",             alt: "Ragi Marmar",                        caption: "Ragi Marmar - 4th Dan",            tall: false, category: "Yudansha" },
+  { src: "/images/Yudansha/laila.jpeg",             alt: "Laila Al-Minyawi",                   caption: memberCaption("laila-al-minyawi"),       tall: true,  category: "Yudansha" },
+  { src: "/images/Yudansha/ragi1.jpeg",             alt: "Ragi Marmar",                        caption: memberCaption("ragi-marmar"),            tall: false, category: "Yudansha" },
   { src: "/images/Yudansha/ragi2.jpeg",             alt: "Ragi Marmar action",                 caption: "Ragi Marmar - training",           tall: false, category: "Yudansha" },
-  { src: "/images/Yudansha/mike_website1.jpg",      alt: "Mike Thornton",                      caption: "Mike Thornton - 3rd Dan",          tall: true,  category: "Yudansha" },
+  { src: "/images/Yudansha/mike_website1.jpg",      alt: "Mike Thornton",                      caption: memberCaption("mike-thornton"),          tall: true,  category: "Yudansha" },
   { src: "/images/Yudansha/mike_website2.jpg",      alt: "Mike Thornton action",               caption: "Mike Thornton - kumite",           tall: false, category: "Yudansha" },
-  { src: "/images/Yudansha/sidney1.jpg",            alt: "Sidney Ushurhe",                     caption: "Sidney Ushurhe - 2nd Dan",         tall: false, category: "Yudansha" },
+  { src: "/images/Yudansha/sidney1.jpg",            alt: "Sidney Ushurhe",                     caption: memberCaption("sidney-ushurhe"),         tall: false, category: "Yudansha" },
   { src: "/images/Yudansha/sidney2.jpg",            alt: "Sidney Ushurhe action",              caption: "Sidney Ushurhe - kumite",          tall: false, category: "Yudansha" },
-  { src: "/images/Yudansha/luke.jpg",               alt: "Luke Wilcox",                        caption: "Luke Wilcox - 2nd Dan",            tall: true,  category: "Yudansha" },
-  { src: "/images/Yudansha/catherine1.jpg",         alt: "Catherine Sandwell",                 caption: "Catherine Sandwell - 3rd Dan",     tall: true,  category: "Yudansha" },
+  { src: "/images/Yudansha/luke.jpg",               alt: "Luke Wilcox",                        caption: memberCaption("luke-wilcox"),            tall: true,  category: "Yudansha" },
+  { src: "/images/Yudansha/catherine1.jpg",         alt: "Catherine Sandwell",                 caption: memberCaption("catherine-sandwell"),     tall: true,  category: "Yudansha" },
   { src: "/images/Yudansha/catherine2.jpg",         alt: "Catherine Sandwell action",          caption: "Catherine Sandwell - kumite",      tall: false, category: "Yudansha" },
-  { src: "/images/Yudansha/miki1.jpg",              alt: "Mizuki Murai",                       caption: "Mizuki Murai - 3rd Dan",           tall: true,  category: "Yudansha" },
+  { src: "/images/Yudansha/miki1.jpg",              alt: "Mizuki Murai",                       caption: memberCaption("mizuki-murai"),           tall: true,  category: "Yudansha" },
   { src: "/images/Yudansha/miki2.jpg",              alt: "Mizuki Murai action",                caption: "Mizuki Murai - training",          tall: false, category: "Yudansha" },
-  { src: "/images/Yudansha/danny2.jpg",             alt: "Daniel Bard",                        caption: "Daniel Bard - 3rd Dan",            tall: false, category: "Yudansha" },
-  { src: "/images/Yudansha/rich.jpg",               alt: "Richard Gaillard",                   caption: "Richard Gaillard - 3rd Dan",       tall: true,  category: "Yudansha" },
+  { src: "/images/Yudansha/danny2.jpg",             alt: "Daniel Bard",                        caption: memberCaption("daniel-bard"),            tall: false, category: "Yudansha" },
+  { src: "/images/Yudansha/rich.jpg",               alt: "Richard Gaillard",                   caption: memberCaption("richard-gaillard"),       tall: true,  category: "Yudansha" },
   { src: "/images/Yudansha/ak_kata.jpeg",           alt: "Alexey Kryazhev - kata",             caption: "Kata Training",                    tall: false, category: "Yudansha" },
   { src: "/images/Yudansha/ak_kata2.jpeg",          alt: "Alexey Kryazhev - kata 2",           caption: "Kata Training",                    tall: false, category: "Yudansha" },
-  { src: "/images/Alumni/karen_sheldon_portrait.jpg", alt: "Karen Sheldon",                    caption: "Karen Sheldon - 3rd Dan",          tall: true,  category: "Yudansha" },
-  { src: "/images/Alumni/mark.gif",                 alt: "Mark Salomone",                      caption: "Mark Salomone - 3rd Dan (DKK Torbay)", tall: true, category: "Yudansha" },
+  { src: "/images/Alumni/karen_sheldon_portrait.jpg", alt: "Karen Sheldon",                    caption: memberCaption("karen-sheldon"),          tall: true,  category: "Yudansha" },
+  { src: "/images/Alumni/mark.gif",                 alt: "Mark Salomone",                      caption: `${memberCaption("mark-salomone")} (DKK Torbay)`, tall: true, category: "Yudansha" },
 
   // ── New studio portraits & recent shoots ─────────────────
-  { src: "/images/Yudansha/tunde_black_gi_studio.jpg",       alt: "Tunde Oladimeji - black dogi studio portrait", caption: "Tunde Oladimeji - 5th Dan",        tall: true,  category: "Yudansha" },
+  { src: "/images/Yudansha/tunde_black_gi_studio.jpg",       alt: "Tunde Oladimeji - black dogi studio portrait", caption: memberCaption("tunde-oladimeji"),        tall: true,  category: "Yudansha" },
   { src: "/images/Yudansha/mizuki_kata_studio.jpg",          alt: "Mizuki Murai - kata studio portrait",          caption: "Mizuki Murai - Kata",              tall: true,  category: "Yudansha" },
   { src: "/images/Yudansha/laila_bo.jpg",                    alt: "Laila Al-Minyawi with bo - studio portrait",   caption: "Laila Al-Minyawi - Bo Staff",      tall: true,  category: "Yudansha" },
 
@@ -185,10 +187,10 @@ const images: GalleryImage[] = [
 
   // Newest additions
   { src: "/images/Shihan/shihan_uwsu_tshirt.jpg",            alt: "Shihan Mulholland in DKK x UWSU tshirt",       caption: "Shihan - DKK x UWSU",               tall: true,  category: "Shihan" },
-  { src: "/images/Yudansha/lina_portrait.jpeg",              alt: "Lina Amir portrait",                           caption: "Lina Amir - 2nd Dan",               tall: true,  category: "Yudansha" },
+  { src: "/images/Yudansha/lina_portrait.jpeg",              alt: "Lina Amir portrait",                           caption: memberCaption("lina-amir"),               tall: true,  category: "Yudansha" },
   { src: "/images/Yudansha/lina_action.jpeg",                alt: "Lina Amir action",                             caption: "Lina Amir - Training",              tall: false, category: "Yudansha" },
-  { src: "/images/Yudansha/dieter_liepsch.jpg",              alt: "Dieter Liepsch",                               caption: "Dieter Liepsch - 2nd Dan",          tall: true,  category: "Yudansha" },
-  { src: "/images/Yudansha/carlotta_roveri.jpg",             alt: "Carlotta Roveri",                              caption: "Carlotta Roveri - 1st Dan",         tall: true,  category: "Yudansha" },
+  { src: "/images/Yudansha/dieter_liepsch.jpg",              alt: "Dieter Liepsch",                               caption: memberCaption("dieter-liepsch"),          tall: true,  category: "Yudansha" },
+  { src: "/images/Yudansha/carlotta_roveri.jpg",             alt: "Carlotta Roveri",                              caption: memberCaption("carlotta-roveri"),         tall: true,  category: "Yudansha" },
   { src: "/images/Yudansha/scarlett.jpg",                    alt: "Shihan with Scarlett at summer camp",          caption: "Shihan & Scarlett",                 tall: true,  category: "Yudansha" },
 ];
 

@@ -11,10 +11,16 @@
  * Everyone else just turns up, which is the whole point of promoting it here
  * rather than leaving it on the students' union site.
  *
- * TO RETIRE: clear `termNotice` in data/site.ts back to null, delete the
- * /university block, and either delete this page or replace the sessions with
- * the next intake's dates. The notice bar stands itself down after `endsAt`
- * without a rebuild (see lib/eventDates.ts), but the page does not.
+ * WHEN IT ENDS nothing needs editing. `endsAt` drives all of it: a build made
+ * after it drops the page from the sitemap, drops the Event structured data,
+ * ships the page in its "these sessions have finished" state and ships no
+ * notice bar or promo band (lib/giag.ts, data/site.ts). A build made before it
+ * still ships the promo, so the pre-paint script in app/layout.tsx hides it
+ * before first paint once the date has passed, and GiagBand, TermNotice and
+ * the page swap themselves over.
+ *
+ * FOR THE NEXT INTAKE edit this file only: `month`, `year`, `sessions`,
+ * `endsAt`, `shortDates`. Everything else comes back on its own.
  */
 
 export type GiagSession = {
@@ -32,6 +38,8 @@ export type GiagSession = {
 export const giag = {
   name: "Give It A Go",
   year: 2026,
+  /** Month of the intake, for "this September" style copy. */
+  month: "September",
   /** Both sessions run the club's normal class hours. */
   time: "6:00pm - 8:00pm",
   sessions: [

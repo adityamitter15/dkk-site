@@ -5,14 +5,15 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
+  // Both can be forced from the shell for verification builds only. Never deploy a build made with either forced.
   env: {
     // Baked at build time. Seeds the year components so server HTML and the
     // first client render agree; the client then corrects from its own clock.
-    NEXT_PUBLIC_BUILD_YEAR: String(new Date().getFullYear()),
+    NEXT_PUBLIC_BUILD_YEAR: process.env.NEXT_PUBLIC_BUILD_YEAR || String(new Date().getFullYear()),
     // Same idea at instant precision, for dated one-off events (see
     // lib/eventDates.ts). A year is not fine-grained enough to tell whether a
     // September taster session has already happened.
-    NEXT_PUBLIC_BUILD_TIME: String(Date.now()),
+    NEXT_PUBLIC_BUILD_TIME: process.env.NEXT_PUBLIC_BUILD_TIME || String(Date.now()),
     // Cloudflare Web Analytics site token. NOT a secret - it ships in the HTML
     // of every page by design. Committed here rather than in a .env file
     // because .env* is gitignored, so a fresh clone would otherwise build with

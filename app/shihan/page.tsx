@@ -7,10 +7,11 @@ import SectionHeading from "@/components/SectionHeading";
 import SafeImage from "@/components/SafeImage";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import CTABand from "@/components/ui/CTABand";
+import { shihans } from "@/data/site";
 
 export const metadata: Metadata = {
-  title: "Shihan Gavin Mulholland, 7th Dan",
-  description: "Shihan Gavin Mulholland, 7th Dan. Founder and chief instructor of Daigaku Karate Kai London. Combat Hall of Fame inductee and published author.",
+  title: `Shihan Gavin Mulholland, ${shihans.mulholland.dan}`,
+  description: `Shihan Gavin Mulholland, ${shihans.mulholland.dan}. Founder and chief instructor of Daigaku Karate Kai London. Combat Hall of Fame inductee and published author.`,
   alternates: { canonical: "/shihan" },
   openGraph: { images: ["/og/shihan.jpg"] },
   twitter: { images: ["/og/shihan.jpg"] },
@@ -28,7 +29,7 @@ export default function ShihanPage() {
         kanji="師範"
         kanjiTone="gold"
         title={<>Shihan<br /><span className="text-brand">Mulholland</span></>}
-        lead={<><DanGrade text="7th Dan" /> · Combat Hall of Fame · Published Author</>}
+        lead={<><DanGrade text={shihans.mulholland.dan} /> · Combat Hall of Fame · Published Author</>}
         image={{ src: "/images/Shihan/shihan-bo-black.jpg", alt: "Shihan Gavin Mulholland with bo staff", position: "78% 15%" }}
       />
 
@@ -41,7 +42,7 @@ export default function ShihanPage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
                 <div className="absolute bottom-4 left-4">
                   <p className="text-white font-display text-2xl tracking-widest">Gavin Mulholland</p>
-                  <p className="text-brand text-xs uppercase tracking-widest">Shihan · <DanGrade text="7th Dan" /></p>
+                  <p className="text-brand text-xs uppercase tracking-widest">Shihan · <DanGrade text={shihans.mulholland.dan} /></p>
                 </div>
               </div>
               <div className="grid grid-cols-3 gap-3">
@@ -61,7 +62,7 @@ export default function ShihanPage() {
               <SectionHeading eyebrow="Founder & Chief Instructor" title="Gavin Mulholland" />
               <div className="flex flex-wrap gap-2 mb-6">
                 <span className="px-3 py-1 bg-gold/10 border border-gold/30 text-gold text-xs font-semibold uppercase tracking-wider rounded-sm">
-                  <DanGrade text="7th Dan" />
+                  <DanGrade text={shihans.mulholland.dan} />
                 </span>
                 {["Shihan", "Founder", "Author", "Combat Hall of Fame", "Tai Chi Coach"].map((badge) => (
                   <span key={badge} className="px-3 py-1 bg-gold/10 border border-gold/30 text-gold text-xs font-semibold uppercase tracking-wider rounded-sm">
@@ -94,7 +95,7 @@ export default function ShihanPage() {
                 <div className="p-4 bg-card border border-white/5 rounded-sm text-center">
                   <Award className="text-brand mx-auto mb-2" size={20} />
                   <p className="text-white font-display text-xl tracking-wide">
-                    <DanGrade text="7th Dan" />
+                    <DanGrade text={shihans.mulholland.dan} />
                   </p>
                   <p className="text-gray-500 text-xs uppercase tracking-wider">Grade</p>
                 </div>
@@ -129,7 +130,7 @@ export default function ShihanPage() {
             <div>
               <SectionHeading eyebrow="DKK Fighters" title="A Record in the Cage" />
               <p className="text-gray-400 leading-relaxed mb-6">
-                Shihan Mulholland has guided his team DKK Fighters to compete in Cage Rage, Ultimate Challenge, Bellator, BAMMA and the UFC. The club&apos;s first 20 professional cage fights yielded 16 wins, the <strong className="text-white">UCMMA British Heavyweight title</strong>, a fight for the <strong className="text-white">World Title</strong> in the Bellator Heavyweight Tournament, and a finalist in <em>Fighting Hurts</em>.
+                Shihan Mulholland has guided his team DKK Fighters to compete in Cage Rage, Ultimate Challenge, Bellator, BAMMA and the UFC. The club&apos;s first 20 professional cage fights yielded 16 wins, the <strong className="text-white">UCMMA British Heavyweight title</strong>, a fight for the <strong className="text-white">BAMMA World Heavyweight Title</strong>, and a finalist in <em>Fighting Hurts</em>.
               </p>
               <div className="grid grid-cols-3 gap-3 mb-6">
                 {[{ value: "16/20", label: "Cage Wins" }, { value: "1", label: "British Title" }, { value: "UFC", label: "Reached" }].map((s) => (
@@ -325,7 +326,7 @@ export default function ShihanPage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
                 <div className="absolute bottom-4 left-4">
                   <p className="text-white font-display text-xl tracking-widest">Dan Lewis</p>
-                  <p className="text-brand text-[10px] uppercase tracking-widest">Shihan &middot; <DanGrade text="7th Dan" /> &middot; Co-Founder</p>
+                  <p className="text-brand text-[10px] uppercase tracking-widest">Shihan &middot; <DanGrade text={shihans.lewis.dan} /> &middot; Co-Founder</p>
                 </div>
               </div>
             </div>
@@ -338,7 +339,7 @@ export default function ShihanPage() {
 
               <div className="flex flex-wrap gap-2 mb-6">
                 <span className="px-3 py-1 bg-gold/10 border border-gold/30 text-gold text-xs font-semibold uppercase tracking-wider rounded-sm">
-                  <DanGrade text="7th Dan" />
+                  <DanGrade text={shihans.lewis.dan} />
                 </span>
                 {["Shihan", "Co-Founder", "Eskrima World Silver", "Unsung Hero BMA 2017"].map((badge) => (
                   <span key={badge} className="px-3 py-1 bg-gold/10 border border-gold/30 text-gold text-xs font-semibold uppercase tracking-wider rounded-sm">

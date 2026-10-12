@@ -5,7 +5,7 @@ import SectionHeading from "@/components/SectionHeading";
 import CTABand from "@/components/ui/CTABand";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import DanGrade from "@/components/DanGrade";
-import { site } from "@/data/site";
+import { site, shihans } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Karate Near Marylebone",
@@ -61,7 +61,7 @@ export default function KarateMaryleboneePage() {
           <SectionHeading eyebrow="What You'll Find" title="A Serious Class, Not a Workout" />
 
           <p className="text-gray-400 leading-relaxed mb-5">
-            DKK is Okinawan Goju Ryu under <DanGrade text="7th Dan" /> instructor{" "}
+            DKK is Okinawan Goju Ryu under <DanGrade text={shihans.mulholland.dan} /> instructor{" "}
             <Link href="/shihan" className="link-underline text-gold">
               Shihan Gavin Mulholland
             </Link>

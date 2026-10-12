@@ -8,7 +8,9 @@ import StickyMobileCTA from "@/components/StickyMobileCTA";
 import BackToTop from "@/components/BackToTop";
 import ScrollProgress from "@/components/ScrollProgress";
 import Analytics from "@/components/Analytics";
-import { site } from "@/data/site";
+import { site, termNotice, shihans } from "@/data/site";
+import { giag } from "@/data/giag";
+import { pastDatesScript } from "@/lib/prePaint";
 
 const bebas = Bebas_Neue({
   weight: "400",
@@ -55,7 +57,7 @@ export const metadata: Metadata = {
     default: "Karate in Central London | Daigaku Karate Kai",
     template: "%s | DKK Karate London",
   },
-  description: "Adult karate classes in central London since 1990. Authentic Okinawan Goju Ryu, combat-orientated, under Shihan Gavin Mulholland, 7th Dan. Monday and Wednesday, 6-8pm, one minute from Oxford Circus. Beginners welcome, no uniform needed.",
+  description: `Adult karate classes in central London since ${site.foundedYear}. Authentic Okinawan Goju Ryu, combat-orientated, under Shihan ${shihans.mulholland.name}, ${shihans.mulholland.dan}. Monday and Wednesday, 6-8pm, one minute from Oxford Circus. Beginners welcome, no uniform needed.`,
   alternates: { canonical: "/" },
   // Google ignores the keywords meta entirely. Kept only because Bing and some
   // smaller engines still read it, and it costs nothing.
@@ -124,10 +126,10 @@ export default function RootLayout({
     "@type": ["SportsActivityLocation", "SportsClub", "Organization"],
     name: "Daigaku Karate Kai London",
     alternateName: "DKK London",
-    description: "Okinawan Goju Ryu karate for adults in central London. Combat-orientated training under Shihan Gavin Mulholland, 7th Dan.",
+    description: `Okinawan Goju Ryu karate for adults in central London. Combat-orientated training under Shihan ${shihans.mulholland.name}, ${shihans.mulholland.dan}.`,
     url: site.url,
     logo: `${site.url}/images/DKKCircularLogo.jpg`,
-    foundingDate: "1990",
+    foundingDate: String(site.foundedYear),
     email: "info@goju-karate.co.uk",
     // Replaces the telephone property, which came out when the club stopped
     // publishing a number. Keeps a machine-readable contact channel so the
@@ -162,8 +164,8 @@ export default function RootLayout({
     "@id": `${site.url}/#organization`,
     founder: {
       "@type": "Person",
-      name: "Gavin Mulholland",
-      jobTitle: "Shihan, 7th Dan",
+      name: shihans.mulholland.name,
+      jobTitle: `Shihan, ${shihans.mulholland.dan}`,
       url: `${site.url}/shihan`,
     },
     // Local-intent signals. areaServed is what ties the club to "karate london"
@@ -205,8 +207,19 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className={`${bebas.variable} ${inter.variable} ${kanji.variable}`}>
+    // data-past is set by the pre-paint script below
+    <html
+      lang="en"
+      className={`${bebas.variable} ${inter.variable} ${kanji.variable}`}
+      suppressHydrationWarning
+    >
       <body className="bg-night text-white antialiased">
+        {/* Before first paint: marks dated events that are over on the visitor's clock, so a stale build's promo is hidden before it can shift the page. See lib/prePaint.ts. Do not swap for next/script. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: pastDatesScript({ giag: giag.endsAt, term: termNotice?.date ?? "" }),
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

@@ -9,9 +9,14 @@ import SectionHeading from "@/components/SectionHeading";
 import ScrollRevealText from "@/components/ui/ScrollRevealText";
 import LiveYears from "@/components/ui/LiveYears";
 import GiagBand from "@/components/ui/GiagBand";
-import { site } from "@/data/site";
+import { site, shihans } from "@/data/site";
+import { toWords, yearsSince } from "@/lib/clubYears";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import TrackedOutbound from "@/components/TrackedOutbound";
+
+// The 2025/26 UWSU Awards night. The sentence below records a fact about that
+// specific award, so it is frozen to the year it was won, not read live.
+const UWSU_AWARD_YEAR = 2026;
 
 export const metadata: Metadata = {
   title: "University of Westminster Karate Club",
@@ -47,7 +52,7 @@ export default function UniversityPage() {
       <StatStrip>
         <StatCell value="1990" label="At Westminster Since" />
         <StatCell value="Oldest" label="Sports Club at Westminster" />
-        <StatCell value="Gavin Mulholland" label={<><DanGrade text="7th Dan" /> Shihan</>} />
+        <StatCell value="Gavin Mulholland" label={<><DanGrade text={shihans.mulholland.dan} /> Shihan</>} />
         <StatCell value="25 / 26" label="Club of the Year" />
       </StatStrip>
 
@@ -100,7 +105,7 @@ export default function UniversityPage() {
           <div className="grid lg:grid-cols-[1fr_320px] gap-10 lg:gap-16 items-center mb-16">
             <div>
               <p className="text-gray-300 leading-relaxed text-base sm:text-lg mb-5">
-                At the 2025/26 UWSU Awards, Daigaku Karate Kai was named <strong className="text-white">Club of the Year - Karate</strong>. The recognition reflects <LiveYears since={site.atWestminsterSince} lower /> years of consistent training, the strength of the current committee, and the work the club puts in year after year inside and outside the dojo.
+                At the 2025/26 UWSU Awards, Daigaku Karate Kai was named <strong className="text-white">Club of the Year - Karate</strong>. The recognition reflects {toWords(yearsSince(site.atWestminsterSince, UWSU_AWARD_YEAR)).toLowerCase()} years of consistent training, the strength of that year&apos;s committee, and the work the club puts in year after year inside and outside the dojo.
               </p>
               <p className="text-gray-400 leading-relaxed">
                 For a club whose primary focus is combat rather than competition, the trophy means something different to many of the other awards in the room: it is acknowledgement from the wider University community that the way we train still matters.

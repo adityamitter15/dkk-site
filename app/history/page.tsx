@@ -4,10 +4,12 @@ import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import SafeImage from "@/components/SafeImage";
 import ScrollRevealText from "@/components/ui/ScrollRevealText";
+import LiveDecadesHeading from "@/components/ui/LiveDecadesHeading";
 import Reveal from "@/components/ui/Reveal";
 import KanjiWatermark from "@/components/ui/KanjiWatermark";
 import type { ReactNode } from "react";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
+import { site } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Goju Ryu History - Okinawa to London",
@@ -299,9 +301,10 @@ export default function HistoryPage() {
               From the Archive
               <span className="w-6 h-px bg-gold" />
             </p>
-            <ScrollRevealText
+            <LiveDecadesHeading
+              since={site.foundedYear}
+              rest="of DKK"
               className="font-display text-4xl sm:text-5xl lg:text-6xl tracking-wide leading-none"
-              text="Four Decades of DKK"
             />
             <p className="text-gray-400 text-sm mt-3 max-w-xl mx-auto">Photographs from the club&apos;s earliest days - training halls, grading lines, and a young Shihan making his name on the mats.</p>
           </div>

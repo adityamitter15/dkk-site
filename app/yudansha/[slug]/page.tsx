@@ -5,7 +5,8 @@ import Link from "next/link";
 import { ChevronLeft, ChevronRight, Clock, MapPin, Video, ExternalLink } from "lucide-react";
 import SafeImage from "@/components/SafeImage";
 import DanGrade from "@/components/DanGrade";
-import LiveYears from "@/components/ui/LiveYears";
+import YearsTrainingStat from "@/components/ui/YearsTrainingStat";
+import { trainingStartYear } from "@/lib/members";
 import MemberPhotos from "@/components/ui/MemberPhotos";
 import Reveal from "@/components/ui/Reveal";
 import JourneySpine from "@/components/ui/JourneySpine";
@@ -57,9 +58,7 @@ export default async function MemberPage({ params }: { params: Promise<{ slug: s
   const primaryImg = member.portrait || member.action;
   const initials = member.name.split(" ").map((n) => n[0]).join("").slice(0, 2);
 
-  const firstMilestone = member.milestones?.find((m) => m.year)?.year;
-  const lastMilestone = member.milestones?.[member.milestones.length - 1];
-  const yearsTraining = firstMilestone ? new Date().getFullYear() - parseInt(firstMilestone) : null;
+  const startYear = trainingStartYear(member);
 
   // Technique-breakdown reels (Simon Clinch only, for now - see getReelsForMember).
   const reels = getReelsForMember(member.slug);
@@ -196,27 +195,23 @@ export default async function MemberPage({ params }: { params: Promise<{ slug: s
               <p className="text-gray-400 leading-relaxed text-base mb-8">{member.bio}</p>
             )}
 
-            {/* Stats row */}
-            {(yearsTraining || lastMilestone) && (
-              <div className="flex flex-wrap gap-6 mb-10">
-                {firstMilestone && (
-                  <div className="border-l-2 border-brand/40 pl-4">
-                    <p className="text-gray-500 text-[10px] uppercase tracking-widest">Training since</p>
-                    <p className="text-white font-display text-2xl tracking-wide">{firstMilestone}</p>
-                  </div>
-                )}
-                {firstMilestone && yearsTraining && yearsTraining > 0 && (
-                  <div className="border-l-2 border-brand/40 pl-4">
-                    <p className="text-gray-500 text-[10px] uppercase tracking-widest">Years training</p>
-                    <p className="text-white font-display text-2xl tracking-wide"><LiveYears since={parseInt(firstMilestone)} form="digits" />+</p>
-                  </div>
-                )}
+            {/* Stats row. The start year only ever comes from a milestone that marks a
+                start (Began / Joined / First Class), never from a grade, so a member whose
+                first recorded milestone is a dan grade shows no start stat rather than a
+                wrong one. Years training corrects itself from the visitor's clock. */}
+            <div className="flex flex-wrap gap-6 mb-10">
+              {startYear !== null && (
                 <div className="border-l-2 border-brand/40 pl-4">
-                  <p className="text-gray-500 text-[10px] uppercase tracking-widest">Current grade</p>
-                  <p className="text-white font-display text-2xl tracking-wide"><DanGrade text={member.dan} /></p>
+                  <p className="text-gray-500 text-[10px] uppercase tracking-widest">Training since</p>
+                  <p className="text-white font-display text-2xl tracking-wide">{startYear}</p>
                 </div>
+              )}
+              {startYear !== null && <YearsTrainingStat since={startYear} />}
+              <div className="border-l-2 border-brand/40 pl-4">
+                <p className="text-gray-500 text-[10px] uppercase tracking-widest">Current grade</p>
+                <p className="text-white font-display text-2xl tracking-wide"><DanGrade text={member.dan} /></p>
               </div>
-            )}
+            </div>
           </Reveal>
 
           {/* Journey Timeline */}

@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import PageHero from "@/components/ui/PageHero";
@@ -9,13 +10,14 @@ import StatStrip, { StatCell } from "@/components/ui/StatStrip";
 import { MapPin, Clock, ExternalLink, ChevronRight, Instagram, Globe } from "lucide-react";
 import ReelShowcase from "@/components/ui/ReelShowcase";
 import { simonClinchReels, isoDuration } from "@/data/reels";
-import { site } from "@/data/site";
+import { site, shihans } from "@/data/site";
+import { danOf, danHistory } from "@/lib/members";
 import TrackedOutbound from "@/components/TrackedOutbound";
 
 export const metadata: Metadata = {
   title: "Karate in Oxfordshire",
   description:
-    "Adult Okinawan Goju Ryu karate in Buckinghamshire, near Thame, Bicester, Aylesbury and Oxford. DKK Oxfordshire trains Monday in Oakley and Thursday in Brill, taught by Sensei Simon Clinch, 4th Dan. Beginners welcome, 16 and over.",
+    `Adult Okinawan Goju Ryu karate in Buckinghamshire, near Thame, Bicester, Aylesbury and Oxford. DKK Oxfordshire trains Monday in Oakley and Thursday in Brill, taught by Sensei Simon Clinch, ${danOf("simon-clinch")}. Beginners welcome, 16 and over.`,
   alternates: { canonical: "/karate-oxfordshire" },
   openGraph: { images: ["/og/home.jpg"] },
 };
@@ -60,6 +62,7 @@ const towns = [
 ] as const;
 
 export default function KarateOxfordshirePage() {
+  const simonSteps = danHistory("simon-clinch");
   const pageJsonLd = {
     "@context": "https://schema.org",
     "@type": "WebPage",
@@ -140,7 +143,7 @@ export default function KarateOxfordshirePage() {
         lead="Traditional Okinawan Goju Ryu in the Buckinghamshire villages of Oakley and Brill, between Thame, Bicester, Aylesbury and Oxford."
         image={{
           src: "/images/Yudansha/simon_clinch_studio.jpg",
-          alt: "Sensei Simon Clinch, 4th Dan, founder of DKK Oxfordshire, in a Goju Ryu ready stance",
+          alt: `Sensei Simon Clinch, ${danOf("simon-clinch")}, founder of DKK Oxfordshire, in a Goju Ryu ready stance`,
           /* The source is a 626x1200 portrait with his head in the top ~15%.
            * object-cover in this near-square container crops from the centre by
            * default, which cut his head off entirely and left only the belt.
@@ -258,12 +261,21 @@ export default function KarateOxfordshirePage() {
               <SectionHeading eyebrow="Goju Ryu Oxfordshire" title="Sensei Simon Clinch" />
               <p className="text-gray-400 leading-relaxed mb-5">
                 Simon began training in Shotokan karate at school, reaching Shodan at eighteen. He joined
-                DKK in 2008 and progressed under <DanGrade text="7th Dan" /> instructor{" "}
+                DKK in 2008 and progressed under <DanGrade text={shihans.mulholland.dan} /> instructor{" "}
                 <Link href="/shihan" className="link-underline text-gold">
                   Shihan Gavin Mulholland
                 </Link>{" "}
-                at the club&apos;s Regent Street dojo, reaching Nidan in 2013, Sandan in 2016 and{" "}
-                <DanGrade text="4th Dan" className="text-white" /> in 2021.
+                at the club&apos;s Regent Street dojo, reaching{" "}
+                {simonSteps.map((s, i) => {
+                  const last = i === simonSteps.length - 1;
+                  return (
+                    <Fragment key={s.grade}>
+                      {i > 0 && (last ? " and " : ", ")}
+                      {last ? <DanGrade text={s.dan} className="text-white" /> : s.grade} in {s.year}
+                    </Fragment>
+                  );
+                })}
+                .
               </p>
               <p className="text-gray-400 leading-relaxed mb-5">
                 In 2024 he founded DKK Oxfordshire, teaching the same traditional, combat-orientated

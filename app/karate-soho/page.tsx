@@ -6,7 +6,7 @@ import CTABand from "@/components/ui/CTABand";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import DanGrade from "@/components/DanGrade";
 import StatStrip, { StatCell } from "@/components/ui/StatStrip";
-import { site } from "@/data/site";
+import { site, shihans } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Karate Near Soho",
@@ -80,7 +80,7 @@ export default function KarateSohoPage() {
       <section className="section-reveal py-14 bg-card border-t border-white/5">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-gray-400 leading-relaxed">
-            Led by <DanGrade text="7th Dan" /> instructor{" "}
+            Led by <DanGrade text={shihans.mulholland.dan} /> instructor{" "}
             <Link href="/shihan" className="link-underline text-gold">
               Shihan Gavin Mulholland
             </Link>

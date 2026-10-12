@@ -9,6 +9,7 @@ import { ChevronRight } from "lucide-react";
 import SafeImage from "@/components/SafeImage";
 import SectionHeading from "@/components/SectionHeading";
 import { grades, type Member } from "@/data/yudansha";
+import { yearOfGrade } from "@/lib/members";
 import DanGrade from "@/components/DanGrade";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
@@ -39,11 +40,7 @@ const gradeKanji: Record<string, string> = {
 
 /** One line of the register: year · name · marks. The portrait surfaces on hover. */
 function RegisterRow({ member, tier }: { member: Member; tier: { grade: string; dan: string } }) {
-  const gradeYear =
-    member.milestones?.find((m) => m.event === tier.grade)?.year ||
-    member.milestones?.find((m) => m.event.includes(tier.grade) && !m.event.includes("-Ho"))?.year ||
-    member.milestones?.find((m) => m.event.includes(tier.grade))?.year ||
-    "";
+  const gradeYear = yearOfGrade(member, tier.grade);
   const img = member.portrait || member.action;
 
   return (

@@ -6,7 +6,7 @@ import CTABand from "@/components/ui/CTABand";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import DanGrade from "@/components/DanGrade";
 import { ArrowRight } from "lucide-react";
-import { site } from "@/data/site";
+import { site, shihans } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Karate Near Bloomsbury",
@@ -89,7 +89,7 @@ export default function KarateBloomsburyPage() {
             closer that fits a research or teaching schedule.
           </p>
           <p className="text-gray-400 leading-relaxed">
-            DKK trains Okinawan Goju Ryu under <DanGrade text="7th Dan" /> instructor{" "}
+            DKK trains Okinawan Goju Ryu under <DanGrade text={shihans.mulholland.dan} /> instructor{" "}
             <Link href="/shihan" className="link-underline text-gold">
               Shihan Gavin Mulholland
             </Link>{" "}

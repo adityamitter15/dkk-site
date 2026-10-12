@@ -3,6 +3,9 @@
  * Canon: founders met as Black Belts under Kyoshi Kim Roberts; DKK founded
  * in 1990; training at the University of Westminster since 1990.
  */
+import { giag } from "@/data/giag";
+import { BUILD_TIME, hasPassed } from "@/lib/eventDates";
+
 export const site = {
   name: "Daigaku Karate Kai London",
   shortName: "DKK London",
@@ -42,19 +45,36 @@ export const site = {
     "https://script.google.com/macros/s/AKfycbzdCu-SVRvx0q9vmse8MNJbobXYVrAZcVz0LMQhU3CcR43x3Vz5kfCXcmdQifMsGrOb4g/exec",
 } as const;
 
-// Set to the real date of the next beginners' intake / term restart to show the
-// notice bar, then clear it back to null once it has passed. `date` is the
-// moment the bar stands DOWN, so for a multi-day event use the day after the
-// last session. The club has to supply the real dates - do not invent them.
-//
-// Currently: Give It A Go, 21 and 23 September 2026. Sessions live in
-// data/giag.ts; this is only the bar. Clear back to null once the page comes
-// down.
-export const termNotice: { date: string; label: string; href: string } | null = {
-  date: "2026-09-24T00:00:00+01:00",
-  label: "Give It A Go · Try a karate class, 21 & 23 September",
+/**
+ * The two founders. Neither is on the dan register in data/yudansha.ts (that
+ * lists the club's own black belts), so their grade lives here and every page,
+ * caption, metadata description and JSON-LD node reads it. A promotion is one
+ * edit here. The /shihan sentence about the June 2019 promotion to Nanadan is
+ * history and deliberately does not read this.
+ */
+export const shihans = {
+  mulholland: { name: "Gavin Mulholland", dan: "7th Dan" },
+  lewis: { name: "Dan Lewis", dan: "7th Dan" },
+} as const;
+
+type Notice = { date: string; label: string; href: string };
+
+// Slim bar under the nav for a real, time-bound event. `date` is the moment it
+// stands DOWN. It currently advertises Give It A Go, so it reads its date and
+// wording from data/giag.ts: the next intake edits that file only. Filtered at
+// build time, so a build made after `date` ships no bar at all; a build made
+// before it is hidden before first paint by the script in app/layout.tsx and
+// removed after hydration by TermNotice. To advertise something else, replace
+// `nextNotice` (the club supplies the real date; never invent one), or set it
+// to null.
+const nextNotice: Notice | null = {
+  date: giag.endsAt,
+  label: `${giag.name} · Try a karate class, ${giag.shortDates}`,
   href: "/give-it-a-go",
 };
+
+export const termNotice: Notice | null =
+  nextNotice && !hasPassed(nextNotice.date, BUILD_TIME) ? nextNotice : null;
 
 // Shared joining copy (age policy, door instructions) reused across contact,
 // training, give-it-a-go and the FAQ so the wording never drifts between pages.

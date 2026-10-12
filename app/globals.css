@@ -59,6 +59,30 @@ body:has([data-term-notice]) {
   }
 }
 
+/* Dated surfaces a stale build still ships (see lib/prePaint.ts): hidden before
+   first paint once their date has passed on the visitor's clock, so React
+   removing them after hydration moves nothing. */
+html[data-past~="giag"] [data-expires="giag"],
+html[data-past~="term"] [data-expires="term"] {
+  display: none;
+}
+html[data-past~="term"] body {
+  --notice-h: 0px;
+}
+
+/* Give It A Go before/after copy (components/ui/GiagPhase.tsx). The wrappers
+   carry no classes, so `revert` hands them back the browser default
+   (div block, span inline). */
+[data-giag="finished"] {
+  display: none;
+}
+html[data-past~="giag"] [data-giag="upcoming"] {
+  display: none;
+}
+html[data-past~="giag"] [data-giag="finished"] {
+  display: revert;
+}
+
 /* Disable text size adjustment on iOS landscape */
 html {
   -webkit-text-size-adjust: 100%;

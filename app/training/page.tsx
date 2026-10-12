@@ -11,7 +11,8 @@ import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import GiagBand from "@/components/ui/GiagBand";
 import TrackedOutbound from "@/components/TrackedOutbound";
 import WhatsAppIcon from "@/components/ui/WhatsAppIcon";
-import { site, joining } from "@/data/site";
+import { site, joining, shihans } from "@/data/site";
+import { danOf } from "@/lib/members";
 
 export const metadata: Metadata = {
   title: "Karate Classes in Central London",
@@ -155,7 +156,7 @@ export default function TrainingPage() {
                   <Link href="/yudansha/simon-clinch" className="font-display text-2xl tracking-wide text-white hover:text-gold transition-colors inline-flex items-center gap-1.5">
                     Simon Clinch <ChevronRight size={14} />
                   </Link>
-                  <p className="text-gray-500 text-xs">Oxfordshire · <DanGrade text="4th Dan" /></p>
+                  <p className="text-gray-500 text-xs">Oxfordshire · <DanGrade text={danOf("simon-clinch")} /></p>
                 </div>
               </div>
               <div className="p-6 space-y-4">
@@ -198,7 +199,7 @@ export default function TrainingPage() {
                   <Link href="/yudansha/ragi-marmar" className="font-display text-2xl tracking-wide text-white hover:text-gold transition-colors inline-flex items-center gap-1.5">
                     Ragi Marmar <ChevronRight size={14} />
                   </Link>
-                  <p className="text-gray-500 text-xs">North London · <DanGrade text="4th Dan" /></p>
+                  <p className="text-gray-500 text-xs">North London · <DanGrade text={danOf("ragi-marmar")} /></p>
                 </div>
               </div>
               <div className="p-6 space-y-4">
@@ -226,7 +227,7 @@ export default function TrainingPage() {
                   <Link href="/yudansha/tunde-oladimeji" className="font-display text-2xl tracking-wide text-white hover:text-gold transition-colors inline-flex items-center gap-1.5">
                     Tunde Oladimeji <ChevronRight size={14} />
                   </Link>
-                  <p className="text-gray-500 text-xs">Online · <DanGrade text="5th Dan" /></p>
+                  <p className="text-gray-500 text-xs">Online · <DanGrade text={danOf("tunde-oladimeji")} /></p>
                 </div>
               </div>
               <div className="p-6 space-y-4">
@@ -251,7 +252,7 @@ export default function TrainingPage() {
                   <Link href="/yudansha/simon-kluth" className="font-display text-2xl tracking-wide text-white hover:text-gold transition-colors inline-flex items-center gap-1.5">
                     Simon Kluth <ChevronRight size={14} />
                   </Link>
-                  <p className="text-gray-500 text-xs">Online · <DanGrade text="4th Dan" /></p>
+                  <p className="text-gray-500 text-xs">Online · <DanGrade text={danOf("simon-kluth")} /></p>
                 </div>
               </div>
               <div className="p-6 space-y-4">
@@ -344,7 +345,7 @@ export default function TrainingPage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4">
                   <p className="text-white font-display text-2xl tracking-wide leading-tight">Expert Instruction</p>
-                  <p className="text-brand text-xs uppercase tracking-widest mt-0.5">Shihan Mulholland · <DanGrade text="7th Dan" /></p>
+                  <p className="text-brand text-xs uppercase tracking-widest mt-0.5">Shihan Mulholland · <DanGrade text={shihans.mulholland.dan} /></p>
                 </div>
               </div>
               <div className="absolute -bottom-3 -right-3 w-full h-full border border-brand/20 rounded-sm -z-10" />

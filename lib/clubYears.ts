@@ -14,6 +14,15 @@ export function yearsSince(startYear: number, currentYear: number): number {
   return currentYear - startYear;
 }
 
+/**
+ * Whole decades since `startYear`, rounded to nearest, never below 1:
+ * 36 years -> 4, 45 -> 5. Drives "Four Decades of DKK", which becomes
+ * "Five" in 2035.
+ */
+export function decadesSince(startYear: number, currentYear: number): number {
+  return Math.max(1, Math.round((currentYear - startYear) / 10));
+}
+
 const ONES = [
   "",
   "One",

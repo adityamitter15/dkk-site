@@ -6,7 +6,7 @@ import CTABand from "@/components/ui/CTABand";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import Reveal from "@/components/ui/Reveal";
 import DanGrade from "@/components/DanGrade";
-import { site, joining } from "@/data/site";
+import { site, joining, shihans } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Karate in London - Common Questions",
@@ -92,7 +92,7 @@ const faqs: { question: string; answer: string }[] = [
   {
     question: "Who teaches the classes?",
     answer:
-      "Shihan Gavin Mulholland, 7th Dan, founder and chief instructor, alongside the club's senior instructors. All senior instructors are trained in safeguarding and first aid.",
+      `Shihan ${shihans.mulholland.name}, ${shihans.mulholland.dan}, founder and chief instructor, alongside the club's senior instructors. All senior instructors are trained in safeguarding and first aid.`,
   },
   {
     question: "How long does it take to get a black belt?",
@@ -177,7 +177,7 @@ export default function FAQPage() {
               <Link href="/shihan" className="link-underline text-gold">
                 Shihan Gavin Mulholland
               </Link>
-              , <DanGrade text="7th Dan" />.
+              , <DanGrade text={shihans.mulholland.dan} />.
             </p>
           </div>
         </div>

@@ -13,6 +13,8 @@ import MagneticButton from "@/components/MagneticButton";
 import CTABand from "@/components/ui/CTABand";
 import TrackedOutbound from "@/components/TrackedOutbound";
 import GiagBand from "@/components/ui/GiagBand";
+import { resolvedTestimonials } from "@/lib/members";
+import { site, shihans } from "@/data/site";
 
 export default function Home() {
   return (
@@ -99,7 +101,7 @@ export default function Home() {
         <StatCell value="Since 1990" label="Oldest Club at Westminster" />
         <StatCell
           value="Gavin Mulholland"
-          label={<><DanGrade text="7th Dan" /> Shihan</>}
+          label={<><DanGrade text={shihans.mulholland.dan} /> Shihan</>}
         />
         <StatCell value="Goju Ryu" label={<>Okinawan &middot; Combat-Orientated</>} />
         <StatCell value={<>Mon &amp; Wed</>} label="6 - 8pm, Central London" />
@@ -155,7 +157,7 @@ export default function Home() {
               <div>
                 <SectionHeading eyebrow="About the Club" title="Real Karate.&#10;No Compromises." />
                 <p className="text-gray-400 leading-relaxed mb-5">
-                  The London branch of Daigaku Karate Kai was started by Shihan Gavin Mulholland (7th Dan) in the early 1990s and is now one of the strongest karate clubs in the UK.
+                  The London branch of Daigaku Karate Kai was started by Shihan Gavin Mulholland ({shihans.mulholland.dan}) in {site.foundedYear} and is now one of the strongest karate clubs in the UK.
                 </p>
                 <p className="text-gray-400 leading-relaxed mb-5">
                   We practise Okinawan Goju Ryu, a practical karate style which places heavy emphasis on close-quarter effectiveness. Training is combat-orientated rather than for sport or competition fighting, which require different skills and mindset.
@@ -178,7 +180,7 @@ export default function Home() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-6">
                   <p className="font-display text-2xl text-white tracking-widest">Shihan Gavin Mulholland</p>
-                  <p className="text-gold text-xs uppercase tracking-[0.2em] mt-0.5">7<sup className="text-[0.65em] normal-case">th</sup> Dan · Founder · Combat Hall of Fame</p>
+                  <p className="text-gold text-xs uppercase tracking-[0.2em] mt-0.5"><DanGrade text={shihans.mulholland.dan} /> · Founder · Combat Hall of Fame</p>
                 </div>
               </div>
             </div>
@@ -242,7 +244,7 @@ export default function Home() {
       </section>
 
       {/* ── TESTIMONIALS ─────────────────────────────────────── */}
-      <TestimonialRotator />
+      <TestimonialRotator items={resolvedTestimonials()} />
 
       {/* ── TRAINING TIMES ───────────────────────────────────── */}
       <div className="section-divider" />
