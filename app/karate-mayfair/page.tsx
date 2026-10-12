@@ -9,9 +9,9 @@ import { CheckCircle } from "lucide-react";
 import { site, shihans } from "@/data/site";
 
 export const metadata: Metadata = {
-  title: "Karate Near Mayfair",
+  title: "Adult Karate Classes Near Mayfair",
   description:
-    "Adult Okinawan Goju Ryu karate a sixteen-minute walk from Mayfair, on Regent Street at Oxford Circus. An evening class that fits around a working week, not a fitness fad.",
+    "Adult karate classes near Mayfair: Monday and Wednesday, 6-8pm on Regent Street, sixteen minutes on foot from Berkeley Square. No uniform needed. Just turn up.",
   alternates: { canonical: "/karate-mayfair" },
   openGraph: { images: ["/og/home.jpg"] },
 };
