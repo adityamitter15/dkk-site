@@ -28,7 +28,7 @@ const linkGroups: { category: string; links: LinkEntry[] }[] = [
   {
     category: "Affiliations",
     links: [
-      { title: "Westminster Students' Union", description: "DKK London's affiliation at the University of Westminster.", href: "https://www.uwsu.com" },
+      { title: "Westminster Students' Union", description: "DKK London's affiliation at the University of Westminster.", href: "https://www.uwsu.com", track: "/go/uwsu" },
     ],
   },
   {

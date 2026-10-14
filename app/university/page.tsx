@@ -3,6 +3,7 @@ import CTABand from "@/components/ui/CTABand";
 import StatStrip, { StatCell } from "@/components/ui/StatStrip";
 import DanGrade from "@/components/DanGrade";
 import type { Metadata } from "next";
+import Link from "next/link";
 import { ChevronRight, Trophy, Award, MapPin, Calendar, Instagram } from "lucide-react";
 import SafeImage from "@/components/SafeImage";
 import SectionHeading from "@/components/SectionHeading";
@@ -46,7 +47,16 @@ export default function UniversityPage() {
         title="University"
         lead={<>At Westminster since 1990. Daigaku Karate Kai has trained at the University of Westminster under the same instructor for <LiveYears since={site.atWestminsterSince} lower /> years.</>}
         image={{ src: "/images/Club/university-grading-group-2026.jpg", alt: "DKK Karate Club members with their grading certificates in the Regent Street main hall" }}
-      />
+      >
+        {/* next/link, not a plain anchor: a native hash jump clears history.state,
+            and the next tracked click then leaves the router sitting on /go/... */}
+        <Link
+          href="#join"
+          className="inline-flex items-center gap-2 mt-3 py-3 text-white font-semibold text-sm uppercase tracking-wider hover:gap-3 transition-all"
+        >
+          Students: how to join <ChevronRight size={16} aria-hidden="true" />
+        </Link>
+      </PageHero>
 
       {/* Quick stats strip */}
       <StatStrip>
@@ -158,7 +168,7 @@ export default function UniversityPage() {
       <GiagBand />
 
       {/* For Westminster Students */}
-      <section className="section-reveal py-16 sm:py-20 lg:py-28 bg-night border-t border-white/5">
+      <section id="join" className="section-reveal scroll-mt-[calc(4rem_+_var(--notice-h,0px))] lg:scroll-mt-[calc(5rem_+_var(--notice-h,0px))] py-16 sm:py-20 lg:py-28 bg-night border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-3 gap-10">
             <div className="lg:col-span-1">
@@ -169,10 +179,9 @@ export default function UniversityPage() {
             </div>
 
             <div className="lg:col-span-2 grid sm:grid-cols-2 gap-4">
-              <a
+              <TrackedOutbound
                 href="https://uwsu.com/sports/view/karate"
-                target="_blank"
-                rel="noopener noreferrer"
+                track="/go/uwsu"
                 className="p-5 bg-card border border-white/10 hover:border-brand/40 transition-all rounded-sm group"
               >
                 <div className="flex items-center gap-3 mb-3">
@@ -182,7 +191,7 @@ export default function UniversityPage() {
                 <p className="text-white font-display text-xl tracking-wide mb-1">Sign up via UWSU</p>
                 <p className="text-gray-400 text-sm">Official Westminster Students&apos; Union karate page.</p>
                 <p className="text-brand text-xs uppercase tracking-widest mt-3 group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">uwsu.com/sports/view/karate <ChevronRight size={12} /></p>
-              </a>
+              </TrackedOutbound>
 
               <TrackedOutbound
                 href="https://instagram.com/uwsukarate"
