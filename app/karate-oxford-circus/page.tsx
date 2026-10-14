@@ -11,7 +11,7 @@ import { site, shihans } from "@/data/site";
 export const metadata: Metadata = {
   title: "Karate Near Oxford Circus",
   description:
-    "Adult Okinawan Goju Ryu karate three minutes from Oxford Circus station. Monday and Wednesday, 6-8pm, inside the University of Westminster building on Regent Street. Beginners welcome.",
+    "Adult karate classes three minutes from Oxford Circus station. Monday and Wednesday, 6-8pm, at 309 Regent Street. Beginners welcome. No uniform needed.",
   alternates: { canonical: "/karate-oxford-circus" },
   openGraph: { images: ["/og/home.jpg"] },
 };

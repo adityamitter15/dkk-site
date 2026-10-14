@@ -11,7 +11,7 @@ import { site, shihans } from "@/data/site";
 export const metadata: Metadata = {
   title: "Karate Near Bloomsbury",
   description:
-    "Adult Okinawan Goju Ryu karate eleven minutes from Bloomsbury by tube (Piccadilly then Central to Oxford Circus), or a twenty-four minute walk. Monday and Wednesday, 6-8pm.",
+    "Adult karate classes near Bloomsbury: Monday and Wednesday, 6-8pm on Regent Street, eleven minutes away by tube. No uniform needed. Just turn up.",
   alternates: { canonical: "/karate-bloomsbury" },
   openGraph: { images: ["/og/home.jpg"] },
 };

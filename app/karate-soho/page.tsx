@@ -11,7 +11,7 @@ import { site, shihans } from "@/data/site";
 export const metadata: Metadata = {
   title: "Karate Near Soho",
   description:
-    "Adult Okinawan Goju Ryu karate a nine-minute walk from Carnaby Street and Soho, on Regent Street at Oxford Circus. Monday and Wednesday, 6-8pm. No uniform needed to start.",
+    "Adult karate classes near Soho: Monday and Wednesday, 6-8pm on Regent Street, a nine-minute walk from Carnaby Street. No uniform needed. Just turn up.",
   alternates: { canonical: "/karate-soho" },
   openGraph: { images: ["/og/home.jpg"] },
 };
