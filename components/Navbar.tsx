@@ -70,16 +70,18 @@ export default function Navbar() {
             </div>
           </Link>
 
-          {/* Desktop nav */}
+          {/* Desktop nav. Between lg and xl the ten links plus the button are about
+              80px wider than the bar, so Home is dropped there (the logo already
+              links home) and the padding tightens. From xl up it is unchanged. */}
           <div className="hidden lg:flex items-center gap-0.5 ml-auto">
             {links.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 aria-current={pathname === link.href ? "page" : undefined}
-                className={`relative px-2 xl:px-2.5 py-2 text-[13px] xl:text-sm font-medium tracking-wide transition-colors duration-200 rounded-sm whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-black ${
+                className={`relative px-1.5 xl:px-2.5 py-2 text-[13px] xl:text-sm font-medium tracking-wide transition-colors duration-200 rounded-sm whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-black ${link.href === "/" ? "hidden xl:block " : ""}${
                   pathname === link.href
-                    ? "text-brand after:absolute after:left-2 after:right-2 after:-bottom-0.5 after:h-px after:bg-brand"
+                    ? "text-brand after:absolute after:left-1.5 after:right-1.5 xl:after:left-2 xl:after:right-2 after:-bottom-0.5 after:h-px after:bg-brand"
                     : "text-gray-300 hover:text-white"
                 }`}
               >
@@ -88,7 +90,7 @@ export default function Navbar() {
             ))}
             <Link
               href="/contact"
-              className="ml-3 px-4 py-2 bg-brand text-white text-sm font-semibold tracking-wide uppercase hover:bg-brand-hover transition-colors duration-200 rounded-sm whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+              className="ml-2 px-3 xl:ml-3 xl:px-4 py-2 bg-brand text-white text-sm font-semibold tracking-wide uppercase hover:bg-brand-hover transition-colors duration-200 rounded-sm whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-black"
             >
               Join Now
             </Link>
