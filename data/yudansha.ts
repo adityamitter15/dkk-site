@@ -1,3 +1,5 @@
+import { thursdayClass } from "@/data/site";
+
 export type Milestone = {
   year: string;
   event: string;
@@ -120,7 +122,8 @@ export const grades: GradeTier[] = [
           { year: "2021", event: "Yondan" },
         ],
         classes: [
-          { day: "Thursday", time: "6:15pm - 8:00pm", venue: "St Andrew's C of E School", address: "The Green, Totteridge, London N20 8NX", mapUrl: "https://maps.app.goo.gl/1Jw7TbaSNBR44MBt5", format: "in-person" },
+          // DKK London's Thursday class, shared with the main schedule.
+          { day: thursdayClass.day, time: thursdayClass.time, venue: thursdayClass.venue, address: thursdayClass.address, mapUrl: thursdayClass.mapUrl, format: "in-person" },
         ],
       },
       {

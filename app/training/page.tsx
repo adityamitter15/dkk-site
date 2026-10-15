@@ -11,7 +11,7 @@ import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import GiagBand from "@/components/ui/GiagBand";
 import TrackedOutbound from "@/components/TrackedOutbound";
 import WhatsAppIcon from "@/components/ui/WhatsAppIcon";
-import { site, joining, shihans } from "@/data/site";
+import { site, joining, shihans, thursdayClass } from "@/data/site";
 import { danOf } from "@/lib/members";
 
 export const metadata: Metadata = {
@@ -33,19 +33,21 @@ export default function TrainingPage() {
         folio="02 / Training"
         kanji="稽古"
         title="Training"
-        lead="Okinawan Goju Ryu. Every Monday and Wednesday evening at 309 Regent Street, London."
+        lead="Okinawan Goju Ryu. Monday and Wednesday evenings at 309 Regent Street, and Thursdays in Totteridge, North London."
         image={{ src: "/images/Training/kumite-high-kick.jpg", position: "center 30%" }}
       />
 
       <GiagBand audience="public" />
 
-      {/* Main Dojo - Westminster */}
+      {/* DKK London timetable: Monday and Wednesday at Westminster with Shihan,
+          Thursday in Totteridge with Sensei Ragi. Grouped by venue, because the
+          door instructions and the University-breaks line are Westminster's. */}
       <section className="section-reveal py-16 sm:py-20 lg:py-28 bg-night">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-stretch">
             <div>
-              <SectionHeading eyebrow="Main Dojo" title="When We Train" />
-              <div className="space-y-3 mb-8">
+              <SectionHeading eyebrow="DKK London" title="When We Train" />
+              <div className="space-y-3 mb-3">
                 {[
                   { day: "Monday", time: "6:00pm - 8:00pm" },
                   { day: "Wednesday", time: "6:00pm - 8:00pm" },
@@ -54,7 +56,9 @@ export default function TrainingPage() {
                     <Clock className="text-brand flex-shrink-0" size={22} />
                     <div>
                       <p className="font-display text-3xl text-white tracking-wide leading-none">{session.day}</p>
-                      <p className="text-gray-400 text-sm mt-0.5">{session.time}</p>
+                      <p className="text-gray-400 text-sm mt-0.5">
+                        {session.time} · Shihan {shihans.mulholland.name}
+                      </p>
                     </div>
                   </div>
                 ))}
@@ -67,14 +71,42 @@ export default function TrainingPage() {
                   <p className="text-gray-400 text-xs mt-1.5">
                     No student card required. Classes run during all University breaks. Nearest tube is Oxford Circus, one minute away.
                   </p>
-                  <p className="text-gray-500 text-xs mt-1.5">
-                    First time?{" "}
-                    <Link href="/faq" className="link-underline text-gold">
-                      What to wear and what to expect
-                    </Link>
-                  </p>
+                  <p className="text-gray-400 text-xs mt-1.5">{joining.door}</p>
                 </div>
               </div>
+
+              <div className="mt-8 mb-3">
+                <div className="flex items-center gap-5 p-6 bg-card border-l-2 border-l-brand border-y border-r border-white/5 rounded-sm">
+                  <Clock className="text-brand flex-shrink-0" size={22} />
+                  <div>
+                    <p className="font-display text-3xl text-white tracking-wide leading-none">{thursdayClass.day}</p>
+                    <p className="text-gray-400 text-sm mt-0.5">
+                      {thursdayClass.time} ·{" "}
+                      <Link href={`/yudansha/${thursdayClass.instructorSlug}`} className="link-underline text-gold">
+                        {thursdayClass.instructor}
+                      </Link>
+                      , <DanGrade text={danOf(thursdayClass.instructorSlug)} />
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="flex gap-4 items-start p-5 bg-card border border-white/5 rounded-sm hover:border-white/10 transition-colors">
+                <MapPin className="text-brand flex-shrink-0 mt-0.5" size={20} />
+                <div>
+                  <p className="text-white font-display text-xl tracking-wide">{thursdayClass.venue}</p>
+                  <p className="text-gray-400 text-sm">{thursdayClass.address}</p>
+                  <a href={thursdayClass.mapUrl} target="_blank" rel="noopener noreferrer" className="text-brand text-xs hover:underline inline-flex items-center gap-1 mt-1.5">
+                    Directions on Google Maps <ExternalLink size={10} />
+                  </a>
+                </div>
+              </div>
+
+              <p className="text-gray-500 text-xs mt-4">
+                First time?{" "}
+                <Link href="/faq" className="link-underline text-gold">
+                  What to wear and what to expect
+                </Link>
+              </p>
 
               <div className="mt-6">
                 <div className="flex flex-col sm:flex-row flex-wrap gap-3">
@@ -102,7 +134,7 @@ export default function TrainingPage() {
                   </Link>
                 </div>
                 <p className="text-white text-sm mt-4">No uniform needed. Just turn up.</p>
-                <p className="text-gray-400 text-xs mt-2 leading-relaxed">{joining.age} {joining.door}</p>
+                <p className="text-gray-400 text-xs mt-2 leading-relaxed">{joining.age}</p>
                 <TrackedOutbound
                   href={site.googleListing}
                   track="/go/google-reviews"
@@ -122,7 +154,7 @@ export default function TrainingPage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-black/0" />
                 <div className="absolute bottom-4 left-4">
                   <p className="text-brand text-xs uppercase tracking-widest">The Main Hall</p>
-                  <p className="text-white font-display text-lg tracking-wide">Every session. Every week.</p>
+                  <p className="text-white font-display text-lg tracking-wide">Every Monday. Every Wednesday.</p>
                 </div>
               </div>
               <div className="absolute -bottom-3 -right-3 w-full h-full border border-brand/25 rounded-sm -z-10" />
@@ -141,12 +173,13 @@ export default function TrainingPage() {
               <span className="w-6 h-px bg-gold" />
             </p>
             <h2 className="font-display text-5xl sm:text-6xl text-white tracking-wide leading-none">Train Across the Network</h2>
-            <p className="text-gray-400 text-sm mt-3 max-w-2xl mx-auto">DKK instructors run additional classes in Oxfordshire and North London, plus online sessions on Zoom. All members are welcome at any session.</p>
+            <p className="text-gray-400 text-sm mt-3 max-w-2xl mx-auto">DKK instructors run additional classes in Oxfordshire, plus online sessions on Zoom. All members are welcome at any session.</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">
-            {/* Simon Clinch - Oxfordshire */}
-            <div className="bg-card border border-white/10 rounded-sm overflow-hidden flex flex-col">
+            {/* Simon Clinch - Oxfordshire. Spans both rows at md+ so the two Zoom
+                cards stack beside it instead of leaving one orphaned. */}
+            <div className="bg-card border border-white/10 rounded-sm overflow-hidden flex flex-col md:row-span-2">
               <div className="p-6 border-b border-white/10 flex items-center gap-4">
                 <div className="relative w-14 h-14 rounded-sm overflow-hidden bg-black flex-shrink-0">
                   <SafeImage src="/images/Yudansha/simon_clinch_studio.jpg" alt="Simon Clinch" fill className="object-cover object-top" />
@@ -181,38 +214,10 @@ export default function TrainingPage() {
                   </div>
                 </div>
               </div>
-              <div className="px-6 pb-5">
+              <div className="px-6 pb-5 mt-auto">
                 <Link href="/karate-oxfordshire" className="link-underline text-gold text-xs inline-flex items-center gap-1">
                   Full DKK Oxfordshire branch details <ChevronRight size={12} />
                 </Link>
-              </div>
-            </div>
-
-            {/* Ragi Marmar - North London */}
-            <div className="bg-card border border-white/10 rounded-sm overflow-hidden flex flex-col">
-              <div className="p-6 border-b border-white/10 flex items-center gap-4">
-                <div className="relative w-14 h-14 rounded-sm overflow-hidden bg-black flex-shrink-0">
-                  <SafeImage src="/images/Yudansha/ragi1.jpeg" alt="Ragi Marmar" fill className="object-cover object-top" />
-                </div>
-                <div>
-                  <p className="text-gold text-[10px] uppercase tracking-[0.2em] font-bold">Instructor</p>
-                  <Link href="/yudansha/ragi-marmar" className="font-display text-2xl tracking-wide text-white hover:text-gold transition-colors inline-flex items-center gap-1.5">
-                    Ragi Marmar <ChevronRight size={14} />
-                  </Link>
-                  <p className="text-gray-500 text-xs">North London · <DanGrade text={danOf("ragi-marmar")} /></p>
-                </div>
-              </div>
-              <div className="p-6 space-y-4">
-                <div className="flex gap-4">
-                  <Clock className="text-brand flex-shrink-0 mt-0.5" size={18} />
-                  <div className="flex-1">
-                    <p className="text-white font-display text-xl tracking-wide leading-none">Thursday · 6:15pm - 8:00pm</p>
-                    <p className="text-gray-400 text-sm mt-1">St Andrew&apos;s C of E School</p>
-                    <a href="https://maps.app.goo.gl/1Jw7TbaSNBR44MBt5" target="_blank" rel="noopener noreferrer" className="text-brand text-xs hover:underline inline-flex items-center gap-1 mt-0.5">
-                      The Green, Totteridge, London N20 8NX <ExternalLink size={10} />
-                    </a>
-                  </div>
-                </div>
               </div>
             </div>
 

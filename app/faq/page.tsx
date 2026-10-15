@@ -6,7 +6,7 @@ import CTABand from "@/components/ui/CTABand";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import Reveal from "@/components/ui/Reveal";
 import DanGrade from "@/components/DanGrade";
-import { site, joining, shihans } from "@/data/site";
+import { site, joining, shihans, thursdayClass } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Karate in London - Common Questions",
@@ -50,7 +50,7 @@ const faqs: { question: string; answer: string }[] = [
   {
     question: "When do you train?",
     answer:
-      "Monday and Wednesday evenings, 6pm to 8pm, throughout the year. Turn up a few minutes early on your first night so there is time to say hello before we start.",
+      `Monday and Wednesday evenings, 6pm to 8pm, at 309 Regent Street with Shihan ${shihans.mulholland.name}, throughout the year. On Thursdays, ${thursdayClass.instructor} teaches ${thursdayClass.time.replace(" - ", " to ")} at ${thursdayClass.venue}, ${thursdayClass.address}. Turn up a few minutes early on your first night so there is time to say hello before we start.`,
   },
   {
     // "karate london prices" and "daigaku karate kai london price" are both real

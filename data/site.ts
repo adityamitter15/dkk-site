@@ -57,6 +57,26 @@ export const shihans = {
   lewis: { name: "Dan Lewis", dan: "7th Dan" },
 } as const;
 
+/**
+ * DKK London's Thursday class. It is DKK London, not a branch like DKK
+ * Oxfordshire, so it sits in the main schedule beside Shihan's Monday and
+ * Wednesday at Regent Street, at Sensei Ragi's own venue in North London.
+ * Read by /training, the homepage, /contact, the FAQ and Ragi's member page,
+ * so a change of time or venue is one edit here. `site.schedule` and the
+ * homepage JSON-LD stay Monday and Wednesday only: they describe 309 Regent
+ * Street, the address on the club's Google listing.
+ */
+export const thursdayClass = {
+  day: "Thursday",
+  time: "6:15pm - 8:00pm",
+  instructor: "Sensei Ragi Marmar",
+  instructorSlug: "ragi-marmar",
+  venue: "St Andrew's C of E School",
+  address: "The Green, Totteridge, London N20 8NX",
+  area: "Totteridge, North London",
+  mapUrl: "https://maps.app.goo.gl/1Jw7TbaSNBR44MBt5",
+} as const;
+
 type Notice = { date: string; label: string; href: string };
 
 // Slim bar under the nav for a real, time-bound event. `date` is the moment it

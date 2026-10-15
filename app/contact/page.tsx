@@ -7,7 +7,7 @@ import SafeImage from "@/components/SafeImage";
 import TrackedOutbound from "@/components/TrackedOutbound";
 import { Phone, Mail, MapPin, Clock, MessageCircle, Banknote, Star } from "lucide-react";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
-import { site, joining } from "@/data/site";
+import { site, joining, shihans, thursdayClass } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Find Us - Karate Near Oxford Circus",
@@ -182,8 +182,17 @@ export default function ContactPage() {
                 <div>
                   <p className="text-gray-500 text-xs uppercase tracking-widest mb-0.5">Class Times</p>
                   <p className="text-white font-medium leading-tight">Monday &amp; Wednesday</p>
-                  <p className="text-gray-400 text-sm mt-0.5">6:00pm – 8:00pm</p>
+                  <p className="text-gray-400 text-sm mt-0.5">6:00pm - 8:00pm · 309 Regent Street, with Shihan {shihans.mulholland.name}</p>
                   <p className="text-gray-500 text-xs mt-1">Classes continue during University breaks</p>
+                  <p className="text-white font-medium leading-tight mt-4">{thursdayClass.day}</p>
+                  <p className="text-gray-400 text-sm mt-0.5">
+                    {thursdayClass.time} · {thursdayClass.area}, with {thursdayClass.instructor}
+                  </p>
+                  <p className="text-gray-500 text-xs mt-1">
+                    <a href={thursdayClass.mapUrl} target="_blank" rel="noopener noreferrer" className="link-underline text-gold">
+                      {thursdayClass.venue}, {thursdayClass.address}
+                    </a>
+                  </p>
                 </div>
               </div>
 
