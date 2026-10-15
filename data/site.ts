@@ -43,6 +43,12 @@ export const site = {
   // validates and rate-limits every request it receives.
   enquirySheetEndpoint:
     "https://script.google.com/macros/s/AKfycbzdCu-SVRvx0q9vmse8MNJbobXYVrAZcVz0LMQhU3CcR43x3Vz5kfCXcmdQifMsGrOb4g/exec",
+  // Apps Script web app serving live Instagram view counts for Simon Clinch's
+  // reels (source and setup steps: apps-script/reel-stats.gs). Empty until
+  // @dkkoxfordshire is connected to Instagram's official API; while empty the
+  // reels show the snapshot figures in data/reels.ts. Paste the /exec URL here
+  // and redeploy once; after that the counts update with no further edits.
+  reelStatsEndpoint: "" as string,
 } as const;
 
 /**

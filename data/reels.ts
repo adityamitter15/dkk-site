@@ -15,8 +15,12 @@
  * no re-encode) plus .mp4 (H.264) for Safari/iOS, matching the dual-source
  * convention already used by the hero videos. Poster is a real frame.
  *
- * `views` is a snapshot taken 2026-09-05 and will drift; it is shown as
- * social proof, not as a live figure.
+ * `views` is the snapshot shown before live figures arrive (last taken
+ * 2026-10-15) and is what crawlers read. Live counts come from the Apps Script
+ * at `site.reelStatsEndpoint` (source in apps-script/reel-stats.gs), which
+ * reads Instagram's official API daily; ReelShowcase swaps them in as plain
+ * text and never shows a figure lower than this snapshot. A new reel is one
+ * entry here plus its three files; its live count needs no further edit.
  */
 
 export type Reel = {
@@ -42,6 +46,19 @@ export const oxfordshireInstagram = "https://www.instagram.com/dkkoxfordshire";
 
 export const simonClinchReels: Reel[] = [
   {
+    slug: "rear-naked-choke",
+    shortcode: "DeIHDXsOvzJ",
+    title: "The Standing Rear Naked Choke",
+    blurb: "Strictly a strangle, not a choke: it cuts the blood to the brain, not the air. Apply it slowly.",
+    description:
+      "Sensei Simon Clinch applies a rear naked choke from a standing position in three steps: turning the partner by the shoulders, setting the inside of the elbow across the throat, then a hand on the back of the head to constrict. As he explains, it is really a strangle, working on the blood flow to the brain rather than the airway, which is why it is always applied slowly. Filmed at the DKK Oxfordshire dojo.",
+    alt: "Simon Clinch in a black gi applying a standing rear naked choke from behind a bald, bearded partner, his hand on the back of the partner's head, on the parquet floor of a village hall",
+    duration: 17.76,
+    uploadDate: "2026-10-05",
+    views: 4931,
+    basePath: "/videos/reels/rear-naked-choke",
+  },
+  {
     slug: "roundhouse-kick",
     shortcode: "Dcb5JbAOJv8",
     title: "How to Throw a Roundhouse Kick",
@@ -51,7 +68,7 @@ export const simonClinchReels: Reel[] = [
     alt: "Simon Clinch in a black gi mid-roundhouse kick in a village hall dojo, supporting foot pivoted, with a student holding a kick shield behind him",
     duration: 19.46,
     uploadDate: "2026-08-24",
-    views: 2617,
+    views: 2721,
     basePath: "/videos/reels/roundhouse-kick",
   },
   {
@@ -64,7 +81,7 @@ export const simonClinchReels: Reel[] = [
     alt: "Simon Clinch in a black gi slipping to the outside of a partner's punch in a village hall dojo, the partner in a white gi with a brown belt",
     duration: 17.88,
     uploadDate: "2026-09-03",
-    views: 2596,
+    views: 2982,
     basePath: "/videos/reels/kick-to-the-ribs",
   },
   {
@@ -77,7 +94,7 @@ export const simonClinchReels: Reel[] = [
     alt: "Simon Clinch in a black gi in a fighting stance in a sports hall with blue wall padding, his belt embroidered with his name and the Goju Ryu kanji",
     duration: 13.7,
     uploadDate: "2026-08-27",
-    views: 637,
+    views: 684,
     basePath: "/videos/reels/knockout-power",
   },
 ];

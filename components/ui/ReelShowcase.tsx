@@ -4,8 +4,47 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { Play, Volume2, VolumeX, ExternalLink } from "lucide-react";
 import { usePrefersReducedMotion, useMediaQuery } from "@/lib/useMediaQuery";
 import { reelPermalink, oxfordshireInstagram, type Reel } from "@/data/reels";
+import { site } from "@/data/site";
 
-/** "2617" -> "2.6k views", "637" -> "637 views". Snapshot figures, not live. */
+/* Live view counts from the Apps Script at site.reelStatsEndpoint, which reads
+ * Instagram's official API once a day. One request per page load, shared by
+ * every showcase on the page. Any failure (no endpoint yet, offline, a
+ * malformed reply) resolves to {}, so the worst case is the snapshot figures
+ * in data/reels.ts, never a blank or a broken number. */
+let liveViewsRequest: Promise<Record<string, number>> | null = null;
+
+function loadLiveViews(): Promise<Record<string, number>> {
+  if (!site.reelStatsEndpoint) return Promise.resolve({});
+  liveViewsRequest ??= fetch(site.reelStatsEndpoint)
+    .then((r) => (r.ok ? r.json() : null))
+    .then((d) => {
+      const views: Record<string, number> = {};
+      if (d && typeof d.views === "object" && d.views) {
+        for (const [code, n] of Object.entries(d.views)) {
+          if (typeof n === "number" && Number.isFinite(n)) views[code] = n;
+        }
+      }
+      return views;
+    })
+    .catch(() => ({}));
+  return liveViewsRequest;
+}
+
+function useLiveViews(): Record<string, number> {
+  const [views, setViews] = useState<Record<string, number>>({});
+  useEffect(() => {
+    let alive = true;
+    loadLiveViews().then((v) => {
+      if (alive) setViews(v);
+    });
+    return () => {
+      alive = false;
+    };
+  }, []);
+  return views;
+}
+
+/** "2617" -> "2.6k views", "637" -> "637 views". */
 function formatViews(n: number): string {
   if (n < 1000) return `${n} views`;
   const thousands = Math.round((n / 1000) * 10) / 10;
@@ -27,7 +66,7 @@ function formatViews(n: number): string {
  * renderer, and with preload="none" the inactive cards never fetch their file
  * at all, so the section costs one video rather than the full set.
  */
-function ReelCard({ reel, isActive }: { reel: Reel; isActive: boolean }) {
+function ReelCard({ reel, isActive, views }: { reel: Reel; isActive: boolean; views: number }) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [started, setStarted] = useState(false);
   const [muted, setMuted] = useState(true);
@@ -122,7 +161,7 @@ function ReelCard({ reel, isActive }: { reel: Reel; isActive: boolean }) {
         <h3 className="font-display text-xl tracking-wide text-white leading-none">{reel.title}</h3>
         <p className="text-gray-400 text-sm mt-2 leading-relaxed">{reel.blurb}</p>
         <div className="flex items-center justify-between mt-3 pt-3 border-t border-white/5">
-          <span className="text-gray-400 text-xs uppercase tracking-widest">{formatViews(reel.views)}</span>
+          <span className="text-gray-400 text-xs uppercase tracking-widest">{formatViews(views)}</span>
           <a
             href={reelPermalink(reel)}
             target="_blank"
@@ -137,9 +176,25 @@ function ReelCard({ reel, isActive }: { reel: Reel; isActive: boolean }) {
   );
 }
 
-export default function ReelShowcase({ reels, heading, intro }: { reels: Reel[]; heading?: string; intro?: string }) {
+/**
+ * `wide` is for full-width sections (/karate-oxfordshire): four reels sit in one
+ * row from xl. Inside a narrow column (the max-w-4xl member page) four reels go
+ * two by two instead, where a four-up row would shrink each phone to ~200px.
+ */
+export default function ReelShowcase({
+  reels,
+  heading,
+  intro,
+  wide = false,
+}: {
+  reels: Reel[];
+  heading?: string;
+  intro?: string;
+  wide?: boolean;
+}) {
   const gridRef = useRef<HTMLDivElement>(null);
   const [activeSlug, setActiveSlug] = useState<string | null>(null);
+  const liveViews = useLiveViews();
 
   const reducedMotion = usePrefersReducedMotion();
   const isDesktop = useMediaQuery("(min-width: 768px)");
@@ -213,10 +268,21 @@ export default function ReelShowcase({ reels, heading, intro }: { reels: Reel[];
         </div>
       )}
 
-      <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+      <div
+        ref={gridRef}
+        className={`grid grid-cols-1 gap-6 sm:gap-8 ${
+          reels.length >= 4 ? (wide ? "sm:grid-cols-2 xl:grid-cols-4" : "sm:grid-cols-2") : "sm:grid-cols-2 lg:grid-cols-3"
+        }`}
+      >
         {reels.map((reel) => (
           <div key={reel.slug} data-reel-slug={reel.slug}>
-            <ReelCard reel={reel} isActive={ambientAllowed && activeSlug === reel.slug} />
+            <ReelCard
+              reel={reel}
+              isActive={ambientAllowed && activeSlug === reel.slug}
+              /* Never below the snapshot, so a lagging or differently counted
+                 live figure cannot make a number visibly go backwards. */
+              views={Math.max(reel.views, liveViews[reel.shortcode] ?? 0)}
+            />
           </div>
         ))}
       </div>

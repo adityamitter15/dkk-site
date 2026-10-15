@@ -109,6 +109,13 @@ export default function KarateOxfordshirePage() {
     contentUrl: `${site.url}${reel.basePath}.mp4`,
     uploadDate: reel.uploadDate,
     duration: isoDuration(reel.duration),
+    // Snapshot from data/reels.ts. The on-page figure goes live; this one
+    // refreshes whenever the snapshot is updated and the site rebuilt.
+    interactionStatistic: {
+      "@type": "InteractionCounter",
+      interactionType: { "@type": "WatchAction" },
+      userInteractionCount: reel.views,
+    },
     isFamilyFriendly: true,
     publisher: { "@id": `${site.url}/#organization` },
   }));
@@ -332,6 +339,7 @@ export default function KarateOxfordshirePage() {
           />
           <ReelShowcase
             reels={simonClinchReels}
+            wide
             intro="Short technique breakdowns filmed during class at Oakley and Brill. They are the quickest way to see how the style actually moves before you turn up."
           />
         </div>
