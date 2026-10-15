@@ -98,6 +98,12 @@ export default function TrainingPage() {
                   <a href={thursdayClass.mapUrl} target="_blank" rel="noopener noreferrer" className="text-brand text-xs hover:underline inline-flex items-center gap-1 mt-1.5">
                     Directions on Google Maps <ExternalLink size={10} />
                   </a>
+                  <p className="text-gray-400 text-xs mt-1.5">
+                    Message us before your first Thursday.{" "}
+                    <Link href={thursdayClass.page} className="link-underline text-gold">
+                      Getting there and what to expect
+                    </Link>
+                  </p>
                 </div>
               </div>
 
@@ -133,7 +139,7 @@ export default function TrainingPage() {
                     Get in touch
                   </Link>
                 </div>
-                <p className="text-white text-sm mt-4">No uniform needed. Just turn up.</p>
+                <p className="text-white text-sm mt-4">No uniform needed. Just turn up on a Monday or Wednesday.</p>
                 <p className="text-gray-400 text-xs mt-2 leading-relaxed">{joining.age}</p>
                 <TrackedOutbound
                   href={site.googleListing}

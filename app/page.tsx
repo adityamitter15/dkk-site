@@ -278,6 +278,9 @@ export default function Home() {
                 <div className="p-5 bg-card border-l-2 border-gold/40 rounded-sm">
                   <p className="font-display text-xl text-white tracking-wide flex items-center gap-2"><MapPin size={16} className="text-gold" />{thursdayClass.venue}</p>
                   <p className="text-gray-400 text-sm mt-1">{thursdayClass.address}</p>
+                  <Link href={thursdayClass.page} className="link-underline text-gold text-xs inline-block mt-1">
+                    Karate in Totteridge, North London
+                  </Link>
                 </div>
               </div>
               <Link href="/training" className="inline-flex items-center gap-2 mt-6 text-brand font-semibold text-sm uppercase tracking-wider hover:gap-3 transition-all">

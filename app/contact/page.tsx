@@ -192,6 +192,10 @@ export default function ContactPage() {
                     <a href={thursdayClass.mapUrl} target="_blank" rel="noopener noreferrer" className="link-underline text-gold">
                       {thursdayClass.venue}, {thursdayClass.address}
                     </a>
+                    {" · "}
+                    <Link href={thursdayClass.page} className="link-underline text-gold">
+                      Thursday class details
+                    </Link>
                   </p>
                 </div>
               </div>

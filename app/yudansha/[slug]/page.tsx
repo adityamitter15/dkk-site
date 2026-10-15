@@ -298,6 +298,11 @@ export default async function MemberPage({ params }: { params: Promise<{ slug: s
                             <p className="text-gray-500 text-xs mt-1">{c.address}</p>
                           )
                         )}
+                        {c.detailsHref && (
+                          <Link href={c.detailsHref} className="link-underline text-gold text-xs inline-block mt-1.5">
+                            Class details
+                          </Link>
+                        )}
                       </div>
                     </div>
                   </div>

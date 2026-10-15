@@ -12,6 +12,8 @@ export type ClassSchedule = {
   address?: string;
   mapUrl?: string;
   format: "in-person" | "zoom";
+  /** On-site page for this class (directions, what to expect), if there is one. */
+  detailsHref?: string;
 };
 
 /** An extra photo on a member page, beyond the portrait and action shot. */
@@ -123,7 +125,7 @@ export const grades: GradeTier[] = [
         ],
         classes: [
           // DKK London's Thursday class, shared with the main schedule.
-          { day: thursdayClass.day, time: thursdayClass.time, venue: thursdayClass.venue, address: thursdayClass.address, mapUrl: thursdayClass.mapUrl, format: "in-person" },
+          { day: thursdayClass.day, time: thursdayClass.time, venue: thursdayClass.venue, address: thursdayClass.address, mapUrl: thursdayClass.mapUrl, format: "in-person", detailsHref: thursdayClass.page },
         ],
       },
       {
@@ -143,8 +145,8 @@ export const grades: GradeTier[] = [
           { year: "2021", event: "Yondan" },
         ],
         classes: [
-          { day: "Monday",   time: "7:00pm - 8:30pm", venue: "Oakley Village Hall",    address: "9 Oxford Road, Oakley, Bucks, HP18 9RS", mapUrl: "https://maps.app.goo.gl/jnqjMNQKbRCm6fmCA", format: "in-person" },
-          { day: "Thursday", time: "7:30pm - 9:00pm", venue: "Brill Memorial Hall",   address: "19 Church St, Brill, Aylesbury HP18 9RT", mapUrl: "https://maps.app.goo.gl/JRbY289Y33ocM4sm6", format: "in-person" },
+          { day: "Monday",   time: "7:00pm - 8:30pm", venue: "Oakley Village Hall",    address: "9 Oxford Road, Oakley, Bucks, HP18 9RS", mapUrl: "https://maps.app.goo.gl/jnqjMNQKbRCm6fmCA", format: "in-person", detailsHref: "/karate-oxfordshire" },
+          { day: "Thursday", time: "7:30pm - 9:00pm", venue: "Brill Memorial Hall",   address: "19 Church St, Brill, Aylesbury HP18 9RT", mapUrl: "https://maps.app.goo.gl/JRbY289Y33ocM4sm6", format: "in-person", detailsHref: "/karate-oxfordshire" },
         ],
       },
       {

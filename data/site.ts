@@ -75,6 +75,15 @@ export const thursdayClass = {
   address: "The Green, Totteridge, London N20 8NX",
   area: "Totteridge, North London",
   mapUrl: "https://maps.app.goo.gl/1Jw7TbaSNBR44MBt5",
+  // Structured parts for the /karate-north-london JSON-LD. The coordinates are
+  // the school's own Google Maps pin; the postcode centroid is a few metres off.
+  street: "The Green",
+  locality: "Totteridge",
+  postcode: "N20 8NX",
+  geo: { latitude: 51.6299077, longitude: -0.1964463 },
+  opens: "18:15",
+  closes: "20:00",
+  page: "/karate-north-london",
 } as const;
 
 type Notice = { date: string; label: string; href: string };
